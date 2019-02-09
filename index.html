@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>4910 webpage</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+
+			<h1>Sponsor Driver Yippee</h1>
+
+		<div id="sign-in-form">
+			<form action="action_page.php" method="post">
+
+				<div class="form-group">
+				<label for="username">Username:</label>
+				<input name="username" type="username" class="form-control" id="username">
+				</div>
+
+				<div class="form-group">
+				<label for="pwd">Password:</label>
+				<input name="password" type="password" class="form-control" id="pwd">
+				</div>
+
+				<div class="dropdown">
+					<button name="usertype" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">User Type
+					<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#">Driver</a></li>
+						<li><a href="#">Sponsor</a></li>
+						<li><a href="#">Admin</a></li>
+					</ul>
+				</div>
+
+				<input type="submit" href="action_page.php">
+
+			</form>
+		</div>
+
+	</body>
+</html>
