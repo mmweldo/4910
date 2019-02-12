@@ -1,4 +1,3 @@
-use website;
 create table users( #user_ instead of user because one is a system reserved name
     id int NOT NULL AUTO_INCREMENT,
     username varchar(30) NOT null,
