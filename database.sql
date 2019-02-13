@@ -2,7 +2,7 @@
     # If you add/remove points to driver make sure to update drivers AND point history
     # If you create a driver/sponsor/admin make sure to create their user entry as well
             # If you added a driver, make sure to tie them to their sponsor in both their drivers.sponsor_id and in driver_list.driver_id x driver_list.sponsor_id
-    # If you 
+
 
 
 
