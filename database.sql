@@ -9,6 +9,7 @@
 create table users( #user_ instead of user because one is a system reserved name
     id int NOT NULL AUTO_INCREMENT,
     username varchar(30) NOT null,
+    password varchar(30) not null,
     email varchar(30) NOT NULL,
     date_created datetime DEFAULT CURRENT_TIMESTAMP,
     #access_level int not null,
@@ -18,14 +19,16 @@ create table users( #user_ instead of user because one is a system reserved name
 # insert into user (username, email, date_created) values ("asd","asd", DEFAULT); 
 create INDEX ix_user_id ON users(id);
 CREATE INDEX ix_username ON users(username);
+CREATE INDEX ix_password ON users(password);
 
 create table sponsors(
     user_id int NOT NULL,
     company_name varchar(30) not null,
-    #password
-    #profile_img
+    password varchar(30) not null,
+    profile_img varchar(30),
     PRIMARY KEY(user_id),
-    CONSTRAINT fk_sp_userid_user_id FOREIGN KEY(user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+    CONSTRAINT fk_sp_userid_user_id FOREIGN KEY(user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_sp_password_user_password FOREIGN KEY (password) REFERENCES users(password) ON UPDATE CASCADE ON DELETE CASCADE
 );
 create INDEX ix_user_id ON sponsors(user_id);
 
@@ -46,7 +49,8 @@ CREATE TABLE drivers(
     PRIMARY KEY(user_id),
     CONSTRAINT fk_drivers_userid_users_id FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_drivers_username_users_username FOREIGN KEY (username) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT fk_drivers_sponsorid_sponsors_id FOREIGN KEY (sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE
+    CONSTRAINT fk_drivers_sponsorid_sponsors_id FOREIGN KEY (sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE, 
+    CONSTRAINT fk_drivers_password_users_password FOREIGN KEY (password) REFERENCES users(password) ON UPDATE CASCADE ON DELETE CASCADE
 );
 create INDEX ix_user_id ON drivers(user_id);
 create index ix_driver_username ON drivers(username);
@@ -75,7 +79,7 @@ CREATE TABLE driver_list(
     CONSTRAINT fk_dl_drivername_drivers_username     FOREIGN KEY (driver_username)     REFERENCES drivers(username) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_dl_totalpoints_drivers_totalpoints         FOREIGN KEY (total_points)      REFERENCES drivers(total_points) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_dl_currentpoints_drivers_currentpoints     FOREIGN KEY (current_points)    REFERENCES drivers(current_points) ON UPDATE CASCADE ON DELETE CASCADE,
-    PRIMARY aKEY(sponsor_id, driver_id)
+    PRIMARY KEY(sponsor_id, driver_id)
 );
 
 # SAMPLE INSERT STATEMENT: MAKE SURE TO INSERT INTO BOTH PARENT AND CHILD TABLES WHEN NEEDED (EX. USERS->DRIVERS)
@@ -91,11 +95,13 @@ CREATE TABLE driver_list(
 CREATE TABLE admins(
     user_id int not null,
     username varchar(30) not null,
+    password varchar(30) not null,
     firstname varchar(30) not null,
     lastname varchar(30) not null,
     profile_img varchar(30),
     CONSTRAINT fk_admins_userid_user_id FOREIGN KEY (user_id)   REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_admins_username_user_username FOREIGN KEY (username)  REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_admins_password_users_password FOREIGN KEY (password) REFERENCES users(password) ON UPDATE CASCADE ON DELETE CASCADE,
     PRIMARY KEY(user_id)
 );
 CREATE INDEX ix_user_id ON admins(user_id);
