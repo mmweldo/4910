@@ -70,11 +70,15 @@ CREATE TABLE driver_list(
     PRIMARY aKEY(sponsor_id, driver_id)
 );
 
-# insert into users (username, email, date_created) values ("mmweldo", "mmweldo@clemson.edu", DEFAULT);
+# SAMPLE INSERT STATEMENT: MAKE SURE TO INSERT INTO BOTH PARENT AND CHILD TABLES WHEN NEEDED (EX. USERS->DRIVERS)
+    # DEFAULT as an input only works if defined. Check above, notice how datetime values use current_timestamp
+
+# insert into users (username, email, date_created) values ("dave_is_cool", "dave_best_name@gmail.com", DEFAULT);
 # insert into drivers (user_id, firstname, lastname) values (1, "mitchell", "weldon");
+
 # select * from users join drivers on users.id = drivers.user_id; #will output:...
-#   id      username        email       date_created    user_id     firstname   lastname
-#   0       mmweldo         mmweldo@c.  2019-02-12 09.. 1           mitchell    weldon
+    #   id      username        email       date_created    user_id     firstname   lastname
+    #   0       mmweldo         mmweldo@c.  2019-02-12 09.. 1           mitchell    weldon
 
 CREATE TABLE admins(
     user_id int not null,
