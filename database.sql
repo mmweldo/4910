@@ -1,4 +1,3 @@
-use test;
 create table users( #user_ instead of user because one is a system reserved name
     id int NOT NULL AUTO_INCREMENT,
     username varchar(30) NOT null,
@@ -68,7 +67,7 @@ CREATE TABLE driver_list(
     CONSTRAINT fk_dl_drivername_drivers_username     FOREIGN KEY (driver_username)     REFERENCES drivers(username) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_dl_totalpoints_drivers_totalpoints         FOREIGN KEY (total_points)      REFERENCES drivers(total_points) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_dl_currentpoints_drivers_currentpoints     FOREIGN KEY (current_points)    REFERENCES drivers(current_points) ON UPDATE CASCADE ON DELETE CASCADE,
-    PRIMARY KEY(sponsor_id, driver_id)
+    PRIMARY aKEY(sponsor_id, driver_id)
 );
 
 # insert into users (username, email, date_created) values ("mmweldo", "mmweldo@clemson.edu", DEFAULT);
@@ -76,3 +75,16 @@ CREATE TABLE driver_list(
 # select * from users join drivers on users.id = drivers.user_id; #will output:...
 #   id      username        email       date_created    user_id     firstname   lastname
 #   0       mmweldo         mmweldo@c.  2019-02-12 09.. 1           mitchell    weldon
+
+CREATE TABLE admins(
+    user_id int not null,
+    username varchar(30) not null,
+    firstname varchar(30) not null,
+    lastname varchar(30) not null,
+    profile_img varchar(30),
+    CONSTRAINT fk_admins_userid_user_id FOREIGN KEY (user_id)   REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_admins_username_user_username FOREIGN KEY (username)  REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    PRIMARY KEY(user_id)
+);
+CREATE INDEX ix_user_id ON admins(user_id);
+CREATE INDEX ix_sponsor_username ON admins(username);
