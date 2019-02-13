@@ -1,4 +1,2 @@
-Michael Weldon
-Seth Hester
-Camden Mounts
-Logan Czarnecki
+# SEMINAR IN PROFESSIONAL ISSUES 2: Driver Rewards Program
+## Contributors: Seth Hester Camden Mounts Mitchell Weldon Logan Czarnecki
