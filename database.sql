@@ -1,3 +1,11 @@
+# CONVENTIONS  
+    # If you add/remove points to driver make sure to update drivers AND point history
+    # If you create a driver/sponsor/admin make sure to create their user entry as well
+            # If you added a driver, make sure to tie them to their sponsor in both their drivers.sponsor_id and in driver_list.driver_id x driver_list.sponsor_id
+    # If you 
+
+
+
 create table users( #user_ instead of user because one is a system reserved name
     id int NOT NULL AUTO_INCREMENT,
     username varchar(30) NOT null,
@@ -74,11 +82,11 @@ CREATE TABLE driver_list(
     # DEFAULT as an input only works if defined. Check above, notice how datetime values use current_timestamp
 
 # insert into users (username, email, date_created) values ("dave_is_cool", "dave_best_name@gmail.com", DEFAULT);
-# insert into drivers (user_id, firstname, lastname) values (1, "mitchell", "weldon");
+# insert into drivers (user_id, firstname, lastname) values (1, "dave", "thecooliest");
 
 # select * from users join drivers on users.id = drivers.user_id; #will output:...
-    #   id      username        email       date_created    user_id     firstname   lastname
-    #   0       mmweldo         mmweldo@c.  2019-02-12 09.. 1           mitchell    weldon
+    #   id      username        email       date_created    user_id     firstname   lastname        ...
+    #   1       dave_is_cool    dave_be..   2019-02-12 09.. 1           dave        thecooliest     ...
 
 CREATE TABLE admins(
     user_id int not null,
