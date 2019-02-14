@@ -65,7 +65,7 @@ CREATE TABLE points_history(
     point_amount int not null,
     CONSTRAINT fk_ph_sponsorid_sponsors_id   FOREIGN KEY (sponsor_id)    REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_ph_driverid_drivers_id     FOREIGN KEY (driver_id)     REFERENCES drivers(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
-    PRIMARY KEY(sponsor_id, driver_id)
+    PRIMARY KEY(sponsor_id, driver_id, date_created)
 );
 
 CREATE TABLE driver_list(
