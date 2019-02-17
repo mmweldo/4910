@@ -1,6 +1,6 @@
 <html>
 <body> 
-<form method="post" action="output.php"> 
+<form method="post" action="sponsoroutput.php"> 
 <table bgcolor="#C4C4C4" align="center" width="380" border="0">   
 <tr> 
 <td  align="center"colspan="2"><font color="#0000FF" size="5">Create Sponsor Account</font></td>   
