@@ -35,6 +35,12 @@
 
 	#$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	#$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+	if($_POST['points'] < 0){
+		echo "Error, no negative points allowed! Redirecting...";
+		echo "<script>setTimeout(\"location.href = '../addpoints.html?NO-NEGATIVE-POINTS';\", 3000);</script>";
+		exit();
+	}
+
 	$conn = mysqli_connect("127.0.0.1", "root", "", "test");
 
 	$query = "select * from drivers where username = '".$_POST['username']."';"; 	
