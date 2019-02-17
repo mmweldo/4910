@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Driver List</title>
+</head>
+<body>
+	<center>
+		<h2>Sponsor - View Driver List</h2>
+		<form class="driverlist-form" method="post" action="driverlist.php">
+				<p>Company Name | Sort</p><input type="text" name="company_name" placeholder="Comany Name">
+				<select name="order">
+					<option value="drivers.firstname ASC">Fname Asc</option>
+					<option value="drivers.firstname DESC">Fname Desc</option>
+
+					<option value="drivers.lastname ASC">Lname Asc</option>
+					<option value="drivers.lastname DESC">Lname Desc</option>
+
+					<option value="drivers.username ASC">Username Asc</option>
+					<option value="drivers.username DESC">Username Desc</option>
+
+					<option value="drivers.total_points ASC">Total Pts Asc</option>
+					<option value="drivers.total_points DESC">Total Pts Desc</option>
+
+					<option value="drivers.current_points ASC">Curr Pts Asc</option>
+					<option value="drivers.current_points DESC">Curr Pts Desc</option>
+				</select>
+				<button type="submit" name="submit">Submit</button>
+		</form>
+	</center>
+</body>
+</html>
