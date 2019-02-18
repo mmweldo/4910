@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Driver List</title>
+</head>
+<body>
+	<center>
+		<h2>Admin - View User List</h2>
+		<form class="userlist-form" method="post" action="userlist.php">
+				<select name="order">
+					<option value="users.username ASC">Username Asc</option>
+					<option value="users.username DESC">Username Desc</option>
+
+					<option value="users.email ASC">Email Asc</option>
+					<option value="users.email DESC">Email Desc</option>
+
+					<option value="users.date_created ASC">Creation Asc</option>
+					<option value="users.date_created DESC">Creation Desc</option>
+
+					<option value="users.id ASC">id Asc</option>
+					<option value="users.id DESC">id Desc</option>
+				</select>
+				<button type="submit" name="submit">Submit</button>
+		</form>
+	</center>
+</body>
+</html>
