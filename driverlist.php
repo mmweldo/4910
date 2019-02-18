@@ -1,7 +1,7 @@
 <?php  
-	$conn = mysqli_connect("127.0.0.1", "root", "", "test");
-	#$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
-	#$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+	#$conn = mysqli_connect("127.0.0.1", "root", "", "test");
+	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 	
 	$query = "SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."';";
 	$result = mysqli_query($conn, $query);
