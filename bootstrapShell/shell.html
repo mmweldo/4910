@@ -1,0 +1,67 @@
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="shellStyle.css">
+	</head>
+	<body>
+		<div class="topnav">
+			<div class="logo" style="float:left">
+				<p>SafeDrivers</p>
+			</div>
+			<div class="user" style="float:right"> 
+				<p>Hello, test_co</p>	
+			</div>
+			<div class="cart-icon" style="float:right">
+				<p>[cart icon]</p>	
+			</div>
+		</div>
+		<div class="tab">
+			<button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">Home</button>
+			<button class="tablinks" onclick="openCity(event, 'Profile')">Profile</button>
+			<button class="tablinks" onclick="openCity(event, 'Points')">Points</button>
+			<button class="tablinks" onclick="openCity(event, 'Catalog')">Catalog</button>
+			<button class="tablinks" onclick="openCity(event, 'Drivers')">My Drivers</button>
+			<button class="tablinks" onclick="openCity(event, 'Help')">Help</button>
+
+		</div>
+
+		<div id="Home" class="tabcontent">
+			  <h3>Homepage Here</h3>
+		</div>
+		<div id="Profile" class="tabcontent">
+			<h2>Profilepage Here </h2> 
+		</div>
+		<div id="Points" class="tabcontent">
+			<iframe src="addpoints.html" style="width:100%;height:100%;"></iframe>
+		</div>
+		<div id="Catalog" class="tabcontent">
+			  <h3>Catalog page Here</h3>
+		</div>
+		<div id="Drivers" class="tabcontent">
+			  <h3>Drivers page Here</h3>
+		</div>
+		<div id="Help" class="tabcontent">
+			  <h3>Help page Here</h3>
+		</div>
+
+	<script>
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+	   
+	</body>
+</html> 
