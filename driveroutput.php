@@ -8,17 +8,10 @@
 </table>
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "test";
+$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-//$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
-
-// Create connection
-//$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
