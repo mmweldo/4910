@@ -8,10 +8,18 @@
 </table>
 <?php
 
-$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "test";
 
 // Create connection
-$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+//$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+
+// Create connection
+//$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -30,6 +38,18 @@ echo $row[0]."<br>";
 
 $sql = "insert into drivers (user_id, password, firstname, lastname, street_address, country, postal_code, sponsor_id, username) values( '$row[0]', '$_POST[password]', '$_POST[firstname]', 
 	'$_POST[lastname]', '$_POST[street_address]', '$_POST[country]','$_POST[postal_code]','$_POST[sponsor_id]', '$_POST[username]')";
+
+
+$query = mysqli_query($conn, $sql);
+if($query){
+	echo 'data inserted succesfully';
+}
+else
+	echo 'ya done gooofed';
+
+$sql = "insert into driver_list (sponsor_id, driver_id, driver_username, total_points, current_points) values ('$_POST[sponsor_id]', '$row[0]', 
+	(select total_points from drivers where username == $_POST['username']), (select current_points from drivers where username == $_POST['username']));
+
 
 $query = mysqli_query($conn, $sql);
 if($query){
