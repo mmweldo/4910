@@ -109,25 +109,37 @@ CREATE INDEX ix_sponsor_username ON admins(username);
 
 
 /*
-	NEED TO ADD:
-		- a table for points connecting drivers and sponsors.
-			DRAFT:
-		CREATE TABLE points(
-			driver_id int not null,
-			sponsor_id int not null,
-			total_points int DEFAULT 0,
-			current_points int DEFAULT 0,
-			CONSTRAINT fk_points_driverid_drivers_userid FOREIGN KEY (driver_id) REFERENCES drivers(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
-			CONSTRAINT fk_points_sponsorid_sponsors_userid FOREIGN KEY (sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
-			PRIMARY KEY(driver_id, sponsor_id)	
-		);
+	~ NEED TO ADD:
+		- a table for total and current points connecting drivers and sponsors and allowing drivers to have multiple sponsors.
+			IDEA: we could just use driver_list as the new points main
+			
+			[ignore this.. driver_list as new main is a better idea] DRAFT
+			.	CREATE TABLE points( #POINTS sums the individual entries POINTS_HISTORY and connects this tallied total to drivers and sponsors. 
+			.		driver_id int not null,
+			.		sponsor_id int not null,
+			.		total_points int DEFAULT 0,
+			.		current_points int DEFAULT 0,
+			.		CONSTRAINT fk_points_driverid_drivers_userid FOREIGN KEY (driver_id) REFERENCES drivers(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+			.		CONSTRAINT fk_points_sponsorid_sponsors_userid FOREIGN KEY (sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+			.		PRIMARY KEY(driver_id, sponsor_id)	
+			. . . . );
+
+		- a foreign key constraint for points_list in drivers to driver_list
+		- a foreign key constraint for driver_list in sponsors so that sponsors can access their driver_list more simply
+		- a total_points entry to driver_list: total_points int DEFAULT 0
+		- a current_points entry to driver_list: current_points int DEFAULT 0
+		- a dollar-to-ratio entry in sponsors 
 		
-	NEED TO REMOVE:
+	~ NEED TO REMOVE:
 		- drivers.total_points
 		- drivers.current_points
 		- INDEX ix_driver_totalpoints
 		- INDEX ix_driver_currentpoints
+		- foreign key constraint in driver_list for total_points
+		- foreign key constraint in driver_list for current_points
 
-	NEED TO ALTER:
-		- sponsors, add a field for dollar-to-ratio
-*/		
+	~ NEED TO ALTER:
+		- points_history total_points foreign key constraint, move from drivers to driver_list
+		- points_hustory current_points foreign key constraint, move from drivers to driver_list
+
+*/
