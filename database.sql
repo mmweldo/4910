@@ -106,3 +106,28 @@ CREATE TABLE admins(
 );
 CREATE INDEX ix_user_id ON admins(user_id);
 CREATE INDEX ix_sponsor_username ON admins(username);
+
+
+/*
+	NEED TO ADD:
+		- a table for points connecting drivers and sponsors.
+			DRAFT:
+		CREATE TABLE points(
+			driver_id int not null,
+			sponsor_id int not null,
+			total_points int DEFAULT 0,
+			current_points int DEFAULT 0,
+			CONSTRAINT fk_points_driverid_drivers_userid FOREIGN KEY (driver_id) REFERENCES drivers(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+			CONSTRAINT fk_points_sponsorid_sponsors_userid FOREIGN KEY (sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+			PRIMARY KEY(driver_id, sponsor_id)	
+		);
+		
+	NEED TO REMOVE:
+		- drivers.total_points
+		- drivers.current_points
+		- INDEX ix_driver_totalpoints
+		- INDEX ix_driver_currentpoints
+
+	NEED TO ALTER:
+		- sponsors, add a field for dollar-to-ratio
+*/		
