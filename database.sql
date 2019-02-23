@@ -106,4 +106,4 @@ CREATE INDEX ix_sponsor_username ON admins(username);
 
 /*EDITS to allow sponsors to have a dollar_to_point ratio value*/
 
-ALTER TABLE sponsors ADD COLUMN dollar_ratio int not null DEFAULT 1;
+ALTER TABLE sponsors ADD COLUMN dollar_ratio DOUBLE not null DEFAULT 1;
