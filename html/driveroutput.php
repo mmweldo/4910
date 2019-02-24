@@ -7,55 +7,55 @@
 </tr>  
 </table>
 <?php
+	//$servername = "localhost";
+	//$username = "root";
+	//$password = "";
+	//$dbname = "test";
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "test";
+	// Create connection
 
-// Create connection
-//$conn = new mysqli($servername, $username, $password, $dbname);
+	//$conn = new mysqli($servername, $username, $password, $dbname);
+	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 
-$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+	// Check connection
+	if ($conn->connect_error) {
+		exit();
+		die("Connection failed: " . $conn->connect_error);
+	} 
 
-// Create connection
-$conn = mysqli_connect($endpoint, "master", "group4910", "website");
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-$sql = "insert into users(username, password, email) values('$_POST[username]', '$_POST[password]', '$_POST[email]')";
-$query = mysqli_query($conn, $sql);
-if($query){
-	echo 'data inserted succesfully ';
-}
-else
-	echo 'oh god why ';
-$sql = "select MAX(id) from users";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_row($result);
-echo $row[0]."<br>";
+	$sql = "INSERT INTO users (username, password, email) VALUES('".$_POST['username']."', '".$_POST['password']."', '".$_POST['email']."');";
+	$query = mysqli_query($conn, $sql);
+	if($query){
+		echo "data inserted succesfully";
+	}
+	else
+		echo "oh god why";
+	$sql = "SELECT MAX(id) FROM users";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_row($result);
+	echo $row[0]."<br>";
 
-$sql = "insert into drivers (user_id, password, firstname, lastname, street_address, country, postal_code, sponsor_id, username) values( '$row[0]', '$_POST[password]', '$_POST[firstname]', 
-	'$_POST[lastname]', '$_POST[street_address]', '$_POST[country]','$_POST[postal_code]','$_POST[sponsor_id]', '$_POST[username]')";
-
-
-$query = mysqli_query($conn, $sql);
-if($query){
-	echo 'data inserted succesfully';
-}
-else
-	echo 'ya done gooofed';
-
-$sql = "insert into driver_list (sponsor_id, driver_id, driver_username) values (".$_POST['sponsor_id'].", ".$row[0].",".$_POST['username'].");
+	$sql = "INSERT INTO drivers (user_id, password, firstname, lastname, street_address, country, postal_code, sponsor_id, username) VALUES ( '".$row[0]."', '".$_POST['password']."', '".$_POST['firstname']."', 
+		'".$_POST['lastname']."', '".$_POST['street_address']."', '".$_POST['country']."','".$_POST['postal_code']."','".$_POST['sponsor_id']."', '".$_POST['username']."')";
 
 
-$query = mysqli_query($conn, $sql);
-if($query){
-	echo 'data inserted succesfully';
-}
-else
-	echo 'ya done gooofed';
+	$query = mysqli_query($conn, $sql);
+	if($query){
+		echo "Data inserted succesfully";
+	}
+	else
+		echo "Ya done gooofed";
 
-$conn->close();
+	$sql = "INSERT INTO driver_list (sponsor_id, driver_id, driver_username) values (".$_POST['sponsor_id'].", ".$row[0].",".$_POST['username'].");";
+
+
+	$query = mysqli_query($conn, $sql);
+	if($query){
+		echo "Data inserted succesfully";
+	}
+	else
+		echo "Ya done gooofed";
+
+	$conn->close();
 ?>
