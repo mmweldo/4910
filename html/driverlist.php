@@ -88,7 +88,7 @@
 	echo "<th>Username</th>";
 	echo "<th>Total Points</th>";
 	echo "<th>Current Points</th>";
-	echo "<th>Date Created</th>"
+	echo "<th>Date Created</th>";
 	echo "</tr>";
 	
 	while($row=mysqli_fetch_row($result)){
