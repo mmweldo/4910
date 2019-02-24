@@ -36,11 +36,15 @@
 	$sql = "SELECT MAX(id) FROM users";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result);
-	echo $row[0]."<br>";
+	//echo $row[0]."<br>"; //echo's maxid
 
-	$sql = "INSERT INTO drivers (user_id, password, firstname, lastname, street_address, country, postal_code, sponsor_id, username) VALUES ( '".$row[0]."', '".$_POST['password']."', '".$_POST['firstname']."', 
+	if("" != trim($_POST['sponsor_id'])){
+		$sql = "INSERT INTO drivers (user_id, password, firstname, lastname, street_address, country, postal_code, sponsor_id, username) VALUES ( '".$row[0]."', '".$_POST['password']."', '".$_POST['firstname']."', 
 		'".$_POST['lastname']."', '".$_POST['street_address']."', '".$_POST['country']."','".$_POST['postal_code']."','".$_POST['sponsor_id']."', '".$_POST['username']."')";
-
+	} else{
+		$sql = "INSERT INTO drivers (user_id, password, firstname, lastname, street_address, country, postal_code, username) VALUES ( '".$row[0]."', '".$_POST['password']."', '".$_POST['firstname']."', 
+		'".$_POST['lastname']."', '".$_POST['street_address']."', '".$_POST['country']."','".$_POST['postal_code']."', '".$_POST['username']."')";
+	}
 
 	$query = mysqli_query($conn, $sql);
 	if($query){
