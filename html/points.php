@@ -75,7 +75,7 @@
 	}
 
 	# ADD TO TOTAL POINTS
-	$query = "UPDATE drivers SET total_points=total_points+ ".$_POST['points']." WHERE username = '".$_POST['username']."';";
+	$query = "UPDATE driver_list SET total_points=total_points+ ".$_POST['points']." WHERE username = '".$_POST['username']."' AND sponsor_id = (SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."');";
 	$result = mysqli_query($conn, $query);
 	if (!$result) {
 	    printf("[1]Error: %s\n", mysqli_error($conn));
@@ -83,7 +83,7 @@
 	} 
 	
 	# ADD TO CURRENT POINTS
-	$query = "UPDATE drivers SET current_points=current_points+ ".$_POST['points']." WHERE username = '".$_POST['username']."';";
+	$query = "UPDATE driver_list SET current_points=current_points+ ".$_POST['points']." WHERE username = '".$_POST['username']."' AND sponsor_id = (SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."');";
 
 
 	$result = mysqli_query($conn, $query);
@@ -93,7 +93,7 @@
 	}
 	else{
 		echo "Points Updated.";
-		$query = "SELECT username, total_points, current_points FROM drivers WHERE username = '".$_POST['username']."';";
+		$query = "SELECT drivers.username, driver_list.total_points, driver_list.current_points FROM drivers JOIN driver_list ON drivers.user_id = driver_list.driver_id WHERE username = '".$_POST['username']."';";
 		$result = mysqli_query($conn, $query);
 		if (!$result) {
 		    printf("[3]Error: %s\n", mysqli_error($conn));
