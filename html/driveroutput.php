@@ -47,8 +47,7 @@ if($query){
 else
 	echo 'ya done gooofed';
 
-$sql = "insert into driver_list (sponsor_id, driver_id, driver_username) values ('$_POST[sponsor_id]', '$row[0]', 
-	(select total_points from drivers where username == $_POST['username']));
+$sql = "insert into driver_list (sponsor_id, driver_id, driver_username) values (".$_POST['sponsor_id'].", ".$row[0].",".$_POST['username'].");
 
 
 $query = mysqli_query($conn, $sql);
