@@ -20,7 +20,7 @@
 		exit();
 	}
 
-	$query = "SELECT drivers.firstname, drivers.lastname, drivers.username, driver_list.total_points, driver_list.current_points FROM driver_list join drivers on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".mysqli_fetch_row($result)[0]." ORDER BY ".$_POST['order'].";";
+	$query = "SELECT drivers.firstname, drivers.lastname, drivers.username, driver_list.total_points, driver_list.current_points, users.date_created FROM drivers left join (users join driver_list on driver_list.driver_id = drivers.user_id) on drivers.user_id = users.id WHERE driver_list.sponsor_id = ".mysqli_fetch_row($result)[0]." ORDER BY ".$_POST['order'].";";
 
 	$result = mysqli_query($conn, $query);
 	if(!$result){
@@ -71,6 +71,12 @@
 		case "drivers.current_points DESC":
 			echo "Current Points Descending</p>";
 			break;
+		case "users.date_created ASC":
+			echo "Date Created Ascending</p>";
+			break;
+		case "users.date_created DESC":
+			echo "Date Created Descending</p>";
+			break;
 		default:
 			echo "<p>Error finding ordering";
 			break;
@@ -82,6 +88,7 @@
 	echo "<th>Username</th>";
 	echo "<th>Total Points</th>";
 	echo "<th>Current Points</th>";
+	echo "<th>Date Created</th>"
 	echo "</tr>";
 	
 	while($row=mysqli_fetch_row($result)){
@@ -91,6 +98,7 @@
 	    echo "<td>".$row[2]."</td>"; 
 	    echo "<td>".$row[3]."</td>"; 
 	    echo "<td>".$row[4]."</td>"; 
+	    echo "<td>".$row[5]."</td>"; 
 	    echo "</tr>"; 
 	}
 	echo "</center>";
