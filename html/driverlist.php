@@ -20,7 +20,7 @@
 		exit();
 	}
 
-	$query = "SELECT drivers.firstname, drivers.lastname, drivers.username, driver_list.total_points, driver_list.current_points, users.date_created FROM drivers left join (users join driver_list on driver_list.driver_id = drivers.user_id) on drivers.user_id = users.id WHERE driver_list.sponsor_id = ".mysqli_fetch_row($result)[0]." ORDER BY ".$_POST['order'].";";
+	$query = "SELECT drivers.firstname, drivers.lastname, drivers.username, driver_list.total_points, driver_list.current_points, users.date_created FROM drivers left join (users join driver_list on driver_list.driver_id = users.id) on drivers.user_id = users.id WHERE driver_list.sponsor_id = ".mysqli_fetch_row($result)[0]." ORDER BY ".$_POST['order'].";";
 
 	$result = mysqli_query($conn, $query);
 	if(!$result){
