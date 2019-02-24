@@ -27,10 +27,12 @@
 	$sql = "INSERT INTO users (username, password, email) VALUES('".$_POST['username']."', '".$_POST['password']."', '".$_POST['email']."');";
 	$query = mysqli_query($conn, $sql);
 	if($query){
-		echo "data inserted succesfully";
+		echo "Users table updated succesfully.";
 	}
-	else
-		echo "oh god why";
+	else {
+		echo "Error: Couldn't add to users table.";
+	}
+	
 	$sql = "SELECT MAX(id) FROM users";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result);
@@ -42,20 +44,21 @@
 
 	$query = mysqli_query($conn, $sql);
 	if($query){
-		echo "Data inserted succesfully";
+		echo "Drivers table updated successfully.";
 	}
-	else
-		echo "Ya done gooofed";
-
-	$sql = "INSERT INTO driver_list (sponsor_id, driver_id, driver_username) values (".$_POST['sponsor_id'].", ".$row[0].",".$_POST['username'].");";
-
-
-	$query = mysqli_query($conn, $sql);
-	if($query){
-		echo "Data inserted succesfully";
+	else{
+		echo "Error: Couldn't add to drivers table.";
 	}
-	else
-		echo "Ya done gooofed";
+	if("" != trim($_POST['sponsor_id'])){
+		$sql = "INSERT INTO driver_list (sponsor_id, driver_id, driver_username) values (".$_POST['sponsor_id'].", ".$row[0].",".$_POST['username'].");";
+		$query = mysqli_query($conn, $sql);
+		if($query){
+			echo "Driver_list table updated succesfully.";
+		}
+		else {
+			echo "Error: Couldn't add to driver_list table.";
+		}
+	}
 
 	$conn->close();
 ?>
