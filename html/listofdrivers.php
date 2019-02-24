@@ -49,23 +49,23 @@
 		case "drivers.username DESC":
 			echo "Username Descending</p>";
 			break;
-		case "drivers.total_points ASC":
+		case "driver_list.total_points ASC":
 			echo "Total Points Ascending</p>";
 			break;
-		case "drivers.total_points DESC":
+		case "driver_list.total_points DESC":
 			echo "Total Points Descending</p>";
 			break;
-		case "drivers.current_points ASC":
+		case "driver_list.current_points ASC":
 			echo "Current Points Ascending</p>";
 			break;
-		case "drivers.current_points DESC":
+		case "driver_list.current_points DESC":
 			echo "Current Points Descending</p>";
 			break;
-		case "drivers.current_points ASC":
-			echo "Current Points Ascending</p>";
+		case "users.date_created ASC":
+			echo "User Creation Ascending</p>";
 			break;
-		case "drivers.current_points DESC":
-			echo "Current Points Descending</p>";
+		case "users.date_created DESC":
+			echo "User Creation Descending</p>";
 			break;
 		default:
 			echo "<p>Error finding ordering";
