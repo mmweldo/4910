@@ -37,7 +37,7 @@ CREATE TABLE drivers(
     street_address varchar(30) not null,
     country varchar(30) not null,
     postal_code varchar(30) not null,
-    sponsor_id int not null,
+    sponsor_id int,
     password varchar(30) not null,
     total_points int DEFAULT 0,
     current_points int DEFAULT 0,
