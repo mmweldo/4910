@@ -4,7 +4,7 @@
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 
-	$query = "SELECT drivers.firstname, drivers.lastname, drivers.username, driver_list.total_points, driver_list.current_points, users.date_created, sponsors.company_name FROM users JOIN (drivers JOIN (driver_list JOIN sponsors ON driver_list.sponsor_id = sponsors.user_id) ON driver_list.driver_id = drivers.user_id) ON users.id = drivers.user_id ORDER BY ".$_POST['order'].";";
+	$query = "SELECT drivers.firstname, drivers.lastname, drivers.username, driver_list.total_points, driver_list.current_points, users.date_created, sponsors.company_name FROM users JOIN (drivers LEFT JOIN (driver_list JOIN sponsors ON driver_list.sponsor_id = sponsors.user_id) ON driver_list.driver_id = drivers.user_id) ON users.id = drivers.user_id ORDER BY ".$_POST['order'].";";
 
 	$result = mysqli_query($conn, $query);
 	if(!$result){
