@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Affordable and professional web design">
 	  <meta name="keywords" content="web design, affordable web design, professional web design">
-  	<meta name="author" content="Brad Traversy">
     <title>Drewp | Stories</title>
     <link rel="stylesheet" href="./css/style.css">
 
