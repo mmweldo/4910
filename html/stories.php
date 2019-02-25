@@ -58,32 +58,32 @@
           <h1 class="page-title">Iteration One </h1>
           <ul name="iteration1" id="stories">
             <li>
-              <h3>Sponsor - View Their Driver</h3>
+              <h4>Sponsor - View Their Driver</h4>
               <a href="driverlist.html">Link</a>
               <p>Completed iteration one. User story 28,144,23. Mitch did this one.</p>
             </li>
             <!-- <li>
-              <h3>Admin - Create Driver Accounts</h3>
+              <h4>Admin - Create Driver Accounts</h4>
               <a href="">Link</a>
               <p>Completed iteration ___. User story 86. Seth did this one.</p>
             </li> -->
             <li>
-              <h3>Admin - Create Sponsor Accounts</h3>
+              <h4>Admin - Create Sponsor Accounts</h4>
               <a href="admincreatespn.php">Link</a>
               <p>Completed iteration one. User story 89. Seth did this one.</p>
             </li>
             <!-- <li>
-              <h3>Admin - Delete Sponsor Accounts</h3>
+              <h4>Admin - Delete Sponsor Accounts</h4>
               <a href="">Link</a>
               <p>Completed iteration ___. User story 91. Seth did this one.</p>
             </li>
             <li>
-              <h3>Admin - Delete Driver Accounts</h3>
+              <h4>Admin - Delete Driver Accounts</h4>
               <a href="">Link</a>
               <p>Completed iteration ___. User story 87. Seth did this one.</p>
             </li> -->
             <li>
-              <h3>Sponsor - Add Points to Drivers</h3>
+              <h4>Sponsor - Add Points to Drivers</h4>
               <a href="addpoints.html">Link</a>
               <p>Completed iteration one. User story 6. Mitch did this one.</p>
             </li>
@@ -115,27 +115,27 @@
         <h1 class="page-title">Iteration Two </h1>
           <ul name="iteration2" id="stories">
             <li>
-              <h3>Admin - View all users</h3>
+              <h4>Admin - View all users</h4>
               <a href="userlist.html">Link</a>
               <p>Completed iteration two. User story 15. Mitch did this one.</p>
             </li>
             <li>
-              <h3>Driver - Can view Points per Day</h3>
+              <h4>Driver - Can view Points per Day</h4>
               <a href="viewdaily.html">Link</a>
               <p>Completed iteration two. User story 9. Mitch did this one.</p>
             </li>
             <li>
-              <h3>Admin - Create drivers </h3>
+              <h4>Admin - Create drivers </h4>
               <a href="admincreatesdvr.php">Link</a>
               <p>Completed iteration two. User story 86. Seth did this one.</p>
             </li>
 	    <li>
-              <h3>Driver - View Point Log </h3>
+              <h4>Driver - View Point Log </h4>
               <a href="viewpointlog.html">Link</a>
               <p>Completed iteration two. User story 19. Logan did this one.</p>
             </li>
 	    <li>
-              <h3>Driver - View Total Points</h3>
+              <h4>Driver - View Total Points</h4>
               <a href="driverpoints.html">Link</a>
 	      <p>Completed iteration two. User story 3. Logan did this one. </p>
 	    </li> 
@@ -145,17 +145,17 @@
         <h1 class="page-title">Iteration Three </h1>
           <ul name="iteration3" id="stories">
             <li>
-              <h3>Sponsor - View Drivers Daily Points</h3>
+              <h4>Sponsor - View Drivers Daily Points</h4>
               <a href="sponsorviewdaily.html">Link</a>
               <p>Completed iteration two. User story 26. Mitch did this one.</p>
             </li>
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
@@ -165,17 +165,17 @@
         <h1 class="page-title">Iteration Four </h1>
           <ul name="iteration4" id="stories">
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
