@@ -38,9 +38,12 @@
 	$sql = "SELECT MAX(id) FROM users";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result);
-	//echo $row[0]."<br>"; //echo's maxid
-
-	if("" != trim($_POST['sponsor_id'])){
+	//echo $row[0]."<br>"; //echo's maxid  
+    if(empty($_POST['sponsor_id'])){
+        mysqli_close($conn);
+        exit();
+    }
+	if(!empty($_POST['sponsor_id'])){
 		$sql = "INSERT INTO drivers (user_id, password, firstname, lastname, street_address, country, postal_code, sponsor_id, username) VALUES ( '".$row[0]."', '".$hash."', '".$_POST['firstname']."', 
 		'".$_POST['lastname']."', '".$_POST['street_address']."', '".$_POST['country']."','".$_POST['postal_code']."','".$_POST['sponsor_id']."', '".$_POST['username']."')";
 	} else{
@@ -55,8 +58,8 @@
 	else{
 		echo "Error: Couldn't add to drivers table.";
 	}
-	if("" != trim($_POST['sponsor_id'])){
-		$sql = "INSERT INTO driver_list (sponsor_id, driver_id, driver_username) values (".$_POST['sponsor_id'].", ".$row[0].",".$_POST['username'].");";
+	if(!empty($_POST['sponsor_id'])){
+		 $sql = "INSERT INTO driver_list (sponsor_id, driver_id, driver_username) values (".$_POST['sponsor_id'].", ".$row[0].",'".$_POST['username']."');";
 		$query = mysqli_query($conn, $sql);
 		if($query){
 			echo "Driver_list table updated succesfully.";
