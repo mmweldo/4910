@@ -173,9 +173,11 @@ ul#stories li{
   position:relative;
   /*bottom:0; */
   width:100%;
+  min-height: 50px;
+  max-height:50px;
   height:50px;   /* Height of the footer */
-  padding:10px;
-  margin-top: 20px;
+  padding:15px;
+  margin-top: 30px;
   color:#ffffff;
   background-color:#e85764;
   text-align: center;
