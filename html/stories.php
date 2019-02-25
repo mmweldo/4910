@@ -131,12 +131,20 @@
               <a href="admincreatesdvr.php">Link</a>
               <p>Completed iteration two. User story 86. Seth did this one.</p>
             </li>
+<<<<<<< HEAD
       <li>
+=======
+	    <li>
+>>>>>>> f571b28707ab758b83190dfb0984267d327e913b
               <h4>Driver - View Point Log </h4>
               <a href="viewpointlog.html">Link</a>
               <p>Completed iteration two. User story 19. Logan did this one.</p>
             </li>
+<<<<<<< HEAD
       <li>
+=======
+	    <li>
+>>>>>>> f571b28707ab758b83190dfb0984267d327e913b
               <h4>Driver - View Total Points</h4>
               <a href="driverpoints.html">Link</a>
         <p>Completed iteration two. User story 3. Logan did this one. </p>
@@ -192,8 +200,10 @@
 </html>
 <style>
 ul#stories li{
-  min-width: 200px;
+  min-width: 100px;
+  width: 200px;
   min-height: 250px;
+  height: 250px;
   float: left;
   list-style: none;
   padding:20px;

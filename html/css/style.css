@@ -157,8 +157,8 @@ article#main-col{
 
 /* stories */
 ul#stories li{
-  max-width: 150px;
-  max-height: 200px;
+  min-width: 200px;
+  min-height: 250px;
   float: left;
   list-style: none;
   padding:20px;
