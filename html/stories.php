@@ -189,7 +189,20 @@
   </body>
 </html>
 <style>
-	button {
+ul#stories li{
+  min-width: 200px;
+  min-height: 250px;
+  float: left;
+  list-style: none;
+  padding:20px;
+  border: #cccccc solid 1px;
+  margin-bottom:5px;
+  background:#e6e6e6;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+button {
   background-color: #e85764;
   border: none;
   color: white;
