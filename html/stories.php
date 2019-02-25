@@ -6,13 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Affordable and professional web design">
-	  <meta name="keywords" content="web design, affordable web design, professional web design">
+    <meta name="keywords" content="web design, affordable web design, professional web design">
+    <meta name="author" content="Brad Traversy">
     <title>Drewp | Stories</title>
     <link rel="stylesheet" href="./css/style.css">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
   </head>
   <body>
     <header>
@@ -52,38 +54,38 @@
       <div class="container">
         <article id="main-col">
           <div>
-            <h2 class="page-title">Stories</h2>
+            <h1 class="page-title">Stories</h1>
             <p>Here is a link page for putting <u>independent webpages that are user stories</u>. It's easiest to test our work here in this consolidated area.</p>
           </div>
-          <h1 class="page-title">Iteration One </h1>
+          <h2 class="page-title">Iteration One </h1>
           <ul name="iteration1" id="stories">
             <li>
-              <h3>Sponsor - View Their Driver</h3>
+              <h4>Sponsor - View Their Driver</h4>
               <a href="driverlist.html">Link</a>
               <p>Completed iteration one. User story 28,144,23. Mitch did this one.</p>
             </li>
             <!-- <li>
-              <h3>Admin - Create Driver Accounts</h3>
+              <h4>Admin - Create Driver Accounts</h4>
               <a href="">Link</a>
               <p>Completed iteration ___. User story 86. Seth did this one.</p>
             </li> -->
             <li>
-              <h3>Admin - Create Sponsor Accounts</h3>
+              <h4>Admin - Create Sponsor Accounts</h4>
               <a href="admincreatespn.php">Link</a>
               <p>Completed iteration one. User story 89. Seth did this one.</p>
             </li>
             <!-- <li>
-              <h3>Admin - Delete Sponsor Accounts</h3>
+              <h4>Admin - Delete Sponsor Accounts</h4>
               <a href="">Link</a>
               <p>Completed iteration ___. User story 91. Seth did this one.</p>
             </li>
             <li>
-              <h3>Admin - Delete Driver Accounts</h3>
+              <h4>Admin - Delete Driver Accounts</h4>
               <a href="">Link</a>
               <p>Completed iteration ___. User story 87. Seth did this one.</p>
             </li> -->
             <li>
-              <h3>Sponsor - Add Points to Drivers</h3>
+              <h4>Sponsor - Add Points to Drivers</h4>
               <a href="addpoints.html">Link</a>
               <p>Completed iteration one. User story 6. Mitch did this one.</p>
             </li>
@@ -92,90 +94,90 @@
 
         <!-- <aside id="sidebar">
           <div class="dark">
-            <h3>Get A Quote</h3>
+            <h4>Get A Quote</h4>
             <form class="quote">
-  						<div>
-  							<label>Name</label><br>
-  							<input type="text" placeholder="Name">
-  						</div>
-  						<div>
-  							<label>Email</label><br>
-  							<input type="email" placeholder="Email Address">
-  						</div>
-  						<div>
-  							<label>Message</label><br>
-  							<textarea placeholder="Message"></textarea>
-  						</div>
-  						<button class="button_1" type="submit">Send</button>
-					</form>
+              <div>
+                <label>Name</label><br>
+                <input type="text" placeholder="Name">
+              </div>
+              <div>
+                <label>Email</label><br>
+                <input type="email" placeholder="Email Address">
+              </div>
+              <div>
+                <label>Message</label><br>
+                <textarea placeholder="Message"></textarea>
+              </div>
+              <button class="button_1" type="submit">Send</button>
+          </form>
           </div>
         </aside> -->
       </div>
       <div class="container">
-        <h1 class="page-title">Iteration Two </h1>
+        <h2 class="page-title">Iteration Two </h1>
           <ul name="iteration2" id="stories">
             <li>
-              <h3>Admin - View all users</h3>
+              <h4>Admin - View all users</h4>
               <a href="userlist.html">Link</a>
               <p>Completed iteration two. User story 15. Mitch did this one.</p>
             </li>
             <li>
-              <h3>Driver - Can view Points per Day</h3>
+              <h4>Driver - Can view Points per Day</h4>
               <a href="viewdaily.html">Link</a>
               <p>Completed iteration two. User story 9. Mitch did this one.</p>
             </li>
             <li>
-              <h3>Admin - Create drivers </h3>
+              <h4>Admin - Create drivers </h4>
               <a href="admincreatesdvr.php">Link</a>
               <p>Completed iteration two. User story 86. Seth did this one.</p>
             </li>
-	    <li>
-              <h3>Driver - View Point Log </h3>
+      <li>
+              <h4>Driver - View Point Log </h4>
               <a href="viewpointlog.html">Link</a>
               <p>Completed iteration two. User story 19. Logan did this one.</p>
             </li>
-	    <li>
-              <h3>Driver - View Total Points</h3>
+      <li>
+              <h4>Driver - View Total Points</h4>
               <a href="driverpoints.html">Link</a>
-	      <p>Completed iteration two. User story 3. Logan did this one. </p>
-	    </li> 
-	   </ul>
+        <p>Completed iteration two. User story 3. Logan did this one. </p>
+      </li> 
+     </ul>
       </div>
             <div class="container">
-        <h1 class="page-title">Iteration Three </h1>
+        <h2 class="page-title">Iteration Three </h1>
           <ul name="iteration3" id="stories">
             <li>
-              <h3>Sponsor - View Drivers Daily Points</h3>
+              <h4>Sponsor - View Drivers Daily Points</h4>
               <a href="sponsorviewdaily.html">Link</a>
               <p>Completed iteration two. User story 26. Mitch did this one.</p>
             </li>
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
           </ul>
       </div>
             <div class="container">
-        <h1 class="page-title">Iteration Four </h1>
+        <h2 class="page-title">Iteration Four </h1>
           <ul name="iteration4" id="stories">
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
             <li>
-              <h3>_</h3>
+              <h4>_</h4>
               <a href="">Link</a>
               <p>Completed iteration two. User story xx. __ did this one.</p>
             </li>
@@ -189,7 +191,19 @@
   </body>
 </html>
 <style>
-	button {
+ul#stories li{
+  min-width: 200px;
+  min-height: 250px;
+  float: left;
+  list-style: none;
+  padding:20px;
+  border: #cccccc solid 1px;
+  margin-bottom:5px;
+  background:#e6e6e6;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+  button {
   background-color: #e85764;
   border: none;
   color: white;
