@@ -22,9 +22,11 @@
 	if ($conn->connect_error) {
 		exit();
 		die("Connection failed: " . $conn->connect_error);
-	} 
+	}
 
-	$sql = "INSERT INTO users (username, password, email) VALUES('".$_POST['username']."', '".$_POST['password']."', '".$_POST['email']."');";
+	$hash = password_hash($_POST['password'], PASSWORD_DEFAULT); //hashes password
+
+	$sql = "INSERT INTO users (username, password, email) VALUES('".$_POST['username']."', '".$hash."', '".$_POST['email']."');";
 	$query = mysqli_query($conn, $sql);
 	if($query){
 		echo "Users table updated succesfully.";
@@ -39,10 +41,10 @@
 	//echo $row[0]."<br>"; //echo's maxid
 
 	if("" != trim($_POST['sponsor_id'])){
-		$sql = "INSERT INTO drivers (user_id, password, firstname, lastname, street_address, country, postal_code, sponsor_id, username) VALUES ( '".$row[0]."', '".$_POST['password']."', '".$_POST['firstname']."', 
+		$sql = "INSERT INTO drivers (user_id, password, firstname, lastname, street_address, country, postal_code, sponsor_id, username) VALUES ( '".$row[0]."', '".$hash."', '".$_POST['firstname']."', 
 		'".$_POST['lastname']."', '".$_POST['street_address']."', '".$_POST['country']."','".$_POST['postal_code']."','".$_POST['sponsor_id']."', '".$_POST['username']."')";
 	} else{
-		$sql = "INSERT INTO drivers (user_id, password, firstname, lastname, street_address, country, postal_code, username) VALUES ( '".$row[0]."', '".$_POST['password']."', '".$_POST['firstname']."', 
+		$sql = "INSERT INTO drivers (user_id, password, firstname, lastname, street_address, country, postal_code, username) VALUES ( '".$row[0]."', '".$hash."', '".$_POST['firstname']."', 
 		'".$_POST['lastname']."', '".$_POST['street_address']."', '".$_POST['country']."','".$_POST['postal_code']."', '".$_POST['username']."')";
 	}
 
