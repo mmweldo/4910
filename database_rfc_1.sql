@@ -31,6 +31,7 @@ ALTER TABLE drivers DROP COLUMN total_points;
 ALTER TABLE drivers DROP COLUMN current_points;
 ALTER TABLE drivers DROP INDEX ix_driver_totalpoints;
 ALTER TABLE drivers DROP INDEX ix_driver_currentpoints;
+ALTER TABLE drivers MODIFY sponsor_id int(11);
 
 ALTER TABLE driver_list DROP FOREIGN KEY 'fk_dl_totalpoints_drivers_totalpoints';
 ALTER TABLE driver_list DROP FOREIGN KEY 'fk_dl_currentpoints_drivers_currentpoints';
