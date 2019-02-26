@@ -23,8 +23,8 @@
 
 	if($resultCheck < 1){
 		echo "[2] Error: incorrect username/password";
-			echo "original password: ".$_POST['password']."<br>";
-	echo "hashed password: ".$hash."<br>";
+	    //echo "original password: ".$_POST['password']."<br>";
+	    //echo "hashed password: ".$hash."<br>";
 		echo "<script>setTimeout(\"location.href = '../login.html?PASSWORD-MISSING';\", 3000);</script>";
 		exit();
 	}
@@ -33,7 +33,7 @@
 		$hashedPwdCheck = password_verify($_POST['password'], $row['password']);
 		if($hashedPwdCheck == false){
 			echo "password hash didn't match.";
-			header("Location: ../login.html?login=error");
+		    echo "<script>setTimeout(\"location.href = '../login.html?login=error';\", 3000);</script>";
 			exit();
 		}else{
 			session_start();
