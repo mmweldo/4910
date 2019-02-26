@@ -15,7 +15,7 @@
 	
 	if(!$result){
 		echo "[1] Error: incorrect username/password";
-		echo "<script>setTimeout(\"location.href = '../login.php?PASSWORD-MISSING;\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../login.html?PASSWORD-MISSING;\", 3000);</script>";
 		exit();
 	}
 
@@ -25,7 +25,7 @@
 		echo "[2] Error: incorrect username/password";
 			echo "original password: ".$_POST['password']."<br>";
 	echo "hashed password: ".$hash."<br>";
-		echo "<script>setTimeout(\"location.href = '../login.php?PASSWORD-MISSING';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../login.html?PASSWORD-MISSING';\", 3000);</script>";
 		exit();
 	}
 	if($row = mysqli_fetch_assoc($result)){
@@ -33,7 +33,7 @@
 		$hashedPwdCheck = password_verify($_POST['password'], $row['password']);
 		if($hashedPwdCheck == false){
 			echo "password hash didn't match.";
-			header("Location: ../login.php?login=error");
+			header("Location: ../login.html?login=error");
 			exit();
 		}else{
 			session_start();
