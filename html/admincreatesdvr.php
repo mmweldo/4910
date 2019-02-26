@@ -61,6 +61,7 @@
 			<td>Enter User's Sponsor ID </td> 
 			<td><input type="sponsor_id" name="sponsor_id"  /></td>   
 		</tr>
+			<td><sup> * Indicates Required Field</sup></td> 
 			<td align="center" colspan="2"><input type="submit" value="Submit" name="submit" /></td> 
 		</table>
 	</form> 
