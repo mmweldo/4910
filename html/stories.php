@@ -131,12 +131,12 @@
               <a href="admincreatesdvr.php">Link</a>
               <p>Completed iteration two. User story 86. Seth did this one.</p>
             </li>
-	    <li>
+	          <li>
               <h4>Driver - View Point Log </h4>
               <a href="viewpointlog.html">Link</a>
               <p>Completed iteration two. User story 19. Logan did this one.</p>
             </li>
-	    <li>
+	           <li>
               <h4>Driver - View Total Points</h4>
               <a href="driverpoints.html">Link</a>
               <p>Completed iteration two. User story 3. Logan did this one. </p>
@@ -152,14 +152,24 @@
               <p>Completed iteration two. User story 26. Mitch did this one.</p>
             </li>
             <li>
-              <h4>_</h4>
-              <a href="">Link</a>
-              <p>Completed iteration two. User story xx. __ did this one.</p>
+              <h4>Sponsor - Driver List (UPDATED)</h4>
+              <a href="driverlist.html">Link</a>
+              <p>Completed iteration one UPDATED iteration three for more functionality. User stories 144,151,154,155,186. Mitch did this one.</p>
             </li>
             <li>
-              <h4>_</h4>
-              <a href="">Link</a>
-              <p>Completed iteration two. User story xx. __ did this one.</p>
+              <h4>Sponsor - Remove from Driver list</h4>
+              <a href="removedriver.html">Link</a>
+              <p>Completed iteration three. User story 54. Mitch did this one.</p>
+            </li>
+            <!--<li>
+              <h4>Admin - View Driver Accounts by Sponsor</h4>
+              <a href="driverlist.html">Link</a>
+              <p>Completed iteration three. User story 59. Mitch did this one.</p>
+            </li>-->
+            <li>
+              <h4>Admin - View Sponsors</h4>
+              <a href="viewsponsors.html">Link</a>
+              <p>Completed iteration three. User story 63,64,65,66. Mitch did this one.</p>
             </li>
           </ul>
       </div>
