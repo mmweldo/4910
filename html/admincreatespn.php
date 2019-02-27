@@ -29,20 +29,21 @@
 </tr>   
 <tr> 
 <td>Enter User's Email </td> 
-<td><input type="email" name="email" /></td>   
+<td><input type="email" name="email" required /></td>   
 </tr>   
 <tr> 
 <td>Enter User's Password </td> 
-<td><input type="password" name="password"  /></td>   
+<td><input type="password" name="password" required /></td>   
 </tr>   
 <tr> 
 <td>Enter User's Username </td> 
-<td><input type="username" name="username"  /></td>   
+<td><input type="username" name="username" required /></td>   
 </tr>   
 <tr> 
 <td>Enter User's Comapny Name </td> 
-<td><input type="company_name" name="company_name"  /></td>   
+<td><input type="company_name" name="company_name" required /></td>   
 </tr>
+<td><sup> * Indicates Required Field</sup></td> 
 <td align="center" colspan="2"><input type="submit" value="Submit" name="submit" /></td> 
 </table>
 </form> 
