@@ -30,7 +30,7 @@
 		</tr>   
 		<tr> 
 			<td>Enter User's Email </td> 
-			<td><input type="email" name="email" required/></td>   
+			<td><input type="email" name="email" required /></td>   
 		</tr>   
 			<tr> 
 			<td>Enter User's Password </td> 
@@ -38,28 +38,28 @@
 		</tr>   
 		<tr> 
 			<td>Enter User's Username </td> 
-			<td><input type="text" name="username" required/></td>   
+			<td><input type="text" name="username" required /></td>   
 		</tr>   
 		<tr> 
 			<td>Enter User's First Name </td> 
-			<td><input type="text" name="firstname" required/></td>   
+			<td><input type="text" name="firstname" required /></td>   
 		</tr>
 		<tr> 
 			<td>Enter User's Last Name </td> 
-			<td><input type="text" name="lastname" required/></td>   
+			<td><input type="text" name="lastname" required /></td>   
 		</tr>
 			<td>Enter User's Street Address </td> 
-			<td><input type="text" name="street_address" required/></td>   
+			<td><input type="text" name="street_address" required /></td>   
 		</tr>
 			<td>Enter User's Country </td> 
-			<td><input type="text" name="country" required/></td>   
+			<td><input type="text" name="country" required /></td>   
 		</tr>
 			<td>Enter User's Postal Code </td> 
-			<td><input type="text" pattern="[0-9]{5}" name="postal_code" title="Five digit zip code" required/></td>   
+			<td><input type="text" pattern="[0-9]{5}" name="postal_code" title="Five digit zip code" required /></td>   
 		</tr>
 		</tr>
 			<td>Enter User's Sponsor ID </td> 
-			<td><input type="sponsor_id" name="sponsor_id"  /></td>   
+			<td><input type="sponsor_id" name="sponsor_id" /></td>   
 		</tr>
 			<td><sup> * Indicates Required Field</sup></td> 
 			<td align="center" colspan="2"><input type="submit" value="Submit" name="submit" /></td> 
