@@ -4,7 +4,7 @@
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 	
-	$query = "SELECT sponsors.company_name, users.email, username, sponsors.user_id FROM sponsors join users ON sponsors.user_id = users.id";
+	$query = "SELECT sponsors.company_name, users.email, username, sponsors.user_id, users.date_created FROM sponsors join users ON sponsors.user_id = users.id";
 	$result = mysqli_query($conn, $query);
 	
 	if(!$result){
@@ -50,16 +50,24 @@
 		case "sponsors.user_id DESC":
 			echo "User ID Descending</p>";
 			break;
+		case "users.date_created ASC":
+			echo "Creation Date Ascending</p>";
+			break;
+		case "users.date_created DESC":
+			echo "Creation Date Descending</p>";
+			break;
 		default:
 			echo "<p>Error finding ordering";
 			break;
 	}
+	
 	echo "<table>";
 	echo "<tr>";
 	echo "<th>Company</th>";
 	echo "<th>Email</th>";
 	echo "<th>Username</th>";
 	echo "<th>User ID</th>";
+	echo "<th>Creation Date</th>";
 	echo "</tr>";
 	
 	while($row=mysqli_fetch_row($result)){
@@ -68,6 +76,7 @@
 	    echo "<td>".$row[1]."</td>"; 
 	    echo "<td>".$row[2]."</td>"; 
 	    echo "<td>".$row[3]."</td>"; 
+	    echo "<td>".$row[4]."</td>";
 	    echo "</tr>"; 
 	}
 	echo "</center>";

@@ -169,8 +169,8 @@
             </li>
             <!--<li>
               <h4>Admin - Search for Sponsors</h4>
-              <a href="driverlist.html">Link</a>
-              <p>Completed iteration three. User story . Mitch did this one.</p>
+              <a href="adminsearchsponsors.html">Link</a>
+              <p>Completed iteration three. User story 62. Mitch did this one.</p>
             </li>-->
             <li>
               <h4>Admin - View Sponsors List</h4>
