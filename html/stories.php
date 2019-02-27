@@ -161,13 +161,18 @@
               <a href="removedriver.html">Link</a>
               <p>Completed iteration three. User story 54. Mitch did this one.</p>
             </li>
-            <!--<li>
+            <li>
               <h4>Admin - View Driver Accounts by Sponsor</h4>
+              <a href="listofdrivers.html">Link</a>
+              <p>Completed iteration three. User stories 59,67,68,70,75,78. Mitch did this one.</p>
+            </li>
+            <!--<li>
+              <h4>Admin - Search for Sponsors</h4>
               <a href="driverlist.html">Link</a>
-              <p>Completed iteration three. User story 59. Mitch did this one.</p>
+              <p>Completed iteration three. User story . Mitch did this one.</p>
             </li>-->
             <li>
-              <h4>Admin - View Sponsors</h4>
+              <h4>Admin - View Sponsors List</h4>
               <a href="viewsponsors.html">Link</a>
               <p>Completed iteration three. User story 63,64,65,66. Mitch did this one.</p>
             </li>
