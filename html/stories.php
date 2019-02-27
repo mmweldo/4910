@@ -151,7 +151,8 @@
               <a href="sponsorviewdaily.html">Link</a>
               <p>Completed iteration two. User story 26. Mitch did this one.</p>
             </li>
-            <li>
+            <li style="overflow:scroll;
+    overflow-x:hidden;">
               <h4>Sponsor - Driver List (UPDATED)</h4>
               <a href="driverlist.html">Link</a>
               <p>Completed iteration one UPDATED iteration three for more functionality. User stories 144,151,154,155,186. Mitch did this one.</p>
