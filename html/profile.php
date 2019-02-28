@@ -10,13 +10,16 @@ Licensed under MIT
 -->
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "test";
+#$servername = "localhost";
+#$username = "root";
+#$password = "";
+#$dbname = "test";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+#$conn = new mysqli($servername, $username, $password, $dbname);
+$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
