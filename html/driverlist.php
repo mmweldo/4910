@@ -89,6 +89,7 @@
 	echo "<th>Total Points</th>";
 	echo "<th>Current Points</th>";
 	echo "<th>Date Created</th>";
+	echo "<th>Profile</th>";
 	echo "</tr>";
 	
 	while($row=mysqli_fetch_row($result)){
@@ -98,7 +99,8 @@
 	    echo "<td>".$row[2]."</td>"; 
 	    echo "<td>".$row[3]."</td>"; 
 	    echo "<td>".$row[4]."</td>"; 
-	    echo "<td>".$row[5]."</td>"; 
+	    echo "<td>".$row[5]."</td>";
+	    echo '<td><form class="profile-form" method="post" action="profile.php"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$row[2].'"><button type="View" name="submit">'.$row[2].'</button></form><td>'; 
 	    echo "</tr>"; 
 	}
 	echo "</center>";
