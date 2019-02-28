@@ -42,7 +42,7 @@ if ($conn->connect_error) {
 							$sql = "select MAX(id) from users";
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
-							echo $row[0]."<br>";
+							echo "User: ".$_POST['username']." ID:".$row[0]."<br>";
 						?>
 					</div>
 					<div class="profile-usertitle-job">
