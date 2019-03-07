@@ -20,7 +20,6 @@
 	</header><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
 <!--
 User Profile Sidebar by @keenthemes
@@ -64,7 +63,7 @@ if ($conn->connect_error) {
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
 						<?php
-							$sql = "select username from users where id = 5";
+							$sql = "select username from users where user_id = '".$_POST['user_id']."';";
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo $row[0]."<br>";
