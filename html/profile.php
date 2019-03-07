@@ -63,10 +63,11 @@ if ($conn->connect_error) {
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
 						<?php
-							$sql = "select username from users where user_id = '".$_POST['user_id']."';";
-							$result = mysqli_query($conn, $sql);
-							$row = mysqli_fetch_row($result);
-							echo $row[0]."<br>";
+							#$sql = "select username from users where user_id = '".$_POST['user_id']."';";
+							#$result = mysqli_query($conn, $sql);
+							#$row = mysqli_fetch_row($result);
+							#echo $row[0]."<br>";
+							echo $_SESSION['username'];
 						?>
 					</div>
 					<div class="profile-usertitle-job">
