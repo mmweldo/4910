@@ -73,7 +73,7 @@ if ($conn->connect_error) {
 						?>
 					</div>
 					<div class="profile-usertitle-job">
-						Administrator
+						User-Job-Type
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
