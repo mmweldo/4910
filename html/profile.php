@@ -52,10 +52,11 @@ if ($conn->connect_error) {
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
 					<?php
-							echo "select profile_img from sponsors where username = '".$_SESSION['username']."';";
-							$result = mysqli_query($conn, $sql);
-							$row = mysqli_fetch_row($result);
-							echo '<img src="'.$row[0].'">'; #class="img-circle" alt="https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg" style="width:125px;height:125px;">';
+						session_start();
+						$sql = "select profile_img from sponsors where username = '".$_SESSION['username']."';";
+						$result = mysqli_query($conn, $sql);
+						$row = mysqli_fetch_row($result);
+						echo '<img src="'.$row[0].'">'; #class="img-circle" alt="https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg" style="width:125px;height:125px;">';
 					?>
 				</div>
 				<!-- END SIDEBAR USERPIC -->
@@ -63,6 +64,7 @@ if ($conn->connect_error) {
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
 						<?php
+							session_start();
 							#$sql = "select username from users where user_id = '".$_POST['user_id']."';";
 							#$result = mysqli_query($conn, $sql);
 							#$row = mysqli_fetch_row($result);
