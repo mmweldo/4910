@@ -1,4 +1,23 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body> 
+	<header>
+	  <div class="container">
+	    <div id="branding">
+	      <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
+	    </div>
+	    <nav>
+	      <ul>
+	        <li><a href="/">Home</a></li>
+	        <li><a href="about.php">About</a></li>
+	        <li><a href="stories.php">[Stories]</a></li>
+	        <li><a href="login.html">Login/Signup</a></li>
+	    </ul>
+	    </nav>
+	  </div>
+	</header><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -15,11 +34,12 @@ Licensed under MIT
 #$password = "";
 #$dbname = "test";
 
-// Create connection
-#$conn = new mysqli($servername, $username, $password, $dbname);
 $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
-$conn = mysqli_connect($endpoint, "master", "group4910", "website");
-
+// Create connection
+$conn = mysqli_connect($endpoint, "master", "group4910", "website");	
+	
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -32,17 +52,22 @@ if ($conn->connect_error) {
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					<img src="https://goo.gl/images/QhzNHJ" class="img-responsive" alt="girl in jacket">
+					<?php
+							$sql = "select profile_img from sponsors where user_id = 5";
+							$result = mysqli_query($conn, $sql);
+							$row = mysqli_fetch_row($result);
+							echo '<img src='.$row[0].' class="img-circle" alt="https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg" style="width:125px;height:125px;">';
+					?>
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
 						<?php
-							$sql = "select MAX(id) from users";
+							$sql = "select username from users where id = 5";
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
-							echo "User: ".$_POST['username']." ID:".$row[0]."<br>";
+							echo $row[0]."<br>";
 						?>
 					</div>
 					<div class="profile-usertitle-job">
@@ -95,3 +120,4 @@ if ($conn->connect_error) {
 <br>
 
 <?php $conn->close();?>
+</html>
