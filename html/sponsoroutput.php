@@ -8,6 +8,17 @@
 </table>
 
 <?php
+	session_start();
+	if(!isset($_SESSION['user_id'])){
+		echo "Error: User not logged in! Redirecting...";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
+		exit();
+	}
+	if($_SESSION['user_type'] != "admin"){
+		echo "Error: User doesn't have permission to be here! Redirecting...";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
+		exit();
+	}
 	// Create connection
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
