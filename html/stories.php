@@ -137,8 +137,8 @@
               <p>Completed iteration two. User story 19. Logan did this one.</p>
             </li>
 	           <li>
-              <h4>Driver - View Total Points</h4>
-              <a href="driverpoints.html">Link</a>
+              <h4>Admin - View Total Points</h4>
+              <a href="pointstotalhtml.php">Link</a>
               <p>Completed iteration two. User story 3. Logan did this one. </p>
            </li> 
 	</ul>
