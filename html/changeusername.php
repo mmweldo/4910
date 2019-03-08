@@ -4,7 +4,7 @@
 	
 	if(!isset($_SESSION['username'])){
 		echo "Error: User not logged in! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../changeusername.html?NOT-LOGGED-IN';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
 		exit();
 	}
 	
@@ -18,7 +18,7 @@
 	$result = mysqli_query($conn, $query);
 	if(!$result){
 		echo "Error: User not found! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../changeusername.html?NONEXISTANT-USER';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../changeusernamehtml.php?NONEXISTANT-USER';\", 3000);</script>";
 		exit();
 	}
 
@@ -26,7 +26,7 @@
 
 	if($resultCheck < 1){
 		echo "Error: User not found! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../changeusername.html?NONEXISTANT-USER';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../changeusernamehtml.php?NONEXISTANT-USER';\", 3000);</script>";
 		exit();
 	}
 
@@ -38,12 +38,12 @@
 	/**echo $result;
 	if($result){
 		echo "Error: Username ".$_POST['username']." is taken! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../changeusername.html?USERNAME-TAKEN';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../changeusernamehtml.php?USERNAME-TAKEN';\", 3000);</script>";
 		exit();
 	}**/
 	if($resultCheck > 0){
 		echo "Error: Username taken! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../changeusername.html?USERNAME-TAKEN';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../changeusernamehtml.php?USERNAME-TAKEN';\", 3000);</script>";
 		exit();
 	}
 
@@ -52,7 +52,7 @@
 	$result = mysqli_query($conn, $query);
 	if(!$result){
 		echo "Error: Couldn't change username. Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../changeusername.html?CHANGEUSERNAME-FAILURE';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../changeusernamehtml.php?CHANGEUSERNAME-FAILURE';\", 3000);</script>";
 		exit();		
 	}
 
