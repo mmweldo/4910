@@ -1,3 +1,18 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username'])){
+		echo "Error: Please log in first!";
+		echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
+		exit();
+	}
+	//Check if appropriate user (admin) for page
+	if($_SESSION['user_type'] != "admin"){
+		echo "Error: User not an admin!";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
+		exit();
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
