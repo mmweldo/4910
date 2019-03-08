@@ -37,7 +37,7 @@
 	</header>
 	<center>
 		<h1>Sponsor - Point Editor</h1>
-		<form class="points-form" method="post" action="points.php">
+		<form class="points-form" method="post" action="addpoints.php">
 			<p>Company Name</p> <input type="text" name="company_name" placeholder="company_name">
 			<p>Driver Username</p> <input type="text" name="username" placeholder="Username">
 			<p>Points</p> <input type="text" name="points" placeholder="Points Change"> <br>
