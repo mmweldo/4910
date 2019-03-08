@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username'])){
+		echo "Error: Please log in first!";
+		echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
+		exit();
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
