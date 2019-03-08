@@ -27,30 +27,28 @@
 </tr>  
 </table>
 <?php
-
+/*
 $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 // Create connection
 $conn = mysqli_connect($endpoint, "master", "group4910", "website");
+*/
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "test";
 
 // Create connection
-#$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-$sql = "insert into users(username, password, email, user_type) values('$_POST[username]', '$_POST[password]', '$_POST[email]', "admin")";
+$sql = "update users set username='$_POST[username]', email='$_POST[email]' where id='$_SESSION[user_id]";
 $query = mysqli_query($conn, $sql);
 
-$sql = "select MAX(id) from users";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_row($result);
-
-$sql = "insert into admins (user_id, username, password, firstname, lastname) values( '$row[0]', '$_POST[username]', '$_POST[password]', '$_POST[firstname]', '$_POST[lastname]')";
+$sql = "update admins set firstname='$_POST[firstname]', lastname='$_POST[lastname]' where user_id='$_SESSION[user_id]';";
 $query = mysqli_query($conn, $sql);
 
 $conn->close();

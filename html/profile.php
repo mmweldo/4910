@@ -20,7 +20,6 @@
 	</header><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
 <!--
 User Profile Sidebar by @keenthemes
@@ -39,7 +38,7 @@ $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 $conn = mysqli_connect($endpoint, "master", "group4910", "website");	
 	
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+#$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -53,10 +52,11 @@ if ($conn->connect_error) {
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
 					<?php
-							$sql = "select profile_img from sponsors where user_id = 5";
-							$result = mysqli_query($conn, $sql);
-							$row = mysqli_fetch_row($result);
-							echo '<img src='.$row[0].' class="img-circle" alt="https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg" style="width:125px;height:125px;">';
+						session_start();
+						$sql = "select profile_img from drivers where username = '".$_SESSION['username']."';";
+						$result = mysqli_query($conn, $sql);
+						$row = mysqli_fetch_row($result);
+						echo '<img src="'.$row[0].'">'; #class="img-circle" alt="https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg" style="width:125px;height:125px;">';
 					?>
 				</div>
 				<!-- END SIDEBAR USERPIC -->
@@ -64,14 +64,16 @@ if ($conn->connect_error) {
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
 						<?php
-							$sql = "select username from users where id = 5";
-							$result = mysqli_query($conn, $sql);
-							$row = mysqli_fetch_row($result);
-							echo $row[0]."<br>";
+							session_start();
+							#$sql = "select username from users where user_id = '".$_POST['user_id']."';";
+							#$result = mysqli_query($conn, $sql);
+							#$row = mysqli_fetch_row($result);
+							#echo $row[0]."<br>";
+							echo $_SESSION['username'];
 						?>
 					</div>
 					<div class="profile-usertitle-job">
-						Administrator
+						User-Job-Type
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->

@@ -26,7 +26,7 @@
 
 	$hash = password_hash($_POST['password'], PASSWORD_DEFAULT); //hashes password
 
-	$sql = "INSERT INTO users (username, password, email) VALUES('".$_POST['username']."', '".$hash."', '".$_POST['email']."');";
+	$sql = "INSERT INTO users (username, password, email, user_type) VALUES('".$_POST['username']."', '".$hash."', '".$_POST['email']."', "driver");";
 	$query = mysqli_query($conn, $sql);
 	if($query){
 		echo "Users table updated succesfully.";
