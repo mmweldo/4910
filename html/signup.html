@@ -87,8 +87,8 @@ body {
             <tr><td width="312"></td><td width="172"> </td></tr>   
             <tr><td><input placeholder="Email" type="email" name="email"/></td></tr>   
             <tr><td><input placeholder="Password" type="password" name="password"/></td></tr>   
-            <tr><td><input placeholder="Username" type="username" name="username"/></td></tr>   
-            <tr><td><input placeholder="Company Name"type="company_name" name="company_name"/></td></tr>
+            <tr><td><input pattern="[a-zA-Z0-9]{1,30}" placeholder="Username" type="username" name="username"/></td></tr>   
+            <tr><td><input pattern="[a-zA-Z0-9]{1,30}" placeholder="Company Name"type="company_name" name="company_name"/></td></tr>
             <tr><td align="center" colspan="2"><input type="submit" value="Submit" name="submit" /></td></tr>
           </table>
         </form> 
