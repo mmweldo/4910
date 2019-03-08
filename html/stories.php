@@ -61,7 +61,7 @@
           <ul name="iteration1" id="stories">
             <li>
               <h4>Sponsor - View Their Driver</h4>
-              <a href="driverlist.html">Link</a>
+              <a href="driverlisthtml.php">Link</a>
               <p>Completed iteration one. User story 28,144,23. Mitch did this one.</p>
             </li>
             <!-- <li>
@@ -86,7 +86,7 @@
             </li> -->
             <li>
               <h4>Sponsor - Add Points to Drivers</h4>
-              <a href="addpoints.html">Link</a>
+              <a href="addpointshtml.php">Link</a>
               <p>Completed iteration one. User story 6. Mitch did this one.</p>
             </li>
           </ul>
@@ -118,12 +118,12 @@
           <ul name="iteration2" id="stories">
             <li>
               <h4>Admin - View all users</h4>
-              <a href="userlist.html">Link</a>
+              <a href="userlisthtml.php">Link</a>
               <p>Completed iteration two. User story 15. Mitch did this one.</p>
             </li>
             <li>
               <h4>Driver - Can view Points per Day</h4>
-              <a href="viewdaily.html">Link</a>
+              <a href="viewdailyhtml.php">Link</a>
               <p>Completed iteration two. User story 9. Mitch did this one.</p>
             </li>
             <li>
@@ -148,33 +148,33 @@
           <ul name="iteration3" id="stories">
             <li>
               <h4>Sponsor - View Drivers Daily Points</h4>
-              <a href="sponsorviewdaily.html">Link</a>
+              <a href="sponsorviewdailyhtml.php">Link</a>
               <p>Completed iteration two. User story 26. Mitch did this one.</p>
             </li>
             <li style="overflow:scroll;
     overflow-x:hidden;">
               <h4>Sponsor - Driver List (UPDATED)</h4>
-              <a href="driverlist.html">Link</a>
+              <a href="driverlisthtml.php">Link</a>
               <p>Completed iteration one UPDATED iteration three for more functionality. User stories 144,151,154,155,186. Mitch did this one.</p>
             </li>
             <li>
               <h4>Sponsor - Remove from Driver list</h4>
-              <a href="removedriver.html">Link</a>
+              <a href="removedriverhtml.php">Link</a>
               <p>Completed iteration three. User story 54. Mitch did this one.</p>
             </li>
             <li>
               <h4>Admin - View Driver Accounts by Sponsor</h4>
-              <a href="listofdrivers.html">Link</a>
+              <a href="listofdrivershtml.php">Link</a>
               <p>Completed iteration three. User stories 59,67,68,70,75,78. Mitch did this one.</p>
             </li>
             <li>
               <h4>Admin - Search for Sponsors</h4>
-              <a href="adminsearchsponsors.html">Link</a>
+              <a href="adminsearchsponsorshtml.php">Link</a>
               <p>Completed iteration three. User story 62. Mitch did this one.</p>
             </li>
             <li>
               <h4>Admin - View Sponsors List</h4>
-              <a href="viewsponsors.html">Link</a>
+              <a href="viewsponsorshtml.php">Link</a>
               <p>Completed iteration three. User story 63,64,65,66. Mitch did this one.</p>
             </li>
           </ul>
