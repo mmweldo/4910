@@ -1,3 +1,17 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username'])){
+		echo "Error: Please log in first!";
+		echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
+		exit();
+	}
+	//Check if appropriate user (driver) for page
+	if($_SESSION['user_type'] != "driver"){
+		echo "Error: User not a driver!";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-DRIVER';\", 3000);</script>";
+		exit();
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
