@@ -37,15 +37,15 @@
 </tr>   
 <tr> 
 <td>Enter User's Username* </td> 
-<td><input type="text" name="username" required /></td>   
+<td><input pattern="[a-zA-Z0-9]{1,30}" type="text" name="username" required /></td>   
 </tr>   
 <tr> 
 <td>Enter User's First Name* </td> 
-<td><input type="text" name="firstname" required /></td>   
+<td><input pattern="[a-zA-Z]{1,30}" type="text" name="firstname" required /></td>   
 </tr>
 <tr> 
 <td>Enter User's Last Name* </td> 
-<td><input type="text" name="lastname" required /></td>   
+<td><input pattern="[a-zA-Z]{1,30}" type="text" name="lastname" required /></td>   
 </tr>
 <td><sup> * Indicates Required Field</sup></td> 
 <td align="center" colspan="2"><input type="submit" value="Submit" name="submit" /></td> 
