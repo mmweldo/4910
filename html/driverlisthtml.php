@@ -1,3 +1,17 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username'])){
+		echo "Error: Please log in first!";
+		echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
+		exit();
+	}
+	//Check if appropriate user (sponsor) for page
+	if($_SESSION['user_type'] != "sponsor" && $_SESSION['user_type'] != "admin"){
+		echo "Error: User not a sponsor!";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-SPONSOR';\", 3000);</script>";
+		exit();
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
