@@ -1,3 +1,18 @@
+
+<?php
+	session_start();
+	if(!isset($_SESSION['user_id'])){
+		echo "Error: User not logged in! Redirecting...";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
+		exit();
+	}
+	if($_SESSION['user_type'] != "admin"){
+		echo "Error: User doesn't have permission to be here! Redirecting...";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
+		exit();
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +38,7 @@
 	  </div>
 	</header>
 	<center>
-		<h1>View total Points</h1>
+		<h1>Admin - View total Points</h1>
 		<form class="points-form" method="post" action="pointsTotal.php">
 			<p>Driver Username</p> <input type="text" name="username" placeholder="Username">
 			<button type="submit" name="submit">Submit</button>
