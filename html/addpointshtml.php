@@ -1,3 +1,17 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['user_id'])){
+		echo "Error: User not logged in! Redirecting...";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
+		exit();
+	}
+	if($_SESSION['user_type'] != "sponsor"){
+		echo "Error: User doesn't have permission to be here! Redirecting...";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-SPONSOR';\", 3000);</script>";
+		exit();
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
