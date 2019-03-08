@@ -106,7 +106,7 @@
 	    exit();
 	}
 	else{
-		echo "Points Updated.";
+		echo "<center>Points Updated.";
 		$query = "SELECT drivers.username, driver_list.total_points, driver_list.current_points FROM drivers JOIN driver_list ON drivers.user_id = driver_list.driver_id WHERE username = '".$_POST['username']."' AND driver_list.sponsor_id = (SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."');";
 		$result = mysqli_query($conn, $query);
 		if (!$result) {
@@ -127,6 +127,7 @@
 	            echo "<td>".$row[2]."</td>"; 
 	            echo "</tr>"; 
 		}
+		echo "</table></center>";
 	}
 
 	mysqli_close($conn);
