@@ -19,7 +19,8 @@
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "insert into users(username, password, email, user_type) values('".$_POST[username]."', '".$hash."', '".$_POST[email]."', "sponsor")";
+	$sql = "insert into users(username, password, email, user_type) values('".$_POST[username]."', '".$hash."', '".$_POST[email]."', 'sponsor'	
+	)";
 	$query = mysqli_query($conn, $sql);
 	
 	if($query){
