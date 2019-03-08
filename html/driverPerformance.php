@@ -17,7 +17,7 @@
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 	#$conn = mysqli_connect("127.0.0.1", "root", "", "test");
-	$query2 = "SELECT sponsor_id from driver_list where driver_username ='".$_POST['username']."';";
+	$query2 = "SELECT sponsor_id from driver_list where driver_username ='".$_SESSION['username']."';";
 	$result2 = mysqli_query($conn, $query2);
 	if (!$result2) {
 	    printf("[2]Error: %s\n", mysqli_error($conn));
