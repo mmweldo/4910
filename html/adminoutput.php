@@ -43,7 +43,7 @@ if ($conn->connect_error) {
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-$sql = "insert into users(username, password, email, user_type) values('$_POST[username]', '$_POST[password]', '$_POST[email]', "admin")";
+$sql = "insert into users(username, password, email, user_type) values('$_POST[username]', '$_POST[password]', '$_POST[email]', 'admin')";
 $query = mysqli_query($conn, $sql);
 
 $sql = "select MAX(id) from users";
