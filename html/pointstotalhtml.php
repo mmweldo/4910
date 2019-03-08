@@ -39,7 +39,7 @@
 	</header>
 	<center>
 		<h1>Admin - View total Points</h1>
-		<form class="points-form" method="post" action="pointsTotal.php">
+		<form class="points-form" method="post" action="pointstotal.php">
 			<p>Driver Username</p> <input type="text" name="username" placeholder="Username">
 			<button type="submit" name="submit">Submit</button>
 		</form>
