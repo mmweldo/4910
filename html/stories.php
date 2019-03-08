@@ -133,7 +133,7 @@
             </li>
 	          <li>
               <h4>Driver - View Point Log </h4>
-              <a href="viewpointlog.html">Link</a>
+              <a href="driverpointloghtml.php">Link</a>
               <p>Completed iteration two. User story 19. Logan did this one.</p>
             </li>
 	           <li>
