@@ -22,7 +22,7 @@
 	$result = mysqli_query($conn, $query);
 	if(!$result){
 		echo "Error: User not found! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../deleteusers.html?NONEXISTANT-USER';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../deleteusershtml.php?NONEXISTANT-USER';\", 3000);</script>";
 		exit();
 	}
 
@@ -30,7 +30,7 @@
 
 	if($resultCheck < 1){
 		echo "Error: User not found! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../deleteusers.html?NONEXISTANT-USER';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../deleteusershtml.php?NONEXISTANT-USER';\", 3000);</script>";
 		exit();
 	}
 
@@ -40,7 +40,7 @@
 	
 	if(!$result){
 		echo "Error: User not found! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../deleteusers.html?NONEXISTANT-USER';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../deleteusershtml.php?NONEXISTANT-USER';\", 3000);</script>";
 		exit();
 	}
 	
