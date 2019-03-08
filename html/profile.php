@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['user_id'])){
+		echo "Error: User not logged in! You need to be logged in to access profiles. Redirecting...";
+		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
+		exit();
+	}
+?>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
