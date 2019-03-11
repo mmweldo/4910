@@ -1,7 +1,6 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
 <!--
 User Profile Sidebar by @keenthemes
@@ -10,13 +9,16 @@ Licensed under MIT
 -->
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "test";
+#$servername = "localhost";
+#$username = "root";
+#$password = "";
+#$dbname = "test";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+#$conn = new mysqli($servername, $username, $password, $dbname);
+$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
