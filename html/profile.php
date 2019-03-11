@@ -3,7 +3,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <!--
-User Profile Sidebar by @keenthemes
+User Profile Sidebar by @keenthemes updated by Seth H, Mitch W, Logan C
 A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
 Licensed under MIT
 -->
