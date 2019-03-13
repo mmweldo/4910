@@ -36,7 +36,7 @@ if ($conn->connect_error) {
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
 					<?php
-							$sql = "select profile_img from sponsors where user_id = 5";
+							$sql = "select profile_img from sponsors where user_id = ".$_POST['user_id'];
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo '<img src='.$row[0].'class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
@@ -46,15 +46,16 @@ if ($conn->connect_error) {
 				<!-- SIDEBAR USER TITLE -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
+						<p>
 						<?php
-							$sql = "select username from users where id = 5";
+							$sql = "select username from users where id = ".$_POST['user_id'];
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo $row[0]."<br>";
 						?>
+						</p>
 					</div>
 					<div class="profile-usertitle-job">
-						Administrator
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
