@@ -13,6 +13,7 @@ body {
 	border: 1px solid #ccc;
 	background-color: #f1f1f1;
 	width: 5%;
+	min-width: 40px;
 	height: 95% ;
 	padding-left: 0px;
 }
@@ -42,7 +43,7 @@ body {
 	display: block;
 	background-color: inherit;
 	color: black;
-	padding: 22px 22px;
+	padding: 25px 0px;
 	width: 100%;
 	border: none;
 	outline: none;
