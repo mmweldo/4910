@@ -36,7 +36,7 @@ if ($conn->connect_error) {
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
 					<?php
-							$sql = "select profile_img from sponsors where user_id = ".$_POST['user_id'];
+							echo "select profile_img from sponsors where user_id = ".$_POST['user_id'];
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo '<img src='.$row[0].'class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
@@ -48,7 +48,7 @@ if ($conn->connect_error) {
 					<div class="profile-usertitle-name">
 						<p>
 						<?php
-							$sql = "select username from users where id = ".$_POST['user_id'];
+							echo "select username from users where id = ".$_POST['user_id'];
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo $row[0]."<br>";
