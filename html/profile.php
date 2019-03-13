@@ -37,7 +37,7 @@ if ($conn->connect_error) {
 				<div class="profile-userpic">
 					<?php
 							if($_POST['user_type'] == "sponsor"){
-								echo "select profile_img from sponsors where user_id = ".$_POST['user_id'];
+								$sql = "select profile_img from sponsors where user_id = ".$_POST['user_id'];
 								$result = mysqli_query($conn, $sql);
 								$row = mysqli_fetch_row($result);
 								echo '<img src='.$row[0].'class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
@@ -51,7 +51,7 @@ if ($conn->connect_error) {
 						<p>
 						<?php
 							if($_POST['user_type'] == "sponsor"){
-								echo "select username from users where id = ".$_POST['user_id'];
+								$sql = "select username from users where id = ".$_POST['user_id'];
 								$result = mysqli_query($conn, $sql);
 								$row = mysqli_fetch_row($result);
 								echo $row[0]."<br>";
