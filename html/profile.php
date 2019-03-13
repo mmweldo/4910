@@ -40,7 +40,7 @@ if ($conn->connect_error) {
 								$sql = "select profile_img from sponsors where user_id = ".$_POST['user_id'];
 								$result = mysqli_query($conn, $sql);
 								$row = mysqli_fetch_row($result);
-								echo '<img src='.$row[0].'class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
+								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
 							}
 					?>
 				</div>
