@@ -28,7 +28,6 @@ if ($conn->connect_error) {
     <div class="row profile">
 		<div class="col-md-10">
             <div class="profile-content">
-			   Some user related content goes here...
             </div>
 		</div>
 		<div class="col-md-2">
