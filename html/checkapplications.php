@@ -53,7 +53,7 @@
 				echo "<center>";
 				echo "<h3>Driver - All Applications";
 				
-				echo "<table>";
+				echo "<table style="tab-size:4px;">";
 				echo "<tr>";
 				echo "<th>Sponsor Company</th>";
 				echo "<th>Application Status</th>";
