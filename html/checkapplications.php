@@ -55,8 +55,8 @@
 				
 				echo '<table style="tab-size:4px;">';
 				echo '<tr style="tab-size:4px;">';
-				echo '<th style="tab-size:4px;">Sponsor Company</th>';
-				echo "<th>Application Status</th>";
+				echo '<th style="tab-size:4px;">Sponsor Company  </th>';
+				echo "<th>Application Status  </th>";
 				echo "</tr>";
 				
 				while($row=mysqli_fetch_row($result)){
@@ -107,10 +107,10 @@
 				echo "<h3>Sponsor - View All Applications";
 				echo '<table style="tab-size:4px;">';
 				echo '<tr stlye="tab-size:4px;">';
-				echo '<th style="tab-size:4px;">Driver Username</th>';
-				echo "<th>Driver Firstname</th>";
-				echo "<th>Driver Lastname</th>";
-				echo "<th>Status</th>";
+				echo '<th style="tab-size:4px;">Driver Username  </th>';
+				echo "<th>Driver Firstname  </th>";
+				echo "<th>Driver Lastname  </th>";
+				echo "<th>Status  </th>";
 				echo "</tr>";
 				
 				while($row=mysqli_fetch_row($result)){
