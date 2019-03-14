@@ -109,7 +109,7 @@ if ($conn->connect_error) {
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo '<button class="tablinks" onclick="openCity(event, \'Applications\')"><p><span class="glyphicon glyphicon-user"></span> Applications';
-							echo $row[0];
+							echo ' ['.$row[0].']';
 							echo '</p></button>';
 						}
 					?>
