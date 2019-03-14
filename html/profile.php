@@ -67,7 +67,7 @@ if ($conn->connect_error) {
 					<button type="button" class="btn btn-success btn-sm">Follow</button>
 					<button type="button" class="btn btn-danger btn-sm">Message</button>
 					<?php
-						echo '<form class="application-form" method="post" action="index.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_SESSION['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_SESSION['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_SESSION['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a><i class="glyphicon glyphicon-road"></i> Apply </a></button></form>';
+						echo '<form style="text-color:white;"class="application-form" method="post" action="index.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_SESSION['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_SESSION['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_SESSION['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a><i class="glyphicon glyphicon-road"></i> Apply </a></button></form>';
 					?>
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
