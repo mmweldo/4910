@@ -97,10 +97,10 @@ if ($conn->connect_error) {
 					<button class="tablinks" onclick="openCity(event, 'Points')"><p><span class="glyphicon glyphicon-ok"></span> Tasks</p></button>
 					<button class="tablinks" onclick="openCity(event, 'Drivers')"><p><span class="glyphicon glyphicon-flag"></span> Help</p></button>
 					<?php
-						session_start();
-						if($_SESSION['user_type'] == "sponsor" || $_SESSION['user_type'] == "driver"){
-							echo '<button class="tablinks" onclick="openCity(event, \'Applications\')"><p><span class="glyphicon glyphicon-user"></span> Applications</p></button>'
-						}
+					#	session_start();
+					#	if($_SESSION['user_type'] == "sponsor" || $_SESSION['user_type'] == "driver"){
+					#		echo '<button class="tablinks" onclick="openCity(event, \'Applications\')"><p><span class="glyphicon glyphicon-user"></span> Applications</p></button>'
+					#	}
 					?>
 				</div>
 				<!-- END MENU -->
