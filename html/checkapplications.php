@@ -53,15 +53,15 @@
 				echo "<center>";
 				echo "<h3>Driver - All Applications";
 				
-				echo '<table style="tab-size:4px;">';
-				echo "<tr>";
+				echo '<table>';
+				echo '<tr style="tab-size:4px;">';
 				echo "<th>Sponsor Company</th>";
 				echo "<th>Application Status</th>";
 				echo "</tr>";
 				
 				while($row=mysqli_fetch_row($result)){
 					echo "<tr>"; 
-					echo "<td>".$row[0]."</td>"; 
+					echo '<td style="tab-size:4px;">'.$row[0].'</td>'; 
 					echo "<td>".$row[1]."</td>"; 
 					echo "<td>".$row[2]."</td>";  
 					echo "</tr>"; 
