@@ -104,6 +104,14 @@ CREATE TABLE admins(
 CREATE INDEX ix_user_id ON admins(user_id);
 CREATE INDEX ix_sponsor_username ON admins(username);
 
-/*EDITS to allow sponsors to have a dollar_to_point ratio value*/
-
+/*EDIT to allow sponsors to have a dollar_to_point ratio value*/
 ALTER TABLE sponsors ADD COLUMN dollar_ratio DOUBLE not null DEFAULT 1;
+
+/*EDIT to allow drivers to apply to a sponsor*/
+CREATE TABLE applications(
+	sponsor_id int not null,
+	driver_id int not null,
+	CONSTRAINT FK_app_sponsorid_sponsors_userid FOREIGN KEY (sponsor_id) REFERENCES sponsors(user_id),
+	CONSTRAINT FK_app_driverid_drivers_userid FOREIGN KEY (driver_id) REFERENCES drivers(user_id),
+	PRIMARY KEY (sponsor_id, driver_id)
+);
