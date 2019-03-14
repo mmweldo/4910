@@ -44,8 +44,10 @@
 						if($_SESSION['user_type'] == "admin"){
 							echo'<input type="text" name="company_username" placeholder="company_username">';
 						}
-						else($_SESSION['user_type'] == "sponsor"){
+						else if ($_SESSION['user_type'] == "sponsor"){
 							echo'<input type="text" type="hidden" name="company_username" placeholder="company_username" value="'.$_SESSION['username'].'">';
+						}else {
+							echo "You shouldn't be here!";
 						}
 					?>
 					<select name="order">
