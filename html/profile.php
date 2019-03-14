@@ -93,6 +93,7 @@ if ($conn->connect_error) {
 						</li>
 						
 						<?php
+							session_start();
 							if(isset($_SESSION['user_id']) && $_SESSION['user_type'] == "driver"){
 								echo '<li> <a href="#"> <i class="glyphicon glyphicon-road"></i> Apply </a> </li>';
 							}
