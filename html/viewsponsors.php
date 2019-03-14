@@ -5,11 +5,12 @@
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
 		exit();
 	}
-	if($_SESSION['user_type'] != "admin"){
+	//For now lets let everyone see this page, useful for drivers applying to sponsors
+	/*if($_SESSION['user_type'] != "admin"){
 		echo "Error: User doesn't have permission to be here! Redirecting...";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
 		exit();
-	}
+	}*/
 
 	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/style.css\"><header><div class=\"container\"><div id=\"branding\"><h1><span class=\"highlight\">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1></div><nav><ul><li><a href=\"/\">Home</a></li><li><a href=\"about.php\">About</a></li><li><a href=\"stories.php\">[Stories]</a></li><li><a href=\"login.html\">Login/Signup</a></li></ul></nav></div></header>";
 	#$conn = mysqli_connect("127.0.0.1", "root", "", "test");
