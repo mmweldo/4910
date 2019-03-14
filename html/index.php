@@ -18,7 +18,7 @@
   <body>
     <?php
 	  session_start();
-	  if(isset[$_SESSION['username']) echo'
+	  if(isset[$_SESSION['username']) {echo'
     <header>
       <div class="container">
         <div id="branding">
@@ -40,7 +40,7 @@
           </ul>
         </nav>
       </div>
-    </header>';
+    </header>';}
     ?>
 
     <section id="showcase">
