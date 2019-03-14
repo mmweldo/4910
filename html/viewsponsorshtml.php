@@ -5,11 +5,12 @@
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
 		exit();
 	}
-	if($_SESSION['user_type'] != "admin"){
+	//For now lets allow all users to see this if they're logged in, useful for drivers trying to find a sponsor
+	/*if($_SESSION['user_type'] != "admin"){
 		echo "Error: User doesn't have permission to be here! Redirecting...";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
 		exit();
-	}
+	}*/
 ?>
 
 <!DOCTYPE html>
