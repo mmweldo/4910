@@ -16,7 +16,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <?php if(isset[$_SESSION['username']) echo'
+    <?php
+	  session_start();
+	  if(isset[$_SESSION['username']) echo'
     <header>
       <div class="container">
         <div id="branding">
