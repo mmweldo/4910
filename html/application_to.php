@@ -7,6 +7,7 @@
 	</head>
 	<body>
 	<?php
+		echo '<center>';
 		session_start();
 		// Create connection
 		#$conn = new mysqli($servername, $username, $password, $dbname);
@@ -73,6 +74,7 @@
 		echo '<h1>Application succesful</h1>';
 		echo 'Redirecting...';
 		echo "<script>setTimeout(\"location.href = '../index.php?APPLICATION-SUCCESSFUL';\", 3000);</script>";
+		echo '</center>';
 	?>
 	</body>
 </html>
