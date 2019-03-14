@@ -16,32 +16,28 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <?php
-	  session_start();
-	  if(isset[$_SESSION['username']) {echo'
     <header>
       <div class="container">
         <div id="branding">
           <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
-        </div>';
-        if(isset($_SESSION['username'])) 
-		echo '<form style="width=5%; float:right;"action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>'; 
-         echo' <nav>
+        </div>
+        <?php if(isset($_SESSION['username'])) echo '<form style="width=5%; float:right;"action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>'; ?>
+        <nav>
           <ul>
             <li class="current"><a href="/">Home</a></li>
             <li><a href="about.php">About</a></li>
-            <li><a href="stories.php">[Stories]</a></li>';
+            <li><a href="stories.php">[Stories]</a></li>
+            <?php 
               if(isset($_SESSION['username'])){
-                echo '<li><a href="">Welcome, \'.$_SESSION[\'username'].\'</a></li>';
+                echo '<li><a href="">Welcome, '.$_SESSION['username'].'</a></li>';
               } else{
                 echo '<li><a href="login.html">Login/Signup</a></li>';
               }
-	echo'
+            ?>
           </ul>
         </nav>
       </div>
-    </header>';}
-    ?>
+    </header>
 
     <section id="showcase">
       <div class="container">
