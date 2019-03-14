@@ -44,7 +44,7 @@
 		#}
 
 		//Applies --------------------------------
-		echo "INSERT INTO applications (sponsor_id, driver_id) VALUES ".$_POST['user_id'].",".$_SESSION['user_id'].";";
+		echo "INSERT INTO applications (sponsor_id, driver_id) VALUES (".$_POST['user_id'].",".$_SESSION['user_id'].");";
 		$result = mysqli_query($conn, $query);
 	
 		if(!$result){
