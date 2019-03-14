@@ -71,7 +71,7 @@ if ($conn->connect_error) {
 						session_start();
 						//Check if user on this page is logged in and if they are a driver
 						if(isset($_SESSION['user_id']) && $_SESSION['user_type'] == "driver"){
-							echo '<form style="color:white;"class="application-form" method="post" action="index.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_SESSION['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_SESSION['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_SESSION['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a style="color:white;"><i style="color:white;" class="glyphicon glyphicon-road"></i> Apply </a></button></form>';
+							echo '<form style="color:white;"class="application-form" method="post" action="application_to.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_POST['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_POST['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_POST['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a style="color:white;"><i style="color:white;" class="glyphicon glyphicon-road"></i> Apply </a></button></form>';
 						}
 					?>
 				</div>
