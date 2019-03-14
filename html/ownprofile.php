@@ -57,7 +57,13 @@ if ($conn->connect_error) {
 				<div class="profile-userpic">
 					<?php
 							session_start();
-							$sql = "select profile_img from drivers where user_id = ".$_SESSION['user_id'];
+							if($_SESSION['user_type'] == "admin"){
+								$sql = "select profile_img from admins where user_id = ".$_SESSION['user_id'];
+							}else if($_SESSION['user_type'] == "sponsor"){
+								$sql = "select profile_img from sponsors where user_id = ".$_SESSION['user_id'];
+							}else{
+								$sql = "select profile_img from drivers where user_id = ".$_SESSION['user_id'];
+							}
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo "<img src=".$row[0]." class='img-circle' alt='Profile Image' style='width:125px;height:125px;'>";
