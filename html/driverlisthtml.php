@@ -38,7 +38,16 @@
 		<center>
 			<h2>Sponsor - View Driver List</h2>
 			<form class="driverlist-form" method="post" action="driverlist.php">
-					<p>Company Name | Sort</p><input type="text" name="company_name" placeholder="Comany Name">
+					<p>Company Name | Sort</p>
+					<?php
+						session_start();
+						if($_SESSION['user_type'] == "admin"){
+							echo'<input type="text" name="company username" placeholder="company username">';
+						}
+						else($_SESSION['user_type'] == "sponsor"){
+							echo'<input type="hidden" name="company username" placeholder="company username" value="'.$_SESSION['username'].'">';
+						}
+					?>
 					<select name="order">
 						<option value="drivers.firstname ASC">Fname Asc</option>
 						<option value="drivers.firstname DESC">Fname Desc</option>
