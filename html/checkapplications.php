@@ -25,7 +25,7 @@
 		//Display the applications page for users
 		if($_SESSION['user_type'] == "driver"){
 			$query = "SELECT sponsor_id FROM applications WHERE driver_id = ".$_SESSION['user_id'].";";
-			echo "SELECT sponsor_id FROM applications WHERE driver_id = ".$_SESSION['user_id'].";";
+			$query = "SELECT sponsor_id FROM applications WHERE driver_id = ".$_SESSION['user_id'].";";
 			
 			$result = mysqli_query($conn, $query);
 			if(!$result){
