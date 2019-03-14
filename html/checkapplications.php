@@ -107,15 +107,15 @@
 				echo "<h3>Sponsor - View All Applications";
 				echo '<table style="tab-size:4px;">';
 				echo '<tr stlye="tab-size:4px;">';
-				echo "<th>Driver Username</th>";
+				echo '<th style="tab-size:4px;">Driver Username</th>';
 				echo "<th>Driver Firstname</th>";
 				echo "<th>Driver Lastname</th>";
 				echo "<th>Status</th>";
 				echo "</tr>";
 				
 				while($row=mysqli_fetch_row($result)){
-					echo "<tr>"; 
-					echo "<td>".$row[0]."</td>"; 
+					echo '<tr style="tab-size:4px;">'; 
+					echo '<td style="tab-size:4px;">'.$row[0]."</td>"; 
 					echo "<td>".$row[1]."</td>"; 
 					echo "<td>".$row[2]."</td>"; 
 					echo "<td>".$row[3]."</td>";  
