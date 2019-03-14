@@ -41,7 +41,7 @@
 			<?php
 				session_start();
 				if($_SESSION['user_type'] == "admin"){
-					echo'<p>Company Name</p> <input type="text" name="company_name" placeholder="company_name">';
+					echo'<p>Company Name</p> <input type="hidden" name="company_name" placeholder="company_name">';
 				}
 				if($_SESSION['user_type'] == "sponsor"){
 					echo'<p>Company Name</p> <input type="text" name="company_name" placeholder="company_name" value="'.$_SESSION['company_name'].'">';
