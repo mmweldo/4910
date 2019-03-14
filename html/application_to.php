@@ -8,6 +8,15 @@
 	<body>
 	<?php
 		session_start();
+		// Create connection
+		#$conn = new mysqli($servername, $username, $password, $dbname);
+		$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+		$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+		// Check connection
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		}
+		
 		if(!isset($_SESSION['username'])){
 			echo "Error: User not logged in.";
 			echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGEDIN';\", 3000);</script>";
@@ -44,7 +53,7 @@
 		#}
 
 		//Applies --------------------------------
-		echo "INSERT INTO applications (sponsor_id, driver_id) VALUES (".$_POST['user_id'].",".$_SESSION['user_id'].");";
+		$query "INSERT INTO applications (sponsor_id, driver_id) VALUES (".$_POST['user_id'].",".$_SESSION['user_id'].");";
 		$result = mysqli_query($conn, $query);
 	
 		if(!$result){
