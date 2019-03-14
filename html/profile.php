@@ -97,6 +97,7 @@ if ($conn->connect_error) {
 							if(isset($_SESSION['user_id']) && $_SESSION['user_type'] == "driver"){
 								#echo '<li> <a href="#"> <i class="glyphicon glyphicon-road"></i> Apply </a> </li>';
 								echo '<form class="application-form" method="post" action="index.php"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$_SESSION['username'].'"><input type="hidden" style="width:0px;" type="text" name="user_id" placeholder="user_id" value="'.$_SESSION['user_id'].'"><input type="hidden" style="width:0px;" type="text" name="user_type" placeholder="user_type" value="'.$_SESSION['user_type'].'"><button type="View" name="submit" style="border:none; background:none;"><a><i class="glyphicon glyphicon-road"></i></a> Apply </button></form>';
+							}
 	?>
 							}
 						?>
