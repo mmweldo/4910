@@ -33,7 +33,7 @@
 		$hashedPwdCheck = password_verify($_POST['password'], $row['password']);
 		if($hashedPwdCheck == false){
 			echo "password hash didn't match.";
-		    echo "<script>setTimeout(\"location.href = '../login.html?login=error';\", 3000);</script>";
+			echo "<script>setTimeout(\"location.href = '../login.html?login=error';\", 1500);</script>";
 			exit();
 		}else{
 			session_start();
@@ -43,13 +43,13 @@
 			$_SESSION['lastname'] = $row['lastname'];
 			$_SESSION['email'] = $row['email'];
 			$_SESSION['user_type'] = $row['user_type'];
-			header("Location:../index.php?login=success");
+			header("Location:../shell.php?login=success");
 			exit();
 		}
 	}
 
-	echo "Wow, correct password!";
-	echo "original password: ".$_POST['password']."<br>";
-	echo "hashed password: ".$hash."<br>";
+	#echo "Wow, correct password!";
+	#echo "original password: ".$_POST['password']."<br>";
+	#echo "hashed password: ".$hash."<br>";
 	mysqli_close($conn);
 ?>
