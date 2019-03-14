@@ -25,7 +25,7 @@
 		}
 
 		//Checks if already applied ----------------
-		$query = "SELECT FROM applications WHERE sponsor_id == ".$_POST['user_id']." AND driver_id == ".$_SESSION['user_id'].";";
+		echo "SELECT FROM applications WHERE sponsor_id == ".$_POST['user_id']." AND driver_id == ".$_SESSION['user_id'].";";
 
 		$result = mysqli_query($conn, $query);
 	
@@ -44,7 +44,7 @@
 		}
 
 		//Applies --------------------------------
-		$query = "INSERT INTO applications (sponsor_id, driver_id) VALUES sponsor_id = ".$_POST['user_id']." driver_id = ".$_SESSION['user_id'].";";
+		echo "INSERT INTO applications (sponsor_id, driver_id) VALUES sponsor_id = ".$_POST['user_id']." driver_id = ".$_SESSION['user_id'].";";
 		$result = mysqli_query($conn, $query);
 	
 		if(!$result){
