@@ -42,10 +42,10 @@
 					<?php
 						session_start();
 						if($_SESSION['user_type'] == "admin"){
-							echo'<input type="text" name="company username" placeholder="company username">';
+							echo'<input type="text" name="company_username" placeholder="company_username">';
 						}
 						else($_SESSION['user_type'] == "sponsor"){
-							echo'<input type="hidden" name="company username" placeholder="company username" value="'.$_SESSION['username'].'">';
+							echo'<input type="hidden" name="company_username" placeholder="company_username" value="'.$_SESSION['username'].'">';
 						}
 					?>
 					<select name="order">
