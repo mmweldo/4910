@@ -91,6 +91,12 @@ if ($conn->connect_error) {
 							<i class="glyphicon glyphicon-flag"></i>
 							Help </a>
 						</li>
+						
+						<?php
+							if(isset($_SESSION['user_id']) && $_SESSION['user_type'] == "driver"){
+								echo '<li> <a href="#"> <i class="glyphicon glyphicon-road"></i> Apply </a> </li>'
+							}
+						?>
 					</ul>
 				</div>
 				<!-- END MENU -->
