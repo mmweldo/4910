@@ -45,7 +45,7 @@
 							echo'<input type="text" name="company_username" placeholder="company_username">';
 						}
 						else($_SESSION['user_type'] == "sponsor"){
-							echo'<input type="hidden" name="company_username" placeholder="company_username" value="'.$_SESSION['username'].'">';
+							echo'<input type="text" type="hidden" name="company_username" placeholder="company_username" value="'.$_SESSION['username'].'">';
 						}
 					?>
 					<select name="order">
