@@ -53,9 +53,9 @@
 				echo "<center>";
 				echo "<h3>Driver - All Applications";
 				
-				echo '<table>';
+				echo '<table style="tab-size:4px;">';
 				echo '<tr style="tab-size:4px;">';
-				echo "<th>Sponsor Company</th>";
+				echo '<th style="tab-size:4px;">Sponsor Company</th>';
 				echo "<th>Application Status</th>";
 				echo "</tr>";
 				
@@ -104,9 +104,9 @@
 				}
 
 				echo "<center>";
-				echo "<h3>SPONSOR - All Applications";
-				echo "<table>";
-				echo "<tr>";
+				echo "<h3>Sponsor - View All Applications";
+				echo '<table style="tab-size:4px;">';
+				echo '<tr stlye="tab-size:4px;">';
 				echo "<th>Driver Username</th>";
 				echo "<th>Driver Firstname</th>";
 				echo "<th>Driver Lastname</th>";
