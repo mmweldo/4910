@@ -35,7 +35,6 @@
 			echo "<script>setTimeout(\"location.href = '../login.php?APPLIED-ALREADY;\", 3000);</script>";
 			exit();
 		}
-		echo "made it here2";
 		#$resultCheck = mysqli_num_rows($result);
 
 		#if($resultCheck > 0){
@@ -45,7 +44,7 @@
 		#}
 
 		//Applies --------------------------------
-		echo "INSERT INTO applications (sponsor_id, driver_id) VALUES ".$_POST['user_id'].",".$_SESSION['user_id'].";";
+		$query = "INSERT INTO applications (sponsor_id, driver_id) VALUES ".$_POST['user_id'].",".$_SESSION['user_id'].";";
 		$result = mysqli_query($conn, $query);
 	
 		if(!$result){
