@@ -35,13 +35,13 @@
 			exit();
 		}
 
-		$resultCheck = mysqli_num_rows($result);
+		#$resultCheck = mysqli_num_rows($result);
 
-		if($resultCheck > 0){
-			echo "Error: You've already applied!";
-			echo "<script>setTimeout(\"location.href = '../index.php?APPLIED-ALREADY';\", 3000);</script>";
-			exit();
-		}
+		#if($resultCheck > 0){
+		#	echo "Error: You've already applied!";
+		#	echo "<script>setTimeout(\"location.href = '../index.php?APPLIED-ALREADY';\", 3000);</script>";
+		#	exit();
+		#}
 
 		//Applies --------------------------------
 		echo "INSERT INTO applications (sponsor_id, driver_id) VALUES ".$_POST['user_id'].",".$_SESSION['user_id'].";";
