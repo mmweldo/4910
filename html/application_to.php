@@ -25,6 +25,7 @@
 		}
 
 		//Checks if already applied ----------------
+		echo "made it here";
 		$query "SELECT * FROM applications WHERE sponsor_id = ".$_POST['user_id']." AND driver_id = ".$_SESSION['user_id'].";";
 
 		$result = mysqli_query($conn, $query);
@@ -34,7 +35,7 @@
 			echo "<script>setTimeout(\"location.href = '../login.php?PASSWORD-MISSING;\", 3000);</script>";
 			exit();
 		}
-
+		echo "made it here2";
 		#$resultCheck = mysqli_num_rows($result);
 
 		#if($resultCheck > 0){
