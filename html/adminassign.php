@@ -15,7 +15,7 @@
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 	
-	$query = "SELECT driver_id FROM driver_list WHERE sponsor_id = (SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."') AND driver_username = '".$_POST['username']."';";
+	echo "SELECT driver_id FROM driver_list WHERE sponsor_id = (SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."') AND driver_username = '".$_POST['username']."';";
 	$result = mysqli_query($conn, $query);
 	if($result){
 		echo "Error: Driver-Sponsor pair already found!";
