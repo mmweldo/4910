@@ -87,9 +87,7 @@
 				exit();
 			} else {
 				#$query = "SELECT username, firstname, lastname, status FROM applications JOIN drivers on applications.driver_id = (SELECT driver_id FROM applications where sponsor_id = ".$_SESSION['user_id'].";";
-				$query = "SELECT username, firstname, lastname, status FROM applications join sponsors on applications.driver_id = drivers.user_id WHERE applications.sponsor_id = ".$_SESSION['user_id'].";";	
-				echo "SELECT username, firstname, lastname, status FROM applications join sponsors on applications.driver_id = drivers.user_id WHERE applications.sponsor_id = ".$_SESSION['user_id'].";";	
-
+				$query = "SELECT username, firstname, lastname, status FROM applications join drivers on applications.driver_id = drivers.user_id WHERE applications.sponsor_id = ".$_SESSION['user_id'].";";	
 				
 				$result = mysqli_query($conn, $query);
 				if(!$result){
