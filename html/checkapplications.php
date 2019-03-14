@@ -86,8 +86,12 @@
 				echo "<script>setTimeout(\"location.href = '../index.php?NO-APPS';\", 3000);</script>";
 				exit();
 			} else {
-				$query = "SELECT username, firstname, lastname, status FROM applications JOIN drivers on driver_id = (SELECT driver_id FROM applications where sponsor_id = ".$_SESSION['user_id'].";";
-					$result = mysqli_query($conn, $query);
+				#$query = "SELECT username, firstname, lastname, status FROM applications JOIN drivers on applications.driver_id = (SELECT driver_id FROM applications where sponsor_id = ".$_SESSION['user_id'].";";
+				$query = "SELECT username, firstname, lastname, status FROM applications join sponsors on applications.driver_id = drivers.user_id WHERE applications.sponsor_id = ".$_SESSION['user_id'].";";	
+				echo "SELECT username, firstname, lastname, status FROM applications join sponsors on applications.driver_id = drivers.user_id WHERE applications.sponsor_id = ".$_SESSION['user_id'].";";	
+
+				
+				$result = mysqli_query($conn, $query);
 				if(!$result){
 					echo "Error: Driver Apps not found! Redirecting...";
 					echo "<script>setTimeout(\"location.href = '../index.php?NONEXISTANT-DRIVERS';\", 3000);</script>";
@@ -111,14 +115,15 @@
 				echo "<th>Status</th>";
 				echo "</tr>";
 				
-				$row=mysqli_fetch_row($result);
-			    echo "<tr>"; 
-			    echo "<td>".$row[0]."</td>"; 
-			    echo "<td>".$row[1]."</td>"; 
-			    echo "<td>".$row[2]."</td>"; 
-			    echo "<td>".$row[3]."</td>";  
-			    echo "</tr>"; 
-			    echo '</center>';
+				while($row=mysqli_fetch_row($result)){
+					echo "<tr>"; 
+					echo "<td>".$row[0]."</td>"; 
+					echo "<td>".$row[1]."</td>"; 
+					echo "<td>".$row[2]."</td>"; 
+					echo "<td>".$row[3]."</td>";  
+					echo "</tr>"; 
+				}
+				echo '</center>';
 			}
 
 		}
