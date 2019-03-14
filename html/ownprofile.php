@@ -50,6 +50,9 @@ if ($conn->connect_error) {
 			<div id="Help" class="tabcontent">
 				<h3>Help page Here</h3>
 			</div>
+			<div id="Applications" class="tabcontent">
+				<iframe src="checkapplications.php" style="width:100%;height:100%;"></iframe>
+			</div>
 		</div>
 		<div class="col-md-2">
 			<div class="profile-sidebar">
@@ -57,7 +60,13 @@ if ($conn->connect_error) {
 				<div class="profile-userpic">
 					<?php
 							session_start();
-							$sql = "select profile_img from drivers where user_id = ".$_SESSION['user_id'];
+							if($_SESSION['user_type'] == "admin"){
+								$sql = "select profile_img from admins where user_id = ".$_SESSION['user_id'];
+							}else if($_SESSION['user_type'] == "sponsor"){
+								$sql = "select profile_img from sponsors where user_id = ".$_SESSION['user_id'];
+							}else{
+								$sql = "select profile_img from drivers where user_id = ".$_SESSION['user_id'];
+							}
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo "<img src=".$row[0]." class='img-circle' alt='Profile Image' style='width:125px;height:125px;'>";
@@ -87,6 +96,13 @@ if ($conn->connect_error) {
 					<button class="tablinks" onclick="openCity(event, 'Profile')"><p><span class="glyphicon glyphicon-user"></span> Account Settings</p></button>
 					<button class="tablinks" onclick="openCity(event, 'Points')"><p><span class="glyphicon glyphicon-ok"></span> Tasks</p></button>
 					<button class="tablinks" onclick="openCity(event, 'Drivers')"><p><span class="glyphicon glyphicon-flag"></span> Help</p></button>
+					<?php
+						session_start();
+						if(!$_SESSION['username']) exit();
+						if($_SESSION['user_type'] == "sponsor" || $_SESSION['user_type'] == "driver"){
+							echo '<button class="tablinks" onclick="openCity(event, \'Applications\')"><p><span class="glyphicon glyphicon-user"></span> Applications</p></button>';
+						}
+					?>
 				</div>
 				<!-- END MENU -->
 				
