@@ -25,7 +25,6 @@
 		//Display the applications page for users
 		if($_SESSION['user_type'] == "driver"){
 			$query = "SELECT sponsor_id FROM applications WHERE driver_id = ".$_SESSION['user_id'].";";
-			$query = "SELECT sponsor_id FROM applications WHERE driver_id = ".$_SESSION['user_id'].";";
 			
 			$result = mysqli_query($conn, $query);
 			if(!$result){
@@ -39,8 +38,6 @@
 				exit();
 			} else {
 				$query = "select company_name, status FROM applications join sponsors on applications.sponsor_id = sponsors.user_id WHERE applications.driver_id = ".$_SESSION['user_id'].";";
-				echo "SELECT company_name, status FROM sponsors JOIN applications on sponsor_id = (SELECT sponsor_id FROM applications where driver_id = ".$_SESSION['user_id'].";";
-				
 				$result = mysqli_query($conn, $query);
 				if(!$result){
 					echo "Error: Sponsor Apps not found! Redirecting...";
@@ -61,7 +58,6 @@
 				echo "<table>";
 				echo "<tr>";
 				echo "<th>Sponsor Company</th>";
-				echo "<th>Sponsor Username</th>";
 				echo "<th>Application Status</th>";
 				echo "</tr>";
 				
