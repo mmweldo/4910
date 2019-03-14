@@ -67,7 +67,12 @@ if ($conn->connect_error) {
 					<button type="button" class="btn btn-success btn-sm">Follow</button>
 					<button type="button" class="btn btn-danger btn-sm">Message</button>
 					<?php
-						echo '<form style="color:white;"class="application-form" method="post" action="index.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_SESSION['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_SESSION['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_SESSION['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a style="color:white;"><i style="color:white;" class="glyphicon glyphicon-road"></i> Apply </a></button></form>';
+						//Start session so session vars are available and set
+						session_start();
+						//Check if user on this page is logged in and if they are a driver
+						if(isset($_SESSION['user_id']) && $_SESSION['user_type'] == "driver"){
+							echo '<form style="color:white;"class="application-form" method="post" action="index.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_SESSION['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_SESSION['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_SESSION['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a style="color:white;"><i style="color:white;" class="glyphicon glyphicon-road"></i> Apply </a></button></form>';
+						}
 					?>
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
@@ -94,14 +99,6 @@ if ($conn->connect_error) {
 							<i class="glyphicon glyphicon-flag"></i>
 							Help </a>
 						</li>
-						
-						<?php
-							session_start();
-							if(isset($_SESSION['user_id']) && $_SESSION['user_type'] == "driver"){
-								#echo '<li> <a href="#"> <i class="glyphicon glyphicon-road"></i> Apply </a> </li>';
-								echo '<li><form class="application-form" method="post" action="index.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_SESSION['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_SESSION['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_SESSION['user_type'].'"><button type="View" name="submit" style="border:none; background:none;"><a><i class="glyphicon glyphicon-road"></i> Apply </a></button></form></li>';
-							}
-						?>
 					</ul>
 				</div>
 				<!-- END MENU -->
