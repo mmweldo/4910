@@ -37,7 +37,7 @@
 				echo "<script>setTimeout(\"location.href = '../index.php?NO-APPS';\", 3000);</script>";
 				exit();
 			} else {
-				$query = "SELECT company_name, username, status FROM sponsors JOIN applications on sponsor_id = (SELECT sponsor_id FROM applications where driver_id = ".$_SESSION['user_id'].";";
+				echo "SELECT company_name, username, status FROM sponsors JOIN applications on sponsor_id = (SELECT sponsor_id FROM applications where driver_id = ".$_SESSION['user_id'].";";
 					$result = mysqli_query($conn, $query);
 				if(!$result){
 					echo "Error: Sponsor Apps not found! Redirecting...";
