@@ -30,9 +30,9 @@
 
 		$result = mysqli_query($conn, $query);
 	
-		if(!$result){
-			echo "Error: Couldn't check if applied already.";
-			echo "<script>setTimeout(\"location.href = '../login.php?PASSWORD-MISSING;\", 3000);</script>";
+		if($result){
+			echo "Error: you've already applied.";
+			echo "<script>setTimeout(\"location.href = '../login.php?APPLIED-ALREADY;\", 3000);</script>";
 			exit();
 		}
 		echo "made it here2";
