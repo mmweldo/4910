@@ -98,9 +98,15 @@ if ($conn->connect_error) {
 					<button class="tablinks" onclick="openCity(event, 'Drivers')"><p><span class="glyphicon glyphicon-flag"></span> Help</p></button>
 					<?php
 						session_start();
+						$sql = "select count(*) as total from applications where sponsor_id =".$_SESSION['user_id'];
+						$result = mysqli_query($conn, $sql);
+						$row = mysqli_fetch_row($result);
 						if(!$_SESSION['username']) exit();
 						if($_SESSION['user_type'] == "sponsor" || $_SESSION['user_type'] == "driver"){
-							echo '<button class="tablinks" onclick="openCity(event, \'Applications\')"><p><span class="glyphicon glyphicon-user"></span> Applications</p></button>';
+							$query = 
+							echo '<button class="tablinks" onclick="openCity(event, \'Applications\')"><p><span class="glyphicon glyphicon-user"></span> Applications';
+							echo $row[0];
+							echo '</p></button>';
 						}
 					?>
 				</div>
