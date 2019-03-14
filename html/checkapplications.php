@@ -8,8 +8,6 @@
 	</head>
 	<body>
 	<?php
-	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/style.css\"><header><div class=\"container\"><div id=\"branding\"><h1><span class=\"highlight\">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1></div><nav><ul><li><a href=\"/\">Home</a></li><li><a href=\"about.php\">About</a></li><li><a href=\"stories.php\">[Stories]</a></li><li><a href=\"login.html\">Login/Signup</a></li></ul></nav></div></header>";
-
 		session_start();
 		if(!isset($_SESSION['username']) || $_SESSION['user_type'] == "admin"){
 			echo "Error: Wrong user or not logged in!";
