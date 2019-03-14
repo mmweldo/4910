@@ -15,7 +15,7 @@
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 	
-	$query = "SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."';";
+	$query = "SELECT user_id FROM sponsors join users on sponsors.user_id = users.id WHERE username = '".$_POST['company_username']."';";
 	$result = mysqli_query($conn, $query);
 	if(!$result){
 		echo "Error: Sponsor not found! Redirecting...";
@@ -48,7 +48,7 @@
 	}
 
 	echo "<center>";
-	echo "<h3>Driver List for Sponsor: ".$_POST['company_name']."</h3>";
+	echo "<h3>Driver List for Sponsor: ".$_POST['company_username']."</h3>";
 	echo "<p>Ordered By: ";
 
 	switch($_POST['order']){	
