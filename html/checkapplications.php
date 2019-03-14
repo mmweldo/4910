@@ -38,7 +38,7 @@
 				echo "<script>setTimeout(\"location.href = '../index.php?NO-APPS';\", 3000);</script>";
 				exit();
 			} else {
-				$query = "SELECT company_name, status FROM sponsors JOIN applications on sponsor_id = (SELECT sponsor_id FROM applications where driver_id = ".$_SESSION['user_id'].";";
+				$query = "select company_name, status FROM applications join sponsors on applications.sponsor_id = sponsors.user_id WHERE applications.driver_id = ".$_SESSION['user_id'].";";
 				echo "SELECT company_name, status FROM sponsors JOIN applications on sponsor_id = (SELECT sponsor_id FROM applications where driver_id = ".$_SESSION['user_id'].";";
 				
 				$result = mysqli_query($conn, $query);
