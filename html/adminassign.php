@@ -29,7 +29,7 @@
 	}
 
 
-	echo "INSERT INTO driver_list (sponsor_id, driver_id, driver_username) VALUES ((SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."'), (SELECT user_id FROM drivers WHERE username = '".$_POST['username']."'), '".$_POST['username']."');";
+	$query = "INSERT INTO driver_list (sponsor_id, driver_id, driver_username) VALUES ((SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."'), (SELECT user_id FROM drivers WHERE username = '".$_POST['username']."'), '".$_POST['username']."');";
 	$result = mysqli_query($conn, $query);
 	if(!$result){
 		echo "Error: Couldn't insert into driver list...";
