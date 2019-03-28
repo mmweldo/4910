@@ -33,7 +33,7 @@ if ($conn->connect_error) {
     <div class="row profile">
 		<div class="col-md-10">
             <div id="Home" class="tabcontent">
-			  <iframe src="index.php" style="width:100%;height:100%;"></iframe>
+			  <iframe src="overview.php" style="width:100%;height:100%;"></iframe>
 			</div>
 			<div id="Profile" class="tabcontent">
 				<?php 
