@@ -36,7 +36,16 @@
 	<div class="container">
 		<center>
 			<form class="viewdaily-form" method="post" action="viewdaily.php">
-				<p>Drivers Points by Day</p> <input type="text" name="username" placeholder="Driver Username">
+				<p>Drivers Points by Day</p> 
+				<?php
+					if($_SESSION['user_type'] == "driver"){
+						echo '<input type="text" name="username" placeholder="Driver Username" value="'.$_SESSION['username'].'">';
+					}
+					else{
+						echo '<input type="text" name="username" placeholder="Driver Username">';
+					}
+				?>
+				
 				  <select name="order">
 				    <option value="date_created DESC">Date Desc</option>
 				    <option value="date_created ASC">Date Asc</option>
