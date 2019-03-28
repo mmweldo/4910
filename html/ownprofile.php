@@ -36,7 +36,17 @@ if ($conn->connect_error) {
 			  <iframe src="index.php" style="width:100%;height:100%;"></iframe>
 			</div>
 			<div id="Profile" class="tabcontent">
-				<iframe src="changeusernamehtml.php" style="width:100%;height:100%;"></iframe>
+				<?php 
+					if(isset($_SESSION['user_type'])){
+						if($_SESSION['user_type'] == "driver"){
+							echo echo '<iframe src="profilesettings.php" style="width:100%;height:100%;"></iframe>';
+						}
+						else{
+							echo '<iframe src="changeusernamehtml.php" style="width:100%;height:100%;"></iframe>';
+						}
+					}
+				?>
+				
 			</div>
 			<div id="Points" class="tabcontent">
 				<iframe src="addpoints.html" style="width:100%;height:100%;"></iframe>
