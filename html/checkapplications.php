@@ -111,14 +111,23 @@
 				echo "<th>Driver Firstname  </th>";
 				echo "<th>Driver Lastname  </th>";
 				echo "<th>Status  </th>";
-				echo "</tr>";
+				echo "<th>Approve </th>";
+				echo "<th>Deny </th>";
+ 				echo "</tr>";
 				
 				while($row=mysqli_fetch_row($result)){
 					echo '<tr style="tab-size:4px;">'; 
 					echo '<td style="tab-size:4px;">'.$row[0]."</td>"; 
 					echo "<td>".$row[1]."</td>"; 
 					echo "<td>".$row[2]."</td>"; 
-					echo "<td>".$row[3]."</td>";  
+					echo "<td>".$row[3]."</td>";
+					if($row[3] == "pending"){
+					
+					}
+					else{//In case that the application has already been approved/denied
+						echo "<td>/ </td>";
+						echo "<td>/ </td>";
+					}
 					echo "</tr>"; 
 				}
 				echo '</center>';
