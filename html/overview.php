@@ -79,7 +79,7 @@ session_start();
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-	$sql = "select current_points from driver_list where user_id = ".$_SESSION['user_id'];
+	$sql = "select current_points from driver_list where driver_id = ".$_SESSION['user_id'];
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result); ?>
 	<h3>Total Current Points: <?php echo $row[0]."<br>"?></h3>
@@ -89,7 +89,7 @@ session_start();
 	$row = mysqli_fetch_row($result); ?>
 	<h3>Total Spent Points: <?php echo $row[0]."<br>"?></h3>
 	
-	<?php $sql = "select total_points from driver_list where user_id = ".$_SESSION['user_id'];
+	<?php $sql = "select total_points from driver_list where driver_id = ".$_SESSION['user_id'];
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result); ?>
 	<h3>Total Earned Points: <?php echo $row[0]."<br>"?></h3>
