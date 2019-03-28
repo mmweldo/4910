@@ -107,7 +107,7 @@ if ($conn->connect_error) {
 							$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 							
 							$sql = "select count(*) as total from applications where sponsor_id =".$_SESSION['user_id']." AND status='pending'";
-							if($_SESSION['user_type == "driver"']){
+							if($_SESSION['user_type'] == "driver"){
 								$sql = "select count(*) as total from applications where driver_id = ".$_SESSION['user_id']." AND status='pending'";
 							}
 							$result = mysqli_query($conn, $sql);
