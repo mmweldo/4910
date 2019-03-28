@@ -37,6 +37,7 @@ if ($conn->connect_error) {
 			</div>
 			<div id="Profile" class="tabcontent">
 				<?php 
+					session_start();
 					if(isset($_SESSION['user_type'])){
 						if($_SESSION['user_type'] == "driver"){
 							echo echo '<iframe src="profilesettings.php" style="width:100%;height:100%;"></iframe>';
