@@ -33,4 +33,5 @@
 	} else{
 		echo "<center><h3>".$_POST['driver_username']."'s new application status: ".$_POST['status']."<h3></center>";
 	}
+	echo "<script>setTimeout(\"location.href = '../checkapplications.php?Success';\", 3000);</script>";
 ?>
