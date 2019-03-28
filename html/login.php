@@ -43,6 +43,13 @@
 			$_SESSION['lastname'] = $row['lastname'];
 			$_SESSION['email'] = $row['email'];
 			$_SESSION['user_type'] = $row['user_type'];
+			if($_SESSION['user_type'] == "sponsor"){
+				$query = "SELECT company_name FROM sponsors WHERE user_id = '".$_SESSION['user_id']."' ;";
+				$result = mysqli_query($conn, $query);
+				if($row = mysqli_fetch_assoc($result)){
+					$_SESSION['company_name'] = $row['company_name'];
+				}
+			}
 			header("Location:../shell.php?login=success");
 			exit();
 		}

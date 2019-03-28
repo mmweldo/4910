@@ -5,7 +5,7 @@
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
 		exit();
 	}
-	if($_SESSION['user_type'] != "sponsor"){
+	if($_SESSION['user_type'] != "sponsor" && $_SESSION['user_type'] != "admin"){
 		echo "Error: User doesn't have permission to be here! Redirecting...";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-SPONSOR';\", 3000);</script>";
 		exit();
@@ -38,7 +38,15 @@
 	<center>
 		<h1>Sponsor - Point Editor</h1>
 		<form class="points-form" method="post" action="addpoints.php">
-			<p>Company Name</p> <input type="text" name="company_name" placeholder="company_name">
+			<?php
+				session_start();
+				if($_SESSION['user_type'] == "admin"){
+					echo'<p>Company Name</p> <input type="text" name="company_name" placeholder="company_name">';
+				}
+				if($_SESSION['user_type'] == "sponsor"){
+					echo'<p>Company Name - '.$_SESSION['company_name'].'</p> <input type="hidden" name="company_name" placeholder="company_name" value="'.$_SESSION['company_name'].'">';
+				}
+			?>
 			<p>Driver Username</p> <input type="text" name="username" placeholder="Username">
 			<p>Points</p> <input type="text" name="points" placeholder="Points Change"> <br>
 			<button type="submit" name="submit">Submit</button>
