@@ -14,7 +14,7 @@
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 	#$conn = mysqli_connect("127.0.0.1", "root", "", "test");
 
-	echo "SELECT driver_id FROM drivers WHERE username = ".$_POST['driver_username'].";";	
+	echo "SELECT user_id FROM drivers WHERE username = '".$_POST['driver_username']."';";	
 	$result = mysqli_query($conn, $query);
 	if(!$result){
 		echo "Error: Driver Couldn't be found or accepted...";
