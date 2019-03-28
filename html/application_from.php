@@ -24,7 +24,7 @@
 
 	$row = mysqli_fetch_row($result);
 
-	echo "UPDATE applications SET status = '".$_POST['status']."' WHERE driver_id = ".$row[0].";";
+	$query = "UPDATE applications SET status = '".$_POST['status']."' WHERE driver_id = ".$row[0].";";
 	$result = mysqli_query($conn, $query);
 	if(!$result){
 		echo "Error: [1] Driver Couldn't be found or accepted...";
