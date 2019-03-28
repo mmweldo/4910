@@ -39,7 +39,7 @@
 				<p>Drivers Points by Day</p> 
 				<?php
 					if($_SESSION['user_type'] == "driver"){
-						echo '<input type="text" name="username" placeholder="Driver Username" value="'.$_SESSION['username'].'">';
+						echo '<input type="hidden" type="text" name="username" placeholder="Driver Username" value="'.$_SESSION['username'].'">';
 					}
 					else{
 						echo '<input type="text" name="username" placeholder="Driver Username">';
