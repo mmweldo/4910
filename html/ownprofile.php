@@ -40,7 +40,7 @@ if ($conn->connect_error) {
 					session_start();
 					if(isset($_SESSION['user_type'])){
 						if($_SESSION['user_type'] == "driver"){
-							echo echo '<iframe src="profilesettings.php" style="width:100%;height:100%;"></iframe>';
+							echo '<iframe src="profilesettings.php" style="width:100%;height:100%;"></iframe>';
 						}
 						else{
 							echo '<iframe src="changeusernamehtml.php" style="width:100%;height:100%;"></iframe>';
