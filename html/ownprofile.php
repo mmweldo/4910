@@ -106,7 +106,10 @@ if ($conn->connect_error) {
 							$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 							$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 							
-							$sql = "select count(*) as total from applications where sponsor_id =".$_SESSION['user_id']." AND status='pending'"; 
+							$sql = "select count(*) as total from applications where sponsor_id =".$_SESSION['user_id']." AND status='pending'";
+							if($_SESSION['user_type == "driver"']){
+								$sql = "select count(*) as total from applications where driver_id = ".$_SESSION['user_id']." AND status='pending'";
+							}
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo '<button class="tablinks" onclick="openCity(event, \'Applications\')"><p><span class="glyphicon glyphicon-user"></span> Applications';
