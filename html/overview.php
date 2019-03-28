@@ -26,8 +26,8 @@ session_start();
     function drawChart() {
 	
       var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Day');
-      data.addColumn('number', 'Guardians of the Galaxy');
+      data.addColumn('number', 'Month');
+      data.addColumn('number', 'Current Points');
 
       data.addRows([
         [1,  37.8],
@@ -42,14 +42,12 @@ session_start();
         [10, 12.8],
         [11,  5.3],
         [12,  6.6],
-        [13,  4.8],
-        [14,  4.2]
       ]);
 
       var options = {
         chart: {
-          title: 'Box Office Earnings in First Two Weeks of Opening',
-          subtitle: 'in millions of dollars (USD)'
+          title: 'Current Points Over Time',
+          subtitle: 'Shown by Month'
         },
         width: 900,
         height: 500,
