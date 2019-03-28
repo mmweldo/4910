@@ -21,8 +21,8 @@
 		echo "<script>setTimeout(\"location.href = '../checkapplications.php?NONEXISTANT-DRIVERS';\", 3000);</script>";
 		exit();
 	}
-	$row = mysql_fetch_row($result);
-	echo $row[0];
+
+	$row = mysqli_fetch_row($result);
 
 	echo "UPDATE applications SET status = '".$_POST['status']."' WHERE driver_id = ".$row[0].";";
 	$result = mysqli_query($conn, $query);
