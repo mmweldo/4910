@@ -122,7 +122,9 @@
 					echo "<td>".$row[2]."</td>"; 
 					echo "<td>".$row[3]."</td>";
 					if($row[3] == "pending"){
-					
+						echo '<td><form class="profile-form" method="post" action="application_from.php"><input type="hidden" style="width:0px;" type="text" name="driver_username" placeholder="driver_username" value="'.$row[0].'"><input type="hidden" style="width:0px;" type="text" name="status" placeholder="status" value="accept"><button type="View" name="submit">Accept</button></form><td>'; 
+
+						echo '<td><form class="profile-form" method="post" action="application_from.php"><input type="hidden" style="width:0px;" type="text" name="driver_username" placeholder="driver_username" value="'.$row[0].'"><input type="hidden" style="width:0px;" type="text" name="status" placeholder="status" value="deny"><button type="View" name="submit">Deny</button></form><td>';
 					}
 					else{//In case that the application has already been approved/denied
 						echo "<td>/ </td>";
