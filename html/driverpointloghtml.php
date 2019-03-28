@@ -43,7 +43,7 @@
 				if($_SESSION['user_type'] == "admin"){
 					echo '<p>Driver Username</p> <input type="text" name="username" placeholder="Username">';
 				}else{
-					echo '<p>Driver Username</p> <input type="text" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
+					echo '<p>Driver Username: '.$_SESSION['username'].'</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
 				}
 			?>
 			<button type="submit" name="submit">Submit</button>
