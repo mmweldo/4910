@@ -6,7 +6,7 @@
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
 		exit();
 	}
-	if($_SESSION['user_type'] != "admin"){
+	if($_SESSION['user_type'] != "admin" || $_SESSION['user_type'] != "driver"){
 		echo "Error: User doesn't have permission to be here! Redirecting...";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
 		exit();
@@ -39,7 +39,13 @@
 	<center>
 		<h1>Admin -View Points History</h1>
 		<form class="points-form" method="post" action="driverPointLog.php">
-			<p>Driver Username</p> <input type="text" name="username" placeholder="Username">
+			<?php
+				if($_SESSION['user_type'] == "admin"){
+					echo '<p>Driver Username</p> <input type="text" name="username" placeholder="Username">';
+				}else{
+					echo '<p>Driver Username</p> <input type="text" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
+				}
+			?>
 			<button type="submit" name="submit">Submit</button>
 		</form>
 	</center>
