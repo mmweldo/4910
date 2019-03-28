@@ -5,7 +5,7 @@
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
 		exit();
 	}
-	if($_SESSION['user_type'] != "ADMIN"){
+	if($_SESSION['user_type'] != "admin" && $_SESSION['user_type'] != "driver"){
 		echo "Error: User doesn't have permission to be here! Redirecting...";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
 		exit();
