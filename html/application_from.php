@@ -16,13 +16,12 @@
 
 	$query = "SELECT user_id FROM drivers WHERE username = '".$_POST['driver_username']."';";	
 	$result = mysqli_query($conn, $query);
-	$row = mysql_fetch_row($result);
-
 	if(!$result){
 		echo "Error: Driver Couldn't be found or accepted...";
 		echo "<script>setTimeout(\"location.href = '../checkapplications.php?NONEXISTANT-DRIVERS';\", 3000);</script>";
 		exit();
 	}
+	$row = mysql_fetch_row($result);
 
 	$query = "UPDATE applications SET status = '".$_POST['status']."' WHERE driver_id = ".$row[0].";";
 	$result = mysqli_query($conn, $query);
