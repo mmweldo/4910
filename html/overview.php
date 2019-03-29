@@ -85,10 +85,10 @@ session_start();
 		echo "didn't work!";
 	}
 	else while($rows=mysqli_fetch_row($result)){
-		if($counter == 0) echo '<h3>Total Spent Points: '.$rows[1].'</h3>';
-		echo '<h3>For Company: '.$rows[3].'</h3>';
-		echo '<h2>Total Current Points: '.$rows[0].'</h2>';
-		echo '<h2>Total Earned Points:'.$rows[2].'</h2>';
+		if($counter == 0) echo '<h2>Total Spent Points: '.$rows[1].'</h2><br>';
+		echo '<h2>For Company: '.$rows[3].'</h2>';
+		echo '<h3>Total Current Points: '.$rows[0].'</h3>';
+		echo '<h3>Total Earned Points:'.$rows[2].'</h3><br>';
 		$counter = $counter + 1;
 	}
 	/*
