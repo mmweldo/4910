@@ -77,7 +77,6 @@ session_start();
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-	echo 'my code (testing)';
 	
 	$sql = "SELECT current_points, total_spent, total_points, company_name FROM driver_list join drivers on driver_id = user_id join sponsors on driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." and drivers.user_id = ".$_SESSION['user_id'].";";
 	$result = mysqli_query($conn, $sql);
@@ -88,13 +87,12 @@ session_start();
 	else while($rows=mysqli_fetch_row($result)){
 		$counter = 0;
 		if($counter == 0) echo '<h3>Total Spent Points: '.$rows[1].'<br></h3>';
-		echo '<h3>For Company: '.$rows[3].'</h3><br>';
+		echo '<h3>For Company: '.$rows[3].'<br></h3>';
 		echo '<h3>Total Current Points: '.$rows[0].'<br></h3>';
 		echo '<h3>Total Earned Points:'.$rows[2].'<br></h3>';
 		$counter = $counter + 1;
 	}
-	
-	echo 'my code (end testing)';
+	/*
 	$sql = "select current_points from driver_list where driver_id = ".$_SESSION['user_id'];
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result); ?>
@@ -108,7 +106,7 @@ session_start();
 	<?php $sql = "select total_points from driver_list where driver_id = ".$_SESSION['user_id'];
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result); ?>
-	<h3>Total Earned Points: <?php echo $row[0]."<br>"?></h3>
+	<h3>Total Earned Points: <?php echo $row[0]."<br>"?></h3>*/
 	
 	<?php	$conn->close();?>
 </html>
