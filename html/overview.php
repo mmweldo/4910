@@ -57,7 +57,7 @@
 	
 	$conn->close();?>
 	
-	<div id="line_top_x"></div>
+	<center><div id="line_top_x"></div></center>
 </body>
 </html>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
