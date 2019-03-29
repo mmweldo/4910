@@ -1,8 +1,5 @@
-<html>
-
 <?php
-
-session_start();
+	session_start();
 	if(!isset($_SESSION['username'])){
 		echo "Error: Please log in first!";
 		echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
@@ -13,16 +10,11 @@ session_start();
 		echo "Error: User not an driver!";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-DRIVER';\", 3000);</script>";
 		exit();
-	}
-	
+	}	
 ?>
-
-<head>
-
-</head>
-<body>
-  <div id="line_top_x"></div>
 <html>
+<head></head>
+<body>
 	<?php
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
@@ -64,7 +56,8 @@ session_start();
 	<h3>Total Earned Points: <?php echo $row[0]."<br>"?></h3>*/
 	
 	$conn->close();?>
-</html>
+	
+	<div id="line_top_x"></div>
 </body>
 </html>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
