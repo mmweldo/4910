@@ -43,6 +43,7 @@ session_start();
         [11,  5.3],
         [12,  6.6],
       ]);
+	data.sort({column: 0, desc: true});
 
       var options = {
         chart: {
