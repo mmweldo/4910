@@ -108,7 +108,7 @@ session_start();
 	$row = mysqli_fetch_row($result); ?>
 	<h3>Total Earned Points: <?php echo $row[0]."<br>"?></h3>*/
 	
-	<?php	$conn->close();?>
+	$conn->close();?>
 </html>
 </body>
 </html>
