@@ -78,8 +78,8 @@ session_start();
 		die("Connection failed: " . $conn->connect_error);
 	}
 	echo 'my code (testing)';
-	$sql = "SELECT current_points, total_spent, total_points, company_name FROM (driver_list join drivers on driver_id = user_id) join sponsors on driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." and user_id = ".$_SESSION['user_id'].";";
 	
+	$sql = "SELECT current_points, total_spent, total_points, company_name FROM driver_list join drivers on driver_id = user_id join sponsors on driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." and drivers.user_id = ".$_SESSION['user_id'].";";
 	$result = mysqli_query($conn, $sql);
 	if(!result){
 		echo "didn't work!";
