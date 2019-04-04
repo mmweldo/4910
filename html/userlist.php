@@ -83,7 +83,7 @@
 	    echo "<td>".$row[2]."</td>"; 
 	    echo "<td>".$row[3]."</td>";
 	    echo "<td>".$row[4]."</td>";
-	    echo '<td><form class="profile-form" method="post" action="profile.php"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$row[0].'"><input type="hidden" style="width:0px;" type="text" name="user_id" placeholder="user_id" value="'.$row[3].'"><input type="hidden" style="width:0px;" type="text" name="user_type" placeholder="user_type" value="'.$row[4].'"><button type="View" name="submit">'.$row[0].'</button></form><td>';
+	    echo '<td><form class="profile-form" method="post" action="adminviewprofile.php"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$row[0].'"><input type="hidden" style="width:0px;" type="text" name="user_id" placeholder="user_id" value="'.$row[3].'"><input type="hidden" style="width:0px;" type="text" name="user_type" placeholder="user_type" value="'.$row[4].'"><button type="View" name="submit">'.$row[0].'</button></form><td>';
 	    echo "</tr>"; 
 	}
 	echo "</center>";
