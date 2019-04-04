@@ -40,11 +40,18 @@ Licensed under MIT
 			</div>
 			<div id="Profile" class="tabcontent">
 				<?php
-					if($_POST['user_type'] == "driver")
+					if($_POST['user_type'] == "driver"){
 					//<iframe src="profilesettings.php" style="width:100%;height:100%;"></iframe>
-					echo '<iframe src="admdvrprofilesettings.php" style="width:100%;height:100%;"></iframe>';
-					else if ($_POST['user_type'] == "sponsor")
-					echo '<iframe src="admspnprofilesettings.php" style="width:100%;height:100%;"></iframe>';
+						echo '<iframe src="admdvrprofilesettings.php" style="width:100%;height:100%;"></iframe>';
+						echo '<form action="admdvrprofilesettings.php">
+							<input type="hidden" name="user_type" value="'.$_POST['user_type'].'">
+							<input type="hidden" name="username" value="'.$_POST['username'].'">
+							<input type="hidden" name="user_id" value="'.$_POST['user_id'].'">
+							<button type="submit" name="submit" value="submit">Profile Settings</button>
+							</form>';
+					}else if ($_POST['user_type'] == "sponsor"){
+						echo '<iframe src="admspnprofilesettings.php" style="width:100%;height:100%;"></iframe>';
+					}
 				?>
 			</div>
 		</div>
