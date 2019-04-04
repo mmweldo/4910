@@ -48,7 +48,9 @@
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint2, "master", "group4910", "website");
 
+	echo "SELECT title, pic, link, price FROM products WHERE sponsor_id = ".$_SESSION['user_id'].";";
 	$sql = "SELECT title, pic, link, price FROM products WHERE sponsor_id = ".$_SESSION['user_id'].";";
+	
 	$result = mysqli_query($conn, $sql);
 	if(!$result){
 		echo "Error: Empty catalog redirecting...";
