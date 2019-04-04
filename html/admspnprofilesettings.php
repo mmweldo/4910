@@ -46,7 +46,7 @@ if ($conn->connect_error) {
                             <label class="col-md-4 control-label">Company Name</label>
                             <div class="col-md-8 inputGroupContainer">
 							   	<?php
-									$sql = "select firstname from sponsors where user_id = ".$_PSOT['user_id'];
+									$sql = "select company_name from sponsors where user_id = ".$_PSOT['user_id'];
 									$result = mysqli_query($conn, $sql);
 									$row = mysqli_fetch_row($result);
 							    ?>
@@ -84,7 +84,7 @@ if ($conn->connect_error) {
 						 <input type="submit" name="submit" value="Update">
 						 <?php 
 						 if(isset($_POST["submit"])){
-								$sql = "UPDATE drivers SET company_name = '".$_POST['company_name']."', profile_img = '".$_POST['profimg']."' WHERE user_id = ".$_POST['user_id'];
+								$sql = "UPDATE sponsors SET company_name = '".$_POST['company_name']."', profile_img = '".$_POST['profimg']."' WHERE user_id = ".$_POST['user_id'];
 								
 								if ($result=mysqli_query($conn, $sql)) {
 									echo "<script>setTimeout(\"location.href = '../admdvrprofilesettings.php';\", 3000);</script>";
