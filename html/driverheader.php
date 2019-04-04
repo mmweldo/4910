@@ -12,11 +12,50 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <?php
+        <?php
         session_start();
         if(isset($_SESSION['username'])) echo '
-          <form position="relative";  style="width=5%; float:right;"action="logout.php" method="POST"><button name="submit" type="submit" class="btn btn-danger">Log Out</button></form><style> .btn-danger{position:relative; right:20px; top: 20px;} </style>'; ?>
-    <header>
+          <form style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST">
+	  <button type="submit" name="submit">Log Out</button></form><style>
+              button {
+              background-color: #e85764;
+              border: none;
+              color: white;
+              padding: 5px 10px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              text-transform: uppercase;
+              font-size: 13px;
+              /*-webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+              box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);*/
+              -webkit-border-radius: 5px 5px 5px 5px;
+              border-radius: 5px 5px 5px 5px;
+              margin: 5px 20px 10px 20px;
+              -webkit-transition: all 0.3s ease-in-out;
+              -moz-transition: all 0.3s ease-in-out;
+              -ms-transition: all 0.3s ease-in-out;
+              -o-transition: all 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out;
+            }
+
+            button:hover{
+              background-color: #e85764;
+            }
+
+            button:acive {
+              -moz-transform: scale(0.95);
+              -webkit-transform: scale(0.95);
+              -o-transform: scale(0.95);
+              -ms-transform: scale(0.95);
+              transform: scale(0.95);
+            }
+            </style>';
+          ?>
+	  <!-- <button id="myButton" name="submit" type="submit" class="btn btn-danger">
+	  <a href="logout.php">Log Out</a>
+	  </button> -->
+      <header>
       <?php
         if(isset($_SESSION['username'])){ 
           $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
@@ -25,10 +64,10 @@
           $sql = "SELECT profile_img FROM drivers WHERE user_id = ".$_SESSION['user_id'].";";
           $result = mysqli_query($conn, $sql);
           $row = mysqli_fetch_row($result);
-          
-          echo '<div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; left: 10px; top: -10px;">
-            <img style="border-radius: 50%;" src="'.row[0].'" width="28" height="28" class="img-circle"></a>
-            <p style="float:left;">&nbsp&nbsp'.$_SESSION['username'].'</p></div>';
+		
+          echo '<div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; left: 10px; top: -13px;">
+            <img style="border-radius: 50%; float:left;" src="'.$row[0].'" width="28" height="28" class="img-circle"></a>
+            <p style="">&nbsp&nbsp'.$_SESSION['username'].'</p></div>';
         }
       ?>
 

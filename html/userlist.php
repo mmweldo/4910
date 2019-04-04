@@ -16,7 +16,7 @@
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 
-	$query = "SELECT users.username, users.email, users.date_created, users.id FROM users ORDER BY ".$_POST['order'].";";
+	$query = "SELECT users.username, users.email, users.date_created, users.id, users.user_type FROM users ORDER BY ".$_POST['order'].";";
 
 	$result = mysqli_query($conn, $query);
 	if(!$result){
@@ -65,12 +65,15 @@
 			echo "<p>Error finding ordering</p>";
 			break;
 	}
+
 	echo "<table>";
 	echo "<tr>";
 	echo "<th>Username</th>";
 	echo "<th>Email</th>";
 	echo "<th>Creation</th>";
 	echo "<th>id</th>";
+	echo "<th>User Type</th>";
+	echo "<th>Profile</th>";
 	echo "</tr>";
 	
 	while($row=mysqli_fetch_row($result)){
@@ -79,6 +82,8 @@
 	    echo "<td>".$row[1]."</td>"; 
 	    echo "<td>".$row[2]."</td>"; 
 	    echo "<td>".$row[3]."</td>";
+	    echo "<td>".$row[4]."</td>";
+	    echo '<td><form class="profile-form" method="post" action="adminviewprofile.php"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$row[0].'"><input type="hidden" style="width:0px;" type="text" name="user_id" placeholder="user_id" value="'.$row[3].'"><input type="hidden" style="width:0px;" type="text" name="user_type" placeholder="user_type" value="'.$row[4].'"><button type="View" name="submit">'.$row[0].'</button></form><td>';
 	    echo "</tr>"; 
 	}
 	echo "</center>";

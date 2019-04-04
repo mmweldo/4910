@@ -115,3 +115,15 @@ CREATE TABLE applications(
 	CONSTRAINT FK_app_driverid_drivers_userid FOREIGN KEY (driver_id) REFERENCES drivers(user_id),
 	PRIMARY KEY (sponsor_id, driver_id)
 );
+
+create table products(
+    sponsor_id int NOT NULL,
+    title varchar(200) NOT NULL,
+    subtitle varchar(200),
+    pic varchar(500),
+    link varchar(500),
+    paymentmethod varchar(500),
+
+    PRIMARY KEY(sponsor_id, title),
+    CONSTRAINT fk_products_sponsorid_sponsors_userid FOREIGN KEY(sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
