@@ -2,8 +2,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/profileStyle.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="profileStyle.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 <!------ Include the above in your HEAD tag ---------->
 
@@ -12,7 +12,7 @@ User Profile Sidebar by @keenthemes
 A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
 Licensed under MIT
 -->
-<?php /*session_start();
+<?php session_start();
 	if(!isset($_SESSION['username'])){
 		echo "Error: Please log in first!";
 		echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
@@ -23,7 +23,7 @@ Licensed under MIT
 		echo "Error: User not an admin!";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
 		exit();
-	}*/
+	}
 	
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
@@ -31,7 +31,6 @@ Licensed under MIT
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-}
 ?> 
 
     <div class="row profile">
