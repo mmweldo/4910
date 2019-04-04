@@ -39,7 +39,13 @@ Licensed under MIT
 			  <iframe src="overview.php" style="width:100%;height:100%;"></iframe>
 			</div>
 			<div id="Profile" class="tabcontent">
-				<iframe src="profilesettings.php" style="width:100%;height:100%;"></iframe>
+				<?php
+					if($_POST['user_type'] == "driver")
+					//<iframe src="profilesettings.php" style="width:100%;height:100%;"></iframe>
+					echo '<iframe src="admdvrprofilesettings.php" style="width:100%;height:100%;"></iframe>';
+					else if ($_POST['user_type'] == "sponsor")
+					echo '<iframe src="admspnprofilesettings.php" style="width:100%;height:100%;"></iframe>';
+				?>
 			</div>
 		</div>
 		<div class="col-md-2">
