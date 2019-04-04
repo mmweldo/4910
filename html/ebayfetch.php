@@ -161,7 +161,9 @@ if(isset($_POST['querysubmit'])){
         $totalPage = $resp->paginationOutput->totalPages;
       }
     
-      $results .= "<div class='col-md-12' style='border-left:4px solid black; border-bottom: 1px solid #bcc; margin-top:2%;'><div class='col-md-3'><center><img src=\"$pic\" style='max-width: 100%;margin:1%;'></center></div><div class='col-md-9' ><h2> <a href='$link\' target='blank'>$title</a></h2><h5> $subtitle </h5> <h3>Price $$price  </h3><p align='right'>$paymentMethod</p></div></div>";
+      /*$results .= "<div class='col-md-12' style='border-left:4px solid black; border-bottom: 1px solid #bcc; margin-top:2%;'><div class='col-md-3'><center><img src=\"$pic\" style='max-width: 100%;margin:1%;'></center></div><div class='col-md-9' ><h2> <a href='$link\' target='blank'>$title</a></h2><h5> $subtitle </h5> <h3>Price $$price  </h3><p align='right'>$paymentMethod</p></div></div>";
+      */
+      $results .= "<div class='container' style=''><h3 class='page-title'><a href='$link\' target='blank'>$title</a></h3><img src=\"$pic\" style='max-width: 100%;margin:1%;'><h3>Price $$price  </h3></div>";
       if($_SESSION['user_type'] == "sponsor") $results .= $button;
 
     }
