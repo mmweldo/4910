@@ -122,7 +122,7 @@ create table products(
     subtitle varchar(200),
     pic varchar(500),
     link varchar(500),
-    paymentmethod varchar(500),
+    price varchar(20),
 
     PRIMARY KEY(sponsor_id, title),
     CONSTRAINT fk_products_sponsorid_sponsors_userid FOREIGN KEY(sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE
