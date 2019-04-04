@@ -15,7 +15,10 @@
         <?php
         session_start();
         if(isset($_SESSION['username'])) echo '
-          <form position="relative";  style="width=5%; float:right;" action="logout.php" method="POST"><button id="myButton" name="submit" type="submit" class="btn btn-danger">Log Out</button></form><style> .btn-danger{position:relative; right:20px; top: 20px;} </style>
+          <form position="relative";  style="width=5%; float:right;" action="logout.php" method="POST">
+	  <button id="myButton" name="submit" type="submit" class="btn btn-danger">
+	  <a href="logout.php">Log Out</a>
+	  </button></form><style> .btn-danger{position:relative; right:20px; top: 20px;} </style>
           <script type="text/javascript">
             document.getElementById("myButton").onclick = function () {
               location.href = "https://52.55.244.84/logout.php";
