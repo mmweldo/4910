@@ -87,7 +87,7 @@ if ($conn->connect_error) {
 								$sql = "UPDATE sponsors SET company_name = '".$_POST['company_name']."', profile_img = '".$_POST['profimg']."' WHERE user_id = ".$_POST['user_id'];
 								
 								if ($result=mysqli_query($conn, $sql)) {
-									echo "<script>setTimeout(\"location.href = '../admdvrprofilesettings.php';\", 3000);</script>";
+									echo "<script>setTimeout(\"location.href = '../admspnprofilesettings.php';\", 3000);</script>";
 								} else {
 									echo "Error updating record: " . $conn->error;
 								}
