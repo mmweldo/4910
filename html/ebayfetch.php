@@ -1,16 +1,15 @@
-<?php
+
+<?php 
   session_start();
   #include 'driverheader.php';
 ?>
-<!DOCTYPE html>
-<html>
-<body>
-  <form method="post">
-    <input type="text" name="query">
-    <button type="submit" name="querysubmit" value="submit">
-  </form>
-</body>
-</html>
+  <center>
+    <form method="post">
+      <input type="text" name="query">
+      <button type="submit" name="querysubmit" value="submit">Search</button>
+    </form>
+  </center>
+
 <?php
 
 if(isset($_POST['querysubmit'])){
@@ -28,9 +27,8 @@ if(isset($_POST['querysubmit'])){
   $globalid = 'EBAY-US';  // Global ID of the eBay site you want to search (e.g., EBAY-DE)
 
   $query = $_POST['query'];// You may want to supply your own query
-
   $pgn='Pagination.PageNumber';
-  ;
+  
   $safequery = urlencode($query);  // Make the query URL-friendly
   $i = '0';  // Initialize the item filter index to 0
 
@@ -126,18 +124,6 @@ if(isset($_POST['querysubmit'])){
       $title = $item->title;
       $subtitle = $item->subtitle;
       $paymentMethod = $item->paymentMethod;
-      echo '<form method="post">
-        <input type="hidden" name="link" value="'.$link.'">
-        <input type="hidden" name="pic" value="'.$pic.'">
-        <input type="hidden" name="paymentmethod" value="'.$paymentMethod.'">
-        <input type="hidden" name="title" value="'.$title.'">
-        <input type="hidden" name="subtitle" value="'.$subtitle.'">
-        <button type="submit" name="submit" value="submit">Add to Catalog
-        </button>
-      </form>';
-      
-      if ($paymentMethod == 'PayPal')
-        $paymentMethod = "<img src='i/paypal.png'>";
       
   // echo "<pre>";
   // print_r($resp);
@@ -146,7 +132,15 @@ if(isset($_POST['querysubmit'])){
       foreach ($resp->searchResult->item->sellingStatus as $value) { // Access that Arry from FOreach Loop 
             $price = $item->sellingStatus->currentPrice;
       }
-
+      $button = '<form method="post">
+        <input type="hidden" name="link" value="'.$link.'">
+        <input type="hidden" name="pic" value="'.$pic.'">
+        <input type="hidden" name="price" value="'.$price.'">
+        <input type="hidden" name="title" value="'.$title.'">
+        <input type="hidden" name="subtitle" value="'.$subtitle.'">
+        <button type="submit" name="submit" value="submit">Add to Catalog
+        </button>
+      </form>';
       foreach ($resp->paginationOutput as $value) {
         $Pageno = $resp->paginationOutput->pageNumber;
         $totalEntries = $resp->paginationOutput->totalEntries;
@@ -155,18 +149,36 @@ if(isset($_POST['querysubmit'])){
       }
     
       $results .= "<div class='col-md-12' style='border-left:4px solid black; border-bottom: 1px solid #bcc; margin-top:2%;'><div class='col-md-3'><center><img src=\"$pic\" style='max-width: 100%;margin:1%;'></center></div><div class='col-md-9' ><h2> <a href='$link\' target='blank'>$title</a></h2><h5> $subtitle </h5> <h3>Price $$price  </h3><p align='right'>$paymentMethod</p></div></div>";
-    
+      $results .= $button;
 
     }
   }
+}
+// If the response does not indicate 'Success,' print an error
+else if(isset($_POST['querysubmit'])){
+  $results  = "<h3>Oops! The request was not successful. Make sure you are using a valid ";
+  $results .= "AppID for the Production environment.</h3>";
+}
 ?>
+<!-- Build the HTML page with values from the call response -->
+
+<DIV class="col-md-8 col-md-offset-3">
+    <?php if(isset($results)) echo $results;?>
+    <div class="clearfix"></div>
+</DIV>
 
 <?php 
-  while(1 and isset($_POST['querysubmit'])){
+
+  /*if(isset($_POST['submit'])){
+    echo "INSERT INTO products (sponsor_id, title, subtitle, pic, link, price) VALUES (".$_SESSION['user_id'].",'".$_POST['title']."','".$_POST['subtitle']."','".$_POST['pic']."','".$_POST['link']."','".$_POST['price']."');";
+    unset($_POST['submit']);
+  }*/
+
+  while(1 && isset($_POST['querysubmit'])){
     if(isset($_POST["submit"])){
       $endpoint2 = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
       $conn = mysqli_connect($endpoint2, "master", "group4910", "website");
-      $sql = "INSERT INTO products (sponsor_id, title, subtitle, pic, link, paymentmethod) VALUES (".$_SESSION['user_id'].",".$_POST['title'].",".$_POST['subtitle'].",".$_POST['pic'].",".$_POST['link'].",".$_POST['paymentmethod'].");";
+      $sql = "INSERT INTO products (sponsor_id, title, subtitle, pic, link, price) VALUES (".$_SESSION['user_id'].",'".$_POST['title']."','".$_POST['subtitle']."','".$_POST['pic']."','".$_POST['link']."','".$_POST['price']."');";
       $result = mysqli_query($conn, $sql);
       if(!$result){
         echo "Failed to add to sponsors products in catalog!";
@@ -176,9 +188,3 @@ if(isset($_POST['querysubmit'])){
     }
   }
 ?>
-
-<!-- Build the HTML page with values from the call response -->
-<DIV class="col-md-8 col-md-offset-3">
-    <?php echo $results;?>
-    <div class="clearfix"></div>
-</DIV>
