@@ -200,6 +200,7 @@ else if(isset($_POST['querysubmit'])){
     if(!$result){
       echo "Failed to add to sponsors products in catalog!";
     }
+    echo "<p>Successfully added to your catalog!</p>";
     unset($_POST['submit']);
   }
   
