@@ -51,6 +51,7 @@ Licensed under MIT
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo "<img src=".$row[0]." class='img-circle' alt='Profile Image' style='width:125px;height:125px;'>";
+							echo $_POST['user_type']."s";
 					?>
 				</div>
 				<!-- END SIDEBAR USERPIC -->
