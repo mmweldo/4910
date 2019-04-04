@@ -67,7 +67,7 @@ if ($conn->connect_error) {
 						 <input type="submit" name="submit" value="Update">
 						 <?php 
 						 if(isset($_POST["submit"])){
-								$sql = "UPDATE admins profile_img = ".$_POST['profimg']." WHERE user_id = ".$_SESSION['user_id'];
+								$sql = "UPDATE admins SET profile_img = '".$_POST['profimg']."' WHERE user_id = ".$_SESSION['user_id'];
 								
 								if ($result=mysqli_query($conn, $sql)) {
 									echo "<script>setTimeout(\"location.href = '../admprofilesettings.php';\", 3000);</script>";
