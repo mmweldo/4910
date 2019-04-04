@@ -15,7 +15,7 @@
         <?php
         session_start();
         if(isset($_SESSION['username'])) echo '
-          <form position="relative";  style="width=5%; float:right; top: -10px;" action="logout.php" method="POST">
+          <form style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST">
 	  <button type="submit" name="submit">Log Out</button></form><style>
               button {
               background-color: #e85764;
