@@ -55,12 +55,12 @@
 	$result = mysqli_query($conn, $sql);
 	if(!$result){
 		echo "[1] Error: Empty catalog redirecting...";
-		echo "<script>setTimeout(\"location.href = '../index.php?NONEXISTANT-CATALOG';\", 3000);</script>";
+		//echo "<script>setTimeout(\"location.href = '../index.php?NONEXISTANT-CATALOG';\", 3000);</script>";
 		exit();		
 	}
 	if($resultCheck < 1){
 		echo "[2] Error: Empty catalog redirecting...";
-		echo "<script>setTimeout(\"location.href = '../index.php?NONEXISTANT-CATALOG';\", 3000);</script>";
+		//echo "<script>setTimeout(\"location.href = '../index.php?NONEXISTANT-CATALOG';\", 3000);</script>";
 		exit();		
 	}
 
