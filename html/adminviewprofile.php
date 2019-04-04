@@ -23,7 +23,7 @@ Licensed under MIT
 		echo "Error: User not an admin!";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
 		exit();
-	}
+	}*/
 	
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
@@ -48,7 +48,7 @@ Licensed under MIT
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
 					<?php
-							$sql = "select profile_img from '".$_POST['user_type']."' where user_id = ".$_POST['user_id'];
+							$sql = "select profile_img from '".$_POST['user_type']."'s where user_id = ".$_POST['user_id'];
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo "<img src=".$row[0]." class='img-circle' alt='Profile Image' style='width:125px;height:125px;'>";
@@ -102,4 +102,4 @@ Licensed under MIT
 <br>
 
 <?php $conn->close();?>
-</html>*/ echo "hello;"?>
+</html>
