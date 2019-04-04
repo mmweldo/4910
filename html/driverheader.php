@@ -12,11 +12,17 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <?php
+        <?php
         session_start();
         if(isset($_SESSION['username'])) echo '
-          <form position="relative";  style="width=5%; float:right;"action="logout.php" method="POST"><button name="submit" type="submit" class="btn btn-danger">Log Out</button></form><style> .btn-danger{position:relative; right:20px; top: 20px;} </style>'; ?>
-    <header>
+          <form position="relative";  style="width=5%; float:right;"action="logout.php" method="POST"><button id="myButton" name="submit" type="submit" class="btn btn-danger">Log Out</button></form><style> .btn-danger{position:relative; right:20px; top: 20px;} </style>
+          <script type="text/javascript">
+            document.getElementById("myButton").onclick = function () {
+              location.href = "https://52.55.244.84/logout.php";
+            };
+          </script>'; 
+          ?>
+      <header>
       <?php
         if(isset($_SESSION['username'])){ 
           $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
