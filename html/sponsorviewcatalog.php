@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	/*if(!isset($_SESSION['username'])){
+	if(!isset($_SESSION['username'])){
 		echo "Error: Please log in first!";
 		echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
 		exit();
@@ -10,7 +10,7 @@
 		echo "Error: User not a sponsor!";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-SPONSOR';\", 3000);</script>";
 		exit();
-	}*/
+	}
 ?>
 <HTML>
 <head>
@@ -55,7 +55,7 @@
 	$result = mysqli_query($conn, $sql);
 	if(!$result){
 		echo "[1] Error: Empty catalog redirecting...";
-		//echo "<script>setTimeout(\"location.href = '../index.php?NONEXISTANT-CATALOG';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../index.php?NONEXISTANT-CATALOG';\", 3000);</script>";
 		exit();		
 	}
 	/*if($resultCheck < 1){
@@ -93,5 +93,8 @@
 		$sql = "DELETE FROM products WHERE title = '".$_POST['title']."';";
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
+		echo "Successful Removal!";
+		echo "<script>setTimeout(\"location.href = '../sponsorviewcatalog.php?SUCCESS-REMOVED';\", 3000);</script>";
+		exit();
 	}
 ?>
