@@ -46,7 +46,7 @@ if ($conn->connect_error) {
                             <label class="col-md-4 control-label">Company Name</label>
                             <div class="col-md-8 inputGroupContainer">
 							   	<?php
-									$sql = "select firstname from drivers where user_id = ".$_PSOT['user_id'];
+									$sql = "select firstname from sponsors where user_id = ".$_PSOT['user_id'];
 									$result = mysqli_query($conn, $sql);
 									$row = mysqli_fetch_row($result);
 							    ?>
