@@ -153,7 +153,7 @@ if(isset($_POST['querysubmit'])){
         <input type="hidden" name="subtitle" value="'.$subtitle.'">
         <button type="submit" name="submit" value="submit">Add to Catalog
         </button>
-      </form></li></ul></center>';
+      </form></li></ul></div></center>';
       foreach ($resp->paginationOutput as $value) {
         $Pageno = $resp->paginationOutput->pageNumber;
         $totalEntries = $resp->paginationOutput->totalEntries;
@@ -163,7 +163,7 @@ if(isset($_POST['querysubmit'])){
     
       /*$results .= "<div class='col-md-12' style='border-left:4px solid black; border-bottom: 1px solid #bcc; margin-top:2%;'><div class='col-md-3'><center><img src=\"$pic\" style='max-width: 100%;margin:1%;'></center></div><div class='col-md-9' ><h2> <a href='$link\' target='blank'>$title</a></h2><h5> $subtitle </h5> <h3>Price $$price  </h3><p align='right'>$paymentMethod</p></div></div>";
       */
-      $results .= "<center><ul style='text-align: center; width: 30vw; height: 20vh; min-width: 30vw; min-height: 20vh; max-width: 30vw; max-height: 20vh;' id='stories'>";
+      $results .= "<center><div style='width: 30vw; height: 20vh; min-width: 30vw; min-height: 20vh; max-width: 30vw; max-height: 20vh;'><ul style='text-align: center;' id='stories'>";
       $results .= "<li><h3 class='page-title'><a href='$link\' target='blank'>$title</a></h3><img src=\"$pic\" style='max-width: 100%;margin:1%;'><h3>Price $$price  </h3>";
       
       if($_SESSION['user_type'] == "sponsor") $results .= $button;
