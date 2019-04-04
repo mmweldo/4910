@@ -80,6 +80,7 @@
 	    echo "</tr>"; 
 	}
 	echo "</table></center>";
+	mysqli_close($conn);
 ?>
 
 
@@ -88,7 +89,9 @@
 
 <?php
 	if(isset($_POST['submit'])){
+		$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 		$sql = "DELETE FROM products WHERE title = ".$_POST['title'].";";
+		$result = mysqli_query($conn, $sql);
+		mysqli_close($conn);
 	}
-	$result = mysqli_query($conn, $sql);
 ?>
