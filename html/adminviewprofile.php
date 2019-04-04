@@ -12,7 +12,7 @@ User Profile Sidebar by @keenthemes
 A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
 Licensed under MIT
 -->
-<?php session_start();
+<?php /*session_start();
 	if(!isset($_SESSION['username'])){
 		echo "Error: Please log in first!";
 		echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
@@ -102,4 +102,4 @@ Licensed under MIT
 <br>
 
 <?php $conn->close();?>
-</html>
+</html>*/ echo "hello;"?>
