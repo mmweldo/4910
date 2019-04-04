@@ -47,11 +47,11 @@ Licensed under MIT
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
 					<?php
-							$sql = "select profile_img from '".$_POST['user_type']."'s where user_id = ".$_POST['user_id'];
+							$sql = "select profile_img from ".$_POST['user_type']."s where user_id = ".$_POST['user_id'];
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo "<img src=".$row[0]." class='img-circle' alt='Profile Image' style='width:125px;height:125px;'>";
-							echo $_POST['user_type']."s";
+							echo "select profile_img from ".$_POST['user_type']."s where user_id = ".$_POST['user_id'];
 					?>
 				</div>
 				<!-- END SIDEBAR USERPIC -->
