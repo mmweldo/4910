@@ -96,7 +96,7 @@ if(isset($_POST['querysubmit'])){
   $apicall .= "&GLOBAL-ID=$globalid";
 
   $apicall .= "&keywords=$safequery";
-  $apicall .= "&paginationInput.entriesPerPage=5";
+  $apicall .= "&paginationInput.entriesPerPage=50";
   $apicall .= "&paginationInput.pageNumber=".$xx;
   $apicall .= "$urlfilter";
   // Load the call and capture the document returned by eBay API
