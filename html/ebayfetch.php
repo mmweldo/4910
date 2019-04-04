@@ -174,17 +174,16 @@ else if(isset($_POST['querysubmit'])){
     unset($_POST['submit']);
   }
 
-  while(1 && isset($_POST['querysubmit'])){
-    if(isset($_POST["submit"])){
-      $endpoint2 = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
-      $conn = mysqli_connect($endpoint2, "master", "group4910", "website");
-      $sql = "INSERT INTO products (sponsor_id, title, subtitle, pic, link, price) VALUES (".$_SESSION['user_id'].",'".$_POST['title']."','".$_POST['subtitle']."','".$_POST['pic']."','".$_POST['link']."','".$_POST['price']."');";
-      $result = mysqli_query($conn, $sql);
-      if(!$result){
-        echo "Failed to add to sponsors products in catalog!";
-      }
-
-      unset($_POST['submit']);
+  if(isset($_POST["submit"])){
+    $endpoint2 = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+    $conn = mysqli_connect($endpoint2, "master", "group4910", "website");
+    
+    $sql = "INSERT INTO products (sponsor_id, title, subtitle, pic, link, price) VALUES (".$_SESSION['user_id'].",'".$_POST['title']."','".$_POST['subtitle']."','".$_POST['pic']."','".$_POST['link']."','".$_POST['price']."');";
+    $result = mysqli_query($conn, $sql);
+    if(!$result){
+      echo "Failed to add to sponsors products in catalog!";
     }
+    unset($_POST['submit']);
   }
+  
 ?>
