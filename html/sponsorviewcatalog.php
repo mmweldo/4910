@@ -93,7 +93,7 @@
 		$sql = "DELETE FROM products WHERE title = '".$_POST['title']."';";
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
-		echo "Successful Removal!";
+		echo "<center><h2>Successful Removal!</h2></center>";
 		echo "<script>setTimeout(\"location.href = '../sponsorviewcatalog.php?SUCCESS-REMOVED';\", 3000);</script>";
 		exit();
 	}
