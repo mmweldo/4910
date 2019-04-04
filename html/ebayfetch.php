@@ -1,3 +1,4 @@
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -11,7 +12,22 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-
+<body>
+	<header>
+	  <div class="container">
+	    <div id="branding">
+	      <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
+	    </div>
+	    <nav>
+	      <ul>
+	        <li><a href="/">Home</a></li>
+	        <li><a href="about.php">About</a></li>
+	        <li><a href="stories.php">[Stories]</a></li>
+	        <li><a href="login.html">Login/Signup</a></li>
+	    </ul>
+	    </nav>
+	  </div>
+	</header>
 <?php 
   session_start();
   #include 'driverheader.php';
@@ -205,3 +221,5 @@ else if(isset($_POST['querysubmit'])){
   }
   
 ?>
+</body>
+</html>
