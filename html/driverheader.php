@@ -22,10 +22,10 @@
           $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
           $conn = mysqli_connect($endpoint, "master", "group4910", "website");
               
-          echo "SELECT profile_img FROM drivers WHERE user_id = ".$_SESSION['user_id'].";";
+          $sql = "SELECT profile_img FROM drivers WHERE user_id = ".$_SESSION['user_id'].";";
           $result = mysqli_query($conn, $sql);
           $row = mysqli_fetch_row($result);
-          
+          echo row[0];
           echo '<div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; left: 10px; top: -10px;">
             <img style="border-radius: 50%;" src="'.row[0].'" width="28" height="28" class="img-circle"></a>
             <p style="float:left;">&nbsp&nbsp'.$_SESSION['username'].'</p></div>';
