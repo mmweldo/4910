@@ -36,7 +36,7 @@ Licensed under MIT
 			  <iframe src="overview.php" style="width:100%;height:100%;"></iframe>
 			</div>
 			<div id="Profile" class="tabcontent">
-				<iframe src="admdvrprofilesettings.php" style="width:100%;height:100%;"></iframe>
+				<iframe src="profilesettings.php" style="width:100%;height:100%;"></iframe>
 			</div>
 		</div>
 		<div class="col-md-2">
@@ -44,7 +44,7 @@ Licensed under MIT
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
 					<?php
-							$sql = "select profile_img from ".$_POST['user_type']." where user_id = ".$_POST[user_id];
+							$sql = "select profile_img from '".$_POST['user_type']."' where user_id = ".$_POST['user_id'];
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo "<img src=".$row[0]." class='img-circle' alt='Profile Image' style='width:125px;height:125px;'>";
@@ -55,14 +55,14 @@ Licensed under MIT
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
 						<?php
-							$sql = "select username from users where id = ".$_POST[user_id];
+							$sql = "select username from users where id = ".$_POST['user_id'];
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_row($result);
 							echo $row[0]."<br>";
 						?>
 					</div>
 					<div class="profile-usertitle-job">
-						<?php echo ".$_POST['user_type']."?>
+						<?php echo $_POST['user_type']?>
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
