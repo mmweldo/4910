@@ -169,10 +169,10 @@ else if(isset($_POST['querysubmit'])){
 
 <?php 
 
-  if(isset($_POST['submit'])){
+  /*if(isset($_POST['submit'])){
     echo "INSERT INTO products (sponsor_id, title, subtitle, pic, link, price) VALUES (".$_SESSION['user_id'].",'".$_POST['title']."','".$_POST['subtitle']."','".$_POST['pic']."','".$_POST['link']."','".$_POST['price']."');";
     unset($_POST['submit']);
-  }
+  }*/
 
   if(isset($_POST["submit"])){
     $endpoint2 = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
