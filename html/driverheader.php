@@ -25,8 +25,7 @@
           $sql = "SELECT profile_img FROM drivers WHERE user_id = ".$_SESSION['user_id'].";";
           $result = mysqli_query($conn, $sql);
           $row = mysqli_fetch_row($result);
-          echo $row[0];
-	  echo $result;
+		
           echo '<div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; left: 10px; top: -10px;">
             <img style="border-radius: 50%;" src="'.$row[0].'" width="28" height="28" class="img-circle"></a>
             <p style="float:left;">&nbsp&nbsp'.$_SESSION['username'].'</p></div>';
