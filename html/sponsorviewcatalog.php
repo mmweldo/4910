@@ -43,6 +43,7 @@
 	    </ul>
 	    </nav>
 	  </div>
+	</header>
 
 <?php
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
@@ -53,12 +54,12 @@
 	
 	$result = mysqli_query($conn, $sql);
 	if(!$result){
-		echo "Error: Empty catalog redirecting...";
+		echo "[1] Error: Empty catalog redirecting...";
 		echo "<script>setTimeout(\"location.href = '../index.php?NONEXISTANT-CATALOG';\", 3000);</script>";
 		exit();		
 	}
 	if($resultCheck < 1){
-		echo "Error: Empty catalog redirecting...";
+		echo "[2] Error: Empty catalog redirecting...";
 		echo "<script>setTimeout(\"location.href = '../index.php?NONEXISTANT-CATALOG';\", 3000);</script>";
 		exit();		
 	}
@@ -75,7 +76,7 @@
 	    echo "<tr>"; 
 	    echo "<td>".$row[0]."</td>"; 
 	    echo "<td>$".$row[2]."</td>"; 
-	    echo "<td>".$row[2]."</td>"; 
+	    echo "<td>".$row[3]."</td>"; 
 	    echo '<td><form class="catalog-form" method="post"><input type="hidden" name="sponsor_id" value="'.$_SESSION['user_id'].'"><input type="hidden" name="title" value="'.$row[0].'"><button type="View" name="submit">Remove</button></form><td>';
 	    echo "</tr>"; 
 	}
@@ -83,8 +84,7 @@
 	mysqli_close($conn);
 ?>
 
-
-	</header>
+	</body>
 </HTML>
 
 <?php
