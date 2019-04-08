@@ -20,7 +20,7 @@
       <?php
         session_start();
         if(isset($_SESSION['username'])) echo '
-          <form id="logout-form" style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
+          <form id="logout-form" style="position: relative; top: -13px; right: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
 	?>
       <?php
         if(isset($_SESSION['username'])){ 
