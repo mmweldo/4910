@@ -10,7 +10,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
-  <body style="background-color: #2c2c2c;">
+  <body>
 	<!--<form style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form> -->
 	  <!-- <button id="myButton" name="submit" type="submit" class="btn btn-danger">
 	  <a href="logout.php">Log Out</a>
