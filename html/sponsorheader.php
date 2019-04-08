@@ -61,8 +61,8 @@
             }
             </style>
 	    
-	  <div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; left: 10px; top: -13px;">
-            <img style="border-radius: 50%; float:left;" src="'.$row[0].'" width="28" height="28" class="img-circle"></a>
+	  <div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; right: 10px; top: -13px;">
+            <img style="border-radius: 50%; float:right;" src="'.$row[0].'" width="28" height="28" class="img-circle"></a>
             <p style="">&nbsp&nbsp'.$_SESSION['username'].'</p></div>';
         }
       ?>
