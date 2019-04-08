@@ -13,15 +13,15 @@
   </head>
   <body>
 	<!--<form style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form> -->
-        <?php
-        session_start();
-        if(isset($_SESSION['username'])) echo '
-          <form id="logout-form" style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
-          ?>
 	  <!-- <button id="myButton" name="submit" type="submit" class="btn btn-danger">
 	  <a href="logout.php">Log Out</a>
 	  </button> -->
       <header style="border-bottom:#E8BD57 3px solid;">
+      <?php
+        session_start();
+        if(isset($_SESSION['username'])) echo '
+          <form id="logout-form" style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
+	?>
       <?php
         if(isset($_SESSION['username'])){ 
           $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
