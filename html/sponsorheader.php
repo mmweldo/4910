@@ -19,7 +19,7 @@
 	<?php
 	session_start();
 	if(isset($_SESSION['username'])){
-	   echo '<form id="logout-form" style="background-color: #2c2c2c; position: relative; top: -13px; right: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
+	   echo '<form id="logout-form" style="background-color: #2c2c2c; position: relative; top: -26px; right: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
 		
           $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
           $conn = mysqli_connect($endpoint, "master", "group4910", "website");
