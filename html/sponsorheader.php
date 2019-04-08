@@ -12,7 +12,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-	  <form style="width=5%; float:right;" action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>
+	  <!--<form style="width=5%; float:right;" action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>-->
 	  
         <?php
         session_start();
