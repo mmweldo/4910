@@ -62,7 +62,7 @@
         
         $sql = "SELECT username, firstname, lastname FROM drivers join driver_list on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".$_SESSION['user_id'].";";
       
-        echo "SELECT username, firstname, lastname FROM driver_list JOIN drivers on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".$_SESSION['user_id'].";";
+        //echo "SELECT username, firstname, lastname FROM driver_list JOIN drivers on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".$_SESSION['user_id'].";";
         
         $result = mysqli_query($conn, $sql);
         if(!$result){
@@ -82,7 +82,7 @@
         echo '<option value="">Select a driver:</option>';
         
         while($row=mysqli_fetch_row($result)){
-          echo '<option value = "'.$row[0].'">'.$row[1].' '.$row[2].'</option>'; 
+          echo '<option value = "'.$row[0].'">'.$row[1].' '.$row[2].'@'.$row[0].'</option>'; 
         }
         echo '</form>';
         echo '<div id="txtHint"><b>Person info will be listed here.</b></div>';
