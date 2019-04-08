@@ -12,13 +12,29 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
+	  <form style="width=5%; float:right;" action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>
+	  
         <?php
         session_start();
         if(isset($_SESSION['username'])) echo '
-          <form style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST">
-	  <button type="submit" name="submit">Log Out</button></form><style>
+          <form style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>';
+          ?>
+	  <!-- <button id="myButton" name="submit" type="submit" class="btn btn-danger">
+	  <a href="logout.php">Log Out</a>
+	  </button> -->
+      <header style="border-bottom:#E8BD57 3px solid;">
+      <?php
+        if(isset($_SESSION['username'])){ 
+          $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+          $conn = mysqli_connect($endpoint, "master", "group4910", "website");
+              
+          $sql = "SELECT profile_img FROM sponsors WHERE user_id = ".$_SESSION['user_id'].";";
+          $result = mysqli_query($conn, $sql);
+          $row = mysqli_fetch_row($result);
+	
+          echo '<style>
               button {
-              background-color: #e85764;
+              background-color: #E8BD57;
               border: none;
               color: white;
               padding: 5px 10px;
@@ -48,22 +64,9 @@
               -ms-transform: scale(0.95);
               transform: scale(0.95);
             }
-            </style>';
-          ?>
-	  <!-- <button id="myButton" name="submit" type="submit" class="btn btn-danger">
-	  <a href="logout.php">Log Out</a>
-	  </button> -->
-      <header style="border-bottom:#E8BD57 3px solid;">
-      <?php
-        if(isset($_SESSION['username'])){ 
-          $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
-          $conn = mysqli_connect($endpoint, "master", "group4910", "website");
-              
-          $sql = "SELECT profile_img FROM sponsors WHERE user_id = ".$_SESSION['user_id'].";";
-          $result = mysqli_query($conn, $sql);
-          $row = mysqli_fetch_row($result);
-		
-          echo '<div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; left: 10px; top: -13px;">
+            </style>
+	    
+	  <div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; left: 10px; top: -13px;">
             <img style="border-radius: 50%; float:left;" src="'.$row[0].'" width="28" height="28" class="img-circle"></a>
             <p style="">&nbsp&nbsp'.$_SESSION['username'].'</p></div>';
         }
