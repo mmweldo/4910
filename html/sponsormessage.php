@@ -5,7 +5,7 @@
     echo "Error: NOT LOGGED IN. Redirecting...";
     echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
     exit(); 
-  }else if($_SESSION['user_type'] != "sponsor"){
+  }else if($_SESSION['user-type'] != "sponsor"){
     echo "Error: Wrong User. Redirecting...";
     echo "<script>setTimeout(\"location.href = '../index.php';\", 3000);</script>";
     exit(); 
