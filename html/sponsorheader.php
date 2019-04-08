@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Affordable and professional Driver Rewards">
 	  <meta name="keywords" content="Driver Rewards, affordable, professional Driver Rewards">
-  	<meta name="author" content="Brad Traversy">
     <!--<title>Drewp | Welcome</title>-->
     <link rel="stylesheet" href="./css/style.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -16,12 +15,12 @@
 	  <!-- <button id="myButton" name="submit" type="submit" class="btn btn-danger">
 	  <a href="logout.php">Log Out</a>
 	  </button> -->
-	      <?php
-        session_start();
-        if(isset($_SESSION['username'])) echo '
-          <form id="logout-form" style="position: relative; top: -13px; right: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
-	?>
       <header style="border-bottom:#E8BD57 3px solid;">
+	<?php
+		session_start();
+		if(isset($_SESSION['username'])) echo '
+		<form id="logout-form" style="position: relative; top: -13px; right: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
+	?>
       <?php
         if(isset($_SESSION['username'])){ 
           $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
