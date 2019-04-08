@@ -57,12 +57,12 @@
     <div style="width:32vw;">
       <?php
         $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
-        $conn = mysqli_connect($endpoint, "master", "group4910", "website");*/
+        $conn = mysqli_connect($endpoint, "master", "group4910", "website");
 
         
         $sql = "SELECT username, firstname, lastname FROM drivers join driver_list on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".$_SESSION['user_id'].";";
       
-        //echo "SELECT username, firstname, lastname FROM driver_list JOIN drivers on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".$_SESSION['user_id'].";";
+        echo "SELECT username, firstname, lastname FROM driver_list JOIN drivers on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".$_SESSION['user_id'].";";
         
         $result = mysqli_query($conn, $sql);
         if(!$result){
