@@ -1,22 +1,26 @@
 <!-- SPONSOR MESSAGES INDIVIDUAL DRIVER-->
 <?php
+
+  //Session start and make sure the proper user is here
   session_start();
   if(!isset($_SESSION['user_id'])){
     echo "Error: NOT LOGGED IN. Redirecting...";
     echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
     exit(); 
-  }else if($_SESSION['user-type'] != "sponsor"){
+  }else if($_SESSION['user_type'] != "sponsor"){
     echo "Error: Wrong User. Redirecting...";
     echo "<script>setTimeout(\"location.href = '../index.php';\", 3000);</script>";
     exit(); 
   }
-  if($_SESSION['user-type'] == "driver"){
+
+  //Header stuffs, adds the html header based on user
+  if($_SESSION['user_type'] == "driver"){
     include 'driverheader.php';
   }
-  else if($_SESSION['user-type'] == "sponsor"){
+  else if($_SESSION['user_type'] == "sponsor"){
     include 'sponsorheader.php';
   }
-  else if($_SESSION['user-type'] == "admin"){
+  else if($_SESSION['user_type'] == "admin"){
     include 'adminheader.php'; 
   }
 ?>
@@ -58,8 +62,8 @@
         
         $sql = "SELECT username, firstname, lastname FROM drivers join driver_list on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".$_SESSION['user_id'].";";
       
-        /*echo "SELECT username, firstname, lastname FROM driver_list JOIN drivers on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".$_SESSION['user_id'].";";*/
-
+        //echo "SELECT username, firstname, lastname FROM driver_list JOIN drivers on driver_list.driver_id = drivers.user_id WHERE driver_list.sponsor_id = ".$_SESSION['user_id'].";";
+        
         $result = mysqli_query($conn, $sql);
         if(!$result){
           echo "[1] Error: NO USERS. Redirecting...";
