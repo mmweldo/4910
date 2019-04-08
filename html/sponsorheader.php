@@ -18,9 +18,10 @@
 	<?php
 		session_start();
 		if(isset($_SESSION['username'])) echo '
-		<form id="logout-form" style="background-color: #f4f4f4; position: relative; top: -13px; right: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
+		<form id="logout-form" style="background-color: #2c2c2c; position: relative; top: -13px; right: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
 	?>
       <header style="border-bottom:#E8BD57 3px solid;">
+
       <?php
         if(isset($_SESSION['username'])){ 
           $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
