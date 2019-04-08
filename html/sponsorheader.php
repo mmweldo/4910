@@ -12,11 +12,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-	<form style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>  
+	<!--<form style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form> -->
         <?php
         session_start();
         if(isset($_SESSION['username'])) echo '
-          <form style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>';
+          <form id="logout-form" style="position: relative; top: 10px; width=5%; float:right;" action="logout.php" method="POST"></form><button type="submit" name="submit" form="logout-form">Log Out</button>';
           ?>
 	  <!-- <button id="myButton" name="submit" type="submit" class="btn btn-danger">
 	  <a href="logout.php">Log Out</a>
