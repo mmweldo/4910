@@ -63,7 +63,7 @@
 	    
 	  <div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; right: 10px; top: -13px;">
             <img style="border-radius: 50%; right: 0px; float:right;" src="'.$row[0].'" width="28" height="28" class="img-circle"></a>
-            <p style="">&nbsp&nbsp'.$_SESSION['username'].'</p></div>';
+            <p style="right:0px; float: right;">&nbsp&nbsp'.$_SESSION['username'].'</p></div>';
         }
       ?>
 
