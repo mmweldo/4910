@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div class="topnav">
-			<header>
+			<!--<header>
 				<div class="container">
 					<div id="branding">
 						<h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
@@ -23,7 +23,20 @@
 						</ul>
 					</nav>
 				</div>
-			</header>
+			</header> -->
+		<?php
+			session_start();
+			//Header stuffs, adds the html header based on user
+			if($_SESSION['user_type'] == "driver"){
+			include 'driverheader.php';
+			}
+			else if($_SESSION['user_type'] == "sponsor"){
+			include 'sponsorheader.php';
+			}
+			else if($_SESSION['user_type'] == "admin"){
+			include 'adminheader.php'; 
+			}
+		?>
 		</div>
 		<div class="tab">
 			<button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen"><p><span class="glyphicon glyphicon-home"></span></p></button>
