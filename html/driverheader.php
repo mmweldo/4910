@@ -74,13 +74,6 @@
         </div>
         <nav>
           <ul>
-            <?php
-                
-                //if(isset($_SESSION['user_id']) echo '<li><a href="shell.php" target="_top">Home</a></li>'; //'<script>window.top.location.href="/";</script>';
-                //else echo '<li><a href="" target="_top">Home</a></li>';//'<script>window.top.location.href="/";</script>';
-                //echo '<li><a href="" target="_top">Home</a></li>';
-                //echo '<li><a href="index.php" target="_top">Home</a></li>';
-            ?>
             <li><a href="/">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="stories.php">[Stories]</a></li>
