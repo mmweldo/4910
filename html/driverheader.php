@@ -74,7 +74,7 @@
         </div>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="shell.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="stories.php">[Stories]</a></li>
             <?php 
