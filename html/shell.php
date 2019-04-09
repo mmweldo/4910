@@ -24,19 +24,6 @@
 					</nav>
 				</div>
 			</header> -->
-		<?php
-			session_start();
-			//Header stuffs, adds the html header based on user
-			if($_SESSION['user_type'] == "driver"){
-			include 'driverheader.php';
-			}
-			else if($_SESSION['user_type'] == "sponsor"){
-			include 'sponsorheader.php';
-			}
-			else if($_SESSION['user_type'] == "admin"){
-			include 'adminheader.php'; 
-			}
-		?>
 		</div>
 		<div class="tab">
 			<button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen"><p><span class="glyphicon glyphicon-home"></span></p></button>
