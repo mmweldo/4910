@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add values</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
 <?php
 	session_start();
 	if(!isset($_SESSION['user_id'])){
@@ -10,31 +18,17 @@
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-SPONSOR';\", 3000);</script>";
 		exit();
 	}
+	//Header stuffs, adds the html header based on user
+	if($_SESSION['user_type'] == "driver"){
+	include 'driverheader.php';
+	}
+	else if($_SESSION['user_type'] == "sponsor"){
+	include 'sponsorheader.php';
+	}
+	else if($_SESSION['user_type'] == "admin"){
+	include 'adminheader.php'; 
+	}
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Add values</title>
-	<link rel="stylesheet" type="text/css" href="reset.css">
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
-</head>
-<body>
-	<header>
-	  <div class="container">
-	    <div id="branding">
-	      <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
-	    </div>
-	    <nav>
-	      <ul>
-	        <li><a href="/">Home</a></li>
-	        <li><a href="about.php">About</a></li>
-	        <li><a href="stories.php">[Stories]</a></li>
-	        <li><a href="login.html">Login/Signup</a></li>
-	    </ul>
-	    </nav>
-	  </div>
-	</header>
 	<center>
 		<h1>Sponsor - Point Editor</h1>
 		<form class="points-form" method="post" action="addpoints.php">
