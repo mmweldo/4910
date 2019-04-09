@@ -60,6 +60,9 @@
               -ms-transform: scale(0.95);
               transform: scale(0.95);
             }
+            #footer, footer{
+                background-color: #8AE857; 
+            }
             </style>
       
     <div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; right: 10px; top: -13px;">
