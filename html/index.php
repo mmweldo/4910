@@ -1,6 +1,5 @@
 <!--Code modified from a template provided by Traversy Media. Modified by Mitch -->
 <!--Testing changes -->
-<?php session_start();?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,6 +15,18 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
+	<?php
+		session_start();
+		//Header stuffs, adds the html header based on user
+		if($_SESSION['user_type'] == "sponsor"){
+			include 'sponsorheader.php';
+		}
+		else if($_SESSION['user_type'] == "admin"){
+			include 'adminheader.php'; 
+		}else{
+			include 'driverheader.php';
+		}
+	?>
     <header>
       <div class="container">
         <div id="branding">
