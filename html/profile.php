@@ -111,7 +111,7 @@ if ($conn->connect_error) {
 	}
 ?>
 						</li>
-						<li>
+						<!--<li>
 							<a href="#">
 							<i class="glyphicon glyphicon-user"></i>
 							Account Settings </a>
@@ -125,7 +125,7 @@ if ($conn->connect_error) {
 							<a href="#">
 							<i class="glyphicon glyphicon-flag"></i>
 							Help </a>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 				<!-- END MENU -->
