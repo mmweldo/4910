@@ -92,7 +92,7 @@
 	    echo "<td>".$row[3]."</td>"; 
 	    echo "<td>".$row[4]."</td>";
 	    echo '<td><form class="profile-form" method="post" action="profile.php"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$row[2].'"><input type="hidden" style="width:0px;" type="text" name="user_id" placeholder="user_id" value="'.$row[3].'"><input type="hidden" style="width:0px;" type="text" name="user_type" placeholder="user_type" value="sponsor"><button type="View" name="submit">'.$row[2].'</button></form><td>'; 
-	    echo '<td><form class="profile-form" method="post" action="storepage.php"><input type="hidden" name="company_name" value="'.$row[0].'"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$row[2].'"><input type="hidden" style="width:0px;" type="text" name="user_id" placeholder="user_id" value="'.$row[3].'"><input type="hidden" style="width:0px;" type="text" name="user_type" placeholder="user_type" value="sponsor"><button type="View" name="submit">'.$row[2].'</button></form><td>'; 
+	    echo '<td><form class="profile-form" method="post" action="storepage.php"><input type="hidden" name="company_name" value="'.$row[0].'"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$row[2].'"><input type="hidden" style="width:0px;" type="text" name="user_id" placeholder="user_id" value="'.$row[3].'"><input type="hidden" style="width:0px;" type="text" name="user_type" placeholder="user_type" value="sponsor"><button type="View" name="submit">'.$row[2].'\'s Store</button></form><td>'; 
 	    echo "</tr>"; 
 	}
 	echo "</center>";
