@@ -60,7 +60,7 @@
           if(!empty($_POST)){
             //echo "made it here!<br>";
             $sql = 'SELECT title, subtitle, pic, link, price, company_name, dollar_ratio FROM products join sponsors on sponsor_id = user_id WHERE sponsor_id = '.$_POST['user_id'].';';
-            echo $sql;
+            //echo $sql;
             $result = mysqli_query($conn, $sql);
             while($row=mysqli_fetch_row($result)){
               $item_img = $row[2];//'http://placehold.it/700x400';
