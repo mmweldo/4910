@@ -42,7 +42,7 @@
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 
-  	$sql = "SELECT sponsors.company_name, sponsors.user_id, users.username FROM (sponsors JOIN users on sponsors.user_id = users.id)JOIN driver_list ON driver_list.sponsor_id = sponsors.user_id WHERE driver_list.driver_id = ".$_SESSION['user_id'].";";
+  	$sql = "SELECT sponsors.company_name, sponsors.user_id, users.username FROM (sponsors JOIN users on sponsors.user_id = users.id) JOIN driver_list ON driver_list.sponsor_id = sponsors.user_id WHERE driver_list.driver_id = ".$_SESSION['user_id'].";";
 	echo $sql;
 	$result = mysqli_query($conn, $query);
 	if(!$result){
