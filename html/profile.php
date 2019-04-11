@@ -1,7 +1,11 @@
+<html>
+<head>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+</head>
+<body>
+<center>
 <!--
 User Profile Sidebar by @keenthemes updated by Seth H, Mitch W, Logan C
 A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
@@ -28,7 +32,7 @@ if ($conn->connect_error) {
 ?> 
 
     <div class="row profile">
-		<div class="col-md-10">
+	<div class="col-md-10">
             <div class="profile-content">
             </div>
 		</div>
@@ -36,24 +40,24 @@ if ($conn->connect_error) {
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					<?php
-							if($_POST['user_type'] == "sponsor"){
-								$sql = "select profile_img from sponsors where user_id = ".$_POST['user_id'];
-								$result = mysqli_query($conn, $sql);
-								$row = mysqli_fetch_row($result);
-								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
-							}else if($_POST['user_type'] == "driver"){
-								$sql = "select profile_img from drivers where user_id = ".$_POST['user_id'];
-								$result = mysqli_query($conn, $sql);
-								$row = mysqli_fetch_row($result);
-								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
-							}else if($_POST['user_type'] == "admin"){
-								$sql = "select profile_img from admins where user_id = ".$_POST['user_id'];
-								$result = mysqli_query($conn, $sql);
-								$row = mysqli_fetch_row($result);
-								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
-							}
-					?>
+<?php
+	if($_POST['user_type'] == "sponsor"){
+		$sql = "select profile_img from sponsors where user_id = ".$_POST['user_id'];
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_row($result);
+		echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
+	}else if($_POST['user_type'] == "driver"){
+		$sql = "select profile_img from drivers where user_id = ".$_POST['user_id'];
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_row($result);
+		echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
+	}else if($_POST['user_type'] == "admin"){
+		$sql = "select profile_img from admins where user_id = ".$_POST['user_id'];
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_row($result);
+		echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
+	}
+?>
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
@@ -120,4 +124,6 @@ if ($conn->connect_error) {
 <br>
 
 <?php $conn->close();?>
+</center>
+</body>
 </html>
