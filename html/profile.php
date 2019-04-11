@@ -80,8 +80,12 @@ if ($conn->connect_error) {
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
-					<button type="button" class="btn btn-success btn-sm">Follow</button>
-					<button type="button" class="btn btn-danger btn-sm">Message</button>
+					<button type="button" class="btn btn-success btn-sm">Message</button>
+<?php	
+	if($_SESSION['user_type'] == "sponsor"){
+		echo '<button type="button" class="btn btn-danger btn-sm">Remove</button>';
+	}
+?>
 					<?php
 						
 						//Check if user on this page is logged in and if they are a driver
