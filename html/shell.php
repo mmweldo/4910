@@ -51,7 +51,7 @@
 			  <h3>Drivers page Here</h3>
 		</div>
 		<div id="Help" class="tabcontent">
-			  <h3>Help page Here</h3>
+			<iframe src="social.php" style="width:100%;height:100%;"></iframe>
 		</div>
 
 	<script>
