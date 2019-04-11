@@ -31,13 +31,16 @@
 <?php
   //Header stuffs, adds the html header based on user
   if($_SESSION['user_type'] == "sponsor"){
-    include 'sponsorheader.php';
-
+    	include 'sponsorheader.php';
+    	$_POST['username'] = $_SESSION['username'];
+	$_POST['company_name'] = $_SESSION['company_name'];
+	$_POST['user_id'] = $_SESSION['user_id'];
+	echo "<script>setTimeout(\"location.href = '../storepage.php';\", 100);</script>";
   }
   else if($_SESSION['user_type'] == "admin"){
-    include 'adminheader.php'; 
+    	include 'adminheader.php'; 
   }else if($_SESSION['user_type'] == "driver"){
-    include 'driverheader.php';
+    	include 'driverheader.php';
 	echo '<center>';
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
