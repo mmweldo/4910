@@ -214,6 +214,12 @@
 	</div>
 </div>
 	
+    <div>
+      <input type="text" name="message" id="bugMessage">
+      <button type="button" onclick="bugReport()">Send Message</button>
+      <p id="bugConfirmation"></p>
+    </div>
+	
  <script>
       function bugReport(){
         var receiverText = "bugAdmin";
