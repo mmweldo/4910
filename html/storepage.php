@@ -58,6 +58,7 @@
         <div class="row">
           <?php
           if(!empty($_POST)){
+            echo "made it here!<br>";
             $sql = 'SELECT title, subtitle, pic, link, price FROM products WHERE sponsor_id = '.$_POST['sponsor_id'].';';
             $result = mysqli_query($conn, $sql);
             while($row=mysqli_fetch_row($result)){
