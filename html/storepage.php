@@ -57,14 +57,14 @@
         <br><br>
         <div class="row">
           <?php
-          if(empty($_POST)){
-            /*$sql = 'SELECT title, subtitle, pic, link, price FROM products WHERE sponsor_id = '.$_POST['sponsor_id'].';';
-            result = mysqli_query($conn, $sql);
-            while($row=mysqli_fetch_row($result)){ */
-              $item_img = 'http://placehold.it/700x400';
-              $item_link = '#';
-              $item_price = '250';
-              $item_name = 'item one';
+          if(!empty($_POST)){
+            $sql = 'SELECT title, subtitle, pic, link, price FROM products WHERE sponsor_id = '.$_POST['sponsor_id'].';';
+            $result = mysqli_query($conn, $sql);
+            while($row=mysqli_fetch_row($result)){
+              $item_img = $row[2];//'http://placehold.it/700x400';
+              $item_link = $row[3];//'#';
+              $item_price = $row[4];//'250';
+              $item_name = $row[0];//'item one';
               $item_rating = '<div class="card-footer">
                       <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                     </div>';
@@ -88,7 +88,7 @@
                 </div>
               ';
 
-            //}
+            }
           }
           ?>
 
