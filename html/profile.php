@@ -40,6 +40,16 @@ if ($conn->connect_error) {
 								$result = mysqli_query($conn, $sql);
 								$row = mysqli_fetch_row($result);
 								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
+							}else if($_POST['user_type'] == "driver"){
+								$sql = "select profile_img from drivers where user_id = ".$_POST['user_id'];
+								$result = mysqli_query($conn, $sql);
+								$row = mysqli_fetch_row($result);
+								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
+							}else if($_POST['user_type'] == "admin"){
+								$sql = "select profile_img from admins where user_id = ".$_POST['user_id'];
+								$result = mysqli_query($conn, $sql);
+								$row = mysqli_fetch_row($result);
+								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
 							}
 					?>
 				</div>
