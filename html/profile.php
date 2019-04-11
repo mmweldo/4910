@@ -101,7 +101,7 @@ if ($conn->connect_error) {
 <?php 
 	if($_SESSION['user_type'] == "sponsor"){
 		$sql = "SELECT total_points, current_points from driver_list WHERE driver_id = ".$_POST['user_id']." AND sponsor_id = ".$_SESSION['user_id'].";";
-		echo "SELECT total_points, current_points from driver_list WHERE driver_id = ".$_POST['user_id']." AND sponsor_id = ".$_SESSION['user_id'].";";
+		//echo "SELECT total_points, current_points from driver_list WHERE driver_id = ".$_POST['user_id']." AND sponsor_id = ".$_SESSION['user_id'].";";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_row($result);		
 		if(!(mysqli_num_rows($result) == 0)){ 
