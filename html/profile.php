@@ -105,7 +105,7 @@ if ($conn->connect_error) {
 							Account Settings </a>
 						</li>
 						<li>
-							<a href="#" target="_blank">
+							<a href="#">
 							<i class="glyphicon glyphicon-ok"></i>
 							Tasks </a>
 						</li>
