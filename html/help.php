@@ -197,14 +197,14 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="message">Your message</label>
               <div class="col-md-9">
-                <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+                <textarea class="form-control" id="bugMessage" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
               </div>
             </div>
     
             <!-- Form actions -->
             <div class="form-group">
               <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="button" class="btn btn-primary btn-lg">Submit</button>
               </div>
             </div>
           </fieldset>
@@ -213,3 +213,19 @@
       </div>
 	</div>
 </div>
+	
+ <script>
+      function bugReport(){
+        var receiverText = "bugAdmin";
+        var messageText = document.getElementById("bugMessage").value;
+        var senderText = '<?php echo $_SESSION['username'];?>';
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+          if(this.readyState == 4 && this.status == 200){
+            document.getElementById("bugConfirmation").innerHTML = this.responseText;
+          }
+        };
+      xmlhttp.open("GET", "sendmessage.php?m=" + messageText + "&t=" + receiverText + "&f=" + senderText, true);
+      xmlhttp.send();
+      }
+</script>
