@@ -197,7 +197,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="message">Your message</label>
               <div class="col-md-9">
-                <textarea class="form-control" id="bugMessage" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+                <textarea class="form-control" id="Message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
               </div>
             </div>
     
@@ -219,7 +219,10 @@
       <button type="button" onclick="bugReport()">Send Message</button>
       <p id="bugConfirmation"></p>
     </div>
-	
+	<?php
+
+session_start();
+	?>
  <script>
       function bugReport(){
         var receiverText = "bugAdmin";
