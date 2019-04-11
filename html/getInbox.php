@@ -5,7 +5,7 @@
 	$o = $_REQUEST['o'];
 	#$query = "INSERT INTO messages(sender_id, receiver_id, message, sent_date) VALUES ((SELECT id from users where username = '".$f."'), (SELECT id from users where username = '".$t."'), '".$m."' , DEFAULT);";
 	$query = "SELECT * FROM messages WHERE receiver_id = (SELECT id from users where username='".$o."');";
-	$query = "SELECT sender_id, receiver_id, message, sent_date, username from messages inner join users on messages.sender_id=users.id WHERE receiver_id = (SELECT id from users where username='".$o."');"; 	
+	$query = "SELECT sender_id, receiver_id, message, sent_date, username from messages inner join users on messages.sender_id=users.id WHERE receiver_id = (SELECT id from users where username='".$o."') ORDER BY sent_date DESC;"; 	
 
 	$result =mysqli_query($conn, $query); 
 	if (mysqli_num_rows($result) > 0) {

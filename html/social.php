@@ -40,8 +40,8 @@
     </div>
    <?php
       if($_SESSION['user_type'] == "admin"){
-	echo "<div id='bugBox' onload='loadBugBox()'>here</div>";
         echo '<button type="button" onclick="loadBugBox()">Load Bugs</button>';
+	echo "<div id='bugBox' onload='loadBugBox()'></div>";
       }
     ?>
     <script>
