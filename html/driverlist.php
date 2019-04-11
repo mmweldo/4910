@@ -31,7 +31,7 @@
 		exit();
 	}
 
-	$query = "SELECT drivers.firstname, drivers.lastname, drivers.username, driver_list.total_points, driver_list.current_points, users.date_created FROM drivers left join (users join driver_list on driver_list.driver_id = users.id) on drivers.user_id = users.id WHERE driver_list.sponsor_id = ".mysqli_fetch_row($result)[0]." ORDER BY ".$_POST['order'].";";
+	$query = "SELECT drivers.firstname, drivers.lastname, drivers.username, driver_list.total_points, driver_list.current_points, users.date_created, users.id FROM drivers left join (users join driver_list on driver_list.driver_id = users.id) on drivers.user_id = users.id WHERE driver_list.sponsor_id = ".mysqli_fetch_row($result)[0]." ORDER BY ".$_POST['order'].";";
 
 	$result = mysqli_query($conn, $query);
 	if(!$result){
@@ -111,7 +111,7 @@
 	    echo "<td>".$row[3]."</td>"; 
 	    echo "<td>".$row[4]."</td>"; 
 	    echo "<td>".$row[5]."</td>";
-	    echo '<td><form class="profile-form" method="post" action="profile.php"><input type="hidden" name="user_type" value="driver"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$row[2].'"><button type="View" name="submit">'.$row[2].'</button></form><td>'; 
+	    echo '<td><form class="profile-form" method="post" action="profile.php"><input type="hidden" name="user_type" value="driver"><input type="hidden" name="user_id" value="'.$row[6].'"><input type="hidden" style="width:0px;" type="text" name="username" placeholder="username" value="'.$row[2].'"><button type="View" name="submit">'.$row[2].'</button></form><td>'; 
 	    echo "</tr>"; 
 	}
 	echo "</center>";
