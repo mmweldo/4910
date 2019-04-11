@@ -1,7 +1,11 @@
+<html>
+<head>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+</head>
+<body>
+<center>
 <!--
 User Profile Sidebar by @keenthemes updated by Seth H, Mitch W, Logan C
 A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
@@ -28,7 +32,7 @@ if ($conn->connect_error) {
 ?> 
 
     <div class="row profile">
-		<div class="col-md-10">
+	<div class="col-md-10">
             <div class="profile-content">
             </div>
 		</div>
@@ -36,24 +40,24 @@ if ($conn->connect_error) {
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					<?php
-							if($_POST['user_type'] == "sponsor"){
-								$sql = "select profile_img from sponsors where user_id = ".$_POST['user_id'];
-								$result = mysqli_query($conn, $sql);
-								$row = mysqli_fetch_row($result);
-								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
-							}else if($_POST['user_type'] == "driver"){
-								$sql = "select profile_img from drivers where user_id = ".$_POST['user_id'];
-								$result = mysqli_query($conn, $sql);
-								$row = mysqli_fetch_row($result);
-								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
-							}else if($_POST['user_type'] == "admin"){
-								$sql = "select profile_img from admins where user_id = ".$_POST['user_id'];
-								$result = mysqli_query($conn, $sql);
-								$row = mysqli_fetch_row($result);
-								echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
-							}
-					?>
+<?php
+	if($_POST['user_type'] == "sponsor"){
+		$sql = "select profile_img from sponsors where user_id = ".$_POST['user_id'];
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_row($result);
+		echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
+	}else if($_POST['user_type'] == "driver"){
+		$sql = "select profile_img from drivers where user_id = ".$_POST['user_id'];
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_row($result);
+		echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
+	}else if($_POST['user_type'] == "admin"){
+		$sql = "select profile_img from admins where user_id = ".$_POST['user_id'];
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_row($result);
+		echo '<img src="'.$row[0].'" class="img-circle" alt="Profile Image" style="width:125px;height:125px;">';
+	}
+?>
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
@@ -76,8 +80,12 @@ if ($conn->connect_error) {
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
-					<button type="button" class="btn btn-success btn-sm">Follow</button>
-					<button type="button" class="btn btn-danger btn-sm">Message</button>
+					<button type="button" class="btn btn-success btn-sm">Message</button>
+<?php	
+	if($_SESSION['user_type'] == "sponsor"){
+		echo '<button type="button" class="btn btn-danger btn-sm">Remove</button>';
+	}
+?>
 					<?php
 						
 						//Check if user on this page is logged in and if they are a driver
@@ -94,14 +102,26 @@ if ($conn->connect_error) {
 							<a href="#">
 							<i class="glyphicon glyphicon-home"></i>
 							Overview </a>
+<?php 
+	if($_SESSION['user_type'] == "sponsor"){
+		$sql = "SELECT total_points, current_points from driver_list WHERE driver_id = ".$_POST['user_id']." AND sponsor_id = ".$_SESSION['user_id'].";";
+		//echo "SELECT total_points, current_points from driver_list WHERE driver_id = ".$_POST['user_id']." AND sponsor_id = ".$_SESSION['user_id'].";";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_row($result);		
+		if(!(mysqli_num_rows($result) == 0)){ 
+			echo '<h3>Total Points:</h3><p>'.$row[0].'</p>';
+			echo '<h3>Current Points:</h3><p>'.$row[1].'</p>';
+		}
+	}
+?>
 						</li>
-						<li>
+						<!--<li>
 							<a href="#">
 							<i class="glyphicon glyphicon-user"></i>
 							Account Settings </a>
 						</li>
 						<li>
-							<a href="#" target="_blank">
+							<a href="#">
 							<i class="glyphicon glyphicon-ok"></i>
 							Tasks </a>
 						</li>
@@ -109,7 +129,7 @@ if ($conn->connect_error) {
 							<a href="#">
 							<i class="glyphicon glyphicon-flag"></i>
 							Help </a>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 				<!-- END MENU -->
@@ -120,4 +140,6 @@ if ($conn->connect_error) {
 <br>
 
 <?php $conn->close();?>
+</center>
+</body>
 </html>

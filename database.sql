@@ -127,3 +127,17 @@ create table products(
     PRIMARY KEY(sponsor_id, title),
     CONSTRAINT fk_products_sponsorid_sponsors_userid FOREIGN KEY(sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+CREATE INDEX ix_title ON products(title); 
+CREATE TABLE cart(
+	sponsor_id INT(11) NOT NULL,
+	driver_id int(11) NOT NULL,
+	title varchar(200) not null,
+	amount int not null default 0,
+	price int not null default 0,
+	
+	CONSTRAINT fk_cart_sponsorid_sponsors_userid FOREIGN KEY(sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE, 
+	CONSTRAINT fk_cart_driverid_drivers_userid FOREIGN KEY(driver_id) REFERENCES drivers(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT fk_cart_title_products_title FOREIGN KEY(title) REFERENCES products(title) ON UPDATE CASCADE ON DELETE CASCADE,
+	PRIMARY KEY(driver_id, sponsor_id, title)
+);
