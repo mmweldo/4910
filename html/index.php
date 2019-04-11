@@ -1,6 +1,5 @@
 <!--Code modified from a template provided by Traversy Media. Modified by Mitch -->
 <!--Testing changes -->
-<?php session_start();?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,29 +15,18 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div id="branding">
-          <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
-        </div>
-        <?php if(isset($_SESSION['username'])) echo '<form style="width=5%; float:right;"action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>'; ?>
-        <nav>
-          <ul>
-            <li class="current"><a href="/">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="stories.php">[Stories]</a></li>
-            <?php 
-              if(isset($_SESSION['username'])){
-                echo '<li><a href="">Welcome, '.$_SESSION['username'].'</a></li>';
-              } else{
-                echo '<li><a href="login.html">Login/Signup</a></li>';
-              }
-            ?>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
+	<?php
+		session_start();
+		//Header stuffs, adds the html header based on user
+		if($_SESSION['user_type'] == "sponsor"){
+			include 'sponsorheader.php';
+		}
+		else if($_SESSION['user_type'] == "admin"){
+			include 'adminheader.php'; 
+		}else{
+			include 'driverheader.php';
+		}
+	?>
     <section id="showcase">
       <div class="container">
         <h1>Driver Rewards Program</h1>
@@ -96,38 +84,4 @@
     </footer>
   </body>
 </html>
-<style>
-button {
-  background-color: #e85764;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 13px;
-  /*-webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);*/
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-  margin: 5px 20px 10px 20px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
 
-button:hover{
-  background-color: #e85764;
-}
-
-button:acive {
-  -moz-transform: scale(0.95);
-  -webkit-transform: scale(0.95);
-  -o-transform: scale(0.95);
-  -ms-transform: scale(0.95);
-  transform: scale(0.95);
-}
-</style>

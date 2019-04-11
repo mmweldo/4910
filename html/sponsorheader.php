@@ -60,6 +60,9 @@
               -ms-transform: scale(0.95);
               transform: scale(0.95);
             }
+            #footer, footer{
+                background-color: #E8BD57; 
+            }
             </style>
       
     <div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; right: 10px; top: -13px;">
@@ -74,7 +77,7 @@
         </div>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="shell.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="stories.php">[Stories]</a></li>
             <?php 

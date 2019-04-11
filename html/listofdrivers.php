@@ -1,4 +1,5 @@
 <?php  
+	//This is an admin page to see all drivers that are present on the website. Sponsors have the driverlist page to see alll of their drivers
 	session_start();
 	if(!isset($_SESSION['username'])){
 		echo "Error: Please log in first!";

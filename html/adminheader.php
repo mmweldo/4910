@@ -24,7 +24,7 @@
           $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
           $conn = mysqli_connect($endpoint, "master", "group4910", "website");
               
-          $sql = "SELECT profile_img FROM sponsors WHERE user_id = ".$_SESSION['user_id'].";";
+          $sql = "SELECT profile_img FROM admins WHERE user_id = ".$_SESSION['user_id'].";";
           $result = mysqli_query($conn, $sql);
           $row = mysqli_fetch_row($result);
   
@@ -60,6 +60,9 @@
               -ms-transform: scale(0.95);
               transform: scale(0.95);
             }
+            #footer, footer{
+                background-color: #8AE857; 
+            }
             </style>
       
     <div style=" font-size: 1.1rem; font-weight: 400; height: 4vh; position: relative; right: 10px; top: -13px;">
@@ -74,7 +77,7 @@
         </div>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="shell.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="stories.php">[Stories]</a></li>
             <?php 
