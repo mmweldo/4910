@@ -98,6 +98,15 @@ if ($conn->connect_error) {
 							<a href="#">
 							<i class="glyphicon glyphicon-home"></i>
 							Overview </a>
+<?php 
+	$sql = "SELECT total_points, current_points from driver_list WHERE driver_id = ".$_POST['user_id']." AND sponsor_id = ".$_SESSION['user_id'].";";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_row($result);		
+	if(!(mysql_num_rows($result) == 0)){ 
+		echo '<h3>Total Points:</h3><p>'.$row[0].'</p>';
+		echo '<h3>Current Points:</h3><p>'.$row[1].'</p>';
+	}
+?>
 						</li>
 						<li>
 							<a href="#">
