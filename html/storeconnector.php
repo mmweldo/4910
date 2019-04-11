@@ -46,8 +46,9 @@
 	$result = mysqli_query($conn, $query);
   }
 
-  $sql = "SELECT sponsors.company_name, sponsors.user_id, users.username FROM (sponsors JOIN users on sponsors.user_id = users.id)JOIN driver_list ON driver_list.sponsor_id = sponsors.user_id WHERE driver_list.driver_id = ".$_SESSION['user_id'];
-
+  	$sql = "SELECT sponsors.company_name, sponsors.user_id, users.username FROM (sponsors JOIN users on sponsors.user_id = users.id)JOIN driver_list ON driver_list.sponsor_id = sponsors.user_id WHERE driver_list.driver_id = ".$_SESSION['user_id'];
+	echo $sql;
+		
 	if(!$result){
 		echo "Error: Error finding sponsors";
 		echo "<script>setTimeout(\"location.href = '../storepage.php?CANT-FIND-SPONSOR';\", 3000);</script>";
