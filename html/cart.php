@@ -58,7 +58,7 @@
 			$sql = "SELECT amount from cart WHERE driver_id = ".$_SESSION['user_id']." AND title = '".$_POST['title']."';";
 			$result = mysqli_query($conn, $sql);
 			$result = mysqli_fetch_row($result);
-			echo "There is already #".(int)$result[0];
+			$sql = "INSERT INTO cart (sponsor_id, driver_id, title, amount, price) VALUES (".$_POST['sponsor_id'].",".$_POST['driver_id'].",'".$_POST['title']."',".$_POST['amount']+(int)$result.",".$_POST['price'].");";
 		}
 		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
 		//echo $sql;
