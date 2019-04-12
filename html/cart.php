@@ -37,6 +37,11 @@
 	}else if($_SESSION['user_type'] == "driver"){
 		include 'driverheader.php';
 		
+		echo $_POST['title'];
+		echo $_POST['sponsor_id'];
+		echo $_POST['driver_id'];
+		echo $_POST['price'];
+
 		$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 		$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 		
