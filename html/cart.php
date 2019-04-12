@@ -50,7 +50,7 @@
 		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
 		
 		//Check if user is trying to remove from cart
-		if(isset(!empty($_POST['remove']) && $_POST['remove'])){
+		if(!empty($_POST['remove']) && isset($_POST['remove'])){
 			$sql = "DELETE FROM cart WHERE title = '".$_POST['remove_title']."' AND driver_id = ".$_SESSION['user_id']." AND sponsor_id =".$_POST['remove_sponsor'].";";
 			$result = mysqli_query($conn, $sql);
 		}
