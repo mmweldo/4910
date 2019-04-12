@@ -33,6 +33,15 @@
   //Header stuffs, adds the html header based on user
   if($_SESSION['user_type'] == "sponsor"){
     include 'sponsorheader.php';
+    echo '<div class="container">
+      <div class="row">
+      <div class="col-lg-3">
+      <h1 class="my-4">'.$_POST['company_name'].'</h1>
+      </div>
+      <!-- /.col-lg-3 -->
+      <div class="col-lg-9">
+        <br><br>
+        <div class="row">';
                 $sql = 'SELECT title, subtitle, pic, link, price, company_name, dollar_ratio FROM products join sponsors on sponsor_id = user_id WHERE sponsor_id = '.$_GET['user_id'].';';
             //echo $sql;
             $result = mysqli_query($conn, $sql);
