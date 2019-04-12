@@ -46,7 +46,7 @@
 			$result = mysqli_query($conn, $sql);
 		}
 		
-		echo '<a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
+		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
 		echo '<center><h3>Your Cart</h3>';
 		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
 		//echo $sql;
