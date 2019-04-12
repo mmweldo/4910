@@ -43,10 +43,10 @@
 		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
 		//echo $sql;
 		$result = mysqli_query($conn, $sql);
-		$in_cart_already = false;
+		$in_cart_already = "false";
 		
 		$temp=mysqli_fetch_row($result);
-		if(in_array($_POST['title'],$temp)) $in_cart_already=true;
+		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
 		
 		echo $in_cart_already;
 		if(!empty($_POST) && !$in_cart_already){
