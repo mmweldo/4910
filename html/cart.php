@@ -45,26 +45,28 @@
 			//echo $sql;
 			$result = mysqli_query($conn, $sql);
 		}
-			echo '<center><h3>Your Cart</h3>';
-			$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
-			//echo $sql;
-			$result = mysqli_query($conn, $sql);
-			echo '<table><tr>';
-			echo '<th>Title</th>';
-			echo '<th>Amount</th>';
-			echo '<th>Price Per</th>';
-			echo '</tr>';
-			while($row=mysqli_fetch_row($result)){
-				echo "<tr>";
-				echo "<td>".$row[0]."</td>"; 
-				echo "<td>".$row[1]."</td>"; 
-				echo "<td>".$row[2]."</td>"; 
-				echo "</tr>";
-				$cart_total += (double)$row[1] * (double)$row[2];
-			}
-			echo "</table>";
-			echo "<br><br>";
-			echo "<h3>Cart Total: ".$cart_total."</h3>";
+		
+		echo '<a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
+		echo '<center><h3>Your Cart</h3>';
+		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
+		//echo $sql;
+		$result = mysqli_query($conn, $sql);
+		echo '<table><tr>';
+		echo '<th>Title</th>';
+		echo '<th>Amount</th>';
+		echo '<th>Price Per</th>';
+		echo '</tr>';
+		while($row=mysqli_fetch_row($result)){
+			echo "<tr>";
+			echo "<td>".$row[0]."</td>"; 
+			echo "<td>".$row[1]."</td>"; 
+			echo "<td>".$row[2]."</td>"; 
+			echo "</tr>";
+			$cart_total += (double)$row[1] * (double)$row[2];
+		}
+		echo "</table>";
+		echo "<br><br>";
+		echo "<h3>Cart Total: ".$cart_total."</h3>";
   	}
   
 ?>
