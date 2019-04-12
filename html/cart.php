@@ -50,7 +50,7 @@
 		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
 		
 		//Check if user is trying to remove from cart
-		if(isset($_POST['remove'])){
+		if(isset(!empty($_POST['remove']) && $_POST['remove'])){
 			$sql = "DELETE FROM cart WHERE title = '".$_POST['remove_title']."' AND driver_id = ".$_SESSION['user_id']." AND sponsor_id =".$_POST['remove_sponsor'].";";
 			$result = mysqli_query($conn, $sql);
 		}
@@ -86,7 +86,7 @@
 			echo "<td>".$row[0]."</td>"; 
 			echo "<td>".$row[1]."</td>"; 
 			echo "<td>".$row[2]."</td>";
-			echo '<td><form action="cart.php" method="POST" id="remove_item"><input type="hidden" name="remove_sponsor" value="'.$row[3].'"><input type="hidden" name="remove_title" value="'.$row[0].'"><input type="submit" value="Submit"></form></td>';
+			echo '<td><form action="cart.php" method="POST" id="remove_item"><input type="hidden" name="remove" value="remove"><input type="hidden" name="remove_sponsor" value="'.$row[3].'"><input type="hidden" name="remove_title" value="'.$row[0].'"><input type="submit" value="Submit"></form></td>';
 			echo "</tr>";
 			$cart_total += (double)$row[1] * (double)$row[2];
 		}
