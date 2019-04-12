@@ -67,7 +67,7 @@
 			$result = mysqli_fetch_row($result);
 
 			$sql = "UPDATE cart SET amount = amount + ".$_POST['amount'].";";			
-			echo $sql;
+			//echo $sql;
 			$result = mysqli_query($conn, $sql);
 		}
 		$sql = "SELECT title, amount, price, sponsor_id FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
