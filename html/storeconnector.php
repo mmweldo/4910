@@ -35,7 +35,7 @@
     	$_POST['username'] = $_SESSION['username'];
 	$_POST['company_name'] = $_SESSION['company_name'];
 	$_POST['user_id'] = $_SESSION['user_id'];
-	echo "<script>setTimeout(\"location.href = '../storepage.php';\", 100);</script>";
+		echo '<script>setTimeout(\"location.href = \'../storepage.php?username='.$_SESSION['username'].'&user_id='.$_SESSION['user_id'].'&user_type=sponsor&company_name='.$_SESSION['company_name'].'\';", 100);</script>';
   }
   else if($_SESSION['user_type'] == "admin"){
     	include 'adminheader.php'; 
