@@ -79,9 +79,7 @@
 
   <!-- Page Content -->
   <div class="container">
-
     <div class="row">
-
       <div class="col-lg-3">
 <?php 
   echo '<h1 class="my-4">'.$_POST['company_name'].'</h1>'
@@ -138,19 +136,13 @@
 
         </div>
         <!-- /.row -->
-
       </div>
       <!-- /.col-lg-9 -->
-
     </div>
     <!-- /.row -->
-
   </div>
   <!-- /.container -->
-
   <!-- Footepr -->
-
-
   <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js">
   
