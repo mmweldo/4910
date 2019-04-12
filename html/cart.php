@@ -31,7 +31,6 @@
 	//Header stuffs, adds the html header based on user
 	if($_SESSION['user_type'] == "sponsor"){
 		include 'sponsorheader.php';
-
 	}
 	else if($_SESSION['user_type'] == "admin"){
 		include 'adminheader.php'; 
@@ -46,7 +45,9 @@
 		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		$in_cart_already = "false";
+		echo $result;
 		$temp=mysqli_fetch_row($result);
+		echo $temp;
 		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
 		echo $in_cart_already;
 
