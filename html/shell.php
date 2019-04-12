@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	if(!isset($_SESSION['user_id'])){
 		echo "<script>setTimeout(\"location.href = '../index.php';\", 100);</script>";
 	}
