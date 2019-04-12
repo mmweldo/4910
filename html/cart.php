@@ -45,9 +45,9 @@
 		$result = mysqli_query($conn, $sql);
 		$in_cart_already = false;
 		
-		while($row=mysqli_fetch_row($result)){
-			if(in_array($_POST['title'],$row)) $in_cart_already=true;
-		}
+		$temp=mysqli_fetch_row($result);
+		if(in_array($_POST['title'],$temp)) $in_cart_already=true;
+		
 		echo $in_cart_already;
 		if(!empty($_POST) && !$in_cart_already){
 			$cart_total = 0;
