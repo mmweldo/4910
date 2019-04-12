@@ -141,3 +141,5 @@ CREATE TABLE cart(
 	CONSTRAINT fk_cart_title_products_title FOREIGN KEY(title) REFERENCES products(title) ON UPDATE CASCADE ON DELETE CASCADE,
 	PRIMARY KEY(driver_id, sponsor_id, title)
 );
+
+ALTER TABLE cart MODIFY price varchar(20);
