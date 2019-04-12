@@ -82,7 +82,7 @@
                       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                     </div>
                     <center><form action="cart.php" method="POST" id="add_to_cart_form">
-                      <input style="width:auto;" type="amount" min="0" placeholder="1"></input>
+                      <input style="width:auto;" name="amount" type="number" min="0" placeholder="1"></input>
                       <input type="hidden" name="sponsor_id" value="'.$_POST['user_id'].'"></input>
                       <input type="hidden" name="driver_id" value="'.$_SESSION['user_id'].'"></input>
                       <input type="hidden" name="title" value="'.$item_name.'"></input>
