@@ -41,15 +41,15 @@
 		$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 		
 		//Check if an existing cart item was added to cart
-		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
+		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id']." AND title = ".$_POST['title'].";";
 		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		$in_cart_already = "false";
 		//echo "made it to result";
 		//echo $result;
 		$temp=mysqli_fetch_row($result);
-		echo "made it to temp";
-		echo $temp;
+		//echo "made it to temp";
+		//echo $temp;
 		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
 		echo $in_cart_already;
 
