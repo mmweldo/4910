@@ -86,7 +86,7 @@
 			echo "<td>".$row[0]."</td>"; 
 			echo "<td>".$row[1]."</td>"; 
 			echo "<td>".$row[2]."</td>";
-			echo '<td><form action="cart.php" method="POST" id="remove_item"><input type="hidden" name="remove_sponsor" value="'.$row[3].'"><input type="hidden" name="remove_title" value="'.$row[0].'"></form><button form="remove_item">Remove</button></td>';
+			echo '<td><form action="cart.php" method="POST" id="remove_item"><input type="hidden" name="remove_sponsor" value="'.$row[3].'"><input type="hidden" name="remove_title" value="'.$row[0].'"><input type="submit" value="Submit"></form></td>';
 			echo "</tr>";
 			$cart_total += (double)$row[1] * (double)$row[2];
 		}
