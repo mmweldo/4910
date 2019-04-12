@@ -45,8 +45,10 @@
 		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		$in_cart_already = "false";
+		echo "made it to result";
 		echo $result;
 		$temp=mysqli_fetch_row($result);
+		echo "made it to temp";
 		echo $temp;
 		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
 		echo $in_cart_already;
