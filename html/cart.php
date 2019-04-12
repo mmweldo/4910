@@ -102,7 +102,7 @@
 		echo "<br><br>";
 		echo "<h3>Cart Total: ".$cart_total."</h3>";
   	}
-  
+		$_POST = array();
 ?>
 
 		</center>
