@@ -65,7 +65,7 @@
             while($row=mysqli_fetch_row($result)){
               $item_img = $row[2];//'http://placehold.it/700x400';
               $item_link = $row[3];//'#';
-              $item_price = (int)$row[4] * $row[6];//'250';
+              $item_price = (double)$row[4] * $row[6];//'250';
               $item_name = $row[0];//'item one';
               $item_rating = '<div class="card-footer">
                       <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -86,7 +86,7 @@
                       <input type="hidden" name="sponsor_id" value="'.$_POST['user_id'].'"></input>
                       <input type="hidden" name="driver_id" value="'.$_SESSION['user_id'].'"></input>
                       <input type="hidden" name="title" value="'.$item_name.'"></input>
-                      <input type="hidden" name="price" value="'.$item_price.'"></input>
+                      <input type="hidden" name="price" value="'.(double)$item_price.'"></input>
                     </form></center>
                     <button form="add_to_cart_form" type="submit" class="btn btn-success btn-sm" value="submit">Add to Cart</button>
                     '.$item_rating.'
