@@ -40,16 +40,21 @@
 		
 		$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 		$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+		
+		//Check if an existing cart item was added to cart
 		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
 		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		$in_cart_already = "false";
-		
 		$temp=mysqli_fetch_row($result);
 		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
+		
+		//Check if user is trying to remove from cart
 		if(isset($_POST['remove'])){
 			$sql = "DELETE FROM cart WHERE title = '".$_POST['remove_title']."' AND driver_id = ".$_SESSION['user_id']." AND sponsor_id =".$_POST['remove_sponsor'].";";
+			$result = mysqli_query($conn, $sql);
 		}
+		
 		//echo $in_cart_already;
 		if(isset($_POST['amount']) && !$in_cart_already){
 			$cart_total = 0;
