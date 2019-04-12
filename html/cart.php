@@ -42,12 +42,12 @@
 			$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 			$cart_total = 0;
 			$sql = "INSERT INTO cart (sponsor_id, driver_id, title, amount, price) VALUES (".$_POST['sponsor_id'].",".$_POST['driver_id'].",'".$_POST['title']."',".$_POST['amount'].",".$_POST['price'].");";
-			echo $sql;
+			//echo $sql;
 			$result = mysqli_query($conn, $sql);
 		}
 			echo '<center><h3>Your Cart</h3>';
 			$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_POST['driver_id'].";";
-			echo $sql;
+			//echo $sql;
 			$result = mysqli_query($conn, $sql);
 			echo '<table><tr>';
 			echo '<th>Title</th>';
