@@ -41,9 +41,11 @@
 		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		$in_cart_already = false;
+		
 		while($row=mysqli_fetch_row($result)){
 			if(in_array($_POST['title'],$row) $in_cart_already=true;
 		}
+		echo $in_cart_already;
 		if(!empty($_POST) && !$in_cart_already){
 			$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 			$conn = mysqli_connect($endpoint, "master", "group4910", "website");
