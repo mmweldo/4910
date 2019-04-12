@@ -47,9 +47,11 @@
 		
 		$temp=mysqli_fetch_row($result);
 		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
-		
+		if(isset($_POST['remove'])){
+			$sql = "DELETE FROM cart WHERE title = '".$_POST['remove_title']."' AND driver_id = ".$_SESSION['user_id']." AND sponsor_id =".$_POST['remove_sponsor'].";";
+		}
 		//echo $in_cart_already;
-		if(!empty($_POST) && !$in_cart_already){
+		if(isset($_POST['amount']) && !$in_cart_already){
 			$cart_total = 0;
 			$sql = "INSERT INTO cart (sponsor_id, driver_id, title, amount, price) VALUES (".$_POST['sponsor_id'].",".$_POST['driver_id'].",'".$_POST['title']."',".$_POST['amount'].",".$_POST['price'].");";
 			//echo $sql;
@@ -63,7 +65,7 @@
 			echo $sql;
 			$result = mysqli_query($conn, $sql);
 		}
-		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
+		$sql = "SELECT title, amount, price, sponsor_id FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
 		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
@@ -78,7 +80,8 @@
 			echo "<tr>";
 			echo "<td>".$row[0]."</td>"; 
 			echo "<td>".$row[1]."</td>"; 
-			echo "<td>".$row[2]."</td>"; 
+			echo "<td>".$row[2]."</td>";
+			echo "<td><form action=\"cart.php\" method=\"POST\" id=\"remove_item\"><input type=\"hidden\" name=\"remove_sponsor\" value=\"".$row[3]."\"><input type=\"hidden\" name=\"remove_title\" value=\"".$row[0]."\"></form><button form=\"remove_item\">Remove</button></td>"
 			echo "</tr>";
 			$cart_total += (double)$row[1] * (double)$row[2];
 		}
