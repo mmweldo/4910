@@ -42,43 +42,33 @@
 		
 		//Check if an existing cart item was added to cart
 		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id']." AND title = ".$_POST['title'].";";
-		//echo $sql;
+		
 		$result = mysqli_query($conn, $sql);
 		$in_cart_already = "false";
-		//echo "made it to result";
-		//echo $result;
 		$temp=mysqli_fetch_row($result);
-		//echo "made it to temp";
-		//echo $temp;
+
 		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
 		echo $in_cart_already;
 
 		//Check if user is trying to remove from cart
 		if(!empty($_POST['remove']) && isset($_POST['remove'])){
-			echo "In the remove if";
 			$sql = "DELETE FROM cart WHERE title = '".$_POST['remove_title']."' AND driver_id = ".$_SESSION['user_id']." AND sponsor_id =".$_POST['remove_sponsor'].";";
 			$result = mysqli_query($conn, $sql);
 		}
 		
-		//echo $in_cart_already;
 		if(isset($_POST['amount']) && $in_cart_already != "true"){
-			echo "in the new item if";
 			$cart_total = 0;
 			$sql = "INSERT INTO cart (sponsor_id, driver_id, title, amount, price) VALUES (".$_POST['sponsor_id'].",".$_POST['driver_id'].",'".$_POST['title']."',".$_POST['amount'].",".$_POST['price'].");";
-			//echo $sql;
 			$result = mysqli_query($conn, $sql);
 		}else if($in_cart_already == "true"){
-			echo "in the in cart already if";
 			$sql = "SELECT amount from cart WHERE driver_id = ".$_SESSION['user_id']." AND title = '".$_POST['title']."';";
 			$result = mysqli_query($conn, $sql);
 			$result = mysqli_fetch_row($result);
 
 			$sql = "UPDATE cart SET amount = amount + ".$_POST['amount'].";";			
-			//echo $sql;
 			$result = mysqli_query($conn, $sql);
 		}
 		$sql = "SELECT title, amount, price, sponsor_id FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
-		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
 		echo '<center><h3>Your Cart</h3>';
