@@ -55,7 +55,7 @@
 			//echo $sql;
 			$result = mysqli_query($conn, $sql);
 		}else if($in_cart_already){
-			$sql = "SELECT amount from cart WHERE driver_id = ".$_SESSION['user_id']." AND title = ".$_POST['title'].";";
+			$sql = "SELECT amount from cart WHERE driver_id = ".$_SESSION['user_id']." AND title = '".$_POST['title']."';";
 			$result = mysqli_query($conn, $sql);
 			echo "There is already #".(int)$result;
 		}
