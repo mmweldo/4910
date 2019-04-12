@@ -48,7 +48,7 @@
 		$in_cart_already = "false";
 		$temp=mysqli_fetch_row($result);
 		if(in_array($_POST['title'],$temp)) $in_cart_already="true";
-		//echo $in_cart_already;
+		echo $in_cart_already;
 
 		//Check if user is trying to remove from cart
 		if(!empty($_POST['remove']) && isset($_POST['remove'])){
