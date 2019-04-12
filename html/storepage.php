@@ -85,7 +85,7 @@
       <div class="col-lg-3">
 <?php 
   echo '<h1 class="my-4">'.$_POST['company_name'].'</h1>'
-  echo '<a style="right:0px;" href="/cart.php"><button>Cart</button></a>'
+  echo '<a style="right:0px;" href="/cart.php"><button>Cart</button></a>';
 ?>
       </div>
       <!-- /.col-lg-3 -->
