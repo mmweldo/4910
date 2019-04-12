@@ -78,9 +78,13 @@
 ?>
 
   <!-- Page Content -->
-  <div class="container">
+    <div class="container">
     <div class="row">
-      <div class="col-lg-3">
+<?php 
+  echo '<a style="position:relative; right:0px; float:right;" href="/cart.php"><button>Cart</button></a>';
+  echo '<table id="cart"></table><button form="cart">Cart</button>';
+?>
+    <div class="col-lg-3">
 <?php 
   echo '<h1 class="my-4">'.$_POST['company_name'].'</h1>';
   echo '<a style="position:relative; right:0px; float:right;" href="/cart.php"><button>Cart</button></a>';
