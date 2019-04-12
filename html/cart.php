@@ -37,7 +37,14 @@
 		include 'adminheader.php'; 
 	}else if($_SESSION['user_type'] == "driver"){
 		include 'driverheader.php';
-		if(!empty($_POST)){
+		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
+		//echo $sql;
+		$result = mysqli_query($conn, $sql);
+		$in_cart_already = false;
+		while($row=mysqli_fetch_row($result)){
+			if(in_array($_POST['title'],$row) $in_cart_already=true;
+		}
+		if(!empty($_POST) && !$in_cart_already){
 			$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 			$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 			$cart_total = 0;
@@ -48,9 +55,7 @@
 		
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
 		echo '<center><h3>Your Cart</h3>';
-		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
-		//echo $sql;
-		$result = mysqli_query($conn, $sql);
+
 		echo '<table><tr>';
 		echo '<th>Title</th>';
 		echo '<th>Amount</th>';
