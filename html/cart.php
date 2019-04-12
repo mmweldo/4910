@@ -61,6 +61,7 @@
 			echo "in adding new item";
 			$cart_total = 0;
 			$sql = "INSERT INTO cart (sponsor_id, driver_id, title, amount, price) VALUES (".$_POST['sponsor_id'].",".$_POST['driver_id'].",'".$_POST['title']."',".$_POST['amount'].",".$_POST['price'].");";
+			echo $sql;
 			$result = mysqli_query($conn, $sql);
 		}else if($in_cart_already == "true"){
 			echo "in adding old item";
