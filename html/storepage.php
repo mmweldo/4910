@@ -36,7 +36,7 @@
     echo '<div class="container">
       <div class="row">
       <div class="col-lg-3">
-      <h1 class="my-4">'.$_POST['company_name'].'</h1>
+      <h1 class="my-4">'.$_GET['company_name'].'</h1>
       </div>
       <!-- /.col-lg-3 -->
       <div class="col-lg-9">
