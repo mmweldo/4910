@@ -46,7 +46,7 @@
 			$result = mysqli_query($conn, $sql);
 		}
 			echo '<center><h3>Your Cart</h3>';
-			$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_POST['driver_id'].";";
+			$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
 			//echo $sql;
 			$result = mysqli_query($conn, $sql);
 			echo '<table><tr>';
