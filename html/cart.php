@@ -43,12 +43,12 @@
 		//Check if an existing cart item was added to cart
 		$sql = "SELECT title, amount, price FROM cart WHERE driver_id = ".$_SESSION['user_id']." AND title = '".$_POST['title']."';";
 		echo $sql;
-		
+
 		$result = mysqli_query($conn, $sql);
 		$in_cart_already = "false";
 		$temp=mysqli_fetch_row($result);
 
-		if(in_array($_POST['title'],$temp) || in_array($_POST['title'],$result)) $in_cart_already="true";
+		if($result->num_rows != 0) $in_cart_already="true";
 		echo $in_cart_already;
 
 		//Check if user is trying to remove from cart
