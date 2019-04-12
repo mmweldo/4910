@@ -55,15 +55,6 @@
                       <h5>'.$item_price.' points</h5>
                       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                     </div>
-                    <center><form action="cart.php" method="POST" id="add_to_cart_form">
-                      <input style="width:auto;" name="amount" type="number" min="0" placeholder="1"></input>
-                      <input type="hidden" name="sponsor_id" value="'.$_GET['user_id'].'"></input>
-                      <input type="hidden" name="driver_id" value="'.$_SESSION['user_id'].'"></input>
-                      <input type="hidden" name="title" value="'.$item_name.'"></input>
-                      <input type="hidden" name="price" value="'.(double)$item_price.'"></input>
-                    </form></center>
-                    <button form="add_to_cart_form" type="submit" class="btn btn-success btn-sm" value="submit">Add to Cart</button>
-                    '.$item_rating.'
                   </div>
                 </div>
               ';
