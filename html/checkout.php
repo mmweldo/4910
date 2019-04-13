@@ -30,24 +30,26 @@
         
         $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
         $conn = mysqli_connect($endpoint, "master", "group4910", "website");
-        echo "Made it to two cases!";
-        echo " Post is ".$_POST['checkout']." ".$_POST['title'];
+
         //Two Cases, one is checkout all, another is checkout individual item
         if($_POST['checkout'] == "individual"){
-            echo "individual if<br>";
+            echo " individual if<br> ";
             $sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$_POST['sponsor_id'].";";
+            echo $sql;
             $result = mysqli_query($conn, $sql);
+            
             echo $result;
             $row = mysqli_fetch_row($result);
             echo $row;
             echo "Current Points: ".$row[0]." Cost of Purchase: ".$_POST['cost'];
+            
             if($row[0] < $_POST['cost']){
                 echo "<h3>Not enough points to check out!</h3>";
                 echo "<script>window.top.location.href=\"http://52.55.244.84/cart.php\"</script>";
             }
 
         }else if($_POST['checkout'] == "all"){
-            echo "all if<br>";
+            echo " all if<br> ";
 
         }
     }else{ //Not logged in
