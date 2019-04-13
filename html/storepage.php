@@ -117,13 +117,13 @@
                       <h5>'.$item_price.' points</h5>
                       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                     </div>
-                    <center><form action="cart.php" method="POST" id="add_to_cart_form">
+                    <center><form action="cart.php" method="POST">
                       <input style="width:auto;" name="amount" type="number" min="0" placeholder="1"></input>
                       <input type="hidden" name="sponsor_id" value="'.$_POST['user_id'].'"></input>
                       <input type="hidden" name="driver_id" value="'.$_SESSION['user_id'].'"></input>
                       <input type="hidden" name="title" value="'.$row[0].'"></input>
                       <input type="hidden" name="price" value="'.(double)$item_price.'"></input>
-                      <button form="add_to_cart_form" type="submit" class="btn btn-success btn-sm" value="submit">Add to Cart</button>
+                      <button type="submit" class="btn btn-success btn-sm" value="submit">Add to Cart</button>
                     </form></center>
                     '.$item_rating.'
                   </div>
