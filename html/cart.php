@@ -95,7 +95,7 @@
 			echo "<td>".$row[2]."</td>";
 			$cost = (double)$row[1] * (double)$row[2];
 			echo '<td><form action="cart.php" method="POST" id="remove_item"><input type="hidden" name="remove" value="remove"><input type="hidden" name="remove_sponsor" value="'.$row[3].'"><input type="hidden" name="remove_title" value="'.$row[0].'"><input type="submit" value="Remove All"></form></td>';
-			echo '<td><form action="checkout.php" method="POST" id="checkout_item"><item type="hidden" name="checkout" value="individual"><input type="hidden" name="title" value="'.$row[0].'"><input type="hidden" name="sponsor_id" value="'.$row[3].'"><input type="hidden" name="cost" value="'.$cost.'"><input type="submit" value="Checkout All '.$row[1].'"></form></td>';
+			echo '<td><form action="checkout.php" method="POST"><item type="hidden" name="checkout" value="individual"><input type="hidden" name="title" value="'.$row[0].'"><input type="hidden" name="sponsor_id" value="'.$row[3].'"><input type="hidden" name="cost" value="'.$cost.'"><input type="submit" value="Checkout All '.$row[1].'"></form></td>';
 			echo "</tr>";
 			$cart_total += (double)$row[1] * (double)$row[2];
 		}
