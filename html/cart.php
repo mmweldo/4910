@@ -105,7 +105,7 @@
 			
 			echo '<td>
 				<form action="checkout.php" method="POST" id="checkout_item">
-					<item type="hidden" name="checkout" value="individual">
+					<input type="hidden" name="checkout" value="individual">
 					<input type="hidden" name="title" value="'.$row[0].'">
 					<input type="hidden" name="sponsor_id" value="'.$row[3].'">
 					<input type="hidden" name="cost" value="'.$cost.'">
@@ -119,7 +119,11 @@
 		echo "<br><br>";
 		echo "<h3>Cart Total: ".$cart_total."</h3>";
 
-		echo '<form action="checkout.php" method="POST" id="checkout_items"><input type="hidden" name="checkout" value="all"><input type="submit" value="Checkout Everything"></form>';
+		echo '<form action="checkout.php" method="POST" id="checkout_items">
+			<input type="hidden" name="checkout" value="all">
+			<input type="submit" value="Checkout Everything">
+		</form>';
+		
   	}
 		$_POST = array();
 ?>
