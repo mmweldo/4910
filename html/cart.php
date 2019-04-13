@@ -94,6 +94,7 @@
 			echo "<td>".$row[1]."</td>"; 
 			echo "<td>".$row[2]."</td>";
 			echo '<td><form action="cart.php" method="POST" id="remove_item"><input type="hidden" name="remove" value="remove"><input type="hidden" name="remove_sponsor" value="'.$row[3].'"><input type="hidden" name="remove_title" value="'.$row[0].'"><input type="submit" value="Remove All"></form></td>';
+			echo '<td><form action="checkout.php" method="POST" id="checkout_item"><item type="hidden" name="checkout" value="individual"><input type="hidden" name="title" value="'.$row[0].'"><button type="submit" name="Purchase x'.$row[1].'"></form></td>';
 			echo "</tr>";
 			$cart_total += (double)$row[1] * (double)$row[2];
 		}
@@ -101,6 +102,8 @@
 		echo "</table>";
 		echo "<br><br>";
 		echo "<h3>Cart Total: ".$cart_total."</h3>";
+
+		echo '<form><input type="hidden" name="checkout" value="all"><input type="submit" value="Checkout All"></form>';
   	}
 		$_POST = array();
 ?>
