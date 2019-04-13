@@ -123,8 +123,8 @@
                       <input type="hidden" name="driver_id" value="'.$_SESSION['user_id'].'"></input>
                       <input type="hidden" name="title" value="'.$row[0].'"></input>
                       <input type="hidden" name="price" value="'.(double)$item_price.'"></input>
+                      <button form="add_to_cart_form" type="submit" class="btn btn-success btn-sm" value="submit">Add to Cart</button>
                     </form></center>
-                    <button form="add_to_cart_form" type="submit" class="btn btn-success btn-sm" value="submit">Add to Cart</button>
                     '.$item_rating.'
                   </div>
                 </div>
