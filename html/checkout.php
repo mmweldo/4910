@@ -30,7 +30,7 @@
         
         $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
         $conn = mysqli_connect($endpoint, "master", "group4910", "website");
-        
+        echo "Made it to two cases!";
         //Two Cases, one is checkout all, another is checkout individual item
         if($_POST['checkout'] == "individual"){
             echo "individual if<br>";
