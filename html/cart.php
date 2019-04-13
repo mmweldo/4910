@@ -1,8 +1,8 @@
   <!--A large amount of this page was supplied by https://startbootstrap.com/templates/shop-homepage/, an equal amount of work adjusting was done as well. Credit to the unnamed authors, since this work is based on it, it also uses MIT License -->
 <?php 
-  if (session_status() == PHP_SESSION_NONE) {
-      session_start();
-  }
+
+	session_start();
+
   
   #$conn = new mysqli($servername, $username, $password, $dbname);
   /*$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
