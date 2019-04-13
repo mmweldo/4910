@@ -149,7 +149,6 @@ CREATE INDEX ix_streetaddress ON drivers(street_address);
 CREATE INDEX ix_country ON drivers(country); 
 CREATE INDEX ix_postal_code ON drivers(postal_code); 
 CREATE INDEX ix_price ON products(price);
-CREATE INDEX ix_amount ON cart(amount);
 
 CREATE TABLE purchase(
     order_id int NOT NULL AUTO_INCREMENT,
@@ -186,7 +185,7 @@ CREATE TABLE products_bought(
     point_cost varchar(20),
 
     title varchar(200) NOT NULL,    /**/
-	amount int not null default 0,  /**/    
+	amount int not null default 1,  
 
     CONSTRAINT fk_productsbought_orderid_purchase_orderid FOREIGN KEY (order_id) REFERENCES purchase(order_id) ON UPDATE CASCADE ON DELETE CASCADE,
 
@@ -197,8 +196,6 @@ CREATE TABLE products_bought(
     CONSTRAINT fk_productsbought_price_products_price FOREIGN KEY (price) REFERENCES products(price) ON UPDATE CASCADE ON DELETE CASCADE,
 
     CONSTRAINT fk_productsbought_title_products_title FOREIGN KEY (title) REFERENCES products(title) ON UPDATE CASCADE ON DELETE CASCADE,
-
-    CONSTRAINT fk_productsbought_amount_cart_amount FOREIGN KEY (amount) REFERENCES cart(amount) ON UPDATE CASCADE ON DELETE CASCADE,
 
     PRIMARY KEY(order_id, title)
 );
