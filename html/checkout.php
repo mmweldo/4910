@@ -38,13 +38,16 @@
             
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
-            echo $row[0];
+            //echo $row[0];
 
             echo "Current Points: ".$row[0]." Cost of Purchase: ".$_POST['cost'];
             
             if($row[0] < $_POST['cost']){
                 echo "<h3>Not enough points to check out!</h3>";
-                echo "<script>window.top.location.href=\"http://52.55.244.84/cart.php\"</script>";
+                //echo "<script>window.top.location.href=\"http://52.55.244.84/cart.php\"</script>";
+                //echo '<a href="..." target="_top">link</a>';
+                sleep(10);
+                header('Location: http://52.55.244.84/cart.php\');
             }
 
         }else if($_POST['checkout'] == "all"){
