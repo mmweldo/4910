@@ -30,7 +30,8 @@
         
         $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
         $conn = mysqli_connect($endpoint, "master", "group4910", "website");
-
+        echo "<center>";
+        
         //Two Cases, one is checkout all, another is checkout individual item
         if($_POST['checkout'] == "individual"){
             echo " individual if<br> ";
@@ -39,15 +40,16 @@
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
             //echo $row[0];
-
-            echo "Current Points: ".$row[0]." Cost of Purchase: ".$_POST['cost'];
             
+            //If you don't have enough, don't come here lookin' to buy!
             if($row[0] < $_POST['cost']){
                 echo "<h3>Not enough points to check out!</h3>";
+                echo "Current Points: ".$row[0]." Cost of Purchase: ".$_POST['cost'];
                 //echo "<script>window.top.location.href=\"http://52.55.244.84/cart.php\"</script>";
                 //echo '<a href="..." target="_top">link</a>';
                 echo "<script>setTimeout(\"location.href = '../cart.php?NotEnoughPoints';\", 3000);</script>";
-            }
+            }//else let's checkout!
+            
 
         }else if($_POST['checkout'] == "all"){
             echo " all if<br> ";
@@ -57,6 +59,6 @@
         echo "<script>window.top.location.href=\"http://52.55.244.84/\"</script>";//setTimeout(\"location.href = '../index.php?LOGGED-OUT;\",100);
     }
 ?>
-
+        </center>
     </body>
 </html>
