@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +45,7 @@ body {
 </style>
 </head>
 <body style="background:#e85764;">
-    <header>
+    <!--<header>
       <div class="container">
         <nav>
           <li><a href="login.html">Log In</a></li>
@@ -65,7 +62,16 @@ body {
           </ul>
         </nav>
       </div>
-    </header>
+    </header> -->
+<?php if($_SESSION['user_type'] == "sponsor"){
+      include 'sponsorheader.php';
+    }
+    else if($_SESSION['user_type'] == "admin"){
+      include 'adminheader.php'; 
+    }else{
+      include 'driverheader.php';
+    }
+?>
     <div class="wrapper fadeIn first"  style="width:100%; text-align: center; display: inline-block;">
       <form style="margin: 0 auto; max-width:300px; display: inline-block;" method="post" action="driveroutput.php"> 
           <table align="center" width="380" border="0">
