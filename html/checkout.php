@@ -50,6 +50,7 @@
                 echo "<script>setTimeout(\"location.href = '../cart.php?NotEnoughPoints';\", 3000);</script>";
             }//else let's checkout!
             
+            $sql = "UPDATE driver_list"
 
         }else if($_POST['checkout'] == "all"){
             echo " all if<br> ";

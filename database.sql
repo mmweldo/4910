@@ -129,12 +129,13 @@ create table products(
 );
 
 CREATE INDEX ix_title ON products(title); 
+
 CREATE TABLE cart(
 	sponsor_id INT(11) NOT NULL,
 	driver_id int(11) NOT NULL,
 	title varchar(200) not null,
 	amount int not null default 0,
-	price int not null default 0,
+	price varchar(20),
 	
 	CONSTRAINT fk_cart_sponsorid_sponsors_userid FOREIGN KEY(sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE, 
 	CONSTRAINT fk_cart_driverid_drivers_userid FOREIGN KEY(driver_id) REFERENCES drivers(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -143,3 +144,61 @@ CREATE TABLE cart(
 );
 
 ALTER TABLE cart MODIFY price varchar(20);
+
+CREATE INDEX ix_streetaddress ON drivers(street_address); 
+CREATE INDEX ix_country ON drivers(country); 
+CREATE INDEX ix_postal_code ON drivers(postal_code); 
+CREATE INDEX ix_price ON products(price);
+CREATE INDEX ix_amount ON cart(amount);
+
+CREATE TABLE purchase(
+    order_id int NOT NULL AUTO_INCREMENT,
+
+    driver_id int not null,     /**/
+    date_created datetime DEFAULT CURRENT_TIMESTAMP,
+    
+    total_cost_points int not null,
+    total_cost_dollars int not null,  
+
+    street_address varchar(30) not null, /**/
+    country varchar(30) not null,       /**/
+    postal_code varchar(30) not null,   /**/
+
+    CONSTRAINT fk_purchase_driverid_drivers_userid FOREIGN KEY (driver_id) REFERENCES drivers(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+
+    CONSTRAINT fk_purchase_streetaddress_drivers_streetaddress FOREIGN KEY (street_address) REFERENCES drivers(street_address) ON UPDATE CASCADE ON DELETE CASCADE,
+
+    CONSTRAINT fk_purchase_country_drivers_country FOREIGN KEY (country) REFERENCES drivers(country) ON UPDATE CASCADE ON DELETE CASCADE,
+
+    CONSTRAINT fk_purchase_postalcode_drivers_postalcode FOREIGN KEY (postal_code) REFERENCES drivers(postal_code) ON UPDATE CASCADE ON DELETE CASCADE,
+    
+    PRIMARY KEY(order_id)
+);
+
+CREATE INDEX ix_orderid ON purchase(order_id);
+
+CREATE TABLE products_bought(
+    order_id int not null,      /**/
+    sponsor_id int not null,    /**/
+    driver_id int not null,     /**/
+    
+    price varchar(20),          /**/
+    point_cost varchar(20),
+
+    title varchar(200) NOT NULL,    /**/
+	amount int not null default 0,  /**/    
+
+    CONSTRAINT fk_productsbought_orderid_purchase_orderid FOREIGN KEY (order_id) REFERENCES purchase(order_id) ON UPDATE CASCADE ON DELETE CASCADE,
+
+    CONSTRAINT fk_productsbought_driverid_drivers_userid FOREIGN KEY (driver_id) REFERENCES drivers(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+
+    CONSTRAINT fk_productsbought_sponsorid_sponsors_userid FOREIGN KEY (sponsor_id) REFERENCES sponsors(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+
+    CONSTRAINT fk_productsbought_price_products_price FOREIGN KEY (price) REFERENCES products(price) ON UPDATE CASCADE ON DELETE CASCADE,
+
+    CONSTRAINT fk_productsbought_title_products_title FOREIGN KEY (title) REFERENCES products(title) ON UPDATE CASCADE ON DELETE CASCADE,
+
+    CONSTRAINT fk_productsbought_amount_cart_amount FOREIGN KEY (amount) REFERENCES cart(amount) ON UPDATE CASCADE ON DELETE CASCADE,
+
+    PRIMARY KEY(order_id, title)
+);
