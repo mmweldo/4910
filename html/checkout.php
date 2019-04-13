@@ -30,6 +30,7 @@
         
         //Two Cases, one is checkout all, another is checkout individual item
         if($_POST['checkout'] == "individual"){
+            echo "individual if<br>";
             $sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$_POST['sponsor_id'].";";
             $result = mysqli_query($conn, $sql);
             echo $result;
@@ -42,7 +43,7 @@
             }
 
         }else if($_POST['checkout'] == "all"){
-
+            echo "all if<br>";
 
         }
     }else{ //Not logged in
