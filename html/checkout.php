@@ -46,8 +46,7 @@
                 echo "<h3>Not enough points to check out!</h3>";
                 //echo "<script>window.top.location.href=\"http://52.55.244.84/cart.php\"</script>";
                 //echo '<a href="..." target="_top">link</a>';
-                sleep(10);
-                header('Location: http://52.55.244.84/cart.php');
+                echo "<script>setTimeout(\"location.href = '../cart.php?NotEnoughPoints';\", 3000);</script>";
             }
 
         }else if($_POST['checkout'] == "all"){
