@@ -100,12 +100,20 @@
             echo $sql."<br>";
             
 
-            $sql = "INSERT INTO purchase (driver_id, total_cost_points, total_cost_dollars, street_address, country, postal_code) VALUES (".$_SESSION['user_id'].",".$cost_points.",".$_POST['cost'].",'".$street."','".$country."','".$postal."')";
+            $sql = "INSERT INTO purchase (driver_id, total_cost_points, total_cost_dollars, street_address, country, postal_code) VALUES (".$_SESSION['user_id'].",".$cost_points.",".$_POST['cost'].",'".$street."','".$country."','".$postal."');";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
             }*/echo $sql."<br>";
+
+            $sql = "SELECT order_id FROM purchase WHERE driver_id = ".$_SESSION['user_id']." ORDER BY order_id desc;";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_row($result);
+            /*if(!$result){
+                 echo "<br>error<br>";
+                echo $sql;
+            }*/echo $sql."<br>".row[0]."<br>";
 
             //Remove from cart the things that were added--------------------------------------------------------
             //$sql = "UPDATE driver_list ";
