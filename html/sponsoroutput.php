@@ -46,5 +46,6 @@
 	} else echo 'ya done gooofed';
 
 	$conn->close();
+	echo "<script>setTimeout(\"location.href = '../index.php?CreationSuccess';\", 3000);</script>";
 ?>
 </html>
