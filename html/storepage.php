@@ -34,48 +34,50 @@
   if($_SESSION['user_type'] == "sponsor"){
     include 'sponsorheader.php';
     echo '<div class="container">
-      <div class="row">
-      <div class="col-lg-3">
-      <h1 class="my-4">'.$_GET['company_name'].'</h1>
+        <div class="row">
+    <div class="col-lg-3">';
+
+    echo '<div class="my-4"><a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
+    echo '<a style="position:relative; right:0px; float:right;" href="/ebayfetch.php"><button class="btn btn-success btn-sm">Add to Store</button></a>';
+
+    echo '<h1 class="my-4">'.$_GET['company_name'].'</h1>
       </div>
       <!-- /.col-lg-3 -->
       <div class="col-lg-9">
-        <br><br>
-        <div class="row">';
-                $sql = 'SELECT title, subtitle, pic, link, price, company_name, dollar_ratio FROM products join sponsors on sponsor_id = user_id WHERE sponsor_id = '.$_GET['user_id'].';';
-            //echo $sql;
-            $result = mysqli_query($conn, $sql);
-            while($row=mysqli_fetch_row($result)){
-              $item_img = $row[2];//'http://placehold.it/700x400';
-              $item_link = $row[3];//'#';
-              $item_price = (double)$row[4] * $row[6];//'250';
-              $item_name = $row[0];//'item one';
-              $item_rating = '<div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>';
-              echo '
-                <div class="col-lg-4 col-md-6 mb-4" style="height:auto;">
-                  <div class="card h-1">
-                    <a href="#"><img class="card-img-top" src="'.$item_img.'" alt=""></a>
-                    <div class="card-body">
-                      <h4 class="card-title">
-                        <a href="'.$item_link.'">'.$item_name.'</a>
-                      </h4>
-                      <h5>'.$item_price.' points</h5>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                    </div>
-                  </div>
-                </div>
-              ';
-
-            }
+      <br><br>
+    <div class="row">';
+    $sql = 'SELECT title, subtitle, pic, link, price, company_name, dollar_ratio FROM products join sponsors on sponsor_id = user_id WHERE sponsor_id = '.$_GET['user_id'].';';
+    //echo $sql;
+    $result = mysqli_query($conn, $sql);
+    while($row=mysqli_fetch_row($result)){
+    $item_img = $row[2];//'http://placehold.it/700x400';
+    $item_link = $row[3];//'#';
+    $item_price = (double)$row[4] * $row[6];//'250';
+    $item_name = $row[0];//'item one';
+    $item_rating = '<div class="card-footer">
+      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+    </div>';
+    echo '
+      <div class="col-lg-4 col-md-6 mb-4" style="height:auto;">
+        <div class="card h-1">
+          <a href="#"><img class="card-img-top" src="'.$item_img.'" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="'.$item_link.'">'.$item_name.'</a>
+            </h4>
+            <h5>'.$item_price.' points</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+          </div>
+        </div>
+      </div>
+    ';
+    }
   }
   else if($_SESSION['user_type'] == "admin"){
     include 'adminheader.php'; 
   }else{
     include 'driverheader.php';
     echo '<div class="my-4"><a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
-    if($_SESSION['user_type'] == "sponsor") echo '<a style="position:relative; right:0px; float:right;" href="/ebayfetch.php"><button class="btn btn-success btn-sm">Add to Store</button></a>';
   }
 ?>
 
