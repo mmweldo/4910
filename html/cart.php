@@ -78,6 +78,14 @@
 			$sql = "UPDATE cart SET amount = amount + ".$_POST['amount'].";";			
 			$result = mysqli_query($conn, $sql);
 		}
+
+		$sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$_POST['sponsor_id'].";";
+		$result = mysqli_query($conn, $sql);
+		if(!$result){
+			echo "<br>error<br>";
+			echo $sql;
+		}//echo $sql."<br>";
+		$current_points = $row[0];
 		
 		$sql = "SELECT title, amount, price, sponsor_id, dollar_ratio FROM cart JOIN sponsors ON sponsors.user_id = cart.sponsor_id WHERE driver_id = ".$_SESSION['user_id'].";";
 		$result = mysqli_query($conn, $sql);
@@ -87,14 +95,14 @@
 		echo '<table><tr>';
 		echo '<th>Title</th>';
 		echo '<th>Amount</th>';
-		echo '<th>Price Per</th>';
+		echo '<th>Cost</th>';
 		echo '</tr>';
 		while($row=mysqli_fetch_row($result)){
+			$cost = (double)$row[1] * (double)$row[2];
 			echo "<tr>";
 			echo "<td>".$row[0]."</td>"; 
 			echo "<td>".$row[1]."</td>"; 
-			echo "<td>".$row[2]*$row[4]."</td>";
-			$cost = (double)$row[1] * (double)$row[2];
+			echo "<td>".$cost*$row[4]."</td>";		
 			echo '<td>
 				<form action="cart.php" method="POST" id="remove_item">
 					<input type="hidden" name="remove" value="remove">
