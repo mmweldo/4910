@@ -141,7 +141,7 @@ if ($conn->connect_error) {
 						 <input type="submit" name="submit" value="Update">
 						 <?php 
 						 if(isset($_POST["submit"])){
-								$sql = "UPDATE drivers SET lastname = '".$_POST['lastName']."', firstname = '".$_POST['firstName']."', profile_img = '".$_POST['profimg']."', postal_code = '".$_POST['postcode']."' WHERE user_id = ".$_SESSION['user_id'];
+								$sql = "UPDATE drivers SET lastname = '".$_POST['lastName']."', firstname = '".$_POST['firstName']."', profile_img = '".$_POST['profimg']."', postal_code = '".$_POST['postcode']."', country = '".$_POST['country']."' WHERE user_id = ".$_SESSION['user_id'];
 								
 								if ($result=mysqli_query($conn, $sql)) {
 									echo "<script>setTimeout(\"location.href = '../profilesettings.php';\", 3000);</script>";
