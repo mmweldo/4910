@@ -86,7 +86,7 @@ if ($conn->connect_error) {
                                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="addressLine" name="addressLine" placeholder="Address Line" class="form-control" required="true" value="<?php echo $row[0]?>" type="text"></div>
                             </div>
                          </div>
-                         <div class="form-group">
+                         <!--<div class="form-group">
                             <label class="col-md-4 control-label">City</label>
                             <div class="col-md-8 inputGroupContainer">
                                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="city" name="city" placeholder="City" class="form-control" required="true" value="" type="text"></div>
@@ -97,7 +97,7 @@ if ($conn->connect_error) {
                             <div class="col-md-8 inputGroupContainer">
                                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="state" name="state" placeholder="State/Province/Region" class="form-control" required="true" value="" type="text"></div>
                             </div>
-                         </div>
+                         </div> -->
                          <div class="form-group">
                             <label class="col-md-4 control-label">Postal Code/ZIP</label>
                             <div class="col-md-8 inputGroupContainer">
@@ -117,9 +117,49 @@ if ($conn->connect_error) {
 									$result = mysqli_query($conn, $sql);
 									$row = mysqli_fetch_row($result);
 							    ?>
-                               <div class="input-group">
-                                  <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
-                                  <select class="selectpicker form-control"  value="<?php echo $row[0]?>">
+								 		<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="country" name="country" placeholder="Country" class="form-control" required="true" value="<?php echo $row[0]?>" type="text"></div>
+                              
+                            </div>
+                         </div>
+                         <div class="form-group">
+                            <label class="col-md-4 control-label">Email</label>
+                            <div class="col-md-8 inputGroupContainer">
+								<?php
+									$sql = "select email from users where id = ".$_SESSION['user_id'];
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_row($result);
+							    ?>
+                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email" placeholder="Email" class="form-control" required="true" value="<?php echo $row[0]?>" type="email"></div>
+                            </div>
+                         </div>
+                         <div class="form-group">
+                            <label class="col-md-4 control-label">Phone Number</label>
+                            <div class="col-md-8 inputGroupContainer">
+                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div>
+                            </div>
+                         </div>
+						 <input type="submit" name="submit" value="Update">
+						 <?php 
+						 if(isset($_POST["submit"])){
+								$sql = "UPDATE drivers SET lastname = '".$_POST['lastName']."', firstname = '".$_POST['firstName']."', profile_img = '".$_POST['profimg']."', postal_code = '".$_POST['postcode']."' WHERE user_id = ".$_SESSION['user_id'];
+								
+								if ($result=mysqli_query($conn, $sql)) {
+									echo "<script>setTimeout(\"location.href = '../profilesettings.php';\", 3000);</script>";
+								} else {
+									echo "Error updating record: " . $conn->error;
+								}
+						 }
+						 ?>
+                      </fieldset>
+                   </form>
+                </td>
+             </tr>
+          </tbody>
+       </table>
+    </div>
+
+
+	 <!-- <select class="selectpicker form-control"  value="<?php echo $row[0]?>">
                                      	<option value="AFG">Afghanistan</option>
 	<option value="ALA">Åland Islands</option>
 	<option value="ALB">Albania</option>
@@ -370,42 +410,8 @@ if ($conn->connect_error) {
 	<option value="ZMB">Zambia</option>
 	<option value="ZWE">Zimbabwe</option>
                                   </select>
-                               </div>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Email</label>
-                            <div class="col-md-8 inputGroupContainer">
-								<?php
-									$sql = "select email from users where id = ".$_SESSION['user_id'];
-									$result = mysqli_query($conn, $sql);
-									$row = mysqli_fetch_row($result);
-							    ?>
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email" placeholder="Email" class="form-control" required="true" value="<?php echo $row[0]?>" type="email"></div>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Phone Number</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div>
-                            </div>
-                         </div>
-						 <input type="submit" name="submit" value="Update">
-						 <?php 
-						 if(isset($_POST["submit"])){
-								$sql = "UPDATE drivers SET lastname = '".$_POST['lastName']."', firstname = '".$_POST['firstName']."', profile_img = '".$_POST['profimg']."', postal_code = '".$_POST['postcode']."' WHERE user_id = ".$_SESSION['user_id'];
-								
-								if ($result=mysqli_query($conn, $sql)) {
-									echo "<script>setTimeout(\"location.href = '../profilesettings.php';\", 3000);</script>";
-								} else {
-									echo "Error updating record: " . $conn->error;
-								}
-						 }
-						 ?>
-                      </fieldset>
-                   </form>
-                </td>
-             </tr>
-          </tbody>
-       </table>
-    </div>
+											 
+                               <div class="input-group">
+                                  <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
+						 		</div>
+-->

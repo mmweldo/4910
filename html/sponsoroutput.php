@@ -29,7 +29,7 @@
 
 	//$sql = "insert into sponsors (user_id, password, company_name) values( '".$row[0]."', '".$hash."', '".$_POST[company_name]."')";
 
-	$sql = "INSERT INTO sponsors (user_id, password, company_name) VALUES ".'('.$row[0].',\''.$hash.'\',\''.$_POST['company_name'].'\')';
+	$sql = "INSERT INTO sponsors (user_id, password, company_name) VALUES ".'('.$row[0].',\''.$hash.'\',\''.$_POST['company_name'].'\');';
 	$query = mysqli_query($conn, $sql);
 	
 	if($query){
@@ -52,3 +52,4 @@
 	echo "<script>setTimeout(\"location.href = '../index.php?CreationSuccess';\", 3000);</script>";
 ?>
 </html>
+INSERT INTO sponsors (user_id, password, company_name) VALUES (,'$2y$10$jx9EkVmCzIc/hVZ0l.WtAuS1CVU.GIJ7cbmC499JpNbio25A6q6hC','sponsor1')
