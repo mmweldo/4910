@@ -84,7 +84,7 @@
 		if(!$result){
 			echo "<br>error<br>";
 			echo $sql;
-		}//echo $sql."<br>";
+		}echo $sql."<br>";
 		$row = mysqli_fetch_row($result);
 		$title = $row[0];
 		$amount = $row[1];
@@ -98,7 +98,7 @@
 		if(!$result){
 			echo "<br>error<br>";
 			echo $sql;
-		}//echo $sql."<br>";
+		}echo $sql."<br>";
 		$row = mysqli_fetch_row($result);
 		$current_points = $row[0];
 		
