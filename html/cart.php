@@ -86,11 +86,7 @@
 			echo $sql;
 		}echo $sql."<br>";
 		$row2 = mysqli_fetch_row($result2);
-		$title = $row2[0];
-		$amount = $row2[1];
-		$price = $row2[2];
-		$sponsor_id = $row2[3];
-		$dollar_ratio = $row2[4];
+
 		//echo $title."<br>".$amount."<br>".$price."<br>".$sponsor_id."<br>".$dollar_ratio"<br>";
 
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
@@ -104,6 +100,7 @@
 		echo '</tr>';
 		while($row2=mysqli_fetch_row($result2)){
 			$title = $row2[0];
+			echo $title;
 			$amount = $row2[1];
 			$price = $row2[2];
 			$sponsor_id = $row2[3];
