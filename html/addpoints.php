@@ -109,9 +109,8 @@
 	
 	# ADD TO CURRENT POINTS
 	$query = "UPDATE driver_list SET current_points=current_points+ ".$_POST['points']." WHERE driver_username = '".$_POST['username']."' AND sponsor_id = (SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."');";
-
-
 	$result = mysqli_query($conn, $query);
+
 	if (!$result) {
 	    printf("[2]Error: %s\n", mysqli_error($conn));
 	    exit();

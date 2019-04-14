@@ -36,7 +36,6 @@
         if($_POST['checkout'] == "individual"){
             echo " individual if<br> ";
             $sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$_POST['sponsor_id'].";";
-            
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
             //echo $row[0];
@@ -52,10 +51,59 @@
             
             //Several changes need to be made
             //Update the points tracking stuffs in driver_list, drivers, and point_history
-            //Update the purchase tracking stuffs in purchase, and products_bought
-            //Remove from cart the things that were added
+            
+            //Update points_history------------------------------------------------------------------------------
+            $deduction = $_POST['cost'] * -1;
+            $sql = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount) VALUES (".$_POST['sponsor_id'].",".$_SESSIONT['user_id'].", DEFAULT, ".$deduction." );";
+            /*$result = mysqli_query($conn, $sql);
+            if(!$result){
+                echo $sql;
+            }*/echo $sql;
 
-            $sql = "UPDATE driver_list";
+            //Update driver_list
+            $sql = "UPDATE driver_list SET current_points=current_points - ".$_POST['cost']." WHERE driver_username = '".$_SESSION['username']."' AND sponsor_id = ".$_POST['sponsor_id'].";";
+            /*$result = mysqli_query($conn, $sql);
+            if(!$result){
+                echo $sql;
+            }*/echo $sql;
+
+            //Update drivers
+            $sql = "UPDATE drivers SET total_spent=total_spent + ".$_POST['cost']." WHERE user_id = ".$_SESSION['user_id'].";";
+            /*$result = mysqli_query($conn, $sql);
+            if(!$result){
+                echo $sql;
+            }*/echo $sql;
+
+            //Update the purchase tracking stuffs in purchase, and products_bought------------------------------
+            $sql = "SELECT street_address, country, postal_code FROM drivers WHERE user_id = ".$_SESSION['user_id'].";";
+            /*$result = mysqli_query($conn, $sql);
+            if(!$result){
+                echo $sql;
+            }
+            $row = mysqli_fetch_row($result);
+            $street = $row[0];
+            $country = $row[1];
+            $postal = $row[2];*/
+            echo $sql;
+
+            $sql = "SELECT dollar_ratio FROM sponsors WHERE sponsor_id = ".$_POST['sponsor_id'].";";
+            /*$result = mysqli_query($conn, $sql);
+            if(!$result){
+                echo $sql;
+            }
+            $row = mysqli_fetch_row($result);
+            $cost_points = $_POST['cost'] * $row[0];*/
+            echo $sql;
+            
+
+            /*$sql = "INSERT INTO purchase (driver_id, total_cost_points, total_cost_dollars, street_address, country, postal_code) VALUES (".$_SESSION['user_id'].",".$cost_points.",".$_POST['cost'].",".$street.",".$country.",".$postal.")";
+            $result = mysqli_query($conn, $sql);
+            if(!$result){
+                echo $sql;
+            }echo $sql;*/
+
+            //Remove from cart the things that were added--------------------------------------------------------
+            //$sql = "UPDATE driver_list ";
 
         }else if($_POST['checkout'] == "all"){
             echo " all if<br> ";

@@ -51,8 +51,8 @@
               $item_price = (double)$row[4] * $row[6];//'250';
               $item_name = $row[0];//'item one';
               $item_rating = '<div class="card-footer">
-                      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                    </div>';
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>';
               echo '
                 <div class="col-lg-4 col-md-6 mb-4" style="height:auto;">
                   <div class="card h-1">
