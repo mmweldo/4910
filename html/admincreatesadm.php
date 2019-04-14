@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	/*session_start();
 	if(!isset($_SESSION['username'])){
 		echo "Error: Please log in first!";
 		echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGED-IN';\", 3000);</script>";
@@ -10,7 +10,7 @@
 		echo "Error: User not an admin!";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
 		exit();
-	}
+	}*/
 ?>
 
 <html>
