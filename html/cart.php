@@ -78,6 +78,15 @@
 			$sql = "UPDATE cart SET amount = amount + ".$_POST['amount'].";";			
 			$result = mysqli_query($conn, $sql);
 		}
+		$sql = "SELECT dollar_ratio FROM sponsors WHERE user_id = ".$_POST['sponsor_id'].";";
+		$result = mysqli_query($conn, $sql);
+		if(!$result){
+			echo "<br>error getting dollar ratio<br>";
+			echo $sql;
+		}
+		$row = mysqli_fetch_row($result);
+		$ratio=$row[0];
+		
 		$sql = "SELECT title, amount, price, sponsor_id FROM cart WHERE driver_id = ".$_SESSION['user_id'].";";
 		$result = mysqli_query($conn, $sql);
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
@@ -92,7 +101,7 @@
 			echo "<tr>";
 			echo "<td>".$row[0]."</td>"; 
 			echo "<td>".$row[1]."</td>"; 
-			echo "<td>".$row[2]."</td>";
+			echo "<td>".$row[2]*$ratio."</td>";
 			$cost = (double)$row[1] * (double)$row[2];
 			echo '<td>
 				<form action="cart.php" method="POST" id="remove_item">
