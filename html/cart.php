@@ -85,7 +85,6 @@
 			echo "<br>error<br>";
 			echo $sql;
 		}//echo $sql."<br>";
-		//echo $title."<br>".$amount."<br>".$price."<br>".$sponsor_id."<br>".$dollar_ratio"<br>";
 
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
 		echo '<center><h3>Your Cart</h3>';
@@ -98,12 +97,10 @@
 		echo '</tr>';
 		while($row2=mysqli_fetch_row($result2)){
 			$title = $row2[0];
-			echo $title;
 			$amount = $row2[1];
 			$price = $row2[2];
 			$sponsor_id = $row2[3];
 			$dollar_ratio = $row2[4];
-			//echo $title."<br>".$amount."<br>".$price."<br>".$sponsor_id."<br>".$dollar_ratio"<br>";
 
 			$sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$sponsor_id.";";
 			$result = mysqli_query($conn, $sql);
