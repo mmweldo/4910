@@ -87,7 +87,6 @@
 <?php
   if($_SESSION['user_type'] == "driver"){
     echo '<h1 class="my-4">'.$_POST['company_name'].'</h1>';
-    echo '<a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
   }
   //echo '<table id="cart"></table><button class="btn btn-success btn-sm" form="cart">Cart</button>';
 ?>
