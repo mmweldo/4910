@@ -65,7 +65,7 @@ $sql = "select MAX(id) from users";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_row($result);
 
-$sql = "insert into admins (user_id, username, password, firstname, lastname) values( '$row[0]', '$_POST[username]', '$_POST[password]', '$_POST[firstname]', '$_POST[lastname]')";
+$sql = "insert into admins (user_id, username, password, firstname, lastname) values( '$row[0]', '$_POST[username]', '$hash', '$_POST[firstname]', '$_POST[lastname]')";
 $query = mysqli_query($conn, $sql);
 
 $conn->close();
