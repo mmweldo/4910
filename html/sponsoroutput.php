@@ -1,3 +1,7 @@
+<html>
+<?php
+	include 'driverheader.php';
+?>
 <table bgcolor="#C4C4C4" align="center" width="380" border="0">  
 	<tr>    
 		<td  align="center"colspan="2"><font color="#0000FF">Creation Complete</font></td>  
@@ -43,3 +47,4 @@
 
 	$conn->close();
 ?>
+</html>
