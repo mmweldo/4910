@@ -23,10 +23,9 @@
 		echo 'Error inserting into users.';
 		echo $sql."<br>";
 	}
-	$sql = "SELECT id FROM users WHERE username = ".$_POST[username].";";
+	$sql = 'SELECT id FROM users WHERE username = \''.$_POST['username'].'\';';
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result);
-	echo $row[0]."<br>";
 
 	//$sql = "insert into sponsors (user_id, password, company_name) values( '".$row[0]."', '".$hash."', '".$_POST[company_name]."')";
 
@@ -43,7 +42,11 @@
 				<td>Log in using username: '.$_POST['username'].'</td>     
 			</tr>  
 		</table>';
-	} else echo 'ya done gooofed';
+	}
+	if(!$query){ 
+		echo 'Error inserting into users.';
+		echo $sql."<br>";
+	}
 
 	$conn->close();
 	echo "<script>setTimeout(\"location.href = '../index.php?CreationSuccess';\", 3000);</script>";
