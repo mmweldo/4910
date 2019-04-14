@@ -135,7 +135,7 @@
             }*///echo $sql."<br>"."amount = ".$amount."<br>";
 
             $pointcost = $_POST['cost'] * $dollar_ratio;
-            $sql = "INSERT INTO products_bought (order_id, sponsor_id, driver_id, price, point_cost, title, amount) VALUES (".$row[0].",".$_POST['sponsor_id'].",".$_SESSION['user_id'].",".$_POST['cost'].",".$pointcost.',\''.$_POST['title'].'\',\''.$amount.");";
+            $sql = "INSERT INTO products_bought (order_id, sponsor_id, driver_id, price, point_cost, title, amount) VALUES (".$row[0].",".$_POST['sponsor_id'].",".$_SESSION['user_id'].",".$_POST['cost'].",".$pointcost.',\''.$_POST['title'].'\','.$amount.");";
             /*$result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
             if(!$result){
