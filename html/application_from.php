@@ -21,7 +21,6 @@
 		echo "<script>setTimeout(\"location.href = '../checkapplications.php?NONEXISTANT-DRIVERS';\", 3000);</script>";
 		exit();
 	}
-
 	$row = mysqli_fetch_row($result);
 
 	$query = "UPDATE applications SET status = '".$_POST['status']."' WHERE driver_id = ".$row[0].";";
@@ -29,6 +28,15 @@
 	if(!$result){
 		echo "Error: [1] Driver Couldn't be found or accepted...";
 		echo "<script>setTimeout(\"location.href = '../checkapplications.php?NONEXISTANT-DRIVERS';\", 3000);</script>";
+		exit();
+	} 
+
+	$query = "INSERT INTO driver_list (sponsor_id, driver_id, driver_username) VALUES".' ('.$_SESSION['user_id'].','.$row[0].',\''.$_POST['driver_username'].'\');';
+	$result = mysqli_query($conn, $query);
+	if(!$result){
+		echo "Error: [2] Driver Couldn't be added to driver_list...";
+		echo $sql;
+		echo "<script>setTimeout(\"location.href = '../checkapplications.php?FAILED-ACCEPT';\", 3000);</script>";
 		exit();
 	} else{
 		echo "<center><h3>".$_POST['driver_username']."'s new application status: ".$_POST['status']."<h3></center>";
