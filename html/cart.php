@@ -102,6 +102,7 @@
 			$price = $row2[2];
 			$sponsor_id = $row2[3];
 			$dollar_ratio = $row2[4];
+			echo $title."<br>".$amount."<br>".$price."<br>".$sponsor_id."<br>".$dollar_ratio"<br>";
 
 			$sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$sponsor_id.";";
 			$result = mysqli_query($conn, $sql);
