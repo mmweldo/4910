@@ -1,34 +1,21 @@
 <html>
-<head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-<body>
-<center>
-<!--
-User Profile Sidebar by @keenthemes updated by Seth H, Mitch W, Logan C
-A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
-Licensed under MIT
--->
-
 <?php
-//Start session so session vars are available and set
-session_start();
-#$servername = "localhost";
-#$username = "root";
-#$password = "";
-#$dbname = "test";
+	session_start();
+	if($_SESSION['user_type'] == "sponsor"){
+		include 'sponsorheader.php';
+	}else if($_SESSION['user_type'] == "admin"){
+		include 'adminheader.php'; 
+	}else if($_SESSION['user_type'] == "driver"){
+		include 'driverheader.php';
+	}
+	echo '<body><center>';
+	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 
-// Create connection
-#$conn = new mysqli($servername, $username, $password, $dbname);
-$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
-$conn = mysqli_connect($endpoint, "master", "group4910", "website");
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
 ?> 
 
     <div class="row profile">
@@ -85,14 +72,12 @@ if ($conn->connect_error) {
 	if($_SESSION['user_type'] == "sponsor"){
 		echo '<button type="button" class="btn btn-danger btn-sm">Remove</button>';
 	}
+	
+	//Check if user on this page is logged in and if they are a driver
+	if(isset($_SESSION['user_id']) && $_SESSION['user_type'] == "driver"){
+		echo '<form style="color:white;"class="application-form" method="post" action="application_to.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_POST['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_POST['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_POST['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a style="color:white;"><i style="color:white;" class="glyphicon glyphicon-road"></i> Apply </a></button></form>';
+	}
 ?>
-					<?php
-						
-						//Check if user on this page is logged in and if they are a driver
-						if(isset($_SESSION['user_id']) && $_SESSION['user_type'] == "driver"){
-							echo '<form style="color:white;"class="application-form" method="post" action="application_to.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_POST['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_POST['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_POST['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a style="color:white;"><i style="color:white;" class="glyphicon glyphicon-road"></i> Apply </a></button></form>';
-						}
-					?>
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
 				<!-- SIDEBAR MENU -->
@@ -103,7 +88,7 @@ if ($conn->connect_error) {
 							<i class="glyphicon glyphicon-home"></i>
 							Overview </a>
 <?php 
-	if($_SESSION['user_type'] == "sponsor"){
+	if($_SESSION['user_type'] == "sponsor" && $_POST['user_type'] == "driver"){
 		$sql = "SELECT total_points, current_points from driver_list WHERE driver_id = ".$_POST['user_id']." AND sponsor_id = ".$_SESSION['user_id'].";";
 		//echo "SELECT total_points, current_points from driver_list WHERE driver_id = ".$_POST['user_id']." AND sponsor_id = ".$_SESSION['user_id'].";";
 		$result = mysqli_query($conn, $sql);
