@@ -76,7 +76,7 @@
 
             //Update the purchase tracking stuffs in purchase, and products_bought------------------------------
             $sql = "SELECT street_address, country, postal_code FROM drivers WHERE user_id = ".$_SESSION['user_id'].";";
-            /*$result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
@@ -84,23 +84,23 @@
             $row = mysqli_fetch_row($result);
             $street = $row[0];
             $country = $row[1];
-            $postal = $row[2];*/
+            $postal = $row[2];
 
             $sql = "SELECT dollar_ratio FROM sponsors WHERE user_id = ".$_POST['sponsor_id'].";";
-            /*$result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
             if(!$result){
                 echo $sql;
             }
             $row = mysqli_fetch_row($result);
-            $cost_points = $_POST['cost'] * $row[0];*/
+            $cost_points = $_POST['cost'] * $row[0];
             echo $sql;
             
 
-            /*$sql = "INSERT INTO purchase (driver_id, total_cost_points, total_cost_dollars, street_address, country, postal_code) VALUES (".$_SESSION['user_id'].",".$cost_points.",".$_POST['cost'].",".$street.",".$country.",".$postal.")";
-            $result = mysqli_query($conn, $sql);
+            $sql = "INSERT INTO purchase (driver_id, total_cost_points, total_cost_dollars, street_address, country, postal_code) VALUES (".$_SESSION['user_id'].",".$cost_points.",".$_POST['cost'].",".$street.",".$country.",".$postal.")";
+            /*$result = mysqli_query($conn, $sql);
             if(!$result){
                 echo $sql;
-            }echo $sql;*/
+            }*/echo $sql;
 
             //Remove from cart the things that were added--------------------------------------------------------
             //$sql = "UPDATE driver_list ";
