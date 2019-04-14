@@ -115,15 +115,15 @@
                 echo $sql;
             }*/echo $sql."<br>".$row[0]."<br>";
 
-            $sql = "INSERT INTO products_bought (order_id, sponsor_id, driver_id, price, point_cost, title, amount) VALUES (".$row[0].",".$_POST['sponsor_id'].",".$_SESSION['user_id'].",".$_POST[].","","","");";
+            //$sql = "INSERT INTO products_bought (order_id, sponsor_id, driver_id, price, point_cost, title, amount) VALUES (".$row[0].",".$_POST['sponsor_id'].",".$_SESSION['user_id'].",".$_POST[].","","","");";
 
             //Remove from cart the things that were added--------------------------------------------------------
-            $sql = "DELETE FROM cart WHERE driver_id = ".$_SESSION['user_id'].' AND title = \''.$_POST['title'].'\';';
+            //$sql = "DELETE FROM cart WHERE driver_id = ".$_SESSION['user_id'].' AND title = \''.$_POST['title'].'\';';
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql."<br>".$row[0]."<br>";
+            }*/echo $sql;
 
         }else if($_POST['checkout'] == "all"){
             echo " all if<br> ";
