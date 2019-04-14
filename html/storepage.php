@@ -122,7 +122,7 @@
                       <input type="hidden" name="sponsor_id" value="'.$_POST['user_id'].'"></input>
                       <input type="hidden" name="driver_id" value="'.$_SESSION['user_id'].'"></input>
                       <input type="hidden" name="title" value="'.$row[0].'"></input>
-                      <input type="hidden" name="price" value="'.(double)$item_price.'"></input>
+                      <input type="hidden" name="price" value="'.(double)$row[4].'"></input>
                       <button type="submit" class="btn btn-success btn-sm" value="submit">Add to Cart</button>
                     </form></center>
                     '.$item_rating.'
