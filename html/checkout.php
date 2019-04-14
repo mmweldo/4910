@@ -135,8 +135,17 @@
                 echo $sql;
             }*///echo $sql."<br>"."amount = ".$amount."<br>";
 
-            $pointcost = $_POST['cost'] * $dollar_ratio;
-            $sql = "INSERT INTO products_bought (order_id, sponsor_id, driver_id, price, point_cost, title, amount) VALUES (".$orderid.",".$_POST['sponsor_id'].",".$_SESSION['user_id'].",".$_POST['cost'].",".$pointcost.',\''.$_POST['title'].'\','.$amount.");";
+            $sql = 'SELECT price FROM products WHERE sponsor_id = '.$_POST['sponsor_id'].' AND title = \''.$_POST['title'].'\';';
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_row($result);
+            $price = $row[0];
+            /*if(!$result){
+                 echo "<br>error<br>";
+                echo $sql;
+            }*///echo $sql."<br>"."amount = ".$amount."<br>";
+            
+            $pointcost = $price * $dollar_ratio;
+            $sql = "INSERT INTO products_bought (order_id, sponsor_id, driver_id, price, point_cost, title, amount) VALUES (".$orderid.",".$_POST['sponsor_id'].",".$_SESSION['user_id'].",".$price.",".$pointcost.',\''.$_POST['title'].'\','.$amount.");";
             /*$result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
             if(!$result){
