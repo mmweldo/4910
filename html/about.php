@@ -2,44 +2,17 @@
 <?php session_start();?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Driver rewards program">
-	  <meta name="keywords" content="professional driver management">
-  	<meta name="author" content="Brad Traversy, Mitchell Weldon">
-    <title>Drewp | About</title>
-    <link rel="stylesheet" href="./css/style.css">
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  </head>
   <body>
-    <header>
-      <div class="container">
-        <div id="branding">
-          <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
-        </div>
-        <?php if(isset($_SESSION['username'])) echo '<form style="width=5%; float:right;"action="logout.php" method="POST"><button type="submit" name="submit">Log Out</button></form>'; ?>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li class="current"><a href="about.php">About</a></li>
-            <li><a href="stories.php">[Stories]</a></li>
-            <?php 
-              if(isset($_SESSION['username'])){
-                echo '<li><a href="">Welcome, '.$_SESSION['username'].'</a></li>';
-              } else{
-                echo '<li><a href="signup.php">Signup</a></li>';
-                echo '<li><a href="login.html">Login</a></li>';
-              }
-            ?>
-	</ul>
-        </nav>
-      </div>
-    </header>
-
+<?php
+	if($_SESSION['user_type'] == "sponsor"){
+		include 'sponsorheader.php';
+	}
+	else if($_SESSION['user_type'] == "admin"){
+		include 'adminheader.php'; 
+	}else if($_SESSION['user_type'] == "driver"){
+    include 'driverheader.php';
+  }
+?>
     <!-- <section id="newsletter">
       <div class="container">
         <h1>Subscribe To Our Newsletter</h1>

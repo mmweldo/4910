@@ -16,21 +16,16 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 <body> 
-	<header>
-	  <div class="container">
-	    <div id="branding">
-	      <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
-	    </div>
-	    <nav>
-	      <ul>
-	        <li><a href="/">Home</a></li>
-	        <li><a href="about.php">About</a></li>
-	        <li><a href="stories.php">[Stories]</a></li>
-	        <li><a href="login.html">Login/Signup</a></li>
-	    </ul>
-	    </nav>
-	  </div>
-	</header>
+<?php
+	if($_SESSION['user_type'] == "sponsor"){
+		include 'sponsorheader.php';
+	}
+	else if($_SESSION['user_type'] == "admin"){
+		include 'adminheader.php'; 
+	}else{
+    include 'driverheader.php';
+  }
+?>
 <form method="post" action="sponsoroutput.php"> 
 <table bgcolor="#C4C4C4" align="center" width="380" border="0">  
 <tr>    
