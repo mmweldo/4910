@@ -84,23 +84,8 @@
 		if(!$result){
 			echo "<br>error<br>";
 			echo $sql;
-		}echo $sql."<br>";
-		$row = mysqli_fetch_row($result);
-		$title = $row[0];
-		$amount = $row[1];
-		$price = $row[2];
-		$sponsor_id = $row[3];
-		$dollar_ratio = $row[4];
-		
-
-		$sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$sponsor_id.";";
-		$result = mysqli_query($conn, $sql);
-		if(!$result){
-			echo "<br>error<br>";
-			echo $sql;
-		}echo $sql."<br>";
-		$row = mysqli_fetch_row($result);
-		$current_points = $row[0];
+		}//echo $sql."<br>";
+		$row = mysqli_fetch_row($result2);
 		
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
 		echo '<center><h3>Your Cart</h3>';
@@ -111,7 +96,22 @@
 		echo '<th>Total Cost</th>';
 		echo '<th>Your Points</th>';
 		echo '</tr>';
-		while($row=mysqli_fetch_row($result)){
+		while($row=mysqli_fetch_row($result2)){
+			$title = $row[0];
+			$amount = $row[1];
+			$price = $row[2];
+			$sponsor_id = $row[3];
+			$dollar_ratio = $row[4];
+
+			$sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$sponsor_id.";";
+			$result = mysqli_query($conn, $sql);
+			if(!$result){
+				echo "<br>error<br>";
+				echo $sql;
+			}//echo $sql."<br>";
+			$row = mysqli_fetch_row($result);
+			$current_points = $row[0];
+
 			$cost = (double)$row[1] * (double)$row[2];
 			echo "<tr>";
 			echo "<td>".$title."</td>";
