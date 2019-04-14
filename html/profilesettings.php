@@ -132,12 +132,12 @@ if ($conn->connect_error) {
                                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email" placeholder="Email" class="form-control" required="true" value="<?php echo $row[0]?>" type="email"></div>
                             </div>
                          </div>
-                         <div class="form-group">
+                         <!--<div class="form-group">
                             <label class="col-md-4 control-label">Phone Number</label>
                             <div class="col-md-8 inputGroupContainer">
                                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div>
                             </div>
-                         </div>
+                         </div> -->
 						 <input type="submit" name="submit" value="Update">
 						 <?php 
 						 if(isset($_POST["submit"])){
