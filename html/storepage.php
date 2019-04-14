@@ -74,6 +74,8 @@
     include 'adminheader.php'; 
   }else{
     include 'driverheader.php';
+    echo '<div class="my-4"><a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
+    if($_SESSION['user_type'] == "sponsor") echo '<a style="position:relative; right:0px; float:right;" href="/ebayfetch.php"><button class="btn btn-success btn-sm">Add to Store</button></a>';
   }
 ?>
 
@@ -82,8 +84,6 @@
     <div class="row">
     <div class="col-lg-3">
 <?php 
-  echo '<div class="my-4"><a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
-  if($_SESSION['user_type'] == "sponsor") echo '<a style="position:relative; right:0px; float:right;" href="/ebayfetch.php"><button class="btn btn-success btn-sm">Add to Store</button></a>';
   echo '<h1 class="my-4">'.$_POST['company_name'].'</h1>';
   echo '</div>';
   //echo '<table id="cart"></table><button class="btn btn-success btn-sm" form="cart">Cart</button>';
