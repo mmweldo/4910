@@ -57,7 +57,7 @@
 			  <iframe src="viewsponsorshtml.php" style="width:100%;height:100%;"></iframe>
 		</div>
 		<div id="Help" class="tabcontent">
-			<iframe src="social.php" style="width:100%;height:100%;"></iframe>
+			<iframe src="help.php" style="width:100%;height:100%;"></iframe>
 		</div>
 
 	<script>
