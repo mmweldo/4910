@@ -105,8 +105,9 @@ if ($conn->connect_error) {
 				<div class="tab">
 					<button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen"><p><span class="glyphicon glyphicon-home"></span> Overview</p></button>
 					<button class="tablinks" onclick="openCity(event, 'Profile')"><p><span class="glyphicon glyphicon-user"></span> Account Settings</p></button>
-					<button class="tablinks" onclick="openCity(event, 'Points')"><p><span class="glyphicon glyphicon-ok"></span> Tasks</p></button>
+					<!--<button class="tablinks" onclick="openCity(event, 'Points')"><p><span class="glyphicon glyphicon-ok"></span> Tasks</p></button>
 					<button class="tablinks" onclick="openCity(event, 'Drivers')"><p><span class="glyphicon glyphicon-flag"></span> Help</p></button>
+					-->
 					<?php
 						
 					
