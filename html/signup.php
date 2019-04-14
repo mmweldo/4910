@@ -83,7 +83,7 @@ body {
             <tr><td><input pattern="[a-zA-Z]{1,30}" placeholder="Firstname" type="firstname" name="firstname"/></td></tr>
             <tr><td><input pattern="[a-zA-Z]{1,30}" placeholder="Lastname" type="lastname" name="lastname"/></td></tr>   
             <tr><td><input pattern="{1,30}" placeholder="Street Address" type="street_address" name="street_address"  /></td></tr>
-            <tr><td><input pattern="[a-zA-Z]{1,30}" placeholder="Country" type="country" name="country"/></td></tr> 
+            <tr><td><input pattern="{1,30}" placeholder="Country" type="country" name="country"/></td></tr> 
             <tr><td><input pattern="[0-9]{5}" placeholder="Postal Code" type="postal_code" name="postal_code"  /></td></tr>
             <!--<tr><td><input placeholder="Sponsor iD" type="sponsor_id" name="sponsor_id"  /></td></tr> -->
             <tr><td align="center" colspan="2"><input type="submit" value="submit" name="submit" /></td></tr>
