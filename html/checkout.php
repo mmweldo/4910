@@ -53,22 +53,22 @@
             //Update the points tracking stuffs in driver_list, drivers, and point_history
             
             //Update points_history------------------------------------------------------------------------------
-            $deduction = $_POST['cost'] * -1;
-            $sql = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount) VALUES (".$_POST['sponsor_id'].",".$_SESSIONT['user_id'].", DEFAULT, ".$deduction." );";
+            $deduction = (int)$_POST['cost'] * -1;
+            $sql = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount) VALUES (".$_POST['sponsor_id'].",".$_SESSION['user_id'].", DEFAULT, ".$deduction." );";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
                 echo $sql;
             }*/echo $sql;
 
             //Update driver_list
-            $sql = "UPDATE driver_list SET current_points=current_points - ".$_POST['cost']." WHERE driver_username = '".$_SESSION['username']."' AND sponsor_id = ".$_POST['sponsor_id'].";";
+            $sql = "UPDATE driver_list SET current_points=current_points - ".(int)$_POST['cost']." WHERE driver_username = '".$_SESSION['username']."' AND sponsor_id = ".$_POST['sponsor_id'].";";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
                 echo $sql;
             }*/echo $sql;
 
             //Update drivers
-            $sql = "UPDATE drivers SET total_spent=total_spent + ".$_POST['cost']." WHERE user_id = ".$_SESSION['user_id'].";";
+            $sql = "UPDATE drivers SET total_spent=total_spent + ".(int)$_POST['cost']." WHERE user_id = ".$_SESSION['user_id'].";";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
                 echo $sql;
@@ -84,9 +84,8 @@
             $street = $row[0];
             $country = $row[1];
             $postal = $row[2];*/
-            echo $sql;
 
-            $sql = "SELECT dollar_ratio FROM sponsors WHERE sponsor_id = ".$_POST['sponsor_id'].";";
+            $sql = "SELECT dollar_ratio FROM sponsors WHERE user_id = ".$_POST['sponsor_id'].";";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
                 echo $sql;
