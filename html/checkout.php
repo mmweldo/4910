@@ -57,6 +57,7 @@
             $sql = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount) VALUES (".$_POST['sponsor_id'].",".$_SESSION['user_id'].", DEFAULT, ".$deduction." );";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
+                echo "<br>error<br>";
                 echo $sql;
             }*/echo $sql;
 
@@ -64,6 +65,7 @@
             $sql = "UPDATE driver_list SET current_points=current_points - ".$_POST['cost']." WHERE driver_username = '".$_SESSION['username']."' AND sponsor_id = ".$_POST['sponsor_id'].";";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
+                echo "<br>error<br>";
                 echo $sql;
             }*/echo $sql;
 
@@ -71,6 +73,7 @@
             $sql = "UPDATE drivers SET total_spent=total_spent + ".$_POST['cost']." WHERE user_id = ".$_SESSION['user_id'].";";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
+                echo "<br>error<br>";
                 echo $sql;
             }*/echo $sql;
 
@@ -80,7 +83,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
-            }
+            }echo $sql;
             $row = mysqli_fetch_row($result);
             $street = $row[0];
             $country = $row[1];
@@ -89,6 +92,7 @@
             $sql = "SELECT dollar_ratio FROM sponsors WHERE user_id = ".$_POST['sponsor_id'].";";
             $result = mysqli_query($conn, $sql);
             if(!$result){
+                echo "<br>error<br>";
                 echo $sql;
             }
             $row = mysqli_fetch_row($result);
@@ -99,6 +103,7 @@
             $sql = "INSERT INTO purchase (driver_id, total_cost_points, total_cost_dollars, street_address, country, postal_code) VALUES (".$_SESSION['user_id'].",".$cost_points.",".$_POST['cost'].",".$street.",".$country.",".$postal.")";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
+                 echo "<br>error<br>";
                 echo $sql;
             }*/echo $sql;
 
