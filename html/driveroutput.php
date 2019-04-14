@@ -1,4 +1,3 @@
-<html>
 <?php
 	include 'driverheader.php';
 
@@ -63,4 +62,3 @@
 	$conn->close();
 	echo "<script>setTimeout(\"location.href = '../index.php?CreationSuccess';\", 3000);</script>";
 ?>
-</html>
