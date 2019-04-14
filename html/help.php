@@ -200,7 +200,7 @@
                 <textarea class="form-control" id="Message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
               </div>
             </div>
-    
+            <p id="bugConfirmation"></p>
             <!-- Form actions -->
             <div class="form-group">
               <div class="col-md-12 text-right">
