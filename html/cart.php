@@ -81,6 +81,11 @@
 		
 		$sql = "SELECT title, amount, price, sponsor_id, dollar_ratio FROM cart JOIN sponsors ON sponsors.user_id = cart.sponsor_id WHERE driver_id = ".$_SESSION['user_id'].";";
 		$result = mysqli_query($conn, $sql);
+		if(!$result){
+			echo "<br>error<br>";
+			echo $sql;
+		}//echo $sql."<br>";
+		$row = mysqli_fetch_row($result);
 		$title = $row[0];
 		$amount = $row[1];
 		$price = $row[2];
@@ -94,6 +99,7 @@
 			echo "<br>error<br>";
 			echo $sql;
 		}//echo $sql."<br>";
+		$row = mysqli_fetch_row($result);
 		$current_points = $row[0];
 		
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
