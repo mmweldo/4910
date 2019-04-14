@@ -38,10 +38,20 @@
             $sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$_POST['sponsor_id'].";";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
+            $current_points = $row[0];
             //echo $row[0];
             
+            $sql = "SELECT dollar_ratio FROM sponsors WHERE user_id = ".$_POST['sponsor_id'].";";
+            $result = mysqli_query($conn, $sql);
+            if(!$result){
+                echo "<br>error<br>";
+                echo $sql;
+            }
+            $row = mysqli_fetch_row($result);
+            $dollar_ratio = $row[0];
+
             //If you don't have enough, don't come here lookin' to buy!
-            if($row[0] < $_POST['cost']){
+            if($current_points < $_POST['cost']*$dollar_ratio){
                 echo "<h3>Not enough points to check out!</h3>";
                 echo "Current Points: ".$row[0]." Cost of Purchase: ".$_POST['cost'];
                 //echo "<script>window.top.location.href=\"http://52.55.244.84/cart.php\"</script>";
@@ -114,8 +124,24 @@
                  echo "<br>error<br>";
                 echo $sql;
             }*/echo $sql."<br>".$row[0]."<br>";
+            
+            $sql = "SELECT amount FROM cart WHERE driver_id = ".$_SESSION['user_id'].' AND title = \''.$_POST['title'].'\';';
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_row($result);
+            $amount = $row[0];
+            /*if(!$result){
+                 echo "<br>error<br>";
+                echo $sql;
+            }*/echo $sql."<br>"."amount = ".$amount;
 
-            //$sql = "INSERT INTO products_bought (order_id, sponsor_id, driver_id, price, point_cost, title, amount) VALUES (".$row[0].",".$_POST['sponsor_id'].",".$_SESSION['user_id'].",".$_POST[].","","","");";
+            $pointcost = $_POST['cost'] * $dollar_ratio;
+            $sql = "INSERT INTO products_bought (order_id, sponsor_id, driver_id, price, point_cost, title, amount) VALUES (".$row[0].",".$_POST['sponsor_id'].",".$_SESSION['user_id'].",".$_POST['cost'].",".$pointcost.",".$_POST['title'].",".$amount.");";
+            /*$result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_row($result);
+            if(!$result){
+                 echo "<br>error<br>";
+                echo $sql;
+            }*/echo $sql."<br>";
 
             //Remove from cart the things that were added--------------------------------------------------------
             //$sql = "DELETE FROM cart WHERE driver_id = ".$_SESSION['user_id'].' AND title = \''.$_POST['title'].'\';';
@@ -123,7 +149,7 @@
             if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql;
+            }echo $sql;*/
 
         }else if($_POST['checkout'] == "all"){
             echo " all if<br> ";
