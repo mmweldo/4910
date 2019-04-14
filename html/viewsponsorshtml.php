@@ -37,7 +37,7 @@
 	</header>
 	<div class="container" style="height:80vh;">
 		<center>
-			<h2>Admin - View Sponsors</h2>
+			<!--<h2>Admin - View Sponsors</h2> -->
 			<form class="viewsponsors-form" method="post" action="viewsponsors.php">
 					<p>Company Name | Sort</p>
 					<select name="order">
