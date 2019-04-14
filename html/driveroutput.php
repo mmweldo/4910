@@ -1,3 +1,4 @@
+<html>
 <?php
 	include 'driverheader.php';
 
@@ -41,9 +42,9 @@
 				<td  align="center"colspan="2"><font color="#0000FF">Creation Complete</font></td>  
 			</tr>    
 			<tr/>
-				<td>Log in using username:<td/><?php echo $_POST['username']; ?></td>     
+				<td>Log in using username:<td/>'.$_POST['username']."</td>     
 			</tr>  
-		</table>';
+		</table>";
 	}
 	else{
 		echo "Error: Couldn't add to drivers table.<br>";
@@ -62,3 +63,4 @@
 	$conn->close();
 	echo "<script>setTimeout(\"location.href = '../index.php?CreationSuccess';\", 3000);</script>";
 ?>
+</html>
