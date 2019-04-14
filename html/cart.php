@@ -78,8 +78,17 @@
 			$sql = "UPDATE cart SET amount = amount + ".$_POST['amount'].";";			
 			$result = mysqli_query($conn, $sql);
 		}
+		
+		$sql = "SELECT title, amount, price, sponsor_id, dollar_ratio FROM cart JOIN sponsors ON sponsors.user_id = cart.sponsor_id WHERE driver_id = ".$_SESSION['user_id'].";";
+		$result = mysqli_query($conn, $sql);
+		$title = $row[0];
+		$amount = $row[1];
+		$price = $row[2];
+		$sponsor_id = $row[3];
+		$dollar_ratio = $row[4];
+		
 
-		$sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$_POST['sponsor_id'].";";
+		$sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$sponsor_id.";";
 		$result = mysqli_query($conn, $sql);
 		if(!$result){
 			echo "<br>error<br>";
@@ -87,29 +96,28 @@
 		}//echo $sql."<br>";
 		$current_points = $row[0];
 		
-		$sql = "SELECT title, amount, price, sponsor_id, dollar_ratio FROM cart JOIN sponsors ON sponsors.user_id = cart.sponsor_id WHERE driver_id = ".$_SESSION['user_id'].";";
-		$result = mysqli_query($conn, $sql);
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
 		echo '<center><h3>Your Cart</h3>';
-
 		echo '<table><tr>';
 		echo '<th>Title</th>';
 		echo '<th>Cost Per</th>';
 		echo '<th>Amount</th>';
 		echo '<th>Total Cost</th>';
+		echo '<th>Your Points</th>';
 		echo '</tr>';
 		while($row=mysqli_fetch_row($result)){
 			$cost = (double)$row[1] * (double)$row[2];
 			echo "<tr>";
-			echo "<td>".$row[0]."</td>";
-			echo "<td>".$row[2]*$row[4]."</td>"; 
-			echo "<td>".$row[1]."</td>"; 
-			echo "<td>".$cost*$row[4]."</td>";		
+			echo "<td>".$title."</td>";
+			echo "<td>".$price*$dollar_ratio."</td>"; 
+			echo "<td>".$amount."</td>"; 
+			echo "<td>".$cost*$dollar_ratio."</td>";
+			echo "<td>".$current_points."</td>";		
 			echo '<td>
 				<form action="cart.php" method="POST" id="remove_item">
 					<input type="hidden" name="remove" value="remove">
-					<input type="hidden" name="remove_sponsor" value="'.$row[3].'">
-					<input type="hidden" name="remove_title" value="'.$row[0].'">
+					<input type="hidden" name="remove_sponsor" value="'.$sponsor_id.'">
+					<input type="hidden" name="remove_title" value="'.$title.'">
 					<input type="submit" value="Remove All">
 				</form>
 			</td>';
@@ -117,14 +125,14 @@
 			echo '<td>
 				<form action="checkout.php" method="POST" id="checkout_item">
 					<input type="hidden" name="checkout" value="individual">
-					<input type="hidden" name="title" value="'.$row[0].'">
-					<input type="hidden" name="sponsor_id" value="'.$row[3].'">
+					<input type="hidden" name="title" value="'.$title.'">
+					<input type="hidden" name="sponsor_id" value="'.$sponsor_id.'">
 					<input type="hidden" name="cost" value="'.$cost.'">
-					<input type="submit" value="Checkout All '.$row[1].'">
+					<input type="submit" value="Checkout All '.$amount.'">
 				</form>
 			</td>';
 			echo "</tr>";
-			$cart_total += (double)$row[1] * (double)$row[2] * $row[4];
+			$cart_total += (double)$amount * (double)$price * $dollar_ratio;
 		}
 		echo "</table>";
 		echo "<br><br>";
