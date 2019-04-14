@@ -71,21 +71,21 @@
                 echo $sql;
             }*/echo $sql."<br>";
 
-            //Update driver_list
+            //Update driver_lists current points to reflect purchase
             $sql = "UPDATE driver_list SET current_points=current_points - ".$_POST['cost']." WHERE driver_username = '".$_SESSION['username']."' AND sponsor_id = ".$_POST['sponsor_id'].";";
-            /*$result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql."<br>";
+            }//echo $sql."<br>";
 
-            //Update drivers
+            //Update drivers total spent points
             $sql = "UPDATE drivers SET total_spent = total_spent + ".$_POST['cost']." WHERE user_id = ".$_SESSION['user_id'].";";
-            /*$result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql."<br>";
+            }//echo $sql."<br>";
 
             //Update the purchase tracking stuffs in purchase, and products_bought------------------------------
             $sql = "SELECT street_address, country, postal_code FROM drivers WHERE user_id = ".$_SESSION['user_id'].";";
@@ -111,55 +111,55 @@
             
 
             $sql = "INSERT INTO purchase (driver_id, total_cost_points, total_cost_dollars, street_address, country, postal_code) VALUES (".$_SESSION['user_id'].",".$cost_points.",".$_POST['cost'].",'".$street."','".$country."','".$postal."');";
-            /*$result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
             if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql."<br>";
+            }//echo $sql."<br>";
 
             $sql = "SELECT order_id FROM purchase WHERE driver_id = ".$_SESSION['user_id']." ORDER BY order_id desc;";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
             $orderid=$row[0];
-            /*if(!$result){
+            if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql."<br>".$row[0]."<br>";
+            }//echo $sql."<br>".$row[0]."<br>";
             
             $sql = "SELECT amount FROM cart WHERE driver_id = ".$_SESSION['user_id'].' AND title = \''.$_POST['title'].'\';';
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
             $amount = $row[0];
-            /*if(!$result){
+            if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
-            }*///echo $sql."<br>"."amount = ".$amount."<br>";
+            }//echo $sql."<br>"."amount = ".$amount."<br>";
 
             $sql = 'SELECT price FROM products WHERE sponsor_id = '.$_POST['sponsor_id'].' AND title = \''.$_POST['title'].'\';';
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
             $price = $row[0];
-            /*if(!$result){
+            if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
-            }*///echo $sql."<br>"."amount = ".$amount."<br>";
+            }//echo $sql."<br>"."amount = ".$amount."<br>";
             
             $pointcost = $price * $dollar_ratio;
             $sql = "INSERT INTO products_bought (order_id, sponsor_id, driver_id, price, point_cost, title, amount) VALUES (".$orderid.",".$_POST['sponsor_id'].",".$_SESSION['user_id'].",".$price.",".$pointcost.',\''.$_POST['title'].'\','.$amount.");";
-            /*$result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
             if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql."<br>";
+            }//echo $sql."<br>";
 
             //Remove from cart the things that were added--------------------------------------------------------
-            //$sql = "DELETE FROM cart WHERE driver_id = ".$_SESSION['user_id'].' AND title = \''.$_POST['title'].'\';';
-            /*$result = mysqli_query($conn, $sql);
+            $sql = "DELETE FROM cart WHERE driver_id = ".$_SESSION['user_id'].' AND title = \''.$_POST['title'].'\';';
+            $result = mysqli_query($conn, $sql);
             if(!$result){
-                 echo "<br>error<br>";
+                echo "<br>error<br>";
                 echo $sql;
-            }echo $sql;*/
+            }//echo $sql;
 
         }else if($_POST['checkout'] == "all"){
             echo " all if<br> ";

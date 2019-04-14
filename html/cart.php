@@ -120,10 +120,10 @@
 		echo "<br><br>";
 		echo "<h3>Cart Total: ".$cart_total."</h3>";
 
-		echo '<form action="checkout.php" method="POST" id="checkout_items">
+		/*echo '<form action="checkout.php" method="POST" id="checkout_items">
 			<input type="hidden" name="checkout" value="all">
 			<input type="submit" value="Checkout Everything">
-		</form>';
+		</form>';*/
 		
   	}
 		$_POST = array();
