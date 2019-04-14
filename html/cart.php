@@ -119,7 +119,7 @@
 			$row = mysqli_fetch_row($result);
 			$current_points = $row[0];
 
-			$cost = (double)$row[1] * (double)$row[2];
+			$cost = (double)$amount * (double)$price;
 			echo "<tr>";
 			echo "<td>".$title."</td>";
 			echo "<td>".$price*$dollar_ratio."</td>"; 
