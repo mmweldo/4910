@@ -19,8 +19,22 @@
 	$sql = "INSERT INTO users (username, password, email, user_type) VALUES ".'(\''.$_POST['username'].'\',\''.$hash.'\',\''.$_POST['email'].'\',\'sponsor\')';
 	$query = mysqli_query($conn, $sql);
 	
+	if(!$query){ 
+		echo 'Error inserting into users.';
+		echo $sql."<br>";
+	}
+	$sql = "SELECT id FROM users WHERE username = ".$_POST[username].";";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_row($result);
+	echo $row[0]."<br>";
+
+	//$sql = "insert into sponsors (user_id, password, company_name) values( '".$row[0]."', '".$hash."', '".$_POST[company_name]."')";
+
+	$sql = "INSERT INTO sponsors (user_id, password, company_name) VALUES ".'('.$row[0].',\''.$hash.'\',\''.$_POST['company_name'].'\')';
+	$query = mysqli_query($conn, $sql);
+	
 	if($query){
-		echo 'Account Created!';
+		echo 'User Account Created!';
 		echo '<table bgcolor="#C4C4C4" align="center" width="380" border="0">  
 			<tr>    
 				<td  align="center"colspan="2"><font color="#0000FF">Creation Complete</font></td>  
@@ -29,22 +43,6 @@
 				<td>Log in using username: '.$_POST['username'].'</td>     
 			</tr>  
 		</table>';
-	}else
-	{ 
-		echo 'Error inserting into database.';
-		echo $sql."<br>";
-	}
-	$sql = "SELECT id FROM users WHERE username = ".$_POST[username].";";
-	$result = mysqli_query($conn, $sql);
-	$row = mysqli_fetch_row($result);
-	echo $row[0]."<br>";
-
-	$sql = "insert into sponsors (user_id, password, company_name) values( '".$row[0]."', '".$hash."', '".$_POST[company_name]."')";
-
-	$query = mysqli_query($conn, $sql);
-	
-	if($query){
-		echo 'data inserted succesfully';
 	} else echo 'ya done gooofed';
 
 	$conn->close();
