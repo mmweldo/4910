@@ -34,6 +34,7 @@
         
         //Two Cases, one is checkout all, another is checkout individual item
         if($_POST['checkout'] == "individual"){
+            $error = false;
             //echo " individual if<br> ";
             $sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$_POST['sponsor_id'].";";
             $result = mysqli_query($conn, $sql);
@@ -46,6 +47,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }
             $row = mysqli_fetch_row($result);
             $dollar_ratio = $row[0];
@@ -65,11 +67,12 @@
             //Update points_history------------------------------------------------------------------------------
             $deduction = $_POST['cost'] * -1;
             $sql = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount) VALUES (".$_POST['sponsor_id'].",".$_SESSION['user_id'].", DEFAULT, ".$deduction." );";
-            /*$result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql."<br>";
+                $error = true;
+            }//echo $sql."<br>";
 
             //Update driver_lists current points to reflect purchase
             $sql = "UPDATE driver_list SET current_points=current_points - ".$_POST['cost']." WHERE driver_username = '".$_SESSION['username']."' AND sponsor_id = ".$_POST['sponsor_id'].";";
@@ -77,6 +80,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }//echo $sql."<br>";
 
             //Update drivers total spent points
@@ -85,6 +89,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }//echo $sql."<br>";
 
             //Update the purchase tracking stuffs in purchase, and products_bought------------------------------
@@ -93,6 +98,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }echo $sql."<br>";
             $row = mysqli_fetch_row($result);
             $street = $row[0];
@@ -104,6 +110,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }
             $row = mysqli_fetch_row($result);
             $cost_points = $_POST['cost'] * $row[0];
@@ -115,6 +122,7 @@
             if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }//echo $sql."<br>";
 
             $sql = "SELECT order_id FROM purchase WHERE driver_id = ".$_SESSION['user_id']." ORDER BY order_id desc;";
@@ -122,8 +130,9 @@
             $row = mysqli_fetch_row($result);
             $orderid=$row[0];
             if(!$result){
-                 echo "<br>error<br>";
+                echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }//echo $sql."<br>".$row[0]."<br>";
             
             $sql = "SELECT amount FROM cart WHERE driver_id = ".$_SESSION['user_id'].' AND title = \''.$_POST['title'].'\';';
@@ -131,8 +140,9 @@
             $row = mysqli_fetch_row($result);
             $amount = $row[0];
             if(!$result){
-                 echo "<br>error<br>";
+                echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }//echo $sql."<br>"."amount = ".$amount."<br>";
 
             $sql = 'SELECT price FROM products WHERE sponsor_id = '.$_POST['sponsor_id'].' AND title = \''.$_POST['title'].'\';';
@@ -140,8 +150,9 @@
             $row = mysqli_fetch_row($result);
             $price = $row[0];
             if(!$result){
-                 echo "<br>error<br>";
+                echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }//echo $sql."<br>"."amount = ".$amount."<br>";
             
             $pointcost = $price * $dollar_ratio;
@@ -149,8 +160,9 @@
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
             if(!$result){
-                 echo "<br>error<br>";
+                echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }//echo $sql."<br>";
 
             //Remove from cart the things that were added--------------------------------------------------------
@@ -159,8 +171,13 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
+                $error = true;
             }//echo $sql;
 
+
+            if(error == false){
+                echo "<h3>Purchase Completed!</h3>";
+            }
         }else if($_POST['checkout'] == "all"){
             echo " all if<br> ";
 
