@@ -13,31 +13,23 @@
 	}*/
 ?>
 
-<!DOCTYPE html>
 <html>
-<head>
-	<title>Admin - View Sponsors</title>
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
-</head>
+
+<?php
+		if($_SESSION['user_type'] == "sponsor"){
+			include 'sponsorheader.php';
+			echo '<h2>Sponsor - View Sponsors</h2>';
+		}else if($_SESSION['user_type'] == "admin"){
+			include 'adminheader.php'; 
+			echo '<h2>Admin - View Sponsors</h2>';
+		}else if($_SESSION['user_type'] == "driver"){
+			include 'driverheader.php';
+			echo '<h2>Driver - Browse Sponsors</h2>';
+		}
+?>
 <body>
-	<header>
-	  <div class="container">
-	    <div id="branding">
-	      <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
-	    </div>
-	    <nav>
-	      <ul>
-	        <li><a href="/">Home</a></li>
-	        <li><a href="about.php">About</a></li>
-	        <li><a href="stories.php">[Stories]</a></li>
-	        <li><a href="">Login/Signup</a></li>
-	    </ul>
-	    </nav>
-	  </div>
-	</header>
 	<div class="container" style="height:80vh;">
 		<center>
-			<!--<h2>Admin - View Sponsors</h2> -->
 			<form class="viewsponsors-form" method="post" action="viewsponsors.php">
 					<p>Company Name | Sort</p>
 					<select name="order">
