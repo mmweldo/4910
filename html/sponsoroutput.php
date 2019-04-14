@@ -2,15 +2,6 @@
 <?php
 	include 'driverheader.php';
 ?>
-<table bgcolor="#C4C4C4" align="center" width="380" border="0">  
-	<tr>    
-		<td  align="center"colspan="2"><font color="#0000FF">Creation Complete</font></td>  
-	</tr>    
-	<tr>
-		<td>Log in using username: <?php echo $_POST['username']; ?></td>     
-	</tr>  
-</table>
-
 <?php
 
 	// Create connection
@@ -24,15 +15,26 @@
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "insert into users(username, password, email, user_type) values('".$_POST[username]."', '".$hash."', '".$_POST[email]."', 'sponsor'	
-	)";
+	//$sql = "INSERT INTO users(username, password, email, user_type) VALUES ('".$_POST[username]."', '".$hash."', '".$_POST[email]."', 'sponsor')";
+	$sql = "INSERT INTO users (username, password, email, user_type) VALUES ".'(\''.$_POST['username'].'\',\''.$hash.'\',\''.$_POST['email'].'\',\'sponsor\')';
 	$query = mysqli_query($conn, $sql);
 	
 	if($query){
-		echo 'data inserted succesfully ';
-	}else echo 'oh god why ';
-	
-	$sql = "select MAX(id) from users";
+		echo 'Account Created!';
+		echo '<table bgcolor="#C4C4C4" align="center" width="380" border="0">  
+			<tr>    
+				<td  align="center"colspan="2"><font color="#0000FF">Creation Complete</font></td>  
+			</tr>    
+			<tr>
+				<td>Log in using username: '.$_POST['username'].'</td>     
+			</tr>  
+		</table>';
+	}else
+	{ 
+		echo 'Error inserting into database.';
+		echo $sql."<br>";
+	}
+	$sql = "SELECT id FROM users WHERE username = ".$_POST[username].";";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_row($result);
 	echo $row[0]."<br>";
