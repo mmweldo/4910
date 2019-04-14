@@ -76,7 +76,7 @@
     include 'adminheader.php'; 
   }else{
     include 'driverheader.php';
-    echo '<div class="my-4"><a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
+    echo '<div class="my-4"><a style="position:relative; left:0px; float:left;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
   }
 ?>
 
