@@ -53,7 +53,7 @@
             //Update the points tracking stuffs in driver_list, drivers, and point_history
             
             //Update points_history------------------------------------------------------------------------------
-            $deduction = (int)$_POST['cost'] * -1;
+            $deduction = $_POST['cost'] * -1;
             $sql = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount) VALUES (".$_POST['sponsor_id'].",".$_SESSION['user_id'].", DEFAULT, ".$deduction." );";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
@@ -61,14 +61,14 @@
             }*/echo $sql;
 
             //Update driver_list
-            $sql = "UPDATE driver_list SET current_points=current_points - ".(int)$_POST['cost']." WHERE driver_username = '".$_SESSION['username']."' AND sponsor_id = ".$_POST['sponsor_id'].";";
+            $sql = "UPDATE driver_list SET current_points=current_points - ".$_POST['cost']." WHERE driver_username = '".$_SESSION['username']."' AND sponsor_id = ".$_POST['sponsor_id'].";";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
                 echo $sql;
             }*/echo $sql;
 
             //Update drivers
-            $sql = "UPDATE drivers SET total_spent=total_spent + ".(int)$_POST['cost']." WHERE user_id = ".$_SESSION['user_id'].";";
+            $sql = "UPDATE drivers SET total_spent=total_spent + ".$_POST['cost']." WHERE user_id = ".$_SESSION['user_id'].";";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
                 echo $sql;
@@ -78,6 +78,7 @@
             $sql = "SELECT street_address, country, postal_code FROM drivers WHERE user_id = ".$_SESSION['user_id'].";";
             /*$result = mysqli_query($conn, $sql);
             if(!$result){
+                echo "<br>error<br>";
                 echo $sql;
             }
             $row = mysqli_fetch_row($result);
