@@ -99,7 +99,7 @@
                 echo "<br>error<br>";
                 echo $sql;
                 $error = "true";
-            }echo $sql."<br>";
+            }//echo $sql."<br>";
             $row = mysqli_fetch_row($result);
             $street = $row[0];
             $country = $row[1];
@@ -175,7 +175,7 @@
             }//echo $sql;
 
 
-            if(error == "false"){
+            if($error == "false"){
                 echo "<h3>Purchase Completed!</h3>";
             }
         }else if($_POST['checkout'] == "all"){
