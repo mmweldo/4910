@@ -58,7 +58,7 @@
                 echo "Current Points: ".$row[0]." Cost of Purchase: ".$_POST['cost'];
                 //echo "<script>window.top.location.href=\"http://52.55.244.84/cart.php\"</script>";
                 //echo '<a href="..." target="_top">link</a>';
-                echo "<script>setTimeout(\"location.href = '../cart.php?NotEnoughPoints';\", 3000);</script>";
+                echo "<script>setTimeout(\"location.href = '../storeconnector.php?NotEnoughPoints';\", 3000);</script>";
             }//else let's checkout!
             
             //Several changes need to be made
