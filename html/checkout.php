@@ -59,7 +59,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql+"<br>";
+            }*/echo $sql."<br>";
 
             //Update driver_list
             $sql = "UPDATE driver_list SET current_points=current_points - ".$_POST['cost']." WHERE driver_username = '".$_SESSION['username']."' AND sponsor_id = ".$_POST['sponsor_id'].";";
@@ -67,7 +67,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql+"<br>";
+            }*/echo $sql."<br>";
 
             //Update drivers
             $sql = "UPDATE drivers SET total_spent=total_spent + ".$_POST['cost']." WHERE user_id = ".$_SESSION['user_id'].";";
@@ -75,7 +75,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql+"<br>";
+            }*/echo $sql."<br>";
 
             //Update the purchase tracking stuffs in purchase, and products_bought------------------------------
             $sql = "SELECT street_address, country, postal_code FROM drivers WHERE user_id = ".$_SESSION['user_id'].";";
@@ -83,7 +83,7 @@
             if(!$result){
                 echo "<br>error<br>";
                 echo $sql;
-            }echo $sql+"<br>";
+            }echo $sql."<br>";
             $row = mysqli_fetch_row($result);
             $street = $row[0];
             $country = $row[1];
@@ -97,7 +97,7 @@
             }
             $row = mysqli_fetch_row($result);
             $cost_points = $_POST['cost'] * $row[0];
-            echo $sql+"<br>";
+            echo $sql."<br>";
             
 
             $sql = "INSERT INTO purchase (driver_id, total_cost_points, total_cost_dollars, street_address, country, postal_code) VALUES (".$_SESSION['user_id'].",".$cost_points.",".$_POST['cost'].",'".$street."','".$country."','".$postal."')";
@@ -105,7 +105,7 @@
             if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql+"<br>";
+            }*/echo $sql."<br>";
 
             //Remove from cart the things that were added--------------------------------------------------------
             //$sql = "UPDATE driver_list ";
