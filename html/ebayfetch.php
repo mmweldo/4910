@@ -1,36 +1,15 @@
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Affordable and professional web design">
-  <meta name="keywords" content="web design, affordable web design, professional web design">
-  <meta name="author" content="Brad Traversy">
-  <title>Drewp | Stories</title>
-  <link rel="stylesheet" href="./css/style.css">
-
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-	<header>
-	  <div class="container">
-	    <div id="branding">
-	      <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
-	    </div>
-	    <nav>
-	      <ul>
-	        <li><a href="/">Home</a></li>
-	        <li><a href="about.php">About</a></li>
-	        <li><a href="stories.php">[Stories]</a></li>
-	        <li><a href="login.html">Login/Signup</a></li>
-	    </ul>
-	    </nav>
-	  </div>
-	</header>
 <?php 
   session_start();
-  #include 'driverheader.php';
+  if($_SESSION['user_type'] == "sponsor"){
+    include 'sponsorheader.php';
+  }else if($_SESSION['user_type'] == "admin"){
+    include 'adminheader.php'; 
+  }else if($_SESSION['user_type'] == "driver"){
+    include 'driverheader.php';
+  } else{
+	  echo '<script>setTimeout("location.href = \'../storepage.php?\';", 100);</script>';
+  }
 ?>
   <center>
     <form method="post">
