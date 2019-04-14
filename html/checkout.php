@@ -55,13 +55,13 @@
             //If you don't have enough, don't come here lookin' to buy!
             if($current_points < $_POST['cost']*$dollar_ratio){
                 echo "<h3>Not enough points to check out!</h3>";
-                echo "Current Points: ".$row[0]." Cost of Purchase: ".$_POST['cost'];
+                echo "Current Points: ".$current_points." Cost of Purchase: ".$_POST['cost'];
                 //echo "<script>window.top.location.href=\"http://52.55.244.84/cart.php\"</script>";
                 //echo '<a href="..." target="_top">link</a>';
                 echo "<script>setTimeout(\"location.href = '../storeconnector.php?NotEnoughPoints';\", 3000);</script>";
 
                 exit();
-                }else{
+            }else{
                 //Several changes need to be made
                 //Update the points tracking stuffs in driver_list, drivers, and point_history
                 
