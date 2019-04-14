@@ -35,16 +35,15 @@
     include 'sponsorheader.php';
     echo '<div class="container">
       <div class="row">
-      <div class="col-lg-3">
-      <h1 class="my-4">'.$_GET['company_name'].'</h1>
+      <div class="col-lg-3">';
+      echo '<a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
+      echo '<a style="position:relative; right:0px; float:right;" href="/ebayfetch.php"><button class="btn btn-success btn-sm">Add to Store</button></a>';
+    echo '<h1 class="my-4">'.$_GET['company_name'].'</h1>
       </div>
       <!-- /.col-lg-3 -->
       <div class="col-lg-9">
       <br><br>
     <div class="row">';
-    
-    echo '<a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
-    echo '<a style="position:relative; right:0px; float:right;" href="/ebayfetch.php"><button class="btn btn-success btn-sm">Add to Store</button></a>';
 
     $sql = 'SELECT title, subtitle, pic, link, price, company_name, dollar_ratio FROM products join sponsors on sponsor_id = user_id WHERE sponsor_id = '.$_GET['user_id'].';';
     //echo $sql;
