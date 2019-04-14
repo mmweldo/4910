@@ -80,12 +80,12 @@
 		}
 		
 		$sql = "SELECT title, amount, price, sponsor_id, dollar_ratio FROM cart JOIN sponsors ON sponsors.user_id = cart.sponsor_id WHERE driver_id = ".$_SESSION['user_id'].";";
-		$result = mysqli_query($conn, $sql);
+		$result2 = mysqli_query($conn, $sql);
 		if(!$result){
 			echo "<br>error<br>";
 			echo $sql;
 		}//echo $sql."<br>";
-		$row = mysqli_fetch_row($result2);
+		$row2 = mysqli_fetch_row($result2);
 		
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
 		echo '<center><h3>Your Cart</h3>';
@@ -96,12 +96,12 @@
 		echo '<th>Total Cost</th>';
 		echo '<th>Your Points</th>';
 		echo '</tr>';
-		while($row=mysqli_fetch_row($result2)){
-			$title = $row[0];
-			$amount = $row[1];
-			$price = $row[2];
-			$sponsor_id = $row[3];
-			$dollar_ratio = $row[4];
+		while($row2=mysqli_fetch_row($result2)){
+			$title = $row2[0];
+			$amount = $row2[1];
+			$price = $row2[2];
+			$sponsor_id = $row2[3];
+			$dollar_ratio = $row2[4];
 
 			$sql = "SELECT current_points FROM driver_list join sponsors ON driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." AND driver_list.sponsor_id = ".$sponsor_id.";";
 			$result = mysqli_query($conn, $sql);
