@@ -19,7 +19,6 @@
 ?> 
 
     <div class="row profile">
-	<div class="col-md-10">
             <div class="profile-content">
             </div>
 		</div>
@@ -119,7 +118,6 @@
 				</div>
 				<!-- END MENU -->
 			</div>
-		</div>
 	</div>
 <br>
 <br>
