@@ -94,13 +94,15 @@
 
 		echo '<table><tr>';
 		echo '<th>Title</th>';
+		echo '<th>Cost Per</th>';
 		echo '<th>Amount</th>';
-		echo '<th>Cost</th>';
+		echo '<th>Total Cost</th>';
 		echo '</tr>';
 		while($row=mysqli_fetch_row($result)){
 			$cost = (double)$row[1] * (double)$row[2];
 			echo "<tr>";
-			echo "<td>".$row[0]."</td>"; 
+			echo "<td>".$row[0]."</td>";
+			echo "<td>".$row[2]*$row[4]."</td>"; 
 			echo "<td>".$row[1]."</td>"; 
 			echo "<td>".$cost*$row[4]."</td>";		
 			echo '<td>
@@ -122,7 +124,7 @@
 				</form>
 			</td>';
 			echo "</tr>";
-			$cart_total += (double)$row[1] * (double)$row[2];
+			$cart_total += (double)$row[1] * (double)$row[2] * $row[4];
 		}
 		echo "</table>";
 		echo "<br><br>";
