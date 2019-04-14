@@ -1,20 +1,7 @@
-<table bgcolor="#C4C4C4" align="center" width="380" border="0">  
-<tr>    
-<td  align="center"colspan="2"><font color="#0000FF">Creation Complete</font></td>  
-</tr>    
-<tr/>
-<td>Log in using username:<td/><?php echo $_POST['username']; ?></td>     
-</tr>  
-</table>
+<html>
 <?php
-	//$servername = "localhost";
-	//$username = "root";
-	//$password = "";
-	//$dbname = "test";
+	include 'driverheader.php';
 
-	// Create connection
-
-	//$conn = new mysqli($servername, $username, $password, $dbname);
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 
@@ -29,10 +16,10 @@
 	$sql = "INSERT INTO users (username, password, email, user_type) VALUES('".$_POST['username']."', '".$hash."', '".$_POST['email']."', 'driver');";
 	$query = mysqli_query($conn, $sql);
 	if($query){
-		echo "Users table updated succesfully.";
+		echo "Users table updated succesfully.<br>";
 	}
 	else {
-		echo "Error: Couldn't add to users table.";
+		echo "Error: Couldn't add to users table.<br>";
 	}
 	
 	$sql = "SELECT MAX(id) FROM users";
@@ -49,10 +36,18 @@
 
 	$query = mysqli_query($conn, $sql);
 	if($query){
-		echo "Drivers table updated successfully.";
+		echo "Drivers table updated succesfully.<br>";
+		echo '<table bgcolor="#C4C4C4" align="center" width="380" border="0">  
+			<tr>    
+				<td  align="center"colspan="2"><font color="#0000FF">Creation Complete</font></td>  
+			</tr>    
+			<tr/>
+				<td>Log in using username:<td/><?php echo $_POST['username']; ?></td>     
+			</tr>  
+		</table>';
 	}
 	else{
-		echo "Error: Couldn't add to drivers table.";
+		echo "Error: Couldn't add to drivers table.<br>";
 	}
 	if(!empty($_POST['sponsor_id'])){
 		 $sql = "INSERT INTO driver_list (sponsor_id, driver_id, driver_username) values (".$_POST['sponsor_id'].", ".$row[0].",'".$_POST['username']."');";
@@ -66,4 +61,6 @@
 	}
 
 	$conn->close();
+	echo "<script>setTimeout(\"location.href = '../index.php?CreationSuccess';\", 3000);</script>";
 ?>
+</html>
