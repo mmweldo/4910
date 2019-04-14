@@ -113,7 +113,7 @@
             /*if(!$result){
                  echo "<br>error<br>";
                 echo $sql;
-            }*/echo $sql."<br>".row[0]."<br>";
+            }*/echo $sql."<br>".$row[0]."<br>";
 
             //Remove from cart the things that were added--------------------------------------------------------
             //$sql = "UPDATE driver_list ";
