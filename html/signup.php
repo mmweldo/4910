@@ -82,8 +82,8 @@ body {
             <tr><td><input pattern="{1,30}" placeholder="Street Address" type="street_address" name="street_address"  /></td></tr>
             <tr><td><input pattern="{1,30}" placeholder="Country" type="country" name="country"/></td></tr> 
             <tr><td><input pattern="[0-9]{5}" placeholder="Postal Code" type="postal_code" name="postal_code"  /></td></tr>
-            <tr><td><input pattern="[a-zA-Z0-9\s]+" placeholder="Security Question" type="question" name="question"/></td></tr>
-            <tr><td><input pattern="[a-zA-Z0-9\s]+" placeholder="Security Answer" type="answer" name="answer"/></td></tr>
+            <tr><td><input pattern="[a-zA-Z0-9\s]+" placeholder="Security Question" type="text" name="question"/></td></tr>
+            <tr><td><input pattern="[a-zA-Z0-9\s]+" placeholder="Security Answer" type="text" name="answer"/></td></tr>
             <tr><td><input placeholder="Email" type="email" name="email"/></td></tr>
             <tr><td><input pattern="[a-zA-Z0-9]{1,30}" placeholder="Username" type="username" name="username"/></td></tr>   
             <tr><td><input placeholder="Password" type="password" name="password" /></td></tr>
