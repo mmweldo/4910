@@ -42,7 +42,9 @@ if ($conn->connect_error) {
 						if($_SESSION['user_type'] == "driver"){
 							echo '<iframe src="profilesettings.php" style="width:100%;height:100%;"></iframe>';
 						}
-						else{
+						else if($_SESSION['user_type'] == "admin"){
+							echo '<iframe src="admprofilesettings.php" style="width:100%;height:100%;"></iframe>';
+						}else{
 							echo '<iframe src="changeusernamehtml.php" style="width:100%;height:100%;"></iframe>';
 						}
 					}

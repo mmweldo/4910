@@ -30,7 +30,7 @@
 	}
 ?>
 	<center>
-		<h1>Sponsor - Point Editor</h1>
+		<h1>Point Editor</h1>
 		<form class="points-form" method="post" action="addpoints.php">
 			<?php
 				session_start();
