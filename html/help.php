@@ -216,7 +216,6 @@
 	
     <div>
       <button type="button" onclick="bugReport()">Send Message</button>
-      <p id="bugConfirmation"></p>
     </div>
 	<?php
 
