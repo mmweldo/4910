@@ -204,7 +204,7 @@
             <!-- Form actions -->
             <div class="form-group">
               <div class="col-md-12 text-right">
-                <button type="button" class="btn btn-primary btn-lg">Submit</button>
+                <button type="button" onclick="bugReport()" class="btn btn-primary btn-lg">Submit</button>
               </div>
             </div>
           </fieldset>
@@ -215,7 +215,6 @@
 </div>
 	
     <div>
-      <input type="text" name="message" id="bugMessage">
       <button type="button" onclick="bugReport()">Send Message</button>
       <p id="bugConfirmation"></p>
     </div>
