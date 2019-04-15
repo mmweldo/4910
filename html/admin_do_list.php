@@ -15,7 +15,7 @@
     include 'adminheader.php';
 ?>
 
-<body>
+<body><center>
     <!------------------------------------------------------------------------------------------------>
     <h2>Admin - Remove Driver from Sponsor List</h2>
     <form method="post" action="admrmdrlist.php">
@@ -165,5 +165,5 @@
         </table>
     </form>
     <!------------------------------------------------------------------------------------------------> 
-</body>
+</center></body>
 </html>
