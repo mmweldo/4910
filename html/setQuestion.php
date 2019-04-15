@@ -19,7 +19,7 @@
     include 'driverheader.php'; 
   }
 ?>
- 
+    <center>
     <div>
       <p>Recovery Question</p>
       <input type="text" name="newQuestion" id="question">
@@ -29,8 +29,8 @@
       <button type="button" onclick="update()">Update</button>
       <p id="confirmation"></p>
     <div>
-
-    <script>
+    </center>
+<script>
       function update(){
 	var answer = document.getElementById("answer").value;
 	var question = document.getElementById("question").value;
@@ -46,7 +46,7 @@
 
       }
       
-   </script>
+</script>
 
 
 
