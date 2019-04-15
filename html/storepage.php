@@ -37,7 +37,7 @@
       <div class="row">
       <div class="col-lg-3">
       <h1 class="my-4">'.$_GET['company_name'].'</h1>';
-    echo '<a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
+    //echo '<a style="position:relative; right:0px; float:right;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
     echo '<a style="position:relative; right:0px; float:right;" href="/ebayfetch.php"><button class="btn btn-success btn-sm">Add to Store</button></a>';
     echo '</div>
       <!-- /.col-lg-3 -->
