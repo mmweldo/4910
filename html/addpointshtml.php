@@ -70,9 +70,15 @@
 				}
 				if($_SESSION['user_type'] == "sponsor"){
 					echo'<p>Sponsor Username: '.$_SESSION['username'].'</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
+
+					$sql = "SELECT dollar_ratio FROM sponsors WHERE user_id = ".$_SESSION['user_id'].";";
+					$result = mysqli_query($conn, $sql);
+					$row = mysqli_fetch_row($result);
+					echo '<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio" value="'.$row[0].'">';
+				}else{
+					echo '<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio">';
 				}
 			?>
-			<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio"> 
 			<button type="submit" name="submit">Submit</button>
 		</form>
 	</center>
