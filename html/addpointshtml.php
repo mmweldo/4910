@@ -55,7 +55,7 @@
 					echo'<p>Sponsor Username</p> <input type="text" name="username" placeholder="Username">';
 				}
 				if($_SESSION['user_type'] == "sponsor"){
-					echo'<p>Sponsor Username</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
+					echo'<p>Sponsor Username: '.$_SESSION['username'].'</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
 				}
 			?>
 			<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio"> 
