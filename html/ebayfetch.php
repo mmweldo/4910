@@ -11,7 +11,7 @@
 	  echo '<script>setTimeout("location.href = \'../storepage.php?\';", 100);</script>';
   }
 ?>
-  <a style="position:relative; right:0px; float:right;" href="/storepage.php"><button class="btn btn-success btn-sm">Add to Store</button></a>
+  <a style="position:relative; right:0px; float:right;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>
   <center>
     <h3>Sponsor - Add to Catalog</h3>
     <form method="post">
