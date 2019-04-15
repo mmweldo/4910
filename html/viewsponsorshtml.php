@@ -21,7 +21,7 @@
 			echo '<h2>Sponsor - View Sponsors</h2>';
 		}else if($_SESSION['user_type'] == "admin"){
 			include 'adminheader.php'; 
-			echo '<h2>Admin - View Sponsors</h2>';
+			echo '<h2>Admin - View Sponsors and their Stores</h2>';
 		}else if($_SESSION['user_type'] == "driver"){
 			include 'driverheader.php';
 			echo '<h2>Driver - Browse Sponsors</h2>';
