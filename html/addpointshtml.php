@@ -32,6 +32,10 @@
 	<center>
 		<h1>Point Editor</h1>
 		<form class="points-form" method="post" action="addpoints.php">
+			<select username="Username">
+				<option value="dave">dave</option>
+				<option value="jimmy">dave</option>
+			</select>
 			<?php
 				session_start();
 				if($_SESSION['user_type'] == "admin"){
@@ -56,6 +60,9 @@
 				}
 				if($_SESSION['user_type'] == "sponsor"){
 					echo'<p>Sponsor Username: '.$_SESSION['username'].'</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
+					
+
+					$sql = 
 				}
 			?>
 			<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio"> 
