@@ -40,7 +40,7 @@
 				if($_SESSION['user_type'] == "sponsor"){
 					echo'<p>Company Name - '.$_SESSION['company_name'].'</p> <input type="hidden" name="company_name" placeholder="company_name" value="'.$_SESSION['company_name'].'">';
 					
-					echo'<select placeholder="Username" name="username">';
+					echo'<p>Driver Username</p><select placeholder="Username" name="username">';
 					
 					$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 					$conn = mysqli_connect($endpoint, "master", "group4910", "website");
