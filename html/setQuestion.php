@@ -22,9 +22,23 @@
     <center>
     <div>
       <p>Recovery Question</p>
-      <input type="text" name="newQuestion" id="question">
-      <p>Answer</p>
-      <input type="text" name="newAnswer" id="answer">
+<?php
+  $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+  $conn = mysqli_connect($endpoint, "master", "group4910", "website");
+  
+  $sql = "SELECT question FROM users WHERE id = ".$_SESSION['user_id'].";";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_row($result);
+  //echo '<input type="text" name="newQuestion" id="question"><p>Answer</p>';
+  
+  echo '<textarea rows="4" cols="50" name="newQuestion" id="question" value="'.$row[0].'"><p>Answer</p>';
+  
+  $sql = "SELECT answer FROM users WHERE id = ".$_SESSION['user_id'].";";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_row($result);
+  //echo '<input type="text" name="newAnswer" id="answer">';
+  echo '<textarea rows="4" cols="50" name="newAnswer" id="answer" value="'.$row[0].'"><p>Answer</p>';
+?>
       <br>
       <button type="button" onclick="update()">Update</button>
       <p id="confirmation"></p>
