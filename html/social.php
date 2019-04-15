@@ -8,6 +8,17 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
+<?php 
+session_start();
+  if($_SESSION['user_type'] == "admin"){
+    include 'adminheader.php'; 
+  }else if($_SESSION['user_type'] == "sponsor"){
+    include 'sponsorheader.php';
+  }else {
+    include 'driverheader.php'; 
+  }
+?>
+  <center>
     <!--TODO
     ADD BROADCAST MESSAGING
     FILTER AND SANITIZE THE DATABASE PARAMETERS 
@@ -38,6 +49,7 @@
       <button type="button" onclick="bugReport()">Send Message</button>
       <p id="bugConfirmation"></p>
     </div>
+  </center>
    <?php
       if($_SESSION['user_type'] == "admin"){
         echo '<button type="button" onclick="loadBugBox()">Load Bugs</button>';
