@@ -52,4 +52,3 @@
 	echo "<script>setTimeout(\"location.href = '../index.php?CreationSuccess';\", 3000);</script>";
 ?>
 </html>
-INSERT INTO sponsors (user_id, password, company_name) VALUES (,'$2y$10$jx9EkVmCzIc/hVZ0l.WtAuS1CVU.GIJ7cbmC499JpNbio25A6q6hC','sponsor1')
