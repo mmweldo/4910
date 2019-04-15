@@ -46,6 +46,22 @@
 			<button type="submit" name="submit">Submit</button>
 		</form>
 	</center>
+	<center>
+		<h1>Sponsor Total Points</h1>
+		<form class="points-form" method="post" action="sponsorChangeRatio.php">
+			<?php
+				session_start();
+				if($_SESSION['user_type'] == "admin"){
+					echo'<p>Sponsor Username</p> <input type="text" name="username" placeholder="Username">';
+				}
+				if($_SESSION['user_type'] == "sponsor"){
+					echo'<p>Sponsor Username</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
+				}
+			?>
+			<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio"> 
+			<button type="submit" name="submit">Submit</button>
+		</form>
+	</center>
 	<footer>
       		<p>Drewp, Copyright &copy; 2019</p>
     	</footer>

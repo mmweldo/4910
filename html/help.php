@@ -217,10 +217,7 @@
     <div>
       <button type="button" onclick="bugReport()">Send Message</button>
     </div>
-	<?php
-
-session_start();
-	?>
+<?php session_start();?>
  <script>
       function bugReport(){
         var receiverText = "bugAdmin";
