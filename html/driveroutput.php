@@ -13,7 +13,7 @@
 
 	$hash = password_hash($_POST['password'], PASSWORD_DEFAULT); //hashes password
 
-	$sql = "INSERT INTO users (username, password, email, user_type) VALUES('".$_POST['username']."', '".$hash."', '".$_POST['email']."', 'driver');";
+	$sql = "INSERT INTO users (username, password, email, user_type, question, answer) VALUES('".$_POST['username']."', '".$hash."', '".$_POST['email']."', 'driver','".$_POST['question']."','".$_POST['answer']."');";
 	$query = mysqli_query($conn, $sql);
 	if($query){
 		echo "Users table updated succesfully.<br>";

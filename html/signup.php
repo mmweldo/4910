@@ -76,15 +76,17 @@ body {
       <form style="margin: 0 auto; max-width:300px; display: inline-block;" method="post" action="driveroutput.php"> 
           <table align="center" width="380" border="0">
             <tr><td  align="center"colspan="2"><h1>Driver Signup</h1></td></tr>   
-            <tr><td align="center"width="312"></td><td width="172"></td></tr>   
-            <tr><td><input placeholder="Email" type="email" name="email"/></td></tr>   
-            <tr><td><input placeholder="Password" type="password" name="password" /></td></tr>   
-            <tr><td><input pattern="[a-zA-Z0-9]{1,30}" placeholder="Username" type="username" name="username"/></td></tr>   
+            <tr><td align="center"width="312"></td><td width="172"></td></tr>
             <tr><td><input pattern="[a-zA-Z]{1,30}" placeholder="Firstname" type="firstname" name="firstname"/></td></tr>
             <tr><td><input pattern="[a-zA-Z]{1,30}" placeholder="Lastname" type="lastname" name="lastname"/></td></tr>   
             <tr><td><input pattern="{1,30}" placeholder="Street Address" type="street_address" name="street_address"  /></td></tr>
             <tr><td><input pattern="{1,30}" placeholder="Country" type="country" name="country"/></td></tr> 
             <tr><td><input pattern="[0-9]{5}" placeholder="Postal Code" type="postal_code" name="postal_code"  /></td></tr>
+            <tr><td><input pattern="[a-zA-Z0-9\s]+" placeholder="Security Question" type="question" name="question"/></td></tr>
+            <tr><td><input pattern="[a-zA-Z0-9\s]+" placeholder="Security Answer" type="answer" name="answer"/></td></tr>
+            <tr><td><input placeholder="Email" type="email" name="email"/></td></tr>
+            <tr><td><input pattern="[a-zA-Z0-9]{1,30}" placeholder="Username" type="username" name="username"/></td></tr>   
+            <tr><td><input placeholder="Password" type="password" name="password" /></td></tr>
             <!--<tr><td><input placeholder="Sponsor iD" type="sponsor_id" name="sponsor_id"  /></td></tr> -->
             <tr><td align="center" colspan="2"><input type="submit" value="submit" name="submit" /></td></tr>
           </table>
@@ -93,10 +95,10 @@ body {
           <table align="center" width="380" border="0">   
             <tr><td  align="center"colspan="2"><h1>Sponsor Signup</h1></td></tr>
             <tr><td width="312"></td><td width="172"> </td></tr>   
-            <tr><td><input placeholder="Email" type="email" name="email"/></td></tr>   
-            <tr><td><input placeholder="Password" type="password" name="password"/></td></tr>   
-            <tr><td><input pattern="[a-zA-Z0-9]{1,30}" placeholder="Username" type="username" name="username"/></td></tr>   
+            <tr><td><input placeholder="Email" type="email" name="email"/></td></tr>
             <tr><td><input pattern="{1,30}" placeholder="Company Name"type="company_name" name="company_name"/></td></tr>
+            <tr><td><input pattern="[a-zA-Z0-9]{1,30}" placeholder="Username" type="username" name="username"/></td></tr>   
+            <tr><td><input placeholder="Password" type="password" name="password"/></td></tr>   
             <tr><td align="center" colspan="2"><input type="submit" value="Submit" name="submit" /></td></tr>
           </table>
         </form> 
