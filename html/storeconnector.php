@@ -37,7 +37,8 @@
 	$_POST['user_id'] = $_SESSION['user_id'];
 	echo '<script>setTimeout("location.href = \'../storepage.php?username='.$_SESSION['username'].'&user_id='.$_SESSION['user_id'].'&user_type=sponsor&company_name='.$_SESSION['company_name'].'\';", 100);</script>';  }
   else if($_SESSION['user_type'] == "admin"){
-    	include 'adminheader.php'; 
+			include 'adminheader.php'; 
+			echo '<script>setTimeout("location.href = \'../admin_do_list.php?\';", 100);</script>';
   }else if($_SESSION['user_type'] == "driver"){
     	include 'driverheader.php';
 	echo '<center>';
