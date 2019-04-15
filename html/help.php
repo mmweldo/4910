@@ -12,7 +12,16 @@
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<?php 
+    session_start();
+    if($_SESSION['user_type'] == "admin"){
+        include 'adminheader.php'; 
+    }else if($_SESSION['user_type'] == "sponsor"){
+        include 'sponsorheader.php';
+    }else {
+        include 'driverheader.php'; 
+    }
+?>
 <div class="container">
 
 <div class="page-header">
@@ -178,29 +187,30 @@
             <legend class="text-center">Contact us</legend>
     
             <!-- Name input-->
-            <div class="form-group">
+            <!--<div class="form-group">
               <label class="col-md-3 control-label" for="name">username</label>
               <div class="col-md-9">
                 <input id="name" name="name" type="text" placeholder="Username" class="form-control">
               </div>
-            </div>
+            </div> -->
     
             <!-- Email input-->
-            <div class="form-group">
+            <!--<div class="form-group">
               <label class="col-md-3 control-label" for="email">Your E-mail</label>
               <div class="col-md-9">
                 <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
               </div>
-            </div>
+            </div> -->
     
             <!-- Message body -->
             <div class="form-group">
               <label class="col-md-3 control-label" for="message">Your message</label>
               <div class="col-md-9">
-                <textarea class="form-control" id="Message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+                <textarea class="form-control" id="bugMessage" name="bugMessage" placeholder="Please enter your message here..." rows="5"></textarea>
               </div>
             </div>
             <p id="bugConfirmation"></p>
+
             <!-- Form actions -->
             <div class="form-group">
               <div class="col-md-12 text-right">
@@ -214,10 +224,9 @@
 	</div>
 </div>
 	
-    <div>
+    <!--<div>
       <button type="button" onclick="bugReport()">Send Message</button>
-    </div>
-<?php session_start();?>
+    </div>-->
  <script>
       function bugReport(){
         var receiverText = "bugAdmin";

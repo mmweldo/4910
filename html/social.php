@@ -9,7 +9,7 @@
   </head>
   <body>
 <?php 
-session_start();
+  session_start();
   if($_SESSION['user_type'] == "admin"){
     include 'adminheader.php'; 
   }else if($_SESSION['user_type'] == "sponsor"){
