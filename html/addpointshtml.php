@@ -32,10 +32,6 @@
 	<center>
 		<h1>Point Editor</h1>
 		<form class="points-form" method="post" action="addpoints.php">
-			<select username="Username">
-				<option value="dave">dave</option>
-				<option value="jimmy">dave</option>
-			</select>
 			<?php
 				session_start();
 				if($_SESSION['user_type'] == "admin"){
@@ -43,9 +39,23 @@
 				}
 				if($_SESSION['user_type'] == "sponsor"){
 					echo'<p>Company Name - '.$_SESSION['company_name'].'</p> <input type="hidden" name="company_name" placeholder="company_name" value="'.$_SESSION['company_name'].'">';
+					
+					echo'<select placeholder="Username" name="username">';
+					
+					$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+					$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+					$sql = "SELECT driver_username FROM driver_list WHERE sponsor_id = ".$_SESSION['user_id'].";";
+					$result = mysqli_query($conn, $sql);
+					$row = mysqli_fetch_row($result);
+
+					while($row=mysqli_fetch_row($result)){
+						echo'<option value="'.$row[0].'">'.$row[0].'</option>';
+					}
+					echo'</select>';
+				}else{
+					echo '<p>Driver Username</p> <input type="text" name="username" placeholder="Username">';
 				}
-			?>
-			<p>Driver Username</p> <input type="text" name="username" placeholder="Username">
+			?>			
 			<p>Points</p> <input type="text" name="points" placeholder="Points Change"> <br>
 			<button type="submit" name="submit">Submit</button>
 		</form>
@@ -60,9 +70,6 @@
 				}
 				if($_SESSION['user_type'] == "sponsor"){
 					echo'<p>Sponsor Username: '.$_SESSION['username'].'</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
-					
-
-					$sql = "";
 				}
 			?>
 			<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio"> 
