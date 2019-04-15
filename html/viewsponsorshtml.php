@@ -18,13 +18,13 @@
 <?php
 		if($_SESSION['user_type'] == "sponsor"){
 			include 'sponsorheader.php';
-			echo '<h2>Sponsor - View Sponsors</h2>';
+			echo '<center><h2>Sponsor - View Sponsors</h2></center>';
 		}else if($_SESSION['user_type'] == "admin"){
 			include 'adminheader.php'; 
-			echo '<h2>Admin - View Sponsors and their Stores</h2>';
+			echo '<center><h2>Admin - View Sponsors and their Stores</h2></center>';
 		}else if($_SESSION['user_type'] == "driver"){
 			include 'driverheader.php';
-			echo '<h2>Driver - Browse Sponsors</h2>';
+			echo '<center><h2>Driver - Browse Sponsors</h2></center>';
 		}
 ?>
 <body>
@@ -51,6 +51,24 @@
 					</select>
 					<button type="submit" name="submit">Submit</button>
 			</form>
+<?php 
+
+	if($_SESSION['user_type'] == "admin")
+	echo'<h2>Admin - View User List</h2>
+		<form class="userlist-form" method="post" action="userlist.php">
+			<select name="order">
+				<option value="users.username ASC">Username Asc</option>
+				<option value="users.username DESC">Username Desc</option>
+				<option value="users.email ASC">Email Asc</option>
+				<option value="users.email DESC">Email Desc</option>
+				<option value="users.date_created ASC">Creation Asc</option>
+				<option value="users.date_created DESC">Creation Desc</option>
+				<option value="users.id ASC">id Asc</option>
+				<option value="users.id DESC">id Desc</option>
+			</select>
+			<button type="submit" name="submit">Submit</button>
+		</form>';
+?>
 		</center>
 	</div>
 	<footer>
