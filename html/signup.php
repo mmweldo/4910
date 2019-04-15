@@ -98,7 +98,9 @@ body {
             <tr><td><input placeholder="Email" type="email" name="email"/></td></tr>
             <tr><td><input pattern="{1,30}" placeholder="Company Name"type="company_name" name="company_name"/></td></tr>
             <tr><td><input pattern="[a-zA-Z0-9]{1,30}" placeholder="Username" type="username" name="username"/></td></tr>   
-            <tr><td><input placeholder="Password" type="password" name="password"/></td></tr>   
+            <tr><td><input placeholder="Password" type="password" name="password"/></td></tr>
+            <tr><td><input pattern="[a-zA-Z0-9\s]+" placeholder="Security Question" type="text" name="question"/></td></tr>
+            <tr><td><input pattern="[a-zA-Z0-9\s]+" placeholder="Security Answer" type="text" name="answer"/></td></tr>   
             <tr><td align="center" colspan="2"><input type="submit" value="Submit" name="submit" /></td></tr>
           </table>
         </form> 

@@ -16,7 +16,7 @@
 	} 
 
 	//$sql = "INSERT INTO users(username, password, email, user_type) VALUES ('".$_POST[username]."', '".$hash."', '".$_POST[email]."', 'sponsor')";
-	$sql = "INSERT INTO users (username, password, email, user_type) VALUES ".'(\''.$_POST['username'].'\',\''.$hash.'\',\''.$_POST['email'].'\',\'sponsor\')';
+	$sql = "INSERT INTO users (username, password, email, user_type, question, answer) VALUES ".'(\''.$_POST['username'].'\',\''.$hash.'\',\''.$_POST['email'].'\',\'sponsor\',\''.$_POST['question'].'\',\''.$_POST['answer'].'\')';
 	$query = mysqli_query($conn, $sql);
 	
 	if(!$query){ 
