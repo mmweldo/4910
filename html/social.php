@@ -29,9 +29,9 @@ session_start();
     <p>Send Message</p>
     <div>
       <p>Send to</p>
-      <input type="text" name="to" id="receiver">
+      <input type="text" name="to" id="receiver" placeholder="username">
       <p>Message</p>
-      <input type="text" name="message" id="message">
+      <input type="text" name="message" id="message" placeholder="message">
       <button type="button" onclick="sendMessage()">Send Message</button>
       <p id="confirmation"></p>
     </div>
