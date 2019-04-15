@@ -45,7 +45,7 @@
     <div>
     </center>
 <script>
-      function update(){
+  function update(){
 	var answer = document.getElementById("answer").value;
 	var question = document.getElementById("question").value;
 	var username = '<?php echo $_SESSION['username'];?>'; 

@@ -8,23 +8,17 @@
   </head>
 
   <body>
-    <header>
-    <div class="container">
-      <div id="branding">
-        <h1><span class="highlight">Drewp:</span> <u>D</u>river <u>REW</u>ards <u>P</u>rogram</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="stories.php">[Stories]</a></li>
-          <li><a href="signup.php">Signup</a></li>
-          <li class="current"><a href="login.html">Login</a></li>
-      </ul>
-      </nav>
-    </div>
-  </header>
- 
+<?php 
+  session_start();
+  if($_SESSION['user_type'] == "admin"){
+    include 'adminheader.php'; 
+  }else if($_SESSION['user_type'] == "sponsor"){
+    include 'sponsorheader.php';
+  }else {
+    include 'driverheader.php'; 
+  }
+?>
+ <center>
     <div>
       <p>Enter Username</p>
       <input type="text" name="uname" id="username">
@@ -38,7 +32,7 @@
       <button type="button" onclick="verify()">Submit</button>
       <p id="confirmation"></p>
     </div>
-
+  </center>
 
   <script>
       function test(){
