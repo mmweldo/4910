@@ -62,7 +62,7 @@
 					echo'<p>Sponsor Username: '.$_SESSION['username'].'</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
 					
 
-					$sql = 
+					$sql = "";
 				}
 			?>
 			<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio"> 
