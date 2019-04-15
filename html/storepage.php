@@ -119,7 +119,7 @@
                         <a href="'.$item_link.'">'.$item_name.'</a>
                       </h4>
                       <h5>'.$item_price.' points</h5>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                      
                     </div>
                     <center><form action="cart.php" method="POST">
                       <input style="width:auto;" name="amount" type="number" min="0" placeholder="1"></input>

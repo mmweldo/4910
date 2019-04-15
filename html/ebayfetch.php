@@ -14,7 +14,7 @@
   <center>
     <h3>Sponsor - Add to Catalog</h3>
     <form method="post">
-      <input type="text" name="query">
+      <input type="text" name="query" placeholder="Ebay Query">
       <button type="submit" name="querysubmit" value="submit">Search</button>
     </form>
   </center>
