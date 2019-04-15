@@ -179,9 +179,9 @@
     
             <!-- Name input-->
             <div class="form-group">
-              <label class="col-md-3 control-label" for="name">Name</label>
+              <label class="col-md-3 control-label" for="name">username</label>
               <div class="col-md-9">
-                <input id="name" name="name" type="text" placeholder="Your name (First and Last)" class="form-control">
+                <input id="name" name="name" type="text" placeholder="Username" class="form-control">
               </div>
             </div>
     
