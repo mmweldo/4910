@@ -42,6 +42,7 @@ session_start();
     <div id="inbox">
       
     </div>
+    <div style="height:30vh;"></div>
     <!-- Bug Report System -->
     <p>Bug Report Here</p>
     <div>
