@@ -54,6 +54,9 @@ if ($conn->connect_error) {
 			<div id="Recover" class="tabcontent">
 			  <iframe src="setQuestion.php" style="width:100%;height:100%;"></iframe>
 			</div>
+			<div id="Messages" class="tabcontent">
+			  <iframe src="social.php" style="width:100%;height:100%;"></iframe>
+			</div>
 			<div id="Points" class="tabcontent">
 				<iframe src="addpoints.html" style="width:100%;height:100%;"></iframe>
 			</div>
@@ -109,6 +112,7 @@ if ($conn->connect_error) {
 				<!-- SIDEBAR MENU -->
 				<div class="tab">
 					<button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen"><p><span class="glyphicon glyphicon-home"></span> Overview</p></button>
+					<button class="tablinks" onclick="openCity(event, 'Messages')" id="defaultOpen"><p><span class="glyphicon glyphicon-comment"></span> Messages</p></button>
 					<button class="tablinks" onclick="openCity(event, 'Profile')"><p><span class="glyphicon glyphicon-user"></span> Account Settings</p></button>
 					<button class="tablinks" onclick="openCity(event, 'Recover')"><p><span class="glyphicon glyphicon-question-sign"></span>Recovery Settings</p></button>
 					<!--<button class="tablinks" onclick="openCity(event, 'Points')"><p><span class="glyphicon glyphicon-ok"></span> Tasks</p></button>
