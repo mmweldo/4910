@@ -64,7 +64,7 @@
             $date = strtotime($row[0]);
             $date = date($format, $date);
             echo 'PurchaseDate: '.$date.'<br>';
-            echo 'DifferenceDates: '.$current_date->diff($date).'<br>';
+            echo 'DifferenceDates: '.date_diff($current_date,$date).'<br>';
 
             //echo $current_date->diff($purchase_date);
             //echo $current_date->diff($purchase_date_plus_three);
