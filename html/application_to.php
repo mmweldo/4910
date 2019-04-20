@@ -30,12 +30,12 @@
 		}
 		if($_SESSION['user_type'] != "driver"){
 			echo "Error: Only drivers can apply to be under a sponsor. You are a ".$_SESSION['user_type']." not a driver.";
-			echo "<script>setTimeout(\"location.href = '../index.php?NOT-DRIVER';\", 3000);</script>";
+			echo "<script>setTimeout(\"location.href = '../viewsponsorshtml.php?NOT-DRIVER';\", 3000);</script>";
 			exit();
 		}
 		if($_POST['user_type'] != "sponsor"){
 			echo "Error: Only sponsors can be applied to. This user is a ".$_POST['user_type']." not a sponsor.";
-			echo "<script>setTimeout(\"location.href = '../index.php?NOT-SPONSOR';\", 3000);</script>";
+			echo "<script>setTimeout(\"location.href = '../viewsponsorshtml.php?NOT-SPONSOR';\", 3000);</script>";
 			exit();
 		}
 
@@ -54,7 +54,7 @@
 
 		if($resultCheck > 0){
 			echo "Error: You've already applied!";
-			echo "<script>setTimeout(\"location.href = '../index.php?APPLIED-ALREADY';\", 3000);</script>";
+			echo "<script>setTimeout(\"location.href = '../viewsponsorshtml.php?APPLIED-ALREADY';\", 3000);</script>";
 			exit();
 		}
 
@@ -64,7 +64,7 @@
 	
 		if(!$result){
 			echo "Error: Couldn't apply.";
-			echo "<script>setTimeout(\"location.href = '../index.php?CANT-APPLY;\", 3000);</script>";
+			echo "<script>setTimeout(\"location.href = '../viewsponsorshtml.php?CANT-APPLY;\", 3000);</script>";
 			exit();
 		}
 
@@ -72,7 +72,7 @@
 
 		if($resultCheck > 1){
 			echo "[2] Error: Couldn't apply.";
-			echo "<script>setTimeout(\"location.href = '../index.php?CANT-APPLY';\", 3000);</script>";
+			echo "<script>setTimeout(\"location.href = '../viewsponsorshtml.php?CANT-APPLY';\", 3000);</script>";
 			exit();
 		}
 
