@@ -10,7 +10,9 @@
 		echo "Error: User not an driver!";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-DRIVER';\", 3000);</script>";
 		exit();
-	}	
+	}else{
+		include 'driverheader.php';
+	}
 ?>
 <html>
 <head></head>
