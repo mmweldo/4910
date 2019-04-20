@@ -34,8 +34,6 @@
             echo '</tr>';
 
             echo '<tr>';
-            $differnce = date("Y-m-d h:i:s") - $row[0];
-            echo $difference;
 
             echo '<td>'.$row[0].'</td>';
             echo '<td>'.$row[1].'</td>';
@@ -50,6 +48,9 @@
             echo '<P><INPUT TYPE="SUBMIT" VALUE="Submit" NAME="Submit"></P>';
 
             echo '</form>';
+
+            echo date("Y-m-d h:i:s");
+            
         }
 
     }
