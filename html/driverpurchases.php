@@ -43,7 +43,7 @@
             //echo $sql."<br>";
             echo "<script>setTimeout(\"location.href = '../driverpurchases.php';\", 100);</script>";
         }
-        $sql = "SELECT date_created, total_cost_points, street_address, country, postal_code, order_id, status FROM purchase WHERE driver_id = ".$_SESSION['user_id']." ORDER BY date_created DESC;";
+        $sql = "SELECT date_created, total_cost_points, street_address, country, postal_code, order_id, status FROM purchase WHERE driver_id = ".$_SESSION['user_id']." ORDER BY date_created ASC;";
         $result = mysqli_query($conn, $sql);
 
         date_default_timezone_set("America/New_York");
