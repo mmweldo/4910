@@ -40,8 +40,11 @@
             $current_date = strtotime($current_date);
             $purchase_date = strtotime($row[0]);
             
+            $difference = (int)$current_date - (int)$date;
+            echo $difference;
             // Three days = 259200
-            if(((int)$current_date - (int)$date) > 559200){ //Larger than three days
+            if((int)$difference > 259200){ //Larger than three days
+
                 echo '<td>'.$row[0].'</td>';
                 echo '<td>'.$row[1].'</td>';
                 echo '<td>'.$row[2].'</td>';
@@ -64,13 +67,6 @@
                 echo '<P><INPUT TYPE="SUBMIT" VALUE="Submit" NAME="Cancel"></P>';
             }
             echo '</form>';
-
-            //$interval = date_diff($current_date,$datetime2);
-            //echo $interval->format('%R%a days').'<br>';
-
-            //echo $current_date->diff($purchase_date);
-            //echo $current_date->diff($purchase_date_plus_three);
-            //if()
         }
 
     }
