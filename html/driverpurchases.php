@@ -63,7 +63,7 @@
                 echo '<td>'.'Pending'.'</td>';
                 echo '</tr>'; 
                 echo '</table>';
-                echo '<P><Button TYPE="SUBMIT" VALUE="Cancel" NAME="SUBMIT"></P>';
+                echo '<P><button TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT">Cancel</button></P>';
             }
             echo '</form>';
         }
