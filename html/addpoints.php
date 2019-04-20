@@ -52,7 +52,8 @@
 	    include 'driverheader.php';
 	  }
 	  else if($_SESSION['user_type'] == "sponsor"){
-	    include 'sponsorheader.php';
+			include 'sponsorheader.php';
+			echo '<a style="position:relative; left:0px; float:left;" href="/addpointshtml.php"><button class="btn btn-success btn-sm">Points Mainpage</button></a>';
 	  }
 	  else if($_SESSION['user_type'] == "admin"){
 	    include 'adminheader.php'; 
@@ -123,7 +124,7 @@
 		    printf("[3]Error: %s\n", mysqli_error($conn));
 		    exit();
 		}
-		echo "<table>";
+		echo '<table class="table">';
 		echo "<tr>";
 		echo "<th>username</th>";
 		echo "<th>total_points</th>";
