@@ -64,7 +64,7 @@
                 echo '<td>'.$row[3].'</td>';
                 echo '<td>'.$row[4].'</td>';
                
-                echo '<td><button TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT">Cancel</button></td>';
+                echo '<td><button class="btn btn-link" TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT">Cancel</button></td>';
                 echo '</tr>'; 
                 echo '</table>';
             }
