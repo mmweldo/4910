@@ -92,7 +92,7 @@
                 //echo '<td>'.'Pending'.'</td>';
                 echo '<form method="POST" action="driverpurchases.php">';
                 echo '<input type="hidden" name="order_id" value = "'.$row[5].'">';
-                echo '<intput type="hidden" name="date" value= "'.$row[0].'">';
+                echo '<input type="hidden" name="date" value= "'.$row[0].'">';
                 echo '<td><button class="btn btn-link" TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT" style="padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;">Cancel</button></td>';
                 echo '</form>';
                 echo '</tr>'; 
