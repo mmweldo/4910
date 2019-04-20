@@ -78,7 +78,7 @@
 
 		echo '<h1>Application succesful</h1>';
 		echo 'Redirecting...';
-		echo "<script>setTimeout(\"location.href = '../index.php?APPLICATION-SUCCESSFUL';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../viewsponsorshtml.php?APPLICATION-SUCCESSFUL';\", 3000);</script>";
 		echo '</center>';
 	?>
 	</body>
