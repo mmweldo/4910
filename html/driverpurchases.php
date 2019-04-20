@@ -11,10 +11,11 @@
 		//echo "<script>setTimeout(\"location.href = '../index.php?NOT-DRIVER';\", 3000);</script>";
 		//exit();
         include 'driverheader.php';
+        echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
 
         $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
         $conn = mysqli_connect($endpoint, "master", "group4910", "website");
-    
+        
         if(isset($_POST['SUBMIT'])){
             echo 'Cancellation in progress for order '.$POST['order_id'].'...<br>';
 

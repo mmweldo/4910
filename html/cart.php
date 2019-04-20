@@ -88,7 +88,7 @@
 
 		echo '<a style="position:relative; left:0px; float:left;" href="/storeconnector.php"><button class="btn btn-success btn-sm">Store</button></a>';
 		echo '<center><h3>Your Cart</h3>';
-		echo '<table><tr>';
+		echo '<table class="table"><tr>';
 		echo '<th>Title</th>';
 		echo '<th>Cost Per</th>';
 		echo '<th>Amount</th>';
