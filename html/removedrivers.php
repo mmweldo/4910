@@ -21,6 +21,7 @@
 	$query = "SELECT driver_id FROM driver_list WHERE sponsor_id = (SELECT user_id FROM sponsors WHERE company_name = '".$_POST['company_name']."') AND driver_username = '".$_POST['username']."';";
 
 	$result = mysqli_query($conn, $query);
+	$row = mysqli_fetch_row($result);
 	if(!$result){
 		echo "[1] Error: Driver-Sponsor pair not found! Redirecting...";
 		#echo "<script>setTimeout(\"location.href = '../removedrivers.html?NONEXISTANT-PAIR';\", 3000);</script>";
