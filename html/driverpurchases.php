@@ -18,7 +18,7 @@
         if(isset($_POST['SUBMIT'])){
             echo 'Cancellation in progress for order '.$POST['order_id'].'...<br>';
 
-            $sql = "SELECT sponsor_id FROM purchase JOIN products_bought ON purchase.order_id  WHERE purchase.order_id = ".$_POST['order_id'].";";
+            $sql = "SELECT sponsor_id FROM purchase JOIN products_bought ON purchase.order_id = products_bought.order_id WHERE purchase.order_id = ".$_POST['order_id'].";";
             echo $sql;
             //$result = mysqli_query($conn, $sql);
         } 
