@@ -108,15 +108,3 @@
 
 
 ?>
-
-Total Spent Points: 317.37
-
-For Company: lemon
-Total Current Points: 1237.6299999999999
-Total Earned Points:1555
-
-Total Spent Points: 233.37
-
-For Company: lemon
-Total Current Points: 1321.6299999999999
-Total Earned Points:1555
