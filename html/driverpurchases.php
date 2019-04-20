@@ -56,7 +56,7 @@
 
             echo $current_date->diff($purchase_date);
             echo $current_date->diff($purchase_date_plus_three);
-            if()
+            //if()
         }
 
     }
