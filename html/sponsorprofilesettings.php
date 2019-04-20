@@ -79,16 +79,15 @@ if ($conn->connect_error) {
 						 <?php 
 						 if(isset($_POST["submit"])){
 								$sql = "UPDATE sponsors SET profile_img = '".$_POST['profimg']."', company_name = '".$_POST['company_name']."' WHERE user_id = ".$_SESSION['user_id'];
-								$result=mysqli_query($conn, $sql)
+								$result=mysqli_query($conn, $sql);
 								if(!$result){
                                     echo "Error updating record: " . $conn->error;
                                 }
                                 $sql = "UPDATE users SET email = '".$_POST['email']."' WHERE user_id = ".$_SESSION['user_id'];
-								$result=mysqli_query($conn, $sql)
+								$result=mysqli_query($conn, $sql);
 								if(!$result){
                                     echo "Error updating record: " . $conn->error;
                                 }
-
 
                                 echo "<script>setTimeout(\"location.href = '../admprofilesettings.php';\", 3000);</script>";
 						 }
