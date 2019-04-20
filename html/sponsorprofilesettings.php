@@ -42,6 +42,17 @@ if ($conn->connect_error) {
                 <td colspan="1">
                    <form class="well form-horizontal" method="post">
                       <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Profile Image</label>
+                            <div class="col-md-8 inputGroupContainer">
+								<?php
+									$sql = "select company_name from sponsors where user_id = ".$_SESSION['user_id'];
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_row($result);
+							    ?>
+                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="profimg" name="profimg" placeholder="Profile Image URL" class="form-control" required="true" value="<?php echo $row[0]?>" type="text"></div>
+                            </div>
+                         </div>
                          <div class="form-group">
                             <label class="col-md-4 control-label">Profile Image</label>
                             <div class="col-md-8 inputGroupContainer">
