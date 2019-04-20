@@ -50,7 +50,7 @@ if ($conn->connect_error) {
 									$result = mysqli_query($conn, $sql);
 									$row = mysqli_fetch_row($result);
 							    ?>
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="profimg" name="profimg" placeholder="Profile Image URL" class="form-control" required="true" value="<?php echo $row[0]?>" type="text"></div>
+                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="company_name" name="company_name" placeholder="Profile Image URL" class="form-control" required="true" value="<?php echo $row[0]?>" type="text"></div>
                             </div>
                          </div>
                          <div class="form-group">
