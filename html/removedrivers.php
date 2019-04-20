@@ -31,16 +31,16 @@
 
 	if($resultCheck < 1){
 		echo "[2] Error: Sponsor not found! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../removedrivers.html?NONEXISTANT-PAIR';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../viewsponsorshtml.php?NONEXISTANT-PAIR';\", 3000);</script>";
 		exit();
 	}
 
-	$query = "DELETE FROM users WHERE users.username = '".$_POST['username']."';";
+	$query = 'DELETE FROM driver_list WHERE driver_id = '.$row[0].' AND sponsor_id = '.$_SESSION['user_id'].';';
 
 	$result = mysqli_query($conn, $query);
 	if(!$result){
-		echo "[3] Error: Couldn't delete driver...";
-		echo "<script>setTimeout(\"location.href = '../removedrivers.html?COULDNT-DELETE';\", 3000);</script>";
+		echo "[3] Error: Couldn't remove driver from list...";
+		echo "<script>setTimeout(\"location.href = '../viewsponsorshtml.php?COULDNT-DELETE';\", 3000);</script>";
 		exit();		
 	}
 
