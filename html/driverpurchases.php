@@ -24,15 +24,15 @@
             $row = mysqli_fetch_row($result);
 
             //Refund 
-            $sql = "UPDATE points_history SET comment = 'canceled', point_amount = 0 WHERE date_created = '".$_POST['date']."';";
+            $sql = 'UPDATE points_history SET comment = "canceled", point_amount = 0 WHERE date_created = "'.$_POST['date'].'";';
             echo $sql."<br>";
             //$result = mysqli_query($conn, $sql);
             
-            $sql = "UPDATE drivers SET total_spent = total_spent - ".$row[1].";";
+            $sql = "UPDATE drivers SET total_spent = total_spent - ".$row[1]." WHERE user_id = ".$_SESSION['user_id'].";";
             //$result = mysqli_query($conn, $sql);
             echo $sql."<br>";
 
-            $sql = "UPDATE driver_list SET current_points = current_points + ".$row[1].";";
+            $sql = "UPDATE driver_list SET current_points = current_points + ".$row[1]." WHERE driver_id = ".$_SESSION['user_id']." AND sponsor_id = ".$_row[0].";";
             //$result = mysqli_query($conn, $sql);
             echo $sql."<br>";
 
