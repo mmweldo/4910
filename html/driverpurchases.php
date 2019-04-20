@@ -50,12 +50,14 @@
             echo '</form>';
 
             $current_date = date("Y-m-d h:i:s");
+            echo $current_date;
             $purchase_date = new DateTime($row[0]);
+            echo $purchase_date;
             $purchase_date_plus_three = date_add($purchase_date, 'P3d');
-            
+            echo $purchase_date_plus_three;
 
-            echo $current_date->diff($purchase_date);
-            echo $current_date->diff($purchase_date_plus_three);
+            //echo $current_date->diff($purchase_date);
+            //echo $current_date->diff($purchase_date_plus_three);
             //if()
         }
 
