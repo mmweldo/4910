@@ -75,13 +75,13 @@
 	
 	//Check if user on this page is logged in and if they are a driver
 	if(isset($_SESSION['user_id']) && $_SESSION['user_type'] == "driver"){
-		$sql = "SELECT * from driver_list where driver_id = ".$_SESSION['user_id']." AND sponsor_id = "._POST['user_id'].";";
-		echo $sql;
+		$sql = "SELECT * from driver_list where driver_id = ".$_SESSION['user_id']." AND sponsor_id = ".$_POST['user_id'].";";
+		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		if(mysqli_num_rows($result) < 1){
 			echo '<form style="color:white;"class="application-form" method="post" action="application_to.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_POST['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_POST['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_POST['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a style="color:white;"><i style="color:white;" class="glyphicon glyphicon-road"></i> Apply </a></button></form>';
 		}else{
-			echo '<form style="color:white;"class="remove-form" method="post" action="removedrivers.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_POST['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_POST['user_id'].'"><input type="hidden" type="text" name="user_type" placeholder="user_type" value="'.$_POST['user_type'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a style="color:white;"><i style="color:white;" class="glyphicon glyphicon-road"></i> Remove </a></button></form>';
+			echo '<form style="color:white;"class="remove-form" method="post" action="removedrivers.php"><input type="hidden" type="text" name="username" placeholder="username" value="'.$_POST['username'].'"><input type="hidden" type="text" name="user_id" placeholder="user_id" value="'.$_POST['user_id'].'"><button class="btn btn-info btn-sm" type="View" name="submit"><a style="color:white;"><i style="color:white;" class="glyphicon glyphicon-road"></i> Remove </a></button></form>';
 		}
 	}
 ?>
