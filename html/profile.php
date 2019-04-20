@@ -67,15 +67,11 @@
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
 					<p>Send Message</p>
-					<div>
-					<p>Send to</p>
-					<input type="text" name="to" id="receiver" placeholder="username">
-					<p>Message</p>
 					<input type="text" name="message" id="message" placeholder="message">
-					<button type="button" onclick="sendMessage()">Send Message</button>
+					<button type="button" onclick="sendMessage()" class="btn btn-success btn-sm">Send Message</button>
 					<p id="confirmation"></p>
 					</div>
-					<button type="button" class="btn btn-success btn-sm">Message</button>
+					
 <?php	
 	if($_SESSION['user_type'] == "sponsor"){
 		//echo '<button type="submit" name="submit" class="btn btn-danger btn-sm">Remove</button>';
