@@ -15,11 +15,13 @@
         $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
         $conn = mysqli_connect($endpoint, "master", "group4910", "website");
     
-        /*if(isset($_POST['SUBMIT'])){
+        if(isset($_POST['SUBMIT'])){
             echo 'Cancellation in progress for order '.$POST['order_id'].'...<br>';
 
             $sql = "SELECT sponsor_id FROM purchase JOIN products_bought ON order_id = ".$_POST['order_id'].";";
-        } */   
+            echo $sql;
+            //$result = mysqli_query($conn, $sql);
+        } 
 
         $sql = "SELECT date_created, total_cost_points, street_address, country, postal_code, order_id FROM purchase WHERE driver_id = ".$_SESSION['user_id'].";";
         $result = mysqli_query($conn, $sql);
