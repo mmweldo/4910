@@ -46,12 +46,11 @@
 					$conn = mysqli_connect($endpoint, "master", "group4910", "website");
 					$sql = "SELECT driver_username FROM driver_list WHERE sponsor_id = ".$_SESSION['user_id'].";";
 					$result = mysqli_query($conn, $sql);
-					$row = mysqli_fetch_row($result);
-
 					while($row=mysqli_fetch_row($result)){
 						$driver = $row[0];
 						echo'<option value="'.$driver.'">'.$driver.'</option>';
 					}
+
 					echo'</select>';
 				}else{
 					echo '<p>Driver Username</p> <input type="text" name="username" placeholder="Username">';
