@@ -31,24 +31,25 @@
 	$sql = "SELECT current_points, total_spent, total_points, company_name FROM driver_list join drivers on driver_id = user_id join sponsors on driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." and drivers.user_id = ".$_SESSION['user_id'].";";
 	$result = mysqli_query($conn, $sql);
 	$counter = 0;
-	if(!result){
-		echo "didn't work!";
-	}
+
 	echo '<h2>Total Spent Points: '.$rows[1].'</h2><br>';
+	
 	echo '<table class="table">';
 	echo '<tr>';
 	echo '<th>Company</th>';
 	echo '<th>Current Points</th>';
 	echo '<th>Total Earned Points</th>';
-
 	echo '</tr>';
-
+	
+	if(!result){
+		echo "didn't work!";
+	}
 	else while($rows=mysqli_fetch_row($result)){
 		echo '<tr>';
 		echo '<td>For Company: '.$rows[3].'</td>';
 		echo '<td>Total Current Points: '.$rows[0].'</td>';
 		echo '<td>Total Earned Points:'.$rows[2].'</td>';
-		$counter = $counter + 1;
+		//$counter = $counter + 1;
 		echo '</tr>';
 	}
 	echo '</table>';
