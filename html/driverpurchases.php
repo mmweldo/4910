@@ -20,28 +20,28 @@
 
             //First get the sponsor id for the amount of points to refund
             $sql = "SELECT sponsor_id, total_cost_points FROM purchase JOIN products_bought ON purchase.order_id = products_bought.order_id WHERE purchase.order_id = ".$_POST['order_id'].";";
-            echo $sql."<br>";
+            //echo $sql."<br>";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
 
             //Refund 
             $sql = 'UPDATE points_history SET comment = "canceled", point_amount = 0 WHERE date_created = "'.$_POST['date'].'";';
-            echo $sql."<br>";
-            //$result = mysqli_query($conn, $sql);
+            //echo $sql."<br>";
+            $result = mysqli_query($conn, $sql);
             
             $sql = "UPDATE drivers SET total_spent = total_spent - ".$row[1]." WHERE user_id = ".$_SESSION['user_id'].";";
-            //$result = mysqli_query($conn, $sql);
-            echo $sql."<br>";
+            $result = mysqli_query($conn, $sql);
+            //echo $sql."<br>";
 
-            $sql = "UPDATE driver_list SET current_points = current_points + ".$row[1]." WHERE driver_id = ".$_SESSION['user_id']." AND sponsor_id = ".$_row[0].";";
-            //$result = mysqli_query($conn, $sql);
-            echo $sql."<br>";
+            $sql = "UPDATE driver_list SET current_points = current_points + ".$row[1]." WHERE driver_id = ".$_SESSION['user_id']." AND sponsor_id = ".$row[0].";";
+            $result = mysqli_query($conn, $sql);
+            //echo $sql."<br>";
 
             //Cancel Order
             $sql = "UPDATE purchase SET status = 'canceled' WHERE order_id = ".$_POST['order_id'].";";
-            //$result = mysqli_query($conn, $sql);
-            echo $sql."<br>";
-        
+            $result = mysqli_query($conn, $sql);
+            //echo $sql."<br>";
+            echo "<script>setTimeout(\"location.href = '../driverpurchases.php';\", 100);</script>";
         }
         $sql = "SELECT date_created, total_cost_points, street_address, country, postal_code, order_id, status FROM purchase WHERE driver_id = ".$_SESSION['user_id'].";";
         $result = mysqli_query($conn, $sql);
@@ -104,3 +104,4 @@
 
 
 ?>
+
