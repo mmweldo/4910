@@ -90,10 +90,14 @@
                 echo '<td>'.$row[3].'</td>';
                 echo '<td>'.$row[4].'</td>';
                 //echo '<td>'.'Pending'.'</td>';
-                echo '<form method="POST" action="driverpurchases.php">';
-                echo '<input type="hidden" name="order_id" value = "'.$row[5].'">';
-                echo '<input type="hidden" name="date" value= "'.$row[0].'">';
-                echo '<td><button class="btn btn-link" TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT" style="padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;">Cancel</button></td>';
+                if($row[6] == 'normal'){
+                    echo '<form method="POST" action="driverpurchases.php">';
+                    echo '<input type="hidden" name="order_id" value = "'.$row[5].'">';
+                    echo '<input type="hidden" name="date" value= "'.$row[0].'">';
+                    echo '<td><button class="btn btn-link" TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT" style="padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;">Cancel</button></td>';
+                }else{
+                    echo '<td>'.$row[6].'</td>';
+                }
                 echo '</form>';
                 echo '</tr>'; 
                 echo '</table>';
@@ -105,3 +109,14 @@
 
 ?>
 
+Total Spent Points: 317.37
+
+For Company: lemon
+Total Current Points: 1237.6299999999999
+Total Earned Points:1555
+
+Total Spent Points: 233.37
+
+For Company: lemon
+Total Current Points: 1321.6299999999999
+Total Earned Points:1555
