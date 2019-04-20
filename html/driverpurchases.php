@@ -27,7 +27,6 @@
         date_default_timezone_set("America/New_York");
 
         while($row=mysqli_fetch_row($result)){
-            echo '<form method="POST" action="driverpurchases.php">';
             echo '<input type="hidden" name="order_id" value = "'.$row[5].'">';
             echo '<table class="table">';
             echo '<tr>';
@@ -61,19 +60,19 @@
                 echo '</tr>'; 
                 echo '</table>';   
             }else{ //Less than three days
+                echo '<form method="POST" action="driverpurchases.php">';
                 echo '<td>'.$row[0].'</td>';
                 echo '<td>'.$row[1].'</td>';
                 echo '<td>'.$row[2].'</td>';
                 echo '<td>'.$row[3].'</td>';
                 echo '<td>'.$row[4].'</td>';
-                
-                
+               
                 echo '<td><button class="btn btn-link" TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT" style="padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;">Cancel</button></td>';
-
+                echo '</form>';
                 echo '</tr>'; 
                 echo '</table>';
             }
-            echo '</form>';
+            
     }
 
 
