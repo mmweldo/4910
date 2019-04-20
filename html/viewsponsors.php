@@ -80,7 +80,7 @@
 			break;
 	}
 	
-	echo "<table>";
+	echo '<table class="table">';
 	echo "<tr>";
 	echo "<th>Company</th>";
 	echo "<th>Email</th>";
