@@ -52,6 +52,7 @@
             $format = "Y-m-d H:i:s";
 
             $current_date = date("Y-m-d H:i:s");
+            $current_date = strtotime($current_date);
             echo 'CurrentDate: '.$current_date.'<br>';
             
             //$purchase_date = new DateTime($row[0]);
@@ -62,7 +63,8 @@
             //$date = DateTime::createFromFormat($format, $row[0]);
             //$date = date_create_from_format($format, $row[0]);
             $date = strtotime($row[0]);
-            $date = date($format, $date);
+            //$date = date($format, $date);
+            
             echo 'PurchaseDate: '.$date.'<br>';
             
             //$interval = $current_date->diff($date);
