@@ -31,8 +31,6 @@
 	$sql = "SELECT current_points, total_spent, total_points, company_name FROM driver_list join drivers on driver_id = user_id join sponsors on driver_list.sponsor_id = sponsors.user_id WHERE driver_id = ".$_SESSION['user_id']." and drivers.user_id = ".$_SESSION['user_id'].";";
 	$result = mysqli_query($conn, $sql);
 	$counter = 0;
-
-	echo '<h2>Total Spent Points: '.$rows[1].'</h2><br>';
 	
 	echo '<table class="table">';
 	echo '<tr>';
@@ -40,7 +38,7 @@
 	echo '<th>Current Points</th>';
 	echo '<th>Total Earned Points</th>';
 	echo '</tr>';
-	
+
 	if(!result){
 		echo "didn't work!";
 	}
@@ -53,6 +51,7 @@
 		echo '</tr>';
 	}
 	echo '</table>';
+	echo '<h2>Total Spent Points: '.$rows[1].'</h2><br>';
 	/*
 	$sql = "select current_points from driver_list where driver_id = ".$_SESSION['user_id'];
 	$result = mysqli_query($conn, $sql);
