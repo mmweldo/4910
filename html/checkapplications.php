@@ -112,7 +112,7 @@
 
 				echo "<center>";
 				echo "<h3>Sponsor - View All Applications";
-				echo '<table style="tab-size:4px;">';
+				echo '<table class="table" style="tab-size:4px;">';
 				echo '<tr stlye="tab-size:4px;">';
 				echo '<th style="tab-size:4px;">Driver Username  </th>';
 				echo "<th>Driver Firstname  </th>";
