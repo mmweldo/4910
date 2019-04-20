@@ -46,8 +46,8 @@
 		if($counter == 0) $spent =$rows[1];
 		echo '<tr>';
 		echo '<td>For Company: '.$rows[3].'</td>';
-		echo '<td>Total Current Points: '.$rows[0].'</td>';
-		echo '<td>Total Earned Points:'.$rows[2].'</td>';
+		echo '<td>'.$rows[0].'</td>';
+		echo '<td>'.$rows[2].'</td>';
 		$counter = $counter + 1;
 		echo '</tr>';
 	}
