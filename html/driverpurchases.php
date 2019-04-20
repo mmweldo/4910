@@ -73,6 +73,13 @@
             $datetime2 = date_create_from_format($format, $row[0]);
             $datetime2 = $datetime2->getTimestamp();
             echo $datetime2;
+
+            if(((int)$current_date - (int)$date) > 259200){
+                echo 'Longer than three days';
+            }else{
+                $difff = (int)$current_date - (int)$date;
+                echo $difff.'<br>';
+            }
             //$interval = date_diff($current_date,$datetime2);
             //echo $interval->format('%R%a days').'<br>';
 
