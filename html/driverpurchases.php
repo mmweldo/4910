@@ -27,7 +27,7 @@
         date_default_timezone_set("America/New_York");
 
         while($row=mysqli_fetch_row($result)){
-            echo '<input type="hidden" name="order_id" value = "'.$row[5].'">';
+            //echo '<input type="hidden" name="order_id" value = "'.$row[5].'">';
             echo '<table class="table">';
             echo '<tr>';
             echo '<th>Date</th>';
