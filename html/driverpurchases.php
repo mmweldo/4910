@@ -27,6 +27,7 @@
         date_default_timezone_set("America/New_York");
 
         while($row=mysqli_fetch_row($result)){
+            echo '<form method="POST" action="driverpurchases.php">';
             echo '<table class="table">';
             echo '<tr>';
             echo '<th>Date</th>';
@@ -67,11 +68,11 @@
                 
                 
                 echo '<td>';
-                echo '<form method="POST" action="driverpurchases.php">';
+               
                 echo '<input type="hidden" name="order_id" value = "'.$row[5].'">';
                 echo '<button class="btn btn-link" TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT" style="padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;">Cancel</button>';
                 
-                echo '</form>';
+                
                 echo '</td>';
 
                 echo '</tr>'; 
@@ -79,7 +80,7 @@
                 
             }
             
-
+            echo '</form>';
     }
 
 
