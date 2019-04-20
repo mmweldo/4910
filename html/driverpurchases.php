@@ -40,7 +40,7 @@
             $current_date = strtotime($current_date);
             $purchase_date = strtotime($row[0]);
             
-            $difference = (int)$current_date - (int)$date;
+            $difference = (int)$current_date - (int)$purchase_date;
             echo $difference;
             // Three days = 259200
             if((int)$difference > 259200){ //Larger than three days
