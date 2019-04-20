@@ -60,10 +60,9 @@
                 echo '<td>'.$row[3].'</td>';
                 echo '<td>'.$row[4].'</td>';
                
-                echo '<td>'.'Pending'.'</td>';
+                echo '<P><button TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT">Cancel</button></P>';
                 echo '</tr>'; 
                 echo '</table>';
-                echo '<P><button TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT">Cancel</button></P>';
             }
             echo '</form>';
         }
