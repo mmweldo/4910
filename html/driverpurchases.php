@@ -35,51 +35,34 @@
 
             echo '<tr>';
 
-            echo '<td>'.$row[0].'</td>';
-            echo '<td>'.$row[1].'</td>';
-            echo '<td>'.$row[2].'</td>';
-            echo '<td>'.$row[3].'</td>';
-            echo '<td>'.$row[4].'</td>';
-           
-            echo '<td>'.'No'.'</td>';
-            echo '</tr>';
             
-            echo '</table>';
-            echo '<P><INPUT TYPE="SUBMIT" VALUE="Submit" NAME="Submit"></P>';
-
-            echo '</form>';
-
-            $format = "Y-m-d H:i:s";
-
             $current_date = date("Y-m-d H:i:s");
             $current_date = strtotime($current_date);
-            echo 'CurrentDate: '.$current_date.'<br>';
-            
-            //$purchase_date = new DateTime($row[0]);
-            //echo 'PurchaseDate: '.$purchase_date;
-            //$purchase_date_plus_three = date_add($purchase_date->format("Y-m-d H:i:s"), 'P3d');
-            //$purchase_date_plus_three = date_add($purchase_date, date_interval_create_from_date_string('3 days'));
-           
-            //$date = DateTime::createFromFormat($format, $row[0]);
-            //$date = date_create_from_format($format, $row[0]);
-            $date = strtotime($row[0]);
-            //$date = date($format, $date);
-            
-            echo 'PurchaseDate: '.$date.'<br>';
-            
-            //$interval = $current_date->diff($date);
-            //echo 'DifferenceDates: '.$interval->format('%R%a days').'<br>';
-
-            $datetime2 = date_create_from_format($format, $row[0]);
-            $datetime2 = $datetime2->getTimestamp();
-            echo $datetime2."<br>";
-
-            if(((int)$current_date - (int)$date) > 259200){
-                echo 'Longer than three days<br>';
-            }else{
-                $difff = (int)$current_date - (int)$date;
-                echo 'Less than three: '.$difff.'<br>';
+            $purchase_date = strtotime($row[0]);
+            if(((int)$current_date - (int)$date) > 259200){ //Larger than three days
+                echo '<td>'.$row[0].'</td>';
+                echo '<td>'.$row[1].'</td>';
+                echo '<td>'.$row[2].'</td>';
+                echo '<td>'.$row[3].'</td>';
+                echo '<td>'.$row[4].'</td>';
+               
+                echo '<td>'.'Shipped'.'</td>';
+                echo '</tr>'; 
+                echo '</table>';   
+            }else{ //Less than three days
+                echo '<td>'.$row[0].'</td>';
+                echo '<td>'.$row[1].'</td>';
+                echo '<td>'.$row[2].'</td>';
+                echo '<td>'.$row[3].'</td>';
+                echo '<td>'.$row[4].'</td>';
+               
+                echo '<td>'.'Pending'.'</td>';
+                echo '</tr>'; 
+                echo '</table>';
+                echo '<P><INPUT TYPE="SUBMIT" VALUE="Submit" NAME="Cancel"></P>';
             }
+            echo '</form>';
+
             //$interval = date_diff($current_date,$datetime2);
             //echo $interval->format('%R%a days').'<br>';
 
