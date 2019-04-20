@@ -50,12 +50,15 @@
             echo '</form>';
 
             $current_date = date("Y-m-d H:i:s");
+            $format = "Y-m-d H:i:s";
             echo $current_date;
             $purchase_date = new DateTime($row[0]);
             echo $purchase_date;
             //$purchase_date_plus_three = date_add($purchase_date->format("Y-m-d H:i:s"), 'P3d');
             //$purchase_date_plus_three = date_add($purchase_date, date_interval_create_from_date_string('3 days'));
             echo $current_date->diff($row[0]);
+            $date = DateTime::createFromFormat($format, $row[0]);
+            echo $date;
 
             //echo $current_date->diff($purchase_date);
             //echo $current_date->diff($purchase_date_plus_three);
