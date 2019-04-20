@@ -49,8 +49,14 @@
 
             echo '</form>';
 
-            echo date("Y-m-d h:i:s");
+            $current_date = date("Y-m-d h:i:s");
+            $purchase_date = DateTime($row[0]);
+            $purchase_date_plus_three = date_add($purchase_date, 'P3d');
             
+
+            echo $current_date->diff($purchase_date);
+            echo $current_date->diff($purchase_date_plus_three);
+            if()
         }
 
     }
