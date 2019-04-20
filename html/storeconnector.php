@@ -62,7 +62,7 @@
 	}
 
 	echo "<h2>Your sponsors and their store links</h2>";
-	echo "<table>";
+	echo '<table class="table">';
 	echo "<tr>";
 	echo "<th>Company</th>";
 	echo "<th>Username</th>";
