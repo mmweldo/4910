@@ -49,7 +49,8 @@
 					$row = mysqli_fetch_row($result);
 
 					while($row=mysqli_fetch_row($result)){
-						echo'<option value="'.$row[0].'">'.$row[0].'</option>';
+						$driver = $row[0];
+						echo'<option value="'.$driver.'">'.$driver.'</option>';
 					}
 					echo'</select>';
 				}else{
