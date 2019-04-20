@@ -20,6 +20,7 @@
 
             //First get the sponsor id for the amount of points to refund
             $sql = "SELECT sponsor_id, total_cost_points FROM purchase JOIN products_bought ON purchase.order_id = products_bought.order_id WHERE purchase.order_id = ".$_POST['order_id'].";";
+            echo $sql."<br>";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_row($result);
 
