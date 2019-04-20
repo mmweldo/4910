@@ -39,7 +39,9 @@
             $current_date = date("Y-m-d H:i:s");
             $current_date = strtotime($current_date);
             $purchase_date = strtotime($row[0]);
-            if(((int)$current_date - (int)$date) > 259200){ //Larger than three days
+            
+            // Three days = 259200
+            if(((int)$current_date - (int)$date) > 559200){ //Larger than three days
                 echo '<td>'.$row[0].'</td>';
                 echo '<td>'.$row[1].'</td>';
                 echo '<td>'.$row[2].'</td>';
