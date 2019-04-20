@@ -38,14 +38,18 @@
 	}
 
 	$query = 'DELETE FROM driver_list WHERE driver_id = '.$row[0].' AND sponsor_id = '.$_SESSION['user_id'].';';
+	$result = mysqli_query($conn, $query);
 
+	$query = 'DELETE FROM applications WHERE driver_id = '.$row[0].' AND sponsor_id = '.$_SESSION['user_id'].';';
 	$result = mysqli_query($conn, $query);
 	if(!$result){
 		echo "[3] Error: Couldn't remove driver from list...";
 		echo "<script>setTimeout(\"location.href = '../viewsponsorshtml.php?COULDNT-DELETE';\", 3000);</script>";
 		exit();		
 	}
-
+	$query = 'DELETE FROM applications WHERE driver_id = '.$row[0].' AND sponsor_id = '.$_SESSION['user_id'].';';
+	$result = mysqli_query($conn, $query);
+	
 	echo "<center>";
 	echo "<h3>Removed driver ".$_POST['username']."</h3>";
 	echo "</center>";
