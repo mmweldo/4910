@@ -18,12 +18,31 @@
         if(isset($_POST['SUBMIT'])){
             echo 'Cancellation in progress for order '.$POST['order_id'].'...<br>';
 
-            $sql = "SELECT sponsor_id FROM purchase JOIN products_bought ON purchase.order_id = products_bought.order_id WHERE purchase.order_id = ".$_POST['order_id'].";";
-            echo $sql;
-            //$result = mysqli_query($conn, $sql);
-        } 
+            //First get the sponsor id for the amount of points to refund
+            $sql = "SELECT sponsor_id, total_cost_points FROM purchase JOIN products_bought ON purchase.order_id = products_bought.order_id WHERE purchase.order_id = ".$_POST['order_id'].";";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_row($result);
 
-        $sql = "SELECT date_created, total_cost_points, street_address, country, postal_code, order_id FROM purchase WHERE driver_id = ".$_SESSION['user_id'].";";
+            //Refund 
+            $sql = "UPDATE points_history SET comment = 'canceled', point_amount = 0 WHERE date_created = '".$_POST['date']."';";
+            echo $sql."<br>";
+            //$result = mysqli_query($conn, $sql);
+            
+            $sql = "UPDATE drivers SET total_spent = total_spent - ".$row[1].";";
+            //$result = mysqli_query($conn, $sql);
+            echo $sql."<br>";
+
+            $sql = "UPDATE driver_list SET current_points = current_points + ".$row[1].";";
+            //$result = mysqli_query($conn, $sql);
+            echo $sql."<br>";
+
+            //Cancel Order
+            $sql = "UPDATE purchase SET status = 'canceled' WHERE order_id = ".$_POST['order_id'].";";
+            //$result = mysqli_query($conn, $sql);
+            echo $sql."<br>";
+        
+        }
+        $sql = "SELECT date_created, total_cost_points, street_address, country, postal_code, order_id, status FROM purchase WHERE driver_id = ".$_SESSION['user_id'].";";
         $result = mysqli_query($conn, $sql);
 
         date_default_timezone_set("America/New_York");
@@ -58,7 +77,8 @@
                 echo '<td>'.$row[3].'</td>';
                 echo '<td>'.$row[4].'</td>';
                
-                echo '<td>'.'Shipped'.'</td>';
+                if($row[6] == 'normal')echo '<td>'.'Shipped'.'</td>';
+                else echo '<td>Canceled</td>';
                 echo '</tr>'; 
                 echo '</table>';   
             }else{ //Less than three days
@@ -71,6 +91,7 @@
                 //echo '<td>'.'Pending'.'</td>';
                 echo '<form method="POST" action="driverpurchases.php">';
                 echo '<input type="hidden" name="order_id" value = "'.$row[5].'">';
+                echo '<intput type="hidden" name="date" value= "'.$row[0].'">';
                 echo '<td><button class="btn btn-link" TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT" style="padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;">Cancel</button></td>';
                 echo '</form>';
                 echo '</tr>'; 
