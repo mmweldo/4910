@@ -64,11 +64,13 @@
             $date = strtotime($row[0]);
             $date = date($format, $date);
             echo 'PurchaseDate: '.$date.'<br>';
-            echo 'DifferenceDates: '.date_diff($current_date,$date).'<br>';
+            
+            $interval = $current_date->diff($date);
+            echo 'DifferenceDates: '.$interval->format('%R%a days').'<br>';
 
             $datetime2 = date_create($row[0]);
             $interval = date_diff($current_date,$datetime2);
-            echo $interval->format($format).'<br>';
+            echo $interval->format('%R%a days').'<br>';
 
             //echo $current_date->diff($purchase_date);
             //echo $current_date->diff($purchase_date_plus_three);
