@@ -65,10 +65,11 @@
             $date = date($format, $date);
             echo 'PurchaseDate: '.$date.'<br>';
             
-            $interval = $current_date->diff($date);
-            echo 'DifferenceDates: '.$interval->format('%R%a days').'<br>';
+            //$interval = $current_date->diff($date);
+            //echo 'DifferenceDates: '.$interval->format('%R%a days').'<br>';
 
             $datetime2 = date_create_from_format($format, $row[0]);
+            $datetime2->getTimestamp();
             $interval = date_diff($current_date,$datetime2);
             echo $interval->format('%R%a days').'<br>';
 
