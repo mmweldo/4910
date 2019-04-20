@@ -41,7 +41,6 @@
             $purchase_date = strtotime($row[0]);
             
             $difference = (int)$current_date - (int)$purchase_date;
-            echo $difference;
             // Three days = 259200
             if((int)$difference > 259200){ //Larger than three days
 
@@ -64,7 +63,7 @@
                 echo '<td>'.'Pending'.'</td>';
                 echo '</tr>'; 
                 echo '</table>';
-                echo '<P><INPUT TYPE="SUBMIT" VALUE="Submit" NAME="Cancel"></P>';
+                echo '<P><Button TYPE="SUBMIT" VALUE="Cancel" NAME="SUBMIT"></P>';
             }
             echo '</form>';
         }
