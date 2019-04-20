@@ -14,12 +14,16 @@
 
         $endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
         $conn = mysqli_connect($endpoint, "master", "group4910", "website");
-        
+    
+        if(isset($_POST['SUBMIT'])){
+            echo 'Cancellation in progress...<br>';
+        }    
+
         $sql = "SELECT date_created, total_cost_points, street_address, country, postal_code FROM purchase WHERE driver_id = ".$_SESSION['user_id'].";";
         $result = mysqli_query($conn, $sql);
 
-
         date_default_timezone_set("America/New_York");
+
         while($row=mysqli_fetch_row($result)){
             echo '<form method="POST" action="driverpurchases.php">';
             echo '<table class="table">';
