@@ -77,6 +77,7 @@
   }else{
     include 'driverheader.php';
     echo '<div class="my-4"><a style="position:relative; left:0px; float:left;" href="/cart.php"><button class="btn btn-success btn-sm">Cart</button></a>';
+    echo '<div class="my-4"><a style="position:relative; left:0px; float:left;" href="/driverpurchases.php"><button class="btn btn-success btn-sm">Purchase History</button></a>';
   }
 ?>
 
