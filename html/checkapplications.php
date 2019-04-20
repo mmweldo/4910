@@ -9,6 +9,13 @@
 	<body>
 	<?php
 		session_start();
+		if($_SESSION['user_type'] == "sponsor"){
+			include 'sponsorheader.php';
+		}else if($_SESSION['user_type'] == "admin"){
+			include 'adminheader.php'; 
+		}else if($_SESSION['user_type'] == "driver"){
+			include 'driverheader.php';
+		}
 		if(!isset($_SESSION['username']) || $_SESSION['user_type'] == "admin"){
 			echo "Error: Wrong user or not logged in!";
 			echo "<script>setTimeout(\"location.href = '../login.html?NOT-LOGGEDIN';\", 3000);</script>";
@@ -53,7 +60,7 @@
 				echo "<center>";
 				echo "<h3>Driver - All Applications";
 				
-				echo '<table style="tab-size:4px;">';
+				echo '<table class="table" style="tab-size:4px;">';
 				echo '<tr style="tab-size:4px;">';
 				echo '<th style="tab-size:4px;">Sponsor Company  </th>';
 				echo "<th>Application Status  </th>";

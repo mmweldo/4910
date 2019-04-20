@@ -9,6 +9,13 @@
 		echo "<script>setTimeout(\"location.href = '../checkapplications.php?Wrong-User';\", 3000);</script>";
 	}
 
+	if($_SESSION['user_type'] == "sponsor"){
+		include 'sponsorheader.php';
+	}else if($_SESSION['user_type'] == "admin"){
+		include 'adminheader.php'; 
+	}else if($_SESSION['user_type'] == "driver"){
+		include 'driverheader.php';
+	}
 
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
 	$conn = mysqli_connect($endpoint, "master", "group4910", "website");
