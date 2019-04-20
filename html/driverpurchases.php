@@ -68,17 +68,10 @@
                 echo '<td>'.$row[4].'</td>';
                 
                 
-                echo '<td>';
-               
-                
-                echo '<button class="btn btn-link" TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT" style="padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;">Cancel</button>';
-                
-                
-                echo '</td>';
+                echo '<td><button class="btn btn-link" TYPE="SUBMIT" VALUE="Submit" NAME="SUBMIT" style="padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;">Cancel</button></td>';
 
                 echo '</tr>'; 
                 echo '</table>';
-                
             }
             echo '</form>';
     }
