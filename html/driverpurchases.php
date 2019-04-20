@@ -68,7 +68,7 @@
             $interval = $current_date->diff($date);
             echo 'DifferenceDates: '.$interval->format('%R%a days').'<br>';
 
-            $datetime2 = date_create($row[0]);
+            $datetime2 = date_create_from_format($format, $row[0]);
             $interval = date_diff($current_date,$datetime2);
             echo $interval->format('%R%a days').'<br>';
 
