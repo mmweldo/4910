@@ -56,9 +56,11 @@
             echo $purchase_date;
             //$purchase_date_plus_three = date_add($purchase_date->format("Y-m-d H:i:s"), 'P3d');
             //$purchase_date_plus_three = date_add($purchase_date, date_interval_create_from_date_string('3 days'));
-            echo $current_date->diff($row[0]);
-            $date = DateTime::createFromFormat($format, $row[0]);
+           
+            //$date = DateTime::createFromFormat($format, $row[0]);
+            $date = date_create_from_format($format, $row[0]);
             echo $date;
+            echo $current_date->diff($date);
 
             //echo $current_date->diff($purchase_date);
             //echo $current_date->diff($purchase_date_plus_three);
