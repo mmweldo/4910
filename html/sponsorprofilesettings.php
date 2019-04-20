@@ -12,8 +12,8 @@ session_start();
 		exit();
 	}
 	//Check if appropriate user (driver) for page
-	if($_SESSION['user_type'] != "admin"){
-		echo "Error: User not an admin!";
+	if($_SESSION['user_type'] != "sponsor"){
+		echo "Error: User not an sponsor!";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-ADMIN';\", 3000);</script>";
 		exit();
 	}
