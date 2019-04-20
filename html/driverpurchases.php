@@ -50,7 +50,7 @@
             echo '</form>';
 
             $current_date = date("Y-m-d h:i:s");
-            $purchase_date = DateTime($row[0]);
+            $purchase_date = date_create($row[0]);
             $purchase_date_plus_three = date_add($purchase_date, 'P3d');
             
 
