@@ -69,7 +69,8 @@
 					<button type="button" class="btn btn-success btn-sm">Message</button>
 <?php	
 	if($_SESSION['user_type'] == "sponsor"){
-		echo '<button type="button" class="btn btn-danger btn-sm">Remove</button>';
+		//echo '<button type="submit" name="submit" class="btn btn-danger btn-sm">Remove</button>';
+		echo '<td><form class="profile-form" method="post" action="removedrivers.php"><input type="hidden" name="company_name" value="'.$_SESSION['company_name'].'"><input type="hidden" name="username" placeholder="username" value="'.$_POST['username'].'"><button type="submit" name="submit" class="btn btn-danger btn-sm">Remove</button></form><td>';
 	}
 	
 	//Check if user on this page is logged in and if they are a driver
