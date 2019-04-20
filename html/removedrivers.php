@@ -13,7 +13,7 @@
 	}
 
 	include 'sponsorheader.php';
-	echo '<a style="position:relative; left:0px; float:left;" href="/viewsponsors.php"><button class="btn btn-success btn-sm">Sponsor Management Page</button></a>';
+	echo '<a style="position:relative; left:0px; float:left;" href="/viewsponsorshtml.php"><button class="btn btn-success btn-sm">Sponsor Management Page</button></a>';
 
 	#$conn = mysqli_connect("127.0.0.1", "root", "", "test");
 	$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
