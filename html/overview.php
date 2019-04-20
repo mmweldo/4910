@@ -34,13 +34,24 @@
 	if(!result){
 		echo "didn't work!";
 	}
+	echo '<h2>Total Spent Points: '.$rows[1].'</h2><br>';
+	echo '<table class="table">';
+	echo '<tr>';
+	echo '<th>Company</th>';
+	echo '<th>Current Points</th>';
+	echo '<th>Total Earned Points</th>';
+
+	echo '</tr>';
+
 	else while($rows=mysqli_fetch_row($result)){
-		if($counter == 0) echo '<h2>Total Spent Points: '.$rows[1].'</h2><br>';
-		echo '<h2>For Company: '.$rows[3].'</h2>';
-		echo '<h3>Total Current Points: '.$rows[0].'</h3>';
-		echo '<h3>Total Earned Points:'.$rows[2].'</h3><br>';
+		echo '<tr>';
+		echo '<td>For Company: '.$rows[3].'</td>';
+		echo '<td>Total Current Points: '.$rows[0].'</td>';
+		echo '<td>Total Earned Points:'.$rows[2].'</td>';
 		$counter = $counter + 1;
+		echo '</tr>';
 	}
+	echo '</table>';
 	/*
 	$sql = "select current_points from driver_list where driver_id = ".$_SESSION['user_id'];
 	$result = mysqli_query($conn, $sql);
