@@ -45,7 +45,7 @@ if ($conn->connect_error) {
 						else if($_SESSION['user_type'] == "admin"){
 							echo '<iframe src="admprofilesettings.php" style="width:100%;height:100%;"></iframe>';
 						}else{
-							echo '<iframe src="changeusernamehtml.php" style="width:100%;height:100%;"></iframe>';
+							echo '<iframe src="sponsorprofilesettings.php" style="width:100%;height:100%;"></iframe>';
 						}
 					}
 				?>
