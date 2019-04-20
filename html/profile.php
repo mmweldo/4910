@@ -66,6 +66,15 @@
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
+					<p>Send Message</p>
+					<div>
+					<p>Send to</p>
+					<input type="text" name="to" id="receiver" placeholder="username">
+					<p>Message</p>
+					<input type="text" name="message" id="message" placeholder="message">
+					<button type="button" onclick="sendMessage()">Send Message</button>
+					<p id="confirmation"></p>
+					</div>
 					<button type="button" class="btn btn-success btn-sm">Message</button>
 <?php	
 	if($_SESSION['user_type'] == "sponsor"){
@@ -134,3 +143,19 @@
 </center>
 </body>
 </html>
+<script>
+      function sendMessage(){
+        var receiverText = '<?php echo $_POST['username'];?>';
+        var messageText = document.getElementById("message").value;
+        var senderText = '<?php echo $_SESSION['username'];?>';
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+          if(this.readyState == 4 && this.status == 200){
+            document.getElementById("confirmation").innerHTML = this.responseText;
+          }
+        };
+      xmlhttp.open("GET", "sendmessage.php?m=" + messageText + "&t=" + receiverText + "&f=" + senderText, true);
+      xmlhttp.send();
+      }
+</script>
