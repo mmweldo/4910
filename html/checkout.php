@@ -67,7 +67,7 @@
                 
                 //Update points_history------------------------------------------------------------------------------
                 $deduction = $_POST['cost'] * -1;
-                $sql = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount) VALUES (".$_POST['sponsor_id'].",".$_SESSION['user_id'].", DEFAULT, ".$deduction." );";
+                $sql = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount, comment) VALUES (".$_POST['sponsor_id'].",".$_SESSION['user_id'].", DEFAULT, ".$deduction.", 'order');";
                 $result = mysqli_query($conn, $sql);
                 if(!$result){
                     echo "<br>error<br>";

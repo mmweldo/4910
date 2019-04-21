@@ -90,8 +90,12 @@
 		exit();
 	}
 
-
-	$query = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount) VALUES ((SELECT user_id from sponsors where company_name = '".$_POST['company_name']."'), (SELECT user_id from drivers where username = '".$_POST['username']."'), DEFAULT, ".$_POST['points']." );";
+	$query='';
+	if((double)$_POST['points'] > 0){
+		$query = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount, comment) VALUES ((SELECT user_id from sponsors where company_name = '".$_POST['company_name']."'), (SELECT user_id from drivers where username = '".$_POST['username']."'), DEFAULT, ".$_POST['points'].", 'add');";
+	}else {
+		$query = "INSERT INTO points_history (sponsor_id, driver_id, date_created, point_amount, comment) VALUES ((SELECT user_id from sponsors where company_name = '".$_POST['company_name']."'), (SELECT user_id from drivers where username = '".$_POST['username']."'), DEFAULT, ".$_POST['points'].", 'subtract');";
+	}
 
 	$result = mysqli_query($conn, $query);
 
