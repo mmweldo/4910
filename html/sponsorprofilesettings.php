@@ -91,7 +91,7 @@ if ($conn->connect_error) {
                                     echo "[2]Error updating record: " . $conn->error;
                                 }
 
-                                echo "<script>setTimeout(\"location.href = '../sponsorprofilesettings.php';\", 3000);</script>";
+                                echo "<script>setTimeout(\"location.href = '../sponsorprofilesettings.php';\", 500);</script>";
 						 }
 						 ?>
                       </fieldset>
