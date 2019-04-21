@@ -84,7 +84,7 @@ if ($conn->connect_error) {
 								if(!$result){
                                     echo "[1]Error updating record: " . $conn->error;
                                 }
-                                $sql = 'UPDATE users SET email = \''.$_POST['email'].'\' WHERE user_id = '.$_SESSION['user_id'];
+                                $sql = 'UPDATE users SET email = \''.$_POST['email'].'\' WHERE id = '.$_SESSION['user_id'];
                                 //echo $sql;
 								$result=mysqli_query($conn, $sql);
 								if(!$result){
