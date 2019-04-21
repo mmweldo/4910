@@ -1,7 +1,7 @@
 <?php 
 	if("" == trim($_POST['login']) || "" == trim($_POST['password'])){
 		echo "Error: Missing entries.";
-		echo "<script>setTimeout(\"location.href = '../login.php?PASSWORD-MISSING';\", 3000);</script>";
+		echo "<script>setTimeout(\"location.href = '../login.html?PASSWORD-MISSING';\", 3000);</script>";
 		exit(); //User didn't enter either a login or password
 	}
 
