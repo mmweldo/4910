@@ -127,16 +127,16 @@
 			echo "<td>".$row[0]."</td>"; 
 			echo "<td>".$row[1]."</td>"; 
 			echo "<td>".$row[2]."</td>"; 
-			
+
 			if($row[3] == "canceled"){
-				echo " "."Order Cancelation"." ";
+				echo "<td>"."Order Cancelation"."</td>";
 			}else if($row[3] == "order"){
-				echo " "."Order Placed"." ";
+				echo "<td>"."Order Placed"."</td>";
 			}else if($row[3] == "add"){
-				echo " "."Point Addition"." ";
+				echo "<td>"."Point Addition"."</td>";
 			}else if($row[3] == "subtract"){
-				echo " "."Point Subtraction"." ";
-			}else echo " ";
+				echo "<td>"."Point Subtraction"."</td>";
+			}else echo "<td>"."</td>";
 
 			echo "</tr>"; 
 		}
