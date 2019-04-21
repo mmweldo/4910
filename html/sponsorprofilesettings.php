@@ -43,14 +43,14 @@ if ($conn->connect_error) {
                    <form class="well form-horizontal" method="post">
                       <fieldset>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Profile Image</label>
+                            <label class="col-md-4 control-label">Company Name</label>
                             <div class="col-md-8 inputGroupContainer">
 								<?php
 									$sql = "select company_name from sponsors where user_id = ".$_SESSION['user_id'];
 									$result = mysqli_query($conn, $sql);
 									$row = mysqli_fetch_row($result);
 							    ?>
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="company_name" name="company_name" placeholder="Profile Image URL" class="form-control" required="true" value="<?php echo $row[0]?>" type="text"></div>
+                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="company_name" name="company_name" placeholder="Company Name" class="form-control" required="true" value="<?php echo $row[0]?>" type="text"></div>
                             </div>
                          </div>
                          <div class="form-group">
@@ -82,16 +82,16 @@ if ($conn->connect_error) {
                                 //echo $sql;
 								$result=mysqli_query($conn, $sql);
 								if(!$result){
-                                    echo "Error updating record: " . $conn->error;
+                                    echo "[1]Error updating record: " . $conn->error;
                                 }
                                 $sql = 'UPDATE users SET email = \''.$_POST['email'].'\' WHERE user_id = '.$_SESSION['user_id'];
                                 //echo $sql;
 								$result=mysqli_query($conn, $sql);
 								if(!$result){
-                                    echo "Error updating record: " . $conn->error;
+                                    echo "[2]Error updating record: " . $conn->error;
                                 }
 
-                                echo "<script>setTimeout(\"location.href = '../admprofilesettings.php';\", 3000);</script>";
+                                echo "<script>setTimeout(\"location.href = '../sponsorprofilesettings.php';\", 3000);</script>";
 						 }
 						 ?>
                       </fieldset>
