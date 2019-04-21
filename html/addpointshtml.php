@@ -94,19 +94,17 @@
 		//$query = "select points_history.date_created, points_history.point_amount, drivers.username from driver inner join points_history on points_history.driver_id = drivers.user_id where drivers.username = '".$_POST['username'].";";
 		$query = "SELECT date_created, company_name, point_amount, comment FROM points_history JOIN sponsors ON sponsors.user_id = points_history.sponsor_id WHERE driver_id = '".$_SESSION['user_id']."' ORDER BY date_created ASC;";
 		$result = mysqli_query($conn, $query); 
-	
 		if (!$result) {
 			printf("[2]Error: %s\n", mysqli_error($conn));
 			exit();
 		}
-	
 		while($row=mysqli_fetch_row($result)){
 			echo "<p>";
 			echo " ".$row[0]." ";
 			echo " ".$row[1]." ";
 			echo " ".$row[2]." ";
 			if($row[3] == "canceled"){
-				echo " "."Order Cancellation"." ";
+				echo " "."Order Cancelation"." ";
 			}else if($row[3] == "order"){
 				echo " "."Order Placed"." ";
 			}else if($row[3] == "add"){
