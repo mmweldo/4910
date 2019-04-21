@@ -1,5 +1,5 @@
 <?php session_start();?>
-<html>
+<!--<html>
   <head>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -8,7 +8,7 @@
     <title>DREWP | Login</title>
   </head>
 
-  <body>
+  <body> -->
 <?php 
   session_start();
   if($_SESSION['user_type'] == "admin"){
