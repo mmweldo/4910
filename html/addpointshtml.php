@@ -8,85 +8,108 @@
 <body>
 <?php
 	session_start();
+	if($_SESSION['user_type'] == "driver"){
+		include 'driverheader.php';
+		}
+		else if($_SESSION['user_type'] == "sponsor"){
+		include 'sponsorheader.php';
+		}
+		else if($_SESSION['user_type'] == "admin"){
+		include 'adminheader.php'; 
+	}
+
 	if(!isset($_SESSION['user_id'])){
 		echo "Error: User not logged in! Redirecting...";
 		echo "<script>setTimeout(\"location.href = '../index.php?NOT-LOGGED-IN';\", 3000);</script>";
 		exit();
 	}
-	if($_SESSION['user_type'] != "sponsor" && $_SESSION['user_type'] != "admin"){
-		echo "Error: User doesn't have permission to be here! Redirecting...";
-		echo "<script>setTimeout(\"location.href = '../index.php?NOT-SPONSOR';\", 3000);</script>";
-		exit();
-	}
-	//Header stuffs, adds the html header based on user
-	if($_SESSION['user_type'] == "driver"){
-	include 'driverheader.php';
-	}
-	else if($_SESSION['user_type'] == "sponsor"){
-	include 'sponsorheader.php';
-	}
-	else if($_SESSION['user_type'] == "admin"){
-	include 'adminheader.php'; 
+	if($_SESSION['user_type'] == "sponsor" || $_SESSION['user_type'] == "admin"){
+		//echo "Error: User doesn't have permission to be here! Redirecting...";
+		//echo "<script>setTimeout(\"location.href = '../index.php?NOT-SPONSOR';\", 3000);</script>";
+		//exit();
+		//Header stuffs, adds the html header based on user
+
+		echo '<center>
+			<h1>Point Editor</h1>
+		<form class="points-form" method="post" action="addpoints.php">';
+				
+		if($_SESSION['user_type'] == "admin"){
+			echo'<p>Company Name</p> <input type="text" name="company_name" placeholder="company_name">';
+		}
+		if($_SESSION['user_type'] == "sponsor"){
+			echo'<p>Company Name - '.$_SESSION['company_name'].'</p> <input type="hidden" name="company_name" placeholder="company_name" value="'.$_SESSION['company_name'].'">';
+						
+			echo'<p>Driver Username</p><select placeholder="Username" name="username">';
+						
+			$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+			$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+			$sql = "SELECT driver_username FROM driver_list WHERE sponsor_id = ".$_SESSION['user_id'].";";
+			$result = mysqli_query($conn, $sql);
+			while($row=mysqli_fetch_row($result)){
+				$driver = $row[0];
+				echo'<option value="'.$driver.'">'.$driver.'</option>';
+			}
+
+			echo'</select>';
+		}else{
+			echo '<p>Driver Username</p> <input type="text" name="username" placeholder="Username">';
+		}
+				
+		echo '<p>Points</p> <input type="text" name="points" placeholder="Points Change"> <br>
+				<button type="submit" name="submit">Submit</button>
+			</form>
+			</center>
+			<center>
+			<h1>Sponsor Total Points</h1>
+		<form class="points-form" method="post" action="sponsorChangeRatio.php">';
+				
+		if($_SESSION['user_type'] == "admin"){
+			echo'<p>Sponsor Username</p> <input type="text" name="username" placeholder="Username">';
+		}
+		if($_SESSION['user_type'] == "sponsor"){
+			echo'<p>Sponsor Username: '.$_SESSION['username'].'</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
+
+			$sql = "SELECT dollar_ratio FROM sponsors WHERE user_id = ".$_SESSION['user_id'].";";
+			$result = mysqli_query($conn, $sql);
+			$row = mysqli_fetch_row($result);
+			echo '<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio" value="'.$row[0].'">';
+		}else{
+			echo '<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio">';
+		}
+				
+		echo '<button type="submit" name="submit">Submit</button>
+			</form>
+			</center>
+			<footer>
+			<p>Drewp, Copyright &copy; 2019</p>
+			</footer>
+			</body>
+		</html>';
+
+	} else{//User is driver
+		echo "<center>";
+		#$conn = mysqli_connect("127.0.0.1", "root", "", "test");
+		$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
+		$conn = mysqli_connect($endpoint, "master", "group4910", "website");
+		//$query = "select points_history.date_created, points_history.point_amount, drivers.username from driver inner join points_history on points_history.driver_id = drivers.user_id where drivers.username = '".$_POST['username'].";";
+		$query = "select date_created, point_amount points_history where drivers.username = '".$_SESSION['username']."';";
+		$result =mysqli_query($conn, $query); 
+	
+		if (!$result) {
+			printf("[2]Error: %s\n", mysqli_error($conn));
+			exit();
+		}
+	
+		while($row=mysqli_fetch_row($result)){
+			echo "<p>";
+			echo " ".$row[0]." ";
+			echo " ".$row[1]." ";
+			echo "</p>";
+		}
+		echo "</center>";
+		mysqli_close($conn);
 	}
 ?>
-	<center>
-		<h1>Point Editor</h1>
-		<form class="points-form" method="post" action="addpoints.php">
-			<?php
-				session_start();
-				if($_SESSION['user_type'] == "admin"){
-					echo'<p>Company Name</p> <input type="text" name="company_name" placeholder="company_name">';
-				}
-				if($_SESSION['user_type'] == "sponsor"){
-					echo'<p>Company Name - '.$_SESSION['company_name'].'</p> <input type="hidden" name="company_name" placeholder="company_name" value="'.$_SESSION['company_name'].'">';
-					
-					echo'<p>Driver Username</p><select placeholder="Username" name="username">';
-					
-					$endpoint = "db-group-instance.cp7roxttzlg6.us-east-1.rds.amazonaws.com";
-					$conn = mysqli_connect($endpoint, "master", "group4910", "website");
-					$sql = "SELECT driver_username FROM driver_list WHERE sponsor_id = ".$_SESSION['user_id'].";";
-					$result = mysqli_query($conn, $sql);
-					while($row=mysqli_fetch_row($result)){
-						$driver = $row[0];
-						echo'<option value="'.$driver.'">'.$driver.'</option>';
-					}
-
-					echo'</select>';
-				}else{
-					echo '<p>Driver Username</p> <input type="text" name="username" placeholder="Username">';
-				}
-			?>			
-			<p>Points</p> <input type="text" name="points" placeholder="Points Change"> <br>
-			<button type="submit" name="submit">Submit</button>
-		</form>
-	</center>
-	<center>
-		<h1>Sponsor Total Points</h1>
-		<form class="points-form" method="post" action="sponsorChangeRatio.php">
-			<?php
-				session_start();
-				if($_SESSION['user_type'] == "admin"){
-					echo'<p>Sponsor Username</p> <input type="text" name="username" placeholder="Username">';
-				}
-				if($_SESSION['user_type'] == "sponsor"){
-					echo'<p>Sponsor Username: '.$_SESSION['username'].'</p> <input type="hidden" name="username" placeholder="Username" value="'.$_SESSION['username'].'">';
-
-					$sql = "SELECT dollar_ratio FROM sponsors WHERE user_id = ".$_SESSION['user_id'].";";
-					$result = mysqli_query($conn, $sql);
-					$row = mysqli_fetch_row($result);
-					echo '<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio" value="'.$row[0].'">';
-				}else{
-					echo '<p>Ratio Dollar (decimal)</p> <input type="text" name="ratio" placeholder="Ratio">';
-				}
-			?>
-			<button type="submit" name="submit">Submit</button>
-		</form>
-	</center>
-	<footer>
-      		<p>Drewp, Copyright &copy; 2019</p>
-    	</footer>
-</body>
-</html>
 
 <style>
 	p, input, form{
