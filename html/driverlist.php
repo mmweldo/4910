@@ -99,7 +99,7 @@
 			echo "<p>Error finding ordering";
 			break;
 	}
-	echo "<table>";
+	echo '<table class="table">';
 	echo "<tr>";
 	echo "<th>Firstname</th>";
 	echo "<th>Lastname</th>";

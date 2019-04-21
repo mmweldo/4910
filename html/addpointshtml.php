@@ -98,7 +98,7 @@
 			printf("[2]Error: %s\n", mysqli_error($conn));
 			exit();
 		}
-		while($row=mysqli_fetch_row($result)){
+		/*while($row=mysqli_fetch_row($result)){
 			echo "<p>";
 			echo " ".$row[0]." ";
 			echo " ".$row[1]." ";
@@ -113,7 +113,34 @@
 				echo " "."Point Subtraction"." ";
 			}else echo " ";
 			echo "</p>";
+		}*/
+		echo '<table class="table">';
+		echo "<tr>";
+		echo "<th>Date</th>";
+		echo "<th>Sponsor</th>";
+		echo "<th>Point Change</th>";
+		echo "<th>Reason</th>";
+		echo "</tr>";
+		
+		while($row=mysqli_fetch_row($result)){
+			echo "<tr>"; 
+			echo "<td>".$row[0]."</td>"; 
+			echo "<td>".$row[1]."</td>"; 
+			echo "<td>".$row[2]."</td>"; 
+			
+			if($row[3] == "canceled"){
+				echo " "."Order Cancelation"." ";
+			}else if($row[3] == "order"){
+				echo " "."Order Placed"." ";
+			}else if($row[3] == "add"){
+				echo " "."Point Addition"." ";
+			}else if($row[3] == "subtract"){
+				echo " "."Point Subtraction"." ";
+			}else echo " ";
+
+			echo "</tr>"; 
 		}
+
 		echo "</center>";
 		mysqli_close($conn);
 	}
