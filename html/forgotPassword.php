@@ -24,7 +24,7 @@
       <input type="text" name="uname" id="username">
       <button type="button" onclick="test()">Answer Security Question</button>
     <div>
-    <div>
+    <div id="hideBox" style="visibility:hidden">
       <p id="question">needs Change</p>
       <input type="text" name="answer" id="answer">
       <p>New Password</p>
@@ -41,6 +41,8 @@
 	xmlhttp.onreadystatechange = function(){
           if(this.readyState == 4 && this.status == 200){
             document.getElementById("question").innerHTML = this.responseText;
+            document.getElementById("hideBox").style.visibility = "visible";
+		
           }
 	};
 	xmlhttp.open("GET", "loadQuestion.php?u=" + username, true);
@@ -57,6 +59,7 @@
 	xmlhttp.onreadystatechange = function(){
           if(this.readyState == 4 && this.status == 200){
             document.getElementById("confirmation").innerHTML = this.responseText;
+	    
           }
 	};
 	xmlhttp.open("GET", "verify.php?u=" + username + "&p=" + newPassword +"&a=" + answer, true);
