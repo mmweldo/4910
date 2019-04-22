@@ -38,7 +38,7 @@
 	echo "<center>";
 	echo "<h3>Admin - All information on ".$_POST['company_name']."</h3>";
 	
-	echo "<table>";
+	echo '<table class="table">';
 	echo "<tr>";
 	echo "<th>User ID</th>";
 	echo "<th>Company</th>";
@@ -71,7 +71,7 @@
 	}
 
 
-	echo "<table><h4>Driver list for ".$_POST['company_name'].":<h4>";
+	echo '<table class="table"><h4>Driver list for '.$_POST['company_name'].':<h4>';
 	echo "<tr>";
 	echo "<th>Firstname</th>";
 	echo "<th>Lastname</th>";
